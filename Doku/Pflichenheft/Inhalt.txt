@@ -3,3 +3,65 @@
 # 
 #
 #
+Inhalts Übersicht:
+- Vorwort ( Problemstellung )
+- Kurzbeschreibung ( Lösungsansatz/wunsch )
+- vetragspartner 
+- Projekt Ziele 
+- Ausgangssituation
+...
+
+Vorwort:
+---------------------------------------------------------------
+Die Staatliche Technickerschule Weilburg (STSW) übernimmt seit Jahren verschiedene 
+IT Projekte von Firmen und Schulen im Rahmen der Praktischen Abschlusprüfungen 
+der Angehenden Technicker.
+Nun stellte sich herraus das mit der Zeit Wartungsarbeiten an den Projekten anfallen oder 
+das defekte behoben werden müssen. Die Schulen die selbst keine Resourcen für die 
+Problembehebung bündeln konnten, haben sich wieder an die STSW gewand um Hilfe bei ihren 
+Problemen zu bekommen. Diese Probleme wurden an einen Lehrer übertragen, dieser Löste das 
+Problem entweder selbst oder beauftragte einige bereitwillige Studierende mit der Lösung 
+der Probleme. Ein weiteres Problem ist, dass meist nur noch die Dokumentation des Projektes 
+zur Lösungshilfe bereit steht.Alle änderungen und evt. schon vorhandene gelöste Probleme 
+sind nicht Dokumentiert und gehen somit immer mit dem Abschluss des Studeierenden verloren.
+
+Kurzbeschreibung(Lösungsansatz):
+---------------------------------------------------------------
+Um die verschieden Probleme zentral Verwalten zu können und den Abwicklungsstatus 
+überwachen zu können, soll für die STSW ein Web Basierendes Ticked System eingerichtet werden.
+Dort sollen Zentral alle Probleme der Clienten gesammelt werden können und an verschiede
+Service Teams verteilt werden. Zudem sollen alle Probleme mit ihren Lösungen Dokumentiert werden,
+so das sie auch für neue Service Teams zu verfügenstehen.
+
+Vetragspartner:
+----------------------------------------------------------------
+Auftraggeber:
+Staatliche Technicker Schule Weilburg  
+Strasse
+PLZ /ORT
+Tel
+Veranwortliche: Astrit Hähring Häckelmann und Joseph Süss     
+
+
+Projekt Gruppe:
+
+Projekt Gruppe "Code Red"
+Mitglieder: 
+Marco Benecke 
+Klasse: CNWS04
+Str.
+PLZ/ORT
+TEl:
+E-Mail
+
+und 
+
+Jan Neuser  
+Klasse: CNWS04
+Münchbornstr.4
+35753 Greifenstein- Arborn 
+Tel: 0177 - 6039783
+e-Mail: jan.neuser@bytes-delivery.de   
+
+Projekt Ziele :
+---------------------------------------------------------------- 
