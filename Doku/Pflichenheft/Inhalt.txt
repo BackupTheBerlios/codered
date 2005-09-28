@@ -1,46 +1,79 @@
 #
-# Textbasierende Inhalte von dem Pflichenheft
+# Text-basierende Inhalte von dem Pflichtenheft
 # 
 #
 #
-Inhalts Übersicht:
-- Vorwort ( Problemstellung )
-- Kurzbeschreibung ( Lösungsansatz/wunsch )
-- vetragspartner 
-- Projekt Ziele 
-- Ausgangssituation
-...
+Inhaltsverzeichnis:
+
+Einführung
+	- Vorwort ( Problemstellung )
+	- Kurzbeschreibung ( Lösungsansatz/Wunsch )
+	- Vertragspartner 
+	- Projekt Ziele 
+	- Ausgangssituation
+
+Ausgangslage im Hinblick auf die geplanten Anwendungen
+# Vorher!
+	- Organisation
+	- Technik
+	- Datenmanagement
+	- Personal
+
+Geplante Anwendungen
+# Was wollen wir?
+	- Allgemeine Anforderungen an die geplanten Anwendungen 
+	- Lösungsbeschreibung
+
+Umsetzung der geplanten Anwendungen
+# Wie schaffen wir das?
+	- Organisation
+	- Technik
+	- Datenmanagement
+	- Personal
+	- Inbetriebnahme und Einsatz
+
+Arbeits- und Zeitplan
+# Unsere ZeitLine
+
+Kostenplan/Kostencontrolling
+# Zeit kostet Geld, Lass uns hier eine Beispiel Rechnung machen.
+
+Erfolgskontrolle
+# Wie sammeln wir nach einer bestimmten Zeit Information ob das System
+# Funktioniert und auch benutzt wird? Lässt sich teilweise automatisch machen
+# (RRDtool)
+
 
 Vorwort:
 ---------------------------------------------------------------
-Die Staatliche Technickerschule Weilburg (STSW) übernimmt seit Jahren verschiedene 
-IT Projekte von Firmen und Schulen im Rahmen der Praktischen Abschlusprüfungen 
-der Angehenden Technicker.
-Nun stellte sich herraus das mit der Zeit Wartungsarbeiten an den Projekten anfallen oder 
-das defekte behoben werden müssen. Die Schulen die selbst keine Resourcen für die 
-Problembehebung bündeln konnten, haben sich wieder an die STSW gewand um Hilfe bei ihren 
+Die Staatliche Technikerschule Weilburg (STSW) übernimmt seit Jahren verschiedene 
+IT Projekte von Firmen und Schulen im Rahmen der Praktischen Abschlussprüfungen 
+der Angehenden Techniker.
+Nun stellte sich heraus das mit der Zeit Wartungsarbeiten an den Projekten anfallen oder 
+das defekte behoben werden müssen. Die Schulen die selbst keine Ressourcen für die 
+Problembehebung bündeln konnten, haben sich wieder an die STSW gewannt um Hilfe bei ihren 
 Problemen zu bekommen. Diese Probleme wurden an einen Lehrer übertragen, dieser Löste das 
 Problem entweder selbst oder beauftragte einige bereitwillige Studierende mit der Lösung 
 der Probleme. Ein weiteres Problem ist, dass meist nur noch die Dokumentation des Projektes 
-zur Lösungshilfe bereit steht.Alle änderungen und evt. schon vorhandene gelöste Probleme 
-sind nicht Dokumentiert und gehen somit immer mit dem Abschluss des Studeierenden verloren.
+zur Lösungshilfe bereit steht.Alle änderungen und evtl. schon vorhandene gelöste Probleme 
+sind nicht Dokumentiert und gehen somit immer mit dem Abschluss des Studierenden verloren.
 
 Kurzbeschreibung(Lösungsansatz):
 ---------------------------------------------------------------
 Um die verschieden Probleme zentral Verwalten zu können und den Abwicklungsstatus 
-überwachen zu können, soll für die STSW ein Web Basierendes Ticked System eingerichtet werden.
-Dort sollen Zentral alle Probleme der Clienten gesammelt werden können und an verschiede
+überwachen zu können, soll für die STSW ein Web Basierendes Ticket System eingerichtet werden.
+Dort sollen Zentral alle Probleme der Klienten gesammelt werden können und an verschieden
 Service Teams verteilt werden. Zudem sollen alle Probleme mit ihren Lösungen Dokumentiert werden,
-so das sie auch für neue Service Teams zu verfügenstehen.
+so das sie auch für neue Service Teams zu verfügen stehen.
 
-Vetragspartner:
+Vertragspartner:
 ----------------------------------------------------------------
 Auftraggeber:
-Staatliche Technicker Schule Weilburg  
-Strasse
+Staatliche Techniker Schule Weilburg  
+Straße
 PLZ /ORT
 Tel
-Veranwortliche: Astrit Hähring Häckelmann und Joseph Süss     
+Verantwortliche: Astrit Hähring Häckelmann und Joseph Süss     
 
 
 Projekt Gruppe:
@@ -49,10 +82,10 @@ Projekt Gruppe "Code Red"
 Mitglieder: 
 Marco Benecke 
 Klasse: CNWS04
-Str.
-PLZ/ORT
-TEl:
-E-Mail
+Bitzengarten 16
+35614 Asslar - Oberlemp
+Tel: +49 175 7410757
+e-Mail: marco@bytes-delivery.de
 
 und 
 
