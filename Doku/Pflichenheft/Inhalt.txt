@@ -44,57 +44,79 @@ Erfolgskontrolle
 # (RRDtool)
 
 
+Einführung:
+------------
+
 Vorwort:
----------------------------------------------------------------
-Die Staatliche Technikerschule Weilburg (STSW) übernimmt seit Jahren verschiedene 
-IT Projekte von Firmen und Schulen im Rahmen der Praktischen Abschlussprüfungen 
-der Angehenden Techniker.
-Nun stellte sich heraus das mit der Zeit Wartungsarbeiten an den Projekten anfallen oder 
-das defekte behoben werden müssen. Die Schulen die selbst keine Ressourcen für die 
-Problembehebung bündeln konnten, haben sich wieder an die STSW gewannt um Hilfe bei ihren 
-Problemen zu bekommen. Diese Probleme wurden an einen Lehrer übertragen, dieser Löste das 
-Problem entweder selbst oder beauftragte einige bereitwillige Studierende mit der Lösung 
-der Probleme. Ein weiteres Problem ist, dass meist nur noch die Dokumentation des Projektes 
-zur Lösungshilfe bereit steht.Alle änderungen und evtl. schon vorhandene gelöste Probleme 
-sind nicht Dokumentiert und gehen somit immer mit dem Abschluss des Studierenden verloren.
+--------
+	Die Staatliche Technikerschule Weilburg (STSW) übernimmt seit Jahren verschiedene 
+	IT Projekte von Firmen und Schulen im Rahmen der Praktischen Abschlussprüfungen 
+	der Angehenden Techniker.
+	Nun stellte sich heraus das mit der Zeit Wartungsarbeiten an den Projekten anfallen oder 
+	das defekte behoben werden müssen. Die Schulen die selbst keine Ressourcen für die 
+	Problembehebung bündeln konnten, haben sich wieder an die STSW gewannt um Hilfe bei ihren 
+	Problemen zu bekommen. Diese Probleme wurden an einen Lehrer übertragen, dieser Löste das 
+	Problem entweder selbst oder beauftragte einige bereitwillige Studierende mit der Lösung 
+	der Probleme. Ein weiteres Problem ist, dass meist nur noch die Dokumentation des Projektes 
+	zur Lösungshilfe bereit steht.Alle änderungen und evtl. schon vorhandene gelöste Probleme 
+	sind nicht Dokumentiert und gehen somit immer mit dem Abschluss des Studierenden verloren.
 
 Kurzbeschreibung(Lösungsansatz):
----------------------------------------------------------------
-Um die verschieden Probleme zentral Verwalten zu können und den Abwicklungsstatus 
-überwachen zu können, soll für die STSW ein Web Basierendes Ticket System eingerichtet werden.
-Dort sollen Zentral alle Probleme der Klienten gesammelt werden können und an verschieden
-Service Teams verteilt werden. Zudem sollen alle Probleme mit ihren Lösungen Dokumentiert werden,
-so das sie auch für neue Service Teams zu verfügen stehen.
+--------
+	Um die verschieden Probleme zentral Verwalten zu können und den Abwicklungsstatus 
+	überwachen zu können, soll für die STSW ein Web Basierendes Ticket System eingerichtet werden.
+	Dort sollen Zentral alle Probleme der Klienten gesammelt werden können und an verschieden
+	Service Teams verteilt werden. Zudem sollen alle Probleme mit ihren Lösungen Dokumentiert werden,
+	so das sie auch für neue Service Teams zu verfügen stehen.
 
 Vertragspartner:
-----------------------------------------------------------------
-Auftraggeber:
-Staatliche Techniker Schule Weilburg  
-Straße
-PLZ /ORT
-Tel
-Verantwortliche: Astrit Hähring Häckelmann und Joseph Süss     
+--------
+	Auftraggeber:
+	--------------
+	Staatliche Techniker Schule Weilburg  
+	Straße
+	PLZ /ORT
+	Tel
+	Verantwortliche: Astrit Hähring Häckelmann und Joseph Süss     
 
 
-Projekt Gruppe:
+	Projekt Gruppe:
+	-----------------
+	Projekt Gruppe "Code Red"     Klasse: CNWS04
+	Mitglieder: 
+	Jan Neuser                          	Marco Benecke 
+	Münchbornstr.4                  	Bitzengarten 16
+	35753 Greifenstein- Arborn          	35614 Asslar - Oberlemp
+	0177 - 6039783                 		0175 - 7410757
+	jan.neuser@bytes-delivery.de 		marco@bytes-delivery.de
 
-Projekt Gruppe "Code Red"
-Mitglieder: 
-Marco Benecke 
-Klasse: CNWS04
-Bitzengarten 16
-35614 Asslar - Oberlemp
-Tel: +49 175 7410757
-e-Mail: marco@bytes-delivery.de
-
-und 
-
-Jan Neuser  
-Klasse: CNWS04
-Münchbornstr.4
-35753 Greifenstein- Arborn 
-Tel: 0177 - 6039783
-e-Mail: jan.neuser@bytes-delivery.de   
 
 Projekt Ziele :
----------------------------------------------------------------- 
+-------
+
+Neben der Annahme von Problemen in der Schule per Telefon, sollen die Schulen
+diese Probleme auch über ein Webinterface an die Verwaltungssoftware übergeben
+können. Dazu gehört auch die komplette Problembeschreibung.
+
+Gewinnung einer Übersicht über die vorhandene Infrastruktur der Schulen. Dazu
+zählt der Aufbau des Netzes, installierte Software, Kontakt-Daten der betreuende
+Personen, Schulleitung oder Hardware Support. 
+# Mal nachfragen ob ein Hardware Support üblich ist, also nen Händler der die
+# Brocken verkauft hat.
+
+Archivierung der schon einmal vorgekommen Probleme und ihrer Lösungswege, um
+zu den Verlust des Know-Hows alle 2 Jahre zu verhindern. Diese Archive müssen
+durchsuchbar sein um den Überblick zu behalten.
+
+Effektive Aufgabenverwaltung für den Betreungsdienst. Das bedeutet ein
+nachvollziehbarer Ablauf jedes Problem-Tickets innerhalb der des
+Betreungsdienstes. Inklusive Rückmeldung der Schule.
+
+Benachrichtigungs System für die Mitglieder des Betreungsdiensts, Betreuer,
+und die Clients um den Aktuellen Status weiterzuleiten.
+
+
+Ausgangssituation :
+-------
+
+
