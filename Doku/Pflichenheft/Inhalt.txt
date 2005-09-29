@@ -57,16 +57,16 @@ Vorwort:
 	Problemen zu bekommen. Diese Probleme wurden an einen Lehrer übertragen, dieser Löste das 
 	Problem entweder selbst oder beauftragte einige bereitwillige Studierende mit der Lösung 
 	der Probleme. Ein weiteres Problem ist, dass meist nur noch die Dokumentation des Projektes 
-	zur Lösungshilfe bereit steht.Alle änderungen und evtl. schon vorhandene gelöste Probleme 
+	zur Lösungshilfe bereit steht. Alle Änderungen und evtl. schon vorhandene gelöste Probleme 
 	sind nicht Dokumentiert und gehen somit immer mit dem Abschluss des Studierenden verloren.
 
 Kurzbeschreibung(Lösungsansatz):
 --------
 	Um die verschieden Probleme zentral Verwalten zu können und den Abwicklungsstatus 
 	überwachen zu können, soll für die STSW ein Web Basierendes Ticket System eingerichtet werden.
-	Dort sollen Zentral alle Probleme der Klienten gesammelt werden können und an verschieden
-	Service Teams verteilt werden. Zudem sollen alle Probleme mit ihren Lösungen Dokumentiert werden,
-	so das sie auch für neue Service Teams zu verfügen stehen.
+	Dort sollen zentral alle Probleme der Clienten gesammelt werden können und an verschieden
+	Betreuer verteilt werden. Zudem sollen alle Probleme mit ihren
+	Lösungen dokumentiert werden, so das sie auch für neue Betreuer zu verfügen stehen.
 
 Vertragspartner:
 --------
@@ -119,18 +119,13 @@ Ausgangssituation :
 -------
 
 Die STS Weilburg hat seit Jahren die verschiedensten Projekte mit Schulen und 
-Firmen (Clienten) verwirklicht.Die Lehrer beseitigen anfallenden Probleme oder 
-defekte meist in ihrer Freizeit und selbst. 
-Zudem gibt es keinen Einheitlichen Kommunikationsweg, die Clienten melden der 
-Schule meist per Telefon einen Wartungsfall, da sie nicht in der Lage sind 
-ihre Probleme selbst zu beheben. 
-Um die Kommunikatinswege und Schnittsellen zu vereinfachen und zu Standartisieren,
-soll ein Webbasierendes Tickedsystem geschaffen werden.
-Die STSW hat schon eine EDV Umgebung um solch ein System zu verwirklichen, alle 
-nötigen Schnittsellen und Materiallien werden von der STSW zur verfügung gestellt.
-Die Projekt Gruppe Wartung, befindet sich im Einsatz um Wartungsarbeiten an den 
-Schulen zu verwirklichen. Diese Projekt Gruppe kann und soll zur definition der 
-festzuhaltenden Daten herangezogen werden. 
+Firmen (Clienten) verwirklicht. Die Lehrer dieser Schulen beseitigen die anfallenden
+Probleme oder Defekte meist selbst in ihrer Freizeit.
+Zudem gibt es keinen einheitlichen Kommunikationsweg, die Clienten melden der 
+STSW per Telefon einen Wartungsfall, wenn sie selbst nicht in der Lage sind
+Probleme selbst zu beheben.
+# Was ich hier gelöscht habe war an der falschen Stelle, das gehört in die
+# "Zukunft" und nicht in die Ausgangssituation
 
 
 Ausgangslage :          
@@ -139,7 +134,8 @@ Ausgangslage :
 >>Organisation
 Herr Süß hat mit Studierenden der CN auf freiwilliger Basis einen Notfalldienst für
 Schulnetzwerke eingerichtet. 
-Hier konnten aber nur die Schulen abgedeckt werden, die in Weilburg ansässig sind.
+Hier konnten aber nur die Schulen abgedeckt werden, die in Weilburg ansässig
+sind.
 
 >>Technik
 Es exsitieren keine Systeme um die Wartungsfälle zu erfassen oder zu Dokumentieren.
@@ -148,9 +144,85 @@ Es exsitieren keine Systeme um die Wartungsfälle zu erfassen oder zu Dokumentier
 Es exsitieren keine Datenmanagment Lösungen.
 
 >>Personal 
-Es exsitieren kleine Wartungsgruppen für die Schulen in Weilburg uns nähere Umgebung,
-die vom Herrn Süss gebildet und Bereut werden. 
-
+2 Freiwillige Studierende unter der Leitung von Hr. Süss
 
 Geplante Anwendung :
 -------
+Code-Red ist ein web-basiertes System. Die verwendeten Browser sind Internet
+Explorer >=5.5, Opera >=7 und FireFox >=1.2.
+
+Ein Gruppe von Nutzern (Clienten, Mentoren) gibt Probleme oder Aufgaben in das
+System ein. Diese Eingabe ergibt ein Ticket.
+Eine weitere Gruppe (die Betreuer) übernehmen dann diese Tickets und
+bearbeiten diese.
+
+Code-Red hält Aufgaben fest, bildet sie übersichtlich ab. Sobald die
+Anforderung "erledigt" ist, kann der Client diese Erledigung dann
+bewerten und als Abgeschlossen kennzeichnen.
+
+Die Schulen sollten eine Möglichkeit bekommen die abgearbeiteten Aufträge zu
+bewerten. 
+
+Bewertungsystem:
+--------
+Auftrag wird als "erledigt" vom Betreuer gekennzeichnet.
+Auftragserledigung wird vom Clienten abgezeichnet, und gleichzeitig bekommt er
+die Wahl aus: 
+ * Positiv 
+ * Neutral 
+ * Negativ 
+  -Bemerkung:
+  
+
+Mentor:
+-------
+
+Das Mentorsystem bedeutet ein Ticket welches neu im System ist wird von einem
+Mentor an einen Betreuer zugewiesen. Dieser Mentor, evtl. Lehrer oder Schüler
+mit "Dienstalter", übernimmt die Verantwortung für dieses Ticket. D.h. er hat
+sich darum zu kümmern, das es erledigt wird! 
+Er bekommt nach einem Zeitraum eine Meldung das dieser Auftrag noch nicht
+abgeschlossen ist und muss dann reagieren.
+
+Der Person der der Auftrag zugewiesen wurde, ist auch eine Möglichkeit zu
+geben den Auftrag zurückzuweisen, und die Mentoren untereinander können Aufträge
+austauschen aber nicht die Betreuer sonst werden unbeliebte Aufträge immer nur Sinn
+und Planlos hin und her geschoben.
+
+Startseite:
+------------
+Um eine schnelle Übersicht über den Status zu bekommen sollten auf der
+Startseite folgende Werte erscheinen: 
+* Wieviel nicht abgeschlossene Tickets 
+* Welcher Betreuer im Semester die meisten Positiven Bewertungen hat (Top 5) 
+* Welche Schule die meisten Tickets beauftragt hat (Top 5) 
+* Durchschnittliche Zeit der Auftragsbearbeitungsdauer 
+
+Knowledgebase:
+--------------
+Hier werden Probleme archiviert die schon einmal aufgetreten sind, hier
+sollten Ergänzungen, Änderungen und Zusammenfassungen möglich sein.
+Es sollte nicht über jeden einzelnen Auftrag Buch geführt werden. Da dies
+doch viele redundante Fehlerbeschreibungen zusammen erzeugen würde.
+Beispiele für solche Einträge sind: 
+* Schule XXX
+* Fehlerbeschreibung: 
+   "Hier Geht kein Internet mehr und am Server anmelden funktioniert auch nicht
+    mehr! "
+* Lösung: 
+  "Die Mac-Tabelle im Switch ist übergelaufen, diesen einmal Neugestartet löst
+   das Problem."
+
+
+Portal:
+--------
+Jeder Client, jeder Betreuer und jeder Mentor erhält eine persöhnliche Seite
+auf der eine History abgebildet ist, welche Aufträge abgearbeitet wurden. 
+
+Nachrichten:
+-------------
+Nachrichten vom System werden per Email übermittelt.
+
+Funktionen und Eigenschaften:
+---------
+Zugriff der Nutzer über die www-Schnittstelle über Extranets/Intranets. 
