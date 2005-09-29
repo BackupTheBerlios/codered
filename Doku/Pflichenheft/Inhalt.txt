@@ -10,7 +10,6 @@ Einführung
 	- Kurzbeschreibung ( Lösungsansatz/Wunsch )
 	- Vertragspartner 
 	- Projekt Ziele 
-	- Ausgangssituation
 
 Ausgangslage im Hinblick auf die geplanten Anwendungen
 # Vorher!
@@ -19,7 +18,7 @@ Ausgangslage im Hinblick auf die geplanten Anwendungen
 	- Datenmanagement
 	- Personal
 
-Geplante Anwendungen
+Geplante Anwendung
 # Was wollen wir?
 	- Allgemeine Anforderungen an die geplanten Anwendungen 
 	- Lösungsbeschreibung
@@ -77,7 +76,7 @@ Vertragspartner:
 	Straße
 	PLZ /ORT
 	Tel
-	Verantwortliche: Astrit Hähring Häckelmann und Joseph Süss     
+	Verantwortliche: Astrid Hähring Heckelmann und Joseph Süss     
 
 
 	Projekt Gruppe:
@@ -119,4 +118,39 @@ und die Clients um den Aktuellen Status weiterzuleiten.
 Ausgangssituation :
 -------
 
+Die STS Weilburg hat seit Jahren die verschiedensten Projekte mit Schulen und 
+Firmen (Clienten) verwirklicht.Die Lehrer beseitigen anfallenden Probleme oder 
+defekte meist in ihrer Freizeit und selbst. 
+Zudem gibt es keinen Einheitlichen Kommunikationsweg, die Clienten melden der 
+Schule meist per Telefon einen Wartungsfall, da sie nicht in der Lage sind 
+ihre Probleme selbst zu beheben. 
+Um die Kommunikatinswege und Schnittsellen zu vereinfachen und zu Standartisieren,
+soll ein Webbasierendes Tickedsystem geschaffen werden.
+Die STSW hat schon eine EDV Umgebung um solch ein System zu verwirklichen, alle 
+nötigen Schnittsellen und Materiallien werden von der STSW zur verfügung gestellt.
+Die Projekt Gruppe Wartung, befindet sich im Einsatz um Wartungsarbeiten an den 
+Schulen zu verwirklichen. Diese Projekt Gruppe kann und soll zur definition der 
+festzuhaltenden Daten herangezogen werden. 
 
+
+Ausgangslage :          
+-------
+
+>>Organisation
+Herr Süß hat mit Studierenden der CN auf freiwilliger Basis einen Notfalldienst für
+Schulnetzwerke eingerichtet. 
+Hier konnten aber nur die Schulen abgedeckt werden, die in Weilburg ansässig sind.
+
+>>Technik
+Es exsitieren keine Systeme um die Wartungsfälle zu erfassen oder zu Dokumentieren.
+
+>>Datenmanagment
+Es exsitieren keine Datenmanagment Lösungen.
+
+>>Personal 
+Es exsitieren kleine Wartungsgruppen für die Schulen in Weilburg uns nähere Umgebung,
+die vom Herrn Süss gebildet und Bereut werden. 
+
+
+Geplante Anwendung :
+-------
