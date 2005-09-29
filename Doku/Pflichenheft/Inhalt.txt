@@ -160,11 +160,9 @@ Code-Red hält Aufgaben fest, bildet sie übersichtlich ab. Sobald die
 Anforderung "erledigt" ist, kann der Client diese Erledigung dann
 bewerten und als Abgeschlossen kennzeichnen.
 
-Die Schulen sollten eine Möglichkeit bekommen die abgearbeiteten Aufträge zu
-bewerten. 
-
 Bewertungsystem:
 --------
+Ablauf:
 Auftrag wird als "erledigt" vom Betreuer gekennzeichnet.
 Auftragserledigung wird vom Clienten abgezeichnet, und gleichzeitig bekommt er
 die Wahl aus: 
@@ -172,7 +170,6 @@ die Wahl aus:
  * Neutral 
  * Negativ 
   -Bemerkung:
-  
 
 Mentor:
 -------
@@ -193,7 +190,7 @@ Startseite:
 ------------
 Um eine schnelle Übersicht über den Status zu bekommen sollten auf der
 Startseite folgende Werte erscheinen: 
-* Wieviel nicht abgeschlossene Tickets 
+* Wieviel und welche nicht abgeschlossene Tickets 
 * Welcher Betreuer im Semester die meisten Positiven Bewertungen hat (Top 5) 
 * Welche Schule die meisten Tickets beauftragt hat (Top 5) 
 * Durchschnittliche Zeit der Auftragsbearbeitungsdauer 
