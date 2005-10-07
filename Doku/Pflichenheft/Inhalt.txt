@@ -148,9 +148,11 @@ Es exsitieren keine Datenmanagment Lösungen.
 
 Geplante Anwendung :
 -------
-Code-Red ist ein web-basiertes System. Die verwendeten Browser sind Internet
-Explorer >=5.5, Opera >=7 und FireFox >=1.2.
+Code-Red ist ein web-basiertes System zur verwendung mit einem Internet
+Browser.
 
+Organisation:
+-------------
 Ein Gruppe von Nutzern (Clienten, Mentoren) gibt Probleme oder Aufgaben in das
 System ein. Diese Eingabe ergibt ein Ticket.
 Eine weitere Gruppe (die Betreuer) übernehmen dann diese Tickets und
@@ -160,8 +162,7 @@ Code-Red hält Aufgaben fest, bildet sie übersichtlich ab. Sobald die
 Anforderung "erledigt" ist, kann der Client diese Erledigung dann
 bewerten und als Abgeschlossen kennzeichnen.
 
-Bewertungsystem:
---------
+>>Bewertungsystem:
 Ablauf:
 Auftrag wird als "erledigt" vom Betreuer gekennzeichnet.
 Auftragserledigung wird vom Clienten abgezeichnet, und gleichzeitig bekommt er
@@ -171,9 +172,7 @@ die Wahl aus:
  * Negativ 
   -Bemerkung:
 
-Mentor:
--------
-
+>>Mentor:
 Das Mentorsystem bedeutet ein Ticket welches neu im System ist wird von einem
 Mentor an einen Betreuer zugewiesen. Dieser Mentor, evtl. Lehrer oder Schüler
 mit "Dienstalter", übernimmt die Verantwortung für dieses Ticket. D.h. er hat
@@ -186,8 +185,7 @@ geben den Auftrag zurückzuweisen, und die Mentoren untereinander können Aufträge
 austauschen aber nicht die Betreuer sonst werden unbeliebte Aufträge immer nur Sinn
 und Planlos hin und her geschoben.
 
-Startseite:
-------------
+>>Startseite:
 Um eine schnelle Übersicht über den Status zu bekommen sollten auf der
 Startseite folgende Werte erscheinen: 
 * Wieviel und welche nicht abgeschlossene Tickets 
@@ -195,8 +193,7 @@ Startseite folgende Werte erscheinen:
 * Welche Schule die meisten Tickets beauftragt hat (Top 5) 
 * Durchschnittliche Zeit der Auftragsbearbeitungsdauer 
 
-Knowledgebase:
---------------
+>>Knowledgebase:
 Hier werden Probleme archiviert die schon einmal aufgetreten sind, hier
 sollten Ergänzungen, Änderungen und Zusammenfassungen möglich sein.
 Es sollte nicht über jeden einzelnen Auftrag Buch geführt werden. Da dies
@@ -211,15 +208,63 @@ Beispiele für solche Einträge sind:
    das Problem."
 
 
-Portal:
---------
+Technik:
+------------
+Basis Betriebsystem ist ein Debian/Gnu-Linux in der Version Sarge,
+als Webserver dient ein Apache2 mit dem Fast-CGI plugin um die
+Verarbeitungsgeschwindigkeit zu erhöhen.
+
+Verwaltung und Update der Serversoftware wird durch das Debian interne
+Packetmanagemt gelöst.
+
+Als relationelles Datenbanksystem verwenden wir MySQL.
+
+Postfix ist der Mailserver zum versenden der Email-Nachrichten.
+
+Die ganze Anwendung wird mit Hilfe von Ruby on Rails entwickelt, das bedeutet
+es endsteht ein klar lesbarer und objektorientierter Code im Backend.
+
+Das Frontend endsteht mit Hilfe von html,css und Java-Script. Die Java-Script
+umgebung wird hauptsächlich die Ajax-Bibliothek umfassen.
+
+Die verwendeten Standarts werden momentan von folgenden Browser voll
+unerstützt: Internet Explorer >=5.5 und FireFox >=1.2. Da andere Browser
+werden diese Standarts zukünftig auch unterstützen,
+teilweise funktioniert auch Opera und Safari in den aktuellen Versionen, aber
+leider nicht vollständig.
+
+>>Portal:
 Jeder Client, jeder Betreuer und jeder Mentor erhält eine persöhnliche Seite
-auf der eine History abgebildet ist, welche Aufträge abgearbeitet wurden. 
+auf der eine History abgebildet ist, welche Aufträge abgearbeitet wurden, und
+welche neuen Aufträge für ihn anstehen.
 
-Nachrichten:
--------------
-Nachrichten vom System werden per Email übermittelt.
+>>Nachrichten:
+Nachrichten vom System werden per Email übermittelt, und optional per RssFeed
+angeboten.
 
-Funktionen und Eigenschaften:
----------
-Zugriff der Nutzer über die www-Schnittstelle über Extranets/Intranets. 
+>>Funktionen und Eigenschaften:
+Zugriff der Nutzer über die www-Schnittstelle über das Internet.
+
+>>Konzept
+Das Oberflächendesign wird sich an vorhanden Anwendungen orientieren,
+Es wird versucht bekannte Elemente zu verwenden um die
+Einarbeitungszeit der Nutzer so gering wie Möglich zu halten. Beispiele für
+diese Anwendungen sind mail. und news.google.com oder ebay.de.
+
+Datenmanagement:
+----------------
+ Grundsätzlich erheben wir persönlichen Daten nur soweit dies unbedingt
+ erforderlich ist. Datensparsamkeit nach dem Bundesdatenschutzgesetz (BDSG)
+ Es werden die Namen, Postanschrift, Telefonnummern sowie
+ E-Mail-Adressen der Nutzer gespeichert, diese Daten werden nur zur Zwecken
+ der Identifikation der Nutzer und zum Versand von Systemmeldungen benutzt.
+ Der Nutzer kann selbst endscheiden welcher Benutzergruppe welche Daten zugänglich
+ sind z.b. den Clienten nicht die Telefonnummer zeigen um direkte Anrufe zu
+ vermeiden.
+ Wir arbeiten mit Sicherheitsvorkehrungen, um den Schutz vor Verlust, Änderung
+ oder Missbrauch dieser Daten zu gewährleisten. Zu diesen Vorkehrungen gehören
+ Technische wie Firewall und Regelmässige System-updates wie auch Logische
+ d.h. das Programm überprüft ob die Freigabe der Daten erteilt wurde. Sollten
+ diese Sicherheitsvorkehrungen überwunden werden, sind wir nicht haftbar zu
+ machen.
+
