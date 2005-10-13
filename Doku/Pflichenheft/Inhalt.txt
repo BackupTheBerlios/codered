@@ -268,3 +268,25 @@ Datenmanagement:
  diese Sicherheitsvorkehrungen überwunden werden, sind wir nicht haftbar zu
  machen.
 
+Personal:
+---------
+Entwicklung (Team "Code Red"; Marco Benecke & Jan Neuser)
+Technischeransprechpartner (Herr Christ)
+Mentoren (Frau Heckelmann, Herr Süss,...)
+Service Teams (div Studierende...)
+
+Inbetriebnahme und Einsatz:
+----------------------------
+Die Inbetriebnahme soll nach einer Beta Testphase erfolgen. Der Betaversion soll
+eine Relaesekanidat vorraus gehen. Zuerst sollen alle Grundfunktionen der
+Datenbank auf Funktion und Ablaufgeschwindigkeit geprüft werden. Danach sollen alle 
+Schnittstellen (E-Mail Benachrichtigung,HTTP Verfügbarkeit und Backup) auf Funktion 
+und Auslastung geprüft werden. 
+Wenn diese Funktionen alle positiv vom Entwickler Team geprüft worden sind, wird 
+das System in die Betaphase versetzt. Dort sollen Ausgesuchte Tester das System auf verwenbarkeit und allgemeine Funktion Testen. Nach Auswertung der Tester Bewertungen 
+wird das System möglichst an allen Schwachstellen und Problemen angepasst. 
+In der zweiten Betapahse werden nur noch kosmetischen Korrekturn an dem System vorgenommen.
+Nachdem das System vollständig ist, wird das System in den "Stable" Zustand verstezt.
+Dazu wird eine rein Version auf den Web Server gespielt und für den internen und 
+externen Gebrauch freigeschalltet. Die Hardware an sich wird für einen Dauerhaften 
+betrieb in die DMZ der Technicker Schule Weilburg integriert. 
