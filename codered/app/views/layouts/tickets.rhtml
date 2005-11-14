@@ -1,0 +1,13 @@
+<html>
+<head>
+  <title>Tickets: <%= controller.action_name %></title>
+  <%= stylesheet_link_tag 'scaffold' %>
+</head>
+<body align="center" valign="middle">
+
+<p style="color: green"><%= flash[:notice] %></p>
+
+<%= @content_for_layout %>
+
+</body>
+</html>
