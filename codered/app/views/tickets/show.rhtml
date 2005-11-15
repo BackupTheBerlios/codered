@@ -6,3 +6,15 @@
 
 <%= link_to 'Edit', :action => 'edit', :id => @ticket %> |
 <%= link_to 'Back', :action => 'list' %>
+
+<h2>Workflows</h2>
+<% for workflow in @ticket.workflows %>
+<%= workflow.workflow_text %>
+</hr>
+<% end %>
+
+
+<%= form_tag :action => "workflow", :id => @ticket %>
+<%= text_area "workflow", "workflow_text" %><br>
+<%= submit_tag "Eintragen!" %>
+</form>

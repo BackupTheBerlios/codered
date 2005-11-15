@@ -44,4 +44,11 @@ class TicketsController < ApplicationController
     Ticket.find(params[:id]).destroy
     redirect_to :action => 'list'
   end
+
+ def workflow
+    Ticket.find(params[:id]).workflows.create(params[:workflow])
+    flash[:notice] = "Eintrag hinzugefügt!"
+    redirect_to :action => "show", :id => params[:id] 
+ end	 
+  
 end
