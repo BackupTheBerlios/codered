@@ -11,12 +11,23 @@ body, p, ol, ul, td {
   font-size:   13px;
   line-height: 18px;
 }
+td.entry {
+	background-color: #8AAEEE;
+}
 td.gray {
 	background-color: #555555;
 }
+
+.ListLinie0{
+	background-color: #E4F2F5;
+}
+.ListLinie1{
+	background-color: #CEE9F0;
+}
+
 td.silvertext {
 	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
-	font-size: x-small;
+	font-size: xx-small;
 	font-weight: bolder;
 	color: Silver;
 }
