@@ -1,24 +1,21 @@
-<h1>Listing tickets</h1>
+<h1>Aktuelle Tickets</h1>
 
-<table>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
   <tr>
-  <% for column in Ticket.content_columns %>
-    <th><%= column.human_name %></th>
-  <% end %>
+    <td>Tickets :</td>
+    <td></td>
+    <td></td>
   </tr>
   
-<% for ticket in @tickets %>
-  <tr>
-  <% for column in Ticket.content_columns %>
-    <td><%=h ticket.send(column.name) %></td>
-  <% end %>
-    <td><%= link_to 'Show', :action => 'show', :id => ticket %></td>
-    <td><%= link_to 'Edit', :action => 'edit', :id => ticket %></td>
-    <td><%= link_to 'Destroy', {:action => 'destroy', :id => ticket}, :confirm => 'Are you sure?' %></td>
-  </tr>
-<% end %>
-</table>
+    <% for ticket in @tickets %>
+	<tr>
+    <td height="40"><%= link_to truncate(ticket.ticket_bezeichnung, length = 30, truncate_string = "..." ), :action => 'show', :id => ticket  %><br></td>
+    <td width="40" height="40"><%= link_to 'Edit', :action => 'edit', :id => ticket %></td>
+    <td width="40" height="40"><%= link_to 'Destroy', {:action => 'destroy', :id => ticket}, :confirm => 'Are you sure?' %></td>
+	  </tr>
+	<% end %>
 
+</table>
 <%= link_to 'Previous page', { :page => @ticket_pages.current.previous } if @ticket_pages.current.previous %>
 <%= link_to 'Next page', { :page => @ticket_pages.current.next } if @ticket_pages.current.next %> 
 
