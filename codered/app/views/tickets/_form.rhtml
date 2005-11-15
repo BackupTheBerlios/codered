@@ -1,6 +1,14 @@
 <%= error_messages_for 'ticket' %>
 
 <!--[form:ticket]-->
+<p><label for="ticket_client_id">Clients</label><br/>
+<%=
+
+@clienten = Client.find(:all, :order => "client_name").map {|u| [u.client_name, u.id] }
+select(:user, :name, @clienten)
+
+%>
+
 <p><label for="ticket_ticket_bezeichnung">Ticket bezeichnung</label><br/>
 <%= text_field 'ticket', 'ticket_bezeichnung'  %></p>
 
