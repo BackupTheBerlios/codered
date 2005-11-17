@@ -6680,3 +6680,296 @@ Rendering  within layouts/tickets
 Rendering tickets/list (200 OK)
   [4;33mTicket Columns (0.020000)[m   [1;37mSHOW FIELDS FROM tickets[m
 Completed in 0.24000 (4 reqs/sec) | Rendering: 0.19000 (79%) | DB: 0.02000 (8%) [http://localhost/tickets/list]
+
+
+Processing TicketsController#list (for 127.0.0.1 at Thu Nov 17 17:29:30 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;33mTicket Count (0.300000)[m   [1;37mSELECT COUNT(*) FROM tickets [m
+  [4;35mTicket Load (0.040000)[m   [0;37mSELECT * FROM tickets LIMIT 10[m
+Rendering  within layouts/tickets
+Rendering tickets/list (200 OK)
+  [4;33mTicket Columns (0.020000)[m   [1;37mSHOW FIELDS FROM tickets[m
+Completed in 1.03100 (0 reqs/sec) | Rendering: 0.22000 (21%) | DB: 0.34000 (32%) [http://localhost/tickets/list]
+
+
+Processing TicketsController#list (for 127.0.0.1 at Thu Nov 17 17:34:32 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;35mTicket Count (0.000000)[m   [0;37mSELECT COUNT(*) FROM tickets [m
+  [4;33mTicket Load (0.010000)[m   [1;37mSELECT * FROM tickets LIMIT 10[m
+Rendering  within layouts/tickets
+Rendering tickets/list (200 OK)
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+Completed in 0.18000 (5 reqs/sec) | Rendering: 0.15000 (83%) | DB: 0.01000 (5%) [http://localhost/tickets/list]
+
+
+Processing TicketsController#edit (for 127.0.0.1 at Thu Nov 17 17:34:38 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"tickets"}
+  [4;33mTicket Load (0.080000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '1' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/edit (200 OK)
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+  [4;33mClient Load (0.040000)[m   [1;37mSELECT * FROM clients ORDER BY client_name [m
+Completed in 0.23100 (4 reqs/sec) | Rendering: 0.12000 (51%) | DB: 0.08000 (34%) [http://localhost/tickets/edit/1]
+
+
+Processing TicketsController#edit (for 127.0.0.1 at Thu Nov 17 17:35:51 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"tickets"}
+  [4;35mTicket Load (0.010000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '1' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/edit (200 OK)
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mClient Load (0.000000)[m   [0;37mSELECT * FROM clients ORDER BY client_name [m
+Completed in 0.07000 (14 reqs/sec) | Rendering: 0.04000 (57%) | DB: 0.01000 (14%) [http://localhost/tickets/edit/1]
+
+
+Processing TicketsController#edit (for 127.0.0.1 at Thu Nov 17 17:35:55 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"tickets"}
+  [4;33mTicket Load (0.000000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '1' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/edit (200 OK)
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+  [4;33mClient Load (0.000000)[m   [1;37mSELECT * FROM clients ORDER BY client_name [m
+Completed in 0.06000 (16 reqs/sec) | Rendering: 0.04000 (66%) | DB: 0.00000 (0%) [http://localhost/tickets/edit/1]
+
+
+Processing TicketsController#list (for 127.0.0.1 at Thu Nov 17 17:36:00 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;35mTicket Count (0.000000)[m   [0;37mSELECT COUNT(*) FROM tickets [m
+  [4;33mTicket Load (0.010000)[m   [1;37mSELECT * FROM tickets LIMIT 10[m
+Rendering  within layouts/tickets
+Rendering tickets/list (200 OK)
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+Completed in 0.33100 (3 reqs/sec) | Rendering: 0.30100 (90%) | DB: 0.01000 (3%) [http://localhost/tickets/list]
+
+
+Processing TicketsController#edit (for 127.0.0.1 at Thu Nov 17 17:36:09 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"tickets"}
+  [4;33mTicket Load (0.010000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '1' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/edit (200 OK)
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+  [4;33mClient Load (0.010000)[m   [1;37mSELECT * FROM clients ORDER BY client_name [m
+Completed in 0.05000 (20 reqs/sec) | Rendering: 0.03000 (60%) | DB: 0.01000 (20%) [http://localhost/tickets/edit/1]
+
+
+Processing TicketsController#new (for 127.0.0.1 at Thu Nov 17 17:36:33 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"new", "controller"=>"tickets"}
+  [4;35mTicket Columns (0.000000)[m   [0;37mSHOW FIELDS FROM tickets[m
+Rendering  within layouts/tickets
+Rendering tickets/new (200 OK)
+  [4;33mClient Load (0.000000)[m   [1;37mSELECT * FROM clients ORDER BY client_name [m
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+Completed in 0.07000 (14 reqs/sec) | Rendering: 0.04000 (57%) | DB: 0.00000 (0%) [http://localhost/tickets/new]
+
+
+Processing TicketsController#create (for 127.0.0.1 at Thu Nov 17 17:37:03 Westeuropäische Normalzeit 2005)
+  Parameters: {"commit"=>"Create", "ticket"=>{"ticket_beschreibung"=>"Hi", "ticket_status"=>"false", "ticket_bezeichnung"=>"Noch eins Hallo "}, "action"=>"create", "controller"=>"tickets"}
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+  [4;33mSQL (0.030000)[m   [1;37mBEGIN[m
+  [4;35mTicket Load (0.010000)[m   [0;37mSELECT * FROM tickets WHERE ticket_bezeichnung = 'Noch eins Hallo ' LIMIT 1[m
+  [4;33mSQL (0.101000)[m   [1;37mINSERT INTO tickets (`created_on`, `updated_on`, `client_id`, `ticket_beschreibung`, `ticket_status`, `ticket_bezeichnung`, `ticket_wichtigkeit`, `betreuer_id`) VALUES('2005-11-17 17:37:03', '2005-11-17 17:37:03', 0, 'Hi', 0, 'Noch eins Hallo ', 0, 0)[m
+  [4;35mSQL (0.080000)[m   [0;37mCOMMIT[m
+Redirected to http://localhost:3000/tickets/list
+Completed in 0.26100 (3 reqs/sec) | DB: 0.24100 (92%) [http://localhost/tickets/create]
+
+
+Processing TicketsController#list (for 127.0.0.1 at Thu Nov 17 17:37:03 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;33mTicket Count (0.000000)[m   [1;37mSELECT COUNT(*) FROM tickets [m
+  [4;35mTicket Load (0.000000)[m   [0;37mSELECT * FROM tickets LIMIT 10[m
+Rendering  within layouts/tickets
+Rendering tickets/list (200 OK)
+  [4;33mTicket Columns (0.000000)[m   [1;37mSHOW FIELDS FROM tickets[m
+Completed in 0.14000 (7 reqs/sec) | Rendering: 0.12000 (85%) | DB: 0.00000 (0%) [http://localhost/tickets/list]
+
+
+Processing TicketsController#list (for 127.0.0.1 at Thu Nov 17 17:37:11 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"list", "controller"=>"tickets", "page"=>"2"}
+  [4;35mTicket Count (0.000000)[m   [0;37mSELECT COUNT(*) FROM tickets [m
+  [4;33mTicket Load (0.010000)[m   [1;37mSELECT * FROM tickets LIMIT 10, 10[m
+Rendering  within layouts/tickets
+Rendering tickets/list (200 OK)
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+Completed in 0.07000 (14 reqs/sec) | Rendering: 0.04000 (57%) | DB: 0.01000 (14%) [http://localhost/tickets/list?page=2]
+
+
+Processing TicketsController#show (for 127.0.0.1 at Thu Nov 17 17:37:14 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"12", "controller"=>"tickets"}
+  [4;33mTicket Load (0.000000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '12' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+  [4;33mWorkflow Load (0.080000)[m   [1;37mSELECT * FROM workflows WHERE workflows.ticket_id = 12 [m
+Completed in 0.14000 (7 reqs/sec) | Rendering: 0.11000 (78%) | DB: 0.00000 (0%) [http://localhost/tickets/show/12]
+
+
+Processing TicketsController#list (for 127.0.0.1 at Thu Nov 17 17:38:36 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;35mTicket Count (0.000000)[m   [0;37mSELECT COUNT(*) FROM tickets [m
+  [4;33mTicket Load (0.000000)[m   [1;37mSELECT * FROM tickets LIMIT 10[m
+Rendering  within layouts/tickets
+Rendering tickets/list (200 OK)
+  [4;35mTicket Columns (0.000000)[m   [0;37mSHOW FIELDS FROM tickets[m
+Completed in 0.21000 (4 reqs/sec) | Rendering: 0.18000 (85%) | DB: 0.00000 (0%) [http://localhost/tickets/list]
+
+
+Processing TicketsController#destroy (for 127.0.0.1 at Thu Nov 17 17:38:42 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"destroy", "id"=>"1", "controller"=>"tickets"}
+  [4;33mTicket Load (0.010000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '1' LIMIT 1[m
+  [4;35mSQL (0.000000)[m   [0;37mBEGIN[m
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mTicket Destroy (0.100000)[m   [0;37m DELETE FROM tickets
+ WHERE id = 1
+[m
+  [4;33mSQL (0.080000)[m   [1;37mCOMMIT[m
+Redirected to http://localhost:3000/tickets/list
+Completed in 0.22000 (4 reqs/sec) | DB: 0.20000 (90%) [http://localhost/tickets/destroy/1]
+
+
+Processing TicketsController#list (for 127.0.0.1 at Thu Nov 17 17:38:43 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;35mTicket Count (0.000000)[m   [0;37mSELECT COUNT(*) FROM tickets [m
+  [4;33mTicket Load (0.000000)[m   [1;37mSELECT * FROM tickets LIMIT 10[m
+Rendering  within layouts/tickets
+Rendering tickets/list (200 OK)
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+Completed in 0.14000 (7 reqs/sec) | Rendering: 0.11000 (78%) | DB: 0.00000 (0%) [http://localhost/tickets/list]
+
+
+Processing TicketsController#destroy (for 127.0.0.1 at Thu Nov 17 17:38:46 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"destroy", "id"=>"2", "controller"=>"tickets"}
+  [4;33mTicket Load (0.000000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '2' LIMIT 1[m
+  [4;35mSQL (0.000000)[m   [0;37mBEGIN[m
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mTicket Destroy (0.000000)[m   [0;37m DELETE FROM tickets
+ WHERE id = 2
+[m
+  [4;33mSQL (0.030000)[m   [1;37mCOMMIT[m
+Redirected to http://localhost:3000/tickets/list
+Completed in 0.07000 (14 reqs/sec) | DB: 0.04000 (57%) [http://localhost/tickets/destroy/2]
+
+
+Processing TicketsController#list (for 127.0.0.1 at Thu Nov 17 17:38:46 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;35mTicket Count (0.000000)[m   [0;37mSELECT COUNT(*) FROM tickets [m
+  [4;33mTicket Load (0.000000)[m   [1;37mSELECT * FROM tickets LIMIT 10[m
+Rendering  within layouts/tickets
+Rendering tickets/list (200 OK)
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+Completed in 0.14000 (7 reqs/sec) | Rendering: 0.11000 (78%) | DB: 0.00000 (0%) [http://localhost/tickets/list]
+
+
+Processing TicketsController#destroy (for 127.0.0.1 at Thu Nov 17 17:38:48 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"destroy", "id"=>"3", "controller"=>"tickets"}
+  [4;33mTicket Load (0.000000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '3' LIMIT 1[m
+  [4;35mSQL (0.000000)[m   [0;37mBEGIN[m
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mTicket Destroy (0.010000)[m   [0;37m DELETE FROM tickets
+ WHERE id = 3
+[m
+  [4;33mSQL (0.050000)[m   [1;37mCOMMIT[m
+Redirected to http://localhost:3000/tickets/list
+Completed in 0.15000 (6 reqs/sec) | DB: 0.07000 (46%) [http://localhost/tickets/destroy/3]
+
+
+Processing TicketsController#list (for 127.0.0.1 at Thu Nov 17 17:38:49 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;35mTicket Count (0.010000)[m   [0;37mSELECT COUNT(*) FROM tickets [m
+  [4;33mTicket Load (0.000000)[m   [1;37mSELECT * FROM tickets LIMIT 10[m
+Rendering  within layouts/tickets
+Rendering tickets/list (200 OK)
+  [4;35mTicket Columns (0.000000)[m   [0;37mSHOW FIELDS FROM tickets[m
+Completed in 0.13000 (7 reqs/sec) | Rendering: 0.11000 (84%) | DB: 0.01000 (7%) [http://localhost/tickets/list]
+
+
+Processing TicketsController#destroy (for 127.0.0.1 at Thu Nov 17 17:38:51 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"destroy", "id"=>"4", "controller"=>"tickets"}
+  [4;33mTicket Load (0.010000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '4' LIMIT 1[m
+  [4;35mSQL (0.000000)[m   [0;37mBEGIN[m
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mTicket Destroy (0.010000)[m   [0;37m DELETE FROM tickets
+ WHERE id = 4
+[m
+  [4;33mSQL (0.040000)[m   [1;37mCOMMIT[m
+Redirected to http://localhost:3000/tickets/list
+Completed in 0.09000 (11 reqs/sec) | DB: 0.07000 (77%) [http://localhost/tickets/destroy/4]
+
+
+Processing TicketsController#list (for 127.0.0.1 at Thu Nov 17 17:38:52 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;35mTicket Count (0.000000)[m   [0;37mSELECT COUNT(*) FROM tickets [m
+  [4;33mTicket Load (0.010000)[m   [1;37mSELECT * FROM tickets LIMIT 10[m
+Rendering  within layouts/tickets
+Rendering tickets/list (200 OK)
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+Completed in 0.12000 (8 reqs/sec) | Rendering: 0.09000 (75%) | DB: 0.01000 (8%) [http://localhost/tickets/list]
+
+
+Processing TicketsController#destroy (for 127.0.0.1 at Thu Nov 17 17:38:57 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"destroy", "id"=>"5", "controller"=>"tickets"}
+  [4;33mTicket Load (0.000000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '5' LIMIT 1[m
+  [4;35mSQL (0.000000)[m   [0;37mBEGIN[m
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mTicket Destroy (0.000000)[m   [0;37m DELETE FROM tickets
+ WHERE id = 5
+[m
+  [4;33mSQL (0.040000)[m   [1;37mCOMMIT[m
+Redirected to http://localhost:3000/tickets/list
+Completed in 0.09000 (11 reqs/sec) | DB: 0.05000 (55%) [http://localhost/tickets/destroy/5]
+
+
+Processing TicketsController#list (for 127.0.0.1 at Thu Nov 17 17:38:57 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;35mTicket Count (0.000000)[m   [0;37mSELECT COUNT(*) FROM tickets [m
+  [4;33mTicket Load (0.020000)[m   [1;37mSELECT * FROM tickets LIMIT 10[m
+Rendering  within layouts/tickets
+Rendering tickets/list (200 OK)
+  [4;35mTicket Columns (0.000000)[m   [0;37mSHOW FIELDS FROM tickets[m
+Completed in 0.53100 (1 reqs/sec) | Rendering: 0.39100 (73%) | DB: 0.02000 (3%) [http://localhost/tickets/list]
+
+
+Processing TicketsController#destroy (for 127.0.0.1 at Thu Nov 17 17:39:00 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"destroy", "id"=>"6", "controller"=>"tickets"}
+  [4;33mTicket Load (0.000000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '6' LIMIT 1[m
+  [4;35mSQL (0.000000)[m   [0;37mBEGIN[m
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mTicket Destroy (0.000000)[m   [0;37m DELETE FROM tickets
+ WHERE id = 6
+[m
+  [4;33mSQL (0.080000)[m   [1;37mCOMMIT[m
+Redirected to http://localhost:3000/tickets/list
+Completed in 0.11100 (9 reqs/sec) | DB: 0.09000 (81%) [http://localhost/tickets/destroy/6]
+
+
+Processing TicketsController#list (for 127.0.0.1 at Thu Nov 17 17:39:01 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;35mTicket Count (0.000000)[m   [0;37mSELECT COUNT(*) FROM tickets [m
+  [4;33mTicket Load (0.000000)[m   [1;37mSELECT * FROM tickets LIMIT 10[m
+Rendering  within layouts/tickets
+Rendering tickets/list (200 OK)
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+Completed in 0.11000 (9 reqs/sec) | Rendering: 0.08000 (72%) | DB: 0.00000 (0%) [http://localhost/tickets/list]
+
+
+Processing TicketsController#destroy (for 127.0.0.1 at Thu Nov 17 17:39:04 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"destroy", "id"=>"7", "controller"=>"tickets"}
+  [4;33mTicket Load (0.000000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '7' LIMIT 1[m
+  [4;35mSQL (0.000000)[m   [0;37mBEGIN[m
+  [4;33mTicket Columns (0.000000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mTicket Destroy (0.010000)[m   [0;37m DELETE FROM tickets
+ WHERE id = 7
+[m
+  [4;33mSQL (0.040000)[m   [1;37mCOMMIT[m
+Redirected to http://localhost:3000/tickets/list
+Completed in 0.08000 (12 reqs/sec) | DB: 0.05000 (62%) [http://localhost/tickets/destroy/7]
+
+
+Processing TicketsController#list (for 127.0.0.1 at Thu Nov 17 17:39:04 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;35mTicket Count (0.010000)[m   [0;37mSELECT COUNT(*) FROM tickets [m
+  [4;33mTicket Load (0.000000)[m   [1;37mSELECT * FROM tickets LIMIT 10[m
+Rendering  within layouts/tickets
+Rendering tickets/list (200 OK)
+  [4;35mTicket Columns (0.000000)[m   [0;37mSHOW FIELDS FROM tickets[m
+Completed in 0.09000 (11 reqs/sec) | Rendering: 0.07000 (77%) | DB: 0.01000 (11%) [http://localhost/tickets/list]

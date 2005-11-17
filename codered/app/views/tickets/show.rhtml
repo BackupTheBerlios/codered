@@ -1,3 +1,4 @@
+<%= render_partial 'navi' %>
 <% for column in Ticket.content_columns %>
 <p>
   <b><%= column.human_name %>:</b> <%=h @ticket.send(column.name) %>
