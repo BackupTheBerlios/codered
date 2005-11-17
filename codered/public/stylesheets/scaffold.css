@@ -11,6 +11,12 @@ body, p, ol, ul, td {
   font-size:   13px;
   line-height: 18px;
 }
+td.statusbar {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	color: Black;
+	font-weight: bold;
+}
 td.entry {
 	background-color: #8AAEEE;
 }
