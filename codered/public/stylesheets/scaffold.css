@@ -19,6 +19,17 @@ td.statusbar {
 }
 td.entry {
 	background-color: #8AAEEE;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: x-small;
+	font-weight: bolder;
+	color: Black;
+}
+td.estra {
+	background-color: #CEE9F0;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: x-small;
+	font-weight: bolder;
+	color: Black;
 }
 td.gray {
 	background-color: #555555;

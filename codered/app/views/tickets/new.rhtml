@@ -1,9 +1,48 @@
 <%= render_partial 'navi' %>
-<h1>New ticket</h1>
+<h1>Neues Ticket</h1>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+	<td><%= end_form_tag %></td>
+</tr>
+<tr>
+	<td height="40" class="estra"></td>
+</tr>
+<tr>
+	<td class="entry">
+	<table border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="10"></td>
+		<td class="entry"><%= start_form_tag :action => 'create' %><%= render_partial 'form' %></td>
+		<td width="250" align="center">
+			<table border="0" cellspacing="0" cellpadding="0">
+			<tr class="estra">
+				<td class="estra" widht="240" height="30" valign="top">Wichtigkeit:</td>		
+			</td>
+			<tr class="estra">
+				<td class="estra" widht="240">hoch</td>		
+			</td>
+			<tr class="estra">
+				<td class="estra" widht="240">mittel</td>		
+			</td>
+			<tr class="estra">
+				<td class="estra" widht="240">schwach</td>		
+			</td>
+			</table>
+	</tr>
+	</table>
+	</td>
+</tr>
+<tr>
+	<td height="40" valgin="middle" class="estra"><%= submit_tag "Create" %></td>
+</tr>
+<tr>
+	<td valign="middle" height="50"><%= link_to image_tag("/images/page_back.png", :size => "32x32", :border => 0), {:action => 'list' }%></td>
+</tr>
 
-<%= start_form_tag :action => 'create' %>
-  <%= render_partial 'form' %>
-  <%= submit_tag "Create" %>
-<%= end_form_tag %>
+</table>
 
-<%= link_to 'Back', :action => 'list' %>
+
+  
+  
+
+
