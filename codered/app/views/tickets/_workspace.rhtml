@@ -4,17 +4,21 @@
 	<td class="estra">
 	<h2>Workflows</h2>
 	<% for workflow in @ticket.workflows %>
-	<li><%= link_to truncate(workflow.workflow_text, length = 40, truncate_string = "..." ), :action => define_javascript_functions() %><br></li>
-<!--	<%= workflow.workflow_text %> -->
-	</hr>
-	<% end %>
+	<div id="menu">
+	<div class="menu_header" id="menu_header1">
+	<a href="#" onClick="new Effect.SlideDown('menu_block1'); return false;">
+	<%= truncate(workflow.workflow_text, length = 40, truncate_string = "..." ) %>
+	</a>
+	</div>
+  	<div class="menu_block_container" id="menu_block_container1">
+   		<div class="menu_block" id="menu_block1">
+   		<div width="400">
+		<%= workflow.workflow_text %><br>
+        <a href="#" class="close_block" onClick="new Effect.SlideUp('menu_block1'); return false;">close</a></div></div>
+  </div>
+  	<% end %>
+
+
 	</td>
 </tr>
-<tr>
-	<td>
-	<%= form_tag :action => "workflow", :id => @ticket %>
-	<%= text_area "workflow", "workflow_text" %><br>
-	<%= submit_tag "Eintragen!" %>
-	</td>
-</td>
 </table>

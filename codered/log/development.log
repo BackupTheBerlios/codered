@@ -7974,3 +7974,1381 @@ Rendering tickets/list
 Rendered tickets/_navi (0.00341)
   [4;35;1mTicket Columns (0.009663)[0m   [0mSHOW FIELDS FROM tickets[0m
 Completed in 0.26828 (3 reqs/sec) | Rendering: 0.23880 (89%) | DB: 0.01567 (5%) | 200 OK [http://localhost/tickets/list]
+
+
+Processing Base#index (for 127.0.0.1 at Fri Nov 25 17:59:29 Westeurop‰ische Normalzeit 2005)
+  Parameters: {}
+
+
+ActionController::RoutingError (Recognition failed for "/list"):
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/routing.rb:444:in `recognition_failed'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/routing.rb:434:in `recognize!'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/dispatcher.rb:32:in `dispatch'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/webrick_server.rb:105:in `handle_dispatch'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/webrick_server.rb:71:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:155:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:94:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/webrick_server.rb:57:in `dispatch'
+    script/server:49
+
+
+Rendering c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing TicketsController#list (for 127.0.0.1 at Fri Nov 25 17:59:35 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;33mTicket Count (0.000000)[m   [1;37mSELECT COUNT(*) FROM tickets [m
+  [4;35mTicket Load (0.010000)[m   [0;37mSELECT * FROM tickets LIMIT 10[m
+Rendering  within layouts/tickets
+Rendering tickets/list (200 OK)
+  [4;33mTicket Columns (0.040000)[m   [1;37mSHOW FIELDS FROM tickets[m
+Completed in 0.53100 (1 reqs/sec) | Rendering: 0.23000 (43%) | DB: 0.01000 (1%) [http://localhost/tickets/list]
+
+
+Processing TicketsController#show (for 127.0.0.1 at Fri Nov 25 18:04:15 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"8", "controller"=>"tickets"}
+  [4;35mTicket Load (0.070000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '8' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mWorkflow Load (0.040000)[m   [0;37mSELECT * FROM workflows WHERE workflows.ticket_id = 8 [m
+  [4;33mWorkflow Columns (0.010000)[m   [1;37mSHOW FIELDS FROM workflows[m
+Completed in 1.41200 (0 reqs/sec) | Rendering: 1.32200 (93%) | DB: 0.07000 (4%) [http://localhost/tickets/show/8]
+
+
+Processing TicketsController#show (for 127.0.0.1 at Fri Nov 25 18:15:09 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"8", "controller"=>"tickets"}
+  [4;35mTicket Load (0.070000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '8' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.020000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mWorkflow Load (0.050000)[m   [0;37mSELECT * FROM workflows WHERE workflows.ticket_id = 8 [m
+  [4;33mWorkflow Columns (0.010000)[m   [1;37mSHOW FIELDS FROM workflows[m
+Completed in 0.37000 (2 reqs/sec) | Rendering: 0.20000 (54%) | DB: 0.07000 (18%) [http://localhost/tickets/show/8]
+
+
+Processing TicketsController#Effect.SlideDown(workflow.workflow_tex) (for 127.0.0.1 at Fri Nov 25 18:15:13 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"Effect.SlideDown(workflow.workflow_tex)", "controller"=>"tickets"}
+
+
+ActionController::UnknownAction (No action responded to Effect.SlideDown(workflow.workflow_tex)):
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/filters.rb:295:in `perform_action_without_benchmark'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `measure'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/rescue.rb:80:in `perform_action'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `send'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `process'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/dispatcher.rb:32:in `dispatch'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/webrick_server.rb:105:in `handle_dispatch'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/webrick_server.rb:71:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:155:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:94:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/webrick_server.rb:57:in `dispatch'
+    script/server:49
+
+
+Rendering c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing TicketsController#show (for 127.0.0.1 at Fri Nov 25 18:17:23 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"8", "controller"=>"tickets"}
+  [4;35mTicket Load (0.000000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '8' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.000000)[m   [1;37mSHOW FIELDS FROM tickets[m
+
+
+ActionView::TemplateError (compile error
+(erb):7: syntax error
+_erbout.concat "\t<li>"; _erbout.concat(( link_to truncate(workflow.workflow_text, length = 40, truncate_string = "..." ), :action => javascript_tag "Effect.SlideDown(workflow.workflow_tex)" ).to_s); _erbout.concat "<br></li>\n"
+                                                                                                                                                      ^) on line #21 of /tickets/_workspace.rhtml:
+18: 	</td>
+19: </td>
+20: </table>
+
+    (erb):21:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:272:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:283:in `rhtml_render'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `send'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `render_template'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:173:in `render_file'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:188:in `render'
+    /gems/actionpack-1.9.1/lib/action_view/partials.rb:55:in `render_partial'
+    (erb):11:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:272:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:283:in `rhtml_render'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `send'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `render_template'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:173:in `render_file'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:588:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:591:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:604:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:627:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:210:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:757:in `perform_action_without_filters'
+    /gems/actionpack-1.9.1/lib/action_controller/filters.rb:295:in `perform_action_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    /gems/actionpack-1.9.1/lib/action_controller/rescue.rb:80:in `perform_action'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `send'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `process'
+    /gems/rails-0.13.1/lib/dispatcher.rb:32:in `dispatch'
+    /gems/rails-0.13.1/lib/webrick_server.rb:105:in `handle_dispatch'
+    /gems/rails-0.13.1/lib/webrick_server.rb:71:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:155:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:94:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    /gems/rails-0.13.1/lib/webrick_server.rb:57:in `dispatch'
+    script/server:49
+
+
+Rendering c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing TicketsController#show (for 127.0.0.1 at Fri Nov 25 18:18:01 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"8", "controller"=>"tickets"}
+  [4;35mTicket Load (0.010000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '8' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+
+
+ActionView::TemplateError (compile error
+(erb):7: syntax error
+_erbout.concat "\t<li>"; _erbout.concat(( link_to truncate(workflow.workflow_text, length = 40, truncate_string = "..." ), :action => javascript_tag "Effect.SlideDown('workflow.workflow_tex')" ).to_s); _erbout.concat "<br></li>\n"
+                                                                                                                                                      ^) on line #21 of /tickets/_workspace.rhtml:
+18: 	</td>
+19: </td>
+20: </table>
+
+    (erb):21:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:272:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:283:in `rhtml_render'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `send'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `render_template'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:173:in `render_file'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:188:in `render'
+    /gems/actionpack-1.9.1/lib/action_view/partials.rb:55:in `render_partial'
+    (erb):11:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:272:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:283:in `rhtml_render'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `send'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `render_template'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:173:in `render_file'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:588:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:591:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:604:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:627:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:210:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:757:in `perform_action_without_filters'
+    /gems/actionpack-1.9.1/lib/action_controller/filters.rb:295:in `perform_action_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    /gems/actionpack-1.9.1/lib/action_controller/rescue.rb:80:in `perform_action'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `send'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `process'
+    /gems/rails-0.13.1/lib/dispatcher.rb:32:in `dispatch'
+    /gems/rails-0.13.1/lib/webrick_server.rb:105:in `handle_dispatch'
+    /gems/rails-0.13.1/lib/webrick_server.rb:71:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:155:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:94:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    /gems/rails-0.13.1/lib/webrick_server.rb:57:in `dispatch'
+    script/server:49
+
+
+Rendering c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing Base#index (for 127.0.0.1 at Fri Nov 25 18:22:10 Westeurop‰ische Normalzeit 2005)
+  Parameters: {}
+
+
+MissingSourceFile (No such file to load -- login_system.rb):
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:193:in `load'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:193:in `load'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:38:in `require_or_load'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:21:in `depend_on'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:171:in `require_dependency'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:171:in `require_dependency'
+    /app/controllers/application.rb:3
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:193:in `load'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:193:in `load'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:38:in `require_or_load'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:21:in `depend_on'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:171:in `require_dependency'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:171:in `require_dependency'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:127:in `load_file!'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:96:in `const_load!'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:79:in `each'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:79:in `const_load!'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/dispatcher.rb:51:in `prepare_application'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/dispatcher.rb:31:in `dispatch'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/webrick_server.rb:105:in `handle_dispatch'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/webrick_server.rb:71:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:155:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:94:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/webrick_server.rb:57:in `dispatch'
+    script/server:49
+
+
+Rendering c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing Base#index (for 127.0.0.1 at Fri Nov 25 18:22:58 Westeurop‰ische Normalzeit 2005)
+  Parameters: {}
+
+
+MissingSourceFile (No such file to load -- login_system.rb):
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:193:in `load'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:193:in `load'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:38:in `require_or_load'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:21:in `depend_on'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:171:in `require_dependency'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:171:in `require_dependency'
+    /app/controllers/application.rb:3
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:193:in `load'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:193:in `load'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:38:in `require_or_load'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:21:in `depend_on'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:171:in `require_dependency'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:171:in `require_dependency'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:127:in `load_file!'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:96:in `const_load!'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:79:in `each'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:79:in `const_load!'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/dispatcher.rb:51:in `prepare_application'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/dispatcher.rb:31:in `dispatch'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/webrick_server.rb:105:in `handle_dispatch'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/webrick_server.rb:71:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:155:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:94:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/webrick_server.rb:57:in `dispatch'
+    script/server:49
+
+
+Rendering c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing Base#index (for 127.0.0.1 at Fri Nov 25 18:49:49 Westeurop‰ische Normalzeit 2005)
+  Parameters: {}
+
+
+MissingSourceFile (No such file to load -- login_system.rb):
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:193:in `load'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:193:in `load'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:38:in `require_or_load'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:21:in `depend_on'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:171:in `require_dependency'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:171:in `require_dependency'
+    /app/controllers/application.rb:3
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:193:in `load'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:193:in `load'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:38:in `require_or_load'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:21:in `depend_on'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:171:in `require_dependency'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:171:in `require_dependency'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:127:in `load_file!'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:96:in `const_load!'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:79:in `each'
+    c:/ruby/lib/ruby/gems/1.8/gems/activesupport-1.1.1/lib/active_support/dependencies.rb:79:in `const_load!'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/dispatcher.rb:51:in `prepare_application'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/dispatcher.rb:31:in `dispatch'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/webrick_server.rb:105:in `handle_dispatch'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/webrick_server.rb:71:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:155:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:94:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/webrick_server.rb:57:in `dispatch'
+    script/server:49
+
+
+Rendering c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing TicketsController#list (for 127.0.0.1 at Fri Nov 25 19:00:12 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+Redirected to http://localhost:3000/account/login
+Completed in 0.00010 (10000 reqs/sec) [http://localhost/tickets/list/]
+
+
+Processing AccountController#login (for 127.0.0.1 at Fri Nov 25 19:00:12 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"login", "controller"=>"account"}
+Rendering  within layouts/scaffold
+Rendering account/login (200 OK)
+Completed in 0.03000 (33 reqs/sec) | Rendering: 0.02000 (66%) [http://localhost/account/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at Fri Nov 25 19:04:06 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"user_login"=>"nean", "action"=>"login", "controller"=>"account", "user_password"=>"enola", "login"=>"Login \273"}
+  [4;33mUser Load (0.000000)[m   [1;37mUnknown column 'password' in 'where clause': SELECT * FROM users WHERE login = 'nean' AND password = '9e0383dcf0cc97197a7c83993808ebb4ae3508dd' LIMIT 1[m
+
+
+ActiveRecord::StatementInvalid (Unknown column 'password' in 'where clause': SELECT * FROM users WHERE login = 'nean' AND password = '9e0383dcf0cc97197a7c83993808ebb4ae3508dd'  LIMIT 1):
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-1.11.1/lib/active_record/connection_adapters/abstract_adapter.rb:462:in `log'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-1.11.1/lib/active_record/connection_adapters/mysql_adapter.rb:121:in `execute'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-1.11.1/lib/active_record/connection_adapters/mysql_adapter.rb:230:in `select'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-1.11.1/lib/active_record/connection_adapters/mysql_adapter.rb:97:in `select_all'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-1.11.1/lib/active_record/base.rb:376:in `find_by_sql'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-1.11.1/lib/active_record/base.rb:343:in `find'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-1.11.1/lib/active_record/base.rb:341:in `find'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-1.11.1/lib/active_record/deprecated_finders.rb:22:in `find_first'
+    /app/models/user.rb:17:in `authenticate'
+    /app/controllers/account_controller.rb:7:in `login'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/base.rb:756:in `send'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/base.rb:756:in `perform_action_without_filters'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/filters.rb:295:in `perform_action_without_benchmark'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `measure'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/rescue.rb:80:in `perform_action'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `send'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `process'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/dispatcher.rb:32:in `dispatch'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/webrick_server.rb:105:in `handle_dispatch'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/webrick_server.rb:71:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:155:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:94:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/webrick_server.rb:57:in `dispatch'
+    script/server:49
+
+
+Rendering c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing AccountController#login (for 127.0.0.1 at Fri Nov 25 19:04:44 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"user_login"=>"nean", "action"=>"login", "controller"=>"account", "user_password"=>"enola", "login"=>"Login \273"}
+  [4;33mUser Load (0.000000)[m   [1;37mUnknown column 'password' in 'where clause': SELECT * FROM users WHERE login = 'nean' AND password = '9e0383dcf0cc97197a7c83993808ebb4ae3508dd' LIMIT 1[m
+
+
+ActiveRecord::StatementInvalid (Unknown column 'password' in 'where clause': SELECT * FROM users WHERE login = 'nean' AND password = '9e0383dcf0cc97197a7c83993808ebb4ae3508dd'  LIMIT 1):
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-1.11.1/lib/active_record/connection_adapters/abstract_adapter.rb:462:in `log'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-1.11.1/lib/active_record/connection_adapters/mysql_adapter.rb:121:in `execute'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-1.11.1/lib/active_record/connection_adapters/mysql_adapter.rb:230:in `select'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-1.11.1/lib/active_record/connection_adapters/mysql_adapter.rb:97:in `select_all'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-1.11.1/lib/active_record/base.rb:376:in `find_by_sql'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-1.11.1/lib/active_record/base.rb:343:in `find'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-1.11.1/lib/active_record/base.rb:341:in `find'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-1.11.1/lib/active_record/deprecated_finders.rb:22:in `find_first'
+    /app/models/user.rb:17:in `authenticate'
+    /app/controllers/account_controller.rb:7:in `login'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/base.rb:756:in `send'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/base.rb:756:in `perform_action_without_filters'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/filters.rb:295:in `perform_action_without_benchmark'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `measure'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/rescue.rb:80:in `perform_action'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `send'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `process'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/dispatcher.rb:32:in `dispatch'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/webrick_server.rb:105:in `handle_dispatch'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/webrick_server.rb:71:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:155:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:94:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/webrick_server.rb:57:in `dispatch'
+    script/server:49
+
+
+Rendering c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing AccountController#signup (for 127.0.0.1 at Fri Nov 25 19:04:57 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;35mUser Columns (0.030000)[m   [0;37mSHOW FIELDS FROM users[m
+Rendering  within layouts/scaffold
+Rendering account/signup (200 OK)
+  [4;33mUser Columns (0.010000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+ActionView::TemplateError (undefined method `password' for #<User:0x37a9258>) on line #10 of /account/signup.rhtml:
+7:   <label for="user_login">Gew√ºnschter Loginname:</label><br/>
+8:   <%= text_field "user", "login", :size => 30 %><br/>
+9:   <label for="user_password">Passwort:</label><br/>
+10:   <%= password_field "user", "password", :size => 30 %><br/>
+11:   <label for="user_password_confirmation">Passwort wiederholen:</label><br/>
+12:   <%= password_field "user", "password_confirmation", :size => 30 %><br/>
+13:   <hr>
+
+    /gems/activerecord-1.11.1/lib/active_record/base.rb:1203:in `method_missing'
+    /gems/actionpack-1.9.1/lib/action_view/helpers/form_helper.rb:250:in `send'
+    /gems/actionpack-1.9.1/lib/action_view/helpers/form_helper.rb:250:in `value_before_type_cast'
+    /gems/actionpack-1.9.1/lib/action_view/helpers/form_helper.rb:168:in `to_input_field_tag'
+    /gems/actionpack-1.9.1/lib/action_view/helpers/form_helper.rb:81:in `password_field'
+    (erb):10:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:272:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:283:in `rhtml_render'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `send'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `render_template'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:173:in `render_file'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:588:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:591:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:604:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:627:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:210:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:757:in `perform_action_without_filters'
+    /gems/actionpack-1.9.1/lib/action_controller/filters.rb:295:in `perform_action_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    /gems/actionpack-1.9.1/lib/action_controller/rescue.rb:80:in `perform_action'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `send'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `process'
+    /gems/rails-0.13.1/lib/dispatcher.rb:32:in `dispatch'
+    /gems/rails-0.13.1/lib/webrick_server.rb:105:in `handle_dispatch'
+    /gems/rails-0.13.1/lib/webrick_server.rb:71:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:155:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:94:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    /gems/rails-0.13.1/lib/webrick_server.rb:57:in `dispatch'
+    script/server:49
+
+
+Rendering c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing AccountController#signup (for 127.0.0.1 at Fri Nov 25 19:04:58 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;35mUser Columns (0.010000)[m   [0;37mSHOW FIELDS FROM users[m
+Rendering  within layouts/scaffold
+Rendering account/signup (200 OK)
+  [4;33mUser Columns (0.010000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+ActionView::TemplateError (undefined method `password' for #<User:0x37b23f0>) on line #10 of /account/signup.rhtml:
+7:   <label for="user_login">Gew√ºnschter Loginname:</label><br/>
+8:   <%= text_field "user", "login", :size => 30 %><br/>
+9:   <label for="user_password">Passwort:</label><br/>
+10:   <%= password_field "user", "password", :size => 30 %><br/>
+11:   <label for="user_password_confirmation">Passwort wiederholen:</label><br/>
+12:   <%= password_field "user", "password_confirmation", :size => 30 %><br/>
+13:   <hr>
+
+    /gems/activerecord-1.11.1/lib/active_record/base.rb:1203:in `method_missing'
+    /gems/actionpack-1.9.1/lib/action_view/helpers/form_helper.rb:250:in `send'
+    /gems/actionpack-1.9.1/lib/action_view/helpers/form_helper.rb:250:in `value_before_type_cast'
+    /gems/actionpack-1.9.1/lib/action_view/helpers/form_helper.rb:168:in `to_input_field_tag'
+    /gems/actionpack-1.9.1/lib/action_view/helpers/form_helper.rb:81:in `password_field'
+    (erb):10:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:272:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:283:in `rhtml_render'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `send'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `render_template'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:173:in `render_file'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:588:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:591:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:604:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:627:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:210:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:757:in `perform_action_without_filters'
+    /gems/actionpack-1.9.1/lib/action_controller/filters.rb:295:in `perform_action_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    /gems/actionpack-1.9.1/lib/action_controller/rescue.rb:80:in `perform_action'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `send'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `process'
+    /gems/rails-0.13.1/lib/dispatcher.rb:32:in `dispatch'
+    /gems/rails-0.13.1/lib/webrick_server.rb:105:in `handle_dispatch'
+    /gems/rails-0.13.1/lib/webrick_server.rb:71:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:155:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:94:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    /gems/rails-0.13.1/lib/webrick_server.rb:57:in `dispatch'
+    script/server:49
+
+
+Rendering c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing TicketsController#list (for 127.0.0.1 at Fri Nov 25 19:05:16 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+Redirected to http://localhost:3000/account/login
+Completed in 0.00010 (10000 reqs/sec) | DB: 0.00000 (0%) [http://localhost/tickets/list]
+
+
+Processing AccountController#login (for 127.0.0.1 at Fri Nov 25 19:05:16 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"login", "controller"=>"account"}
+Rendering  within layouts/scaffold
+Rendering account/login (200 OK)
+Completed in 0.04000 (25 reqs/sec) | Rendering: 0.03000 (75%) | DB: 0.00000 (0%) [http://localhost/account/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at Fri Nov 25 19:05:24 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"user_login"=>"nean", "action"=>"login", "controller"=>"account", "user_password"=>"enola", "login"=>"Login \273"}
+  [4;35mUser Load (0.000000)[m   [0;37mUnknown column 'password' in 'where clause': SELECT * FROM users WHERE login = 'nean' AND password = '9e0383dcf0cc97197a7c83993808ebb4ae3508dd' LIMIT 1[m
+
+
+ActiveRecord::StatementInvalid (Unknown column 'password' in 'where clause': SELECT * FROM users WHERE login = 'nean' AND password = '9e0383dcf0cc97197a7c83993808ebb4ae3508dd'  LIMIT 1):
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-1.11.1/lib/active_record/connection_adapters/abstract_adapter.rb:462:in `log'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-1.11.1/lib/active_record/connection_adapters/mysql_adapter.rb:121:in `execute'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-1.11.1/lib/active_record/connection_adapters/mysql_adapter.rb:230:in `select'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-1.11.1/lib/active_record/connection_adapters/mysql_adapter.rb:97:in `select_all'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-1.11.1/lib/active_record/base.rb:376:in `find_by_sql'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-1.11.1/lib/active_record/base.rb:343:in `find'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-1.11.1/lib/active_record/base.rb:341:in `find'
+    c:/ruby/lib/ruby/gems/1.8/gems/activerecord-1.11.1/lib/active_record/deprecated_finders.rb:22:in `find_first'
+    /app/models/user.rb:17:in `authenticate'
+    /app/controllers/account_controller.rb:7:in `login'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/base.rb:756:in `send'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/base.rb:756:in `perform_action_without_filters'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/filters.rb:295:in `perform_action_without_benchmark'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `measure'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/rescue.rb:80:in `perform_action'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `send'
+    c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `process'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/dispatcher.rb:32:in `dispatch'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/webrick_server.rb:105:in `handle_dispatch'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/webrick_server.rb:71:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:155:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:94:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    c:/ruby/lib/ruby/gems/1.8/gems/rails-0.13.1/lib/webrick_server.rb:57:in `dispatch'
+    script/server:49
+
+
+Rendering c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing TicketsController#list (for 127.0.0.1 at Fri Nov 25 19:13:43 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+Redirected to http://localhost:3000/account/login
+Completed in 0.01000 (100 reqs/sec) [http://localhost/tickets/list]
+
+
+Processing AccountController#login (for 127.0.0.1 at Fri Nov 25 19:13:43 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"login", "controller"=>"account"}
+Rendering  within layouts/scaffold
+Rendering account/login (200 OK)
+Completed in 0.02000 (50 reqs/sec) | Rendering: 0.01000 (50%) [http://localhost/account/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at Fri Nov 25 19:13:55 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"user_login"=>"nean", "action"=>"login", "controller"=>"account", "user_password"=>"enola", "login"=>"Login \273"}
+  [4;33mUser Load (0.020000)[m   [1;37mSELECT * FROM users WHERE login = 'nean' AND password = '9e0383dcf0cc97197a7c83993808ebb4ae3508dd' LIMIT 1[m
+Rendering  within layouts/scaffold
+Rendering account/login (200 OK)
+Completed in 0.19000 (5 reqs/sec) | Rendering: 0.01000 (5%) | DB: 0.02000 (10%) [http://localhost/account/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at Fri Nov 25 19:14:49 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"user_login"=>"nean", "action"=>"login", "controller"=>"account", "user_password"=>"enola", "login"=>"Login \273"}
+  [4;35mUser Load (0.010000)[m   [0;37mSELECT * FROM users WHERE login = 'nean' AND password = '9e0383dcf0cc97197a7c83993808ebb4ae3508dd' LIMIT 1[m
+Rendering  within layouts/scaffold
+Rendering account/login (200 OK)
+Completed in 0.02000 (50 reqs/sec) | Rendering: 0.01000 (50%) | DB: 0.01000 (50%) [http://localhost/account/login]
+
+
+Processing TicketsController#list (for 127.0.0.1 at Fri Nov 25 19:15:02 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+Redirected to http://localhost:3000/account/login
+Completed in 0.00010 (10000 reqs/sec) | DB: 0.00000 (0%) [http://localhost/tickets/list]
+
+
+Processing AccountController#login (for 127.0.0.1 at Fri Nov 25 19:15:02 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"login", "controller"=>"account"}
+Rendering  within layouts/scaffold
+Rendering account/login (200 OK)
+Completed in 0.03000 (33 reqs/sec) | Rendering: 0.03000 (100%) | DB: 0.00000 (0%) [http://localhost/account/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at Fri Nov 25 19:15:15 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"user_login"=>"nean", "action"=>"login", "controller"=>"account", "user_password"=>"enola", "login"=>"Login \273"}
+  [4;33mUser Load (0.000000)[m   [1;37mSELECT * FROM users WHERE login = 'nean' AND password = '9e0383dcf0cc97197a7c83993808ebb4ae3508dd' LIMIT 1[m
+Rendering  within layouts/scaffold
+Rendering account/login (200 OK)
+Completed in 0.03000 (33 reqs/sec) | Rendering: 0.02000 (66%) | DB: 0.00000 (0%) [http://localhost/account/login]
+
+
+Processing AccountController#signup (for 127.0.0.1 at Fri Nov 25 19:15:24 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;35mUser Columns (0.020000)[m   [0;37mSHOW FIELDS FROM users[m
+Rendering  within layouts/scaffold
+Rendering account/signup (200 OK)
+  [4;33mUser Columns (0.020000)[m   [1;37mSHOW FIELDS FROM users[m
+Completed in 0.08000 (12 reqs/sec) | Rendering: 0.06000 (74%) | DB: 0.02000 (25%) [http://localhost/account/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at Fri Nov 25 19:16:54 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"user"=>{"user_pic"=>"", "password_confirmation"=>"enola", "user_rule"=>"1", "user_vorname"=>"Jan", "user_strasse"=>"Muenschbornstr.4", "user_klasse"=>"cnws04", "user_ort"=>"Greifenstein", "user_name"=>"Neuser", "login"=>"neuser_ja", "password"=>"enola", "user_plz"=>"35753"}, "action"=>"signup", "controller"=>"account"}
+  [4;35mUser Columns (0.000000)[m   [0;37mSHOW FIELDS FROM users[m
+  [4;33mUser Columns (0.020000)[m   [1;37mSHOW FIELDS FROM users[m
+  [4;35mSQL (0.000000)[m   [0;37mBEGIN[m
+  [4;33mUser Load (0.000000)[m   [1;37mSELECT * FROM users WHERE login = 'neuser_ja' LIMIT 1[m
+  [4;35mSQL (0.000000)[m   [0;37mINSERT INTO users (`created_on`, `user_pic`, `updated_on`, `user_rule`, `user_strasse`, `user_vorname`, `user_klasse`, `user_ort`, `login`, `password`, `user_name`, `user_plz`) VALUES('2005-11-25 19:16:54', '', '2005-11-25 19:16:54', 1, 'Muenschbornstr.4', 'Jan', 'cnws04', 'Greifenstein', 'neuser_ja', '9e0383dcf0cc97197a7c83993808ebb4ae3508dd', 'Neuser', 35753)[m
+  [4;33mSQL (0.080000)[m   [1;37mCOMMIT[m
+  [4;35mUser Load (0.000000)[m   [0;37mSELECT * FROM users WHERE login = 'neuser_ja' AND password = '9e0383dcf0cc97197a7c83993808ebb4ae3508dd' LIMIT 1[m
+Redirected to http://localhost:3000/tickets/list
+Completed in 0.15000 (6 reqs/sec) | DB: 0.10000 (66%) [http://localhost/account/signup]
+  [4;33mUser Columns (0.010000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#list (for 127.0.0.1 at Fri Nov 25 19:16:55 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;35mTicket Count (0.030000)[m   [0;37mSELECT COUNT(*) FROM tickets [m
+  [4;33mTicket Load (0.000000)[m   [1;37mSELECT * FROM tickets LIMIT 10[m
+Rendering  within layouts/tickets
+Rendering tickets/list (200 OK)
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+Completed in 0.25000 (4 reqs/sec) | Rendering: 0.18000 (72%) | DB: 0.04000 (15%) [http://localhost/tickets/list]
+  [4;33mUser Columns (0.010000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Fri Nov 25 19:17:30 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"8", "controller"=>"tickets"}
+  [4;35mTicket Load (0.000000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '8' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mWorkflow Load (0.010000)[m   [0;37mSELECT * FROM workflows WHERE workflows.ticket_id = 8 [m
+  [4;33mWorkflow Columns (0.020000)[m   [1;37mSHOW FIELDS FROM workflows[m
+
+
+ActionView::TemplateError (uninitialized constant Effect) on line #7 of /tickets/_workspace.rhtml:
+4: 	<td class="estra">
+5: 	<h2>Workflows</h2>
+6: 	<% for workflow in @ticket.workflows %>
+7: 	<li><%= link_to truncate(workflow.workflow_text, length = 40, truncate_string = "..." ), :action => Effect.SlideDown('workflow.workflow_tex') %><br></li>
+8: <!--	<%= workflow.workflow_text %> -->
+9: 	</hr>
+10: 	<% end %>
+
+    /gems/activesupport-1.1.1/lib/active_support/dependencies.rb:186:in `const_missing'
+    (erb):7:in `evaluate_locals'
+    (erb):6:in `each'
+    /gems/activerecord-1.11.1/lib/active_record/associations/association_proxy.rb:24:in `send'
+    /gems/activerecord-1.11.1/lib/active_record/associations/association_proxy.rb:24:in `method_missing'
+    (erb):6:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:272:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:283:in `rhtml_render'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `send'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `render_template'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:173:in `render_file'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:188:in `render'
+    /gems/actionpack-1.9.1/lib/action_view/partials.rb:55:in `render_partial'
+    (erb):11:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:272:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:283:in `rhtml_render'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `send'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `render_template'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:173:in `render_file'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:588:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:591:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:604:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:627:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:210:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:757:in `perform_action_without_filters'
+    /gems/actionpack-1.9.1/lib/action_controller/filters.rb:295:in `perform_action_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    /gems/actionpack-1.9.1/lib/action_controller/rescue.rb:80:in `perform_action'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `send'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `process'
+    /gems/rails-0.13.1/lib/dispatcher.rb:32:in `dispatch'
+    /gems/rails-0.13.1/lib/webrick_server.rb:105:in `handle_dispatch'
+    /gems/rails-0.13.1/lib/webrick_server.rb:71:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:155:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:94:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    /gems/rails-0.13.1/lib/webrick_server.rb:57:in `dispatch'
+    script/server:49
+
+
+Rendering c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+  [4;35mUser Columns (0.010000)[m   [0;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Fri Nov 25 19:24:50 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"8", "controller"=>"tickets"}
+  [4;33mTicket Load (0.000000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '8' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+  [4;33mWorkflow Load (0.000000)[m   [1;37mSELECT * FROM workflows WHERE workflows.ticket_id = 8 [m
+  [4;35mWorkflow Columns (0.000000)[m   [0;37mSHOW FIELDS FROM workflows[m
+
+
+ActionView::TemplateError (uninitialized constant Effect) on line #22 of /tickets/_workspace.rhtml:
+19:   </div>
+20: 
+21: <!--	<% for workflow in @ticket.workflows %>
+22: 	<li><%= link_to truncate(workflow.workflow_text, length = 40, truncate_string = "..." ), :action => Effect.SlideDown('workflow.workflow_tex') %><br></li>
+23: <!--	<%= workflow.workflow_text %> 
+24: 	</hr>
+25: 	<% end %>
+
+    /gems/activesupport-1.1.1/lib/active_support/dependencies.rb:186:in `const_missing'
+    (erb):22:in `evaluate_locals'
+    (erb):21:in `each'
+    /gems/activerecord-1.11.1/lib/active_record/associations/association_proxy.rb:24:in `send'
+    /gems/activerecord-1.11.1/lib/active_record/associations/association_proxy.rb:24:in `method_missing'
+    (erb):21:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:272:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:283:in `rhtml_render'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `send'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `render_template'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:173:in `render_file'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:188:in `render'
+    /gems/actionpack-1.9.1/lib/action_view/partials.rb:55:in `render_partial'
+    (erb):11:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:272:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:283:in `rhtml_render'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `send'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `render_template'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:173:in `render_file'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:588:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:591:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:604:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:627:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:210:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:757:in `perform_action_without_filters'
+    /gems/actionpack-1.9.1/lib/action_controller/filters.rb:295:in `perform_action_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    /gems/actionpack-1.9.1/lib/action_controller/rescue.rb:80:in `perform_action'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `send'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `process'
+    /gems/rails-0.13.1/lib/dispatcher.rb:32:in `dispatch'
+    /gems/rails-0.13.1/lib/webrick_server.rb:105:in `handle_dispatch'
+    /gems/rails-0.13.1/lib/webrick_server.rb:71:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:155:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:94:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    /gems/rails-0.13.1/lib/webrick_server.rb:57:in `dispatch'
+    script/server:49
+
+
+Rendering c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+  [4;33mUser Columns (0.010000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Fri Nov 25 19:25:21 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"8", "controller"=>"tickets"}
+  [4;35mTicket Load (0.010000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '8' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.011000)[m   [1;37mSHOW FIELDS FROM tickets[m
+Completed in 0.08100 (12 reqs/sec) | Rendering: 0.05100 (62%) | DB: 0.02000 (24%) [http://localhost/tickets/show/8]
+  [4;35mUser Columns (0.020000)[m   [0;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Fri Nov 25 19:29:30 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"8", "controller"=>"tickets"}
+  [4;33mTicket Load (0.010000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '8' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;35mTicket Columns (0.030000)[m   [0;37mSHOW FIELDS FROM tickets[m
+Completed in 0.11000 (9 reqs/sec) | Rendering: 0.06000 (54%) | DB: 0.03000 (27%) [http://localhost/tickets/show/8]
+  [4;33mUser Columns (0.010000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Fri Nov 25 19:33:54 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"8", "controller"=>"tickets"}
+  [4;35mTicket Load (0.000000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '8' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+
+
+ActionView::TemplateError (compile error
+(erb):7: syntax error
+_erbout.concat "\t<div class=\"menu_header\" id=\"menu_header1\"><a href=\"#\" onClick=\"new Effect.SlideDown('menu_block1'); return false;\">";  truncate(workflow.workflow_text, length = 40, truncate_string = "..." ; _erbout.concat "</a></div>\n"
+                                                                                                                                                                                                                         ^) on line #23 of /tickets/_workspace.rhtml:
+20: 	</td>
+21: </tr>
+22: </table>
+
+    (erb):23:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:272:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:283:in `rhtml_render'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `send'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `render_template'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:173:in `render_file'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:188:in `render'
+    /gems/actionpack-1.9.1/lib/action_view/partials.rb:55:in `render_partial'
+    (erb):11:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:272:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:283:in `rhtml_render'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `send'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `render_template'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:173:in `render_file'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:588:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:591:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:604:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:627:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:210:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:757:in `perform_action_without_filters'
+    /gems/actionpack-1.9.1/lib/action_controller/filters.rb:295:in `perform_action_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    /gems/actionpack-1.9.1/lib/action_controller/rescue.rb:80:in `perform_action'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `send'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `process'
+    /gems/rails-0.13.1/lib/dispatcher.rb:32:in `dispatch'
+    /gems/rails-0.13.1/lib/webrick_server.rb:105:in `handle_dispatch'
+    /gems/rails-0.13.1/lib/webrick_server.rb:71:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:155:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:94:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    /gems/rails-0.13.1/lib/webrick_server.rb:57:in `dispatch'
+    script/server:49
+
+
+Rendering c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+  [4;35mUser Columns (0.010000)[m   [0;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Fri Nov 25 19:34:58 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"8", "controller"=>"tickets"}
+  [4;33mTicket Load (0.010000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '8' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+
+
+ActionView::TemplateError (compile error
+(erb):8: syntax error
+_erbout.concat "\t<div class=\"menu_header\" id=\"menu_header1\"><a href=\"#\" onClick=\"new Effect.SlideDown('menu_block1'); return false;\">";  truncate(workflow.workflow_text, length = 40, truncate_string = "..." ; _erbout.concat "</a></div>\n"
+                                                                                                                                                                                                                         ^
+(erb):24: syntax error
+_erbout
+       ^) on line #24 of /tickets/_workspace.rhtml:
+21: 	</td>
+22: </tr>
+23: </table>
+
+    (erb):24:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:272:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:283:in `rhtml_render'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `send'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `render_template'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:173:in `render_file'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:188:in `render'
+    /gems/actionpack-1.9.1/lib/action_view/partials.rb:55:in `render_partial'
+    (erb):11:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:272:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:283:in `rhtml_render'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `send'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `render_template'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:173:in `render_file'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:588:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:591:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:604:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:627:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:210:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:757:in `perform_action_without_filters'
+    /gems/actionpack-1.9.1/lib/action_controller/filters.rb:295:in `perform_action_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    /gems/actionpack-1.9.1/lib/action_controller/rescue.rb:80:in `perform_action'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `send'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `process'
+    /gems/rails-0.13.1/lib/dispatcher.rb:32:in `dispatch'
+    /gems/rails-0.13.1/lib/webrick_server.rb:105:in `handle_dispatch'
+    /gems/rails-0.13.1/lib/webrick_server.rb:71:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:155:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:94:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    /gems/rails-0.13.1/lib/webrick_server.rb:57:in `dispatch'
+    script/server:49
+
+
+Rendering c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+  [4;33mUser Columns (0.010000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Fri Nov 25 19:35:34 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"8", "controller"=>"tickets"}
+  [4;35mTicket Load (0.010000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '8' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+
+
+ActionView::TemplateError (compile error
+(erb):8: syntax error
+_erbout.concat "\t<div class=\"menu_header\" id=\"menu_header1\"><a href=\"#\" onClick=\"new Effect.SlideDown('menu_block1'); return false;\">";  truncate(workflow.workflow_text, length = 40, truncate_string = "..." ; _erbout.concat "</a></div>\n"
+                                                                                                                                                                                                                         ^) on line #25 of /tickets/_workspace.rhtml:
+22: 	</td>
+23: </tr>
+24: </table>
+
+    (erb):25:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:272:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:283:in `rhtml_render'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `send'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `render_template'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:173:in `render_file'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:188:in `render'
+    /gems/actionpack-1.9.1/lib/action_view/partials.rb:55:in `render_partial'
+    (erb):11:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:272:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:283:in `rhtml_render'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `send'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `render_template'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:173:in `render_file'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:588:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:591:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:604:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:627:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:210:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:757:in `perform_action_without_filters'
+    /gems/actionpack-1.9.1/lib/action_controller/filters.rb:295:in `perform_action_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    /gems/actionpack-1.9.1/lib/action_controller/rescue.rb:80:in `perform_action'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `send'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `process'
+    /gems/rails-0.13.1/lib/dispatcher.rb:32:in `dispatch'
+    /gems/rails-0.13.1/lib/webrick_server.rb:105:in `handle_dispatch'
+    /gems/rails-0.13.1/lib/webrick_server.rb:71:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:155:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:94:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    /gems/rails-0.13.1/lib/webrick_server.rb:57:in `dispatch'
+    script/server:49
+
+
+Rendering c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+  [4;35mUser Columns (0.010000)[m   [0;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Fri Nov 25 19:37:31 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"8", "controller"=>"tickets"}
+  [4;33mTicket Load (0.000000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '8' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;35mTicket Columns (0.000000)[m   [0;37mSHOW FIELDS FROM tickets[m
+
+
+ActionView::TemplateError (compile error
+(erb):10: syntax error
+_erbout.concat "\t";  truncate(workflow.workflow_text, length = 40, truncate_string = "..." ; _erbout.concat "\n"
+                                                                                             ^) on line #30 of /tickets/_workspace.rhtml:
+27: 	</td>
+28: </tr>
+29: </table>
+
+    (erb):30:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:272:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:283:in `rhtml_render'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `send'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `render_template'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:173:in `render_file'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:188:in `render'
+    /gems/actionpack-1.9.1/lib/action_view/partials.rb:55:in `render_partial'
+    (erb):11:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:272:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:283:in `rhtml_render'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `send'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `render_template'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:173:in `render_file'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:588:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:591:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:604:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:627:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:210:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:757:in `perform_action_without_filters'
+    /gems/actionpack-1.9.1/lib/action_controller/filters.rb:295:in `perform_action_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    /gems/actionpack-1.9.1/lib/action_controller/rescue.rb:80:in `perform_action'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `send'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `process'
+    /gems/rails-0.13.1/lib/dispatcher.rb:32:in `dispatch'
+    /gems/rails-0.13.1/lib/webrick_server.rb:105:in `handle_dispatch'
+    /gems/rails-0.13.1/lib/webrick_server.rb:71:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:155:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:94:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    /gems/rails-0.13.1/lib/webrick_server.rb:57:in `dispatch'
+    script/server:49
+
+
+Rendering c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+  [4;33mUser Columns (0.020000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Fri Nov 25 19:45:23 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"8", "controller"=>"tickets"}
+  [4;35mTicket Load (0.000000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '8' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+Completed in 0.10000 (10 reqs/sec) | Rendering: 0.07000 (70%) | DB: 0.02000 (20%) [http://localhost/tickets/show/8]
+  [4;35mUser Columns (0.010000)[m   [0;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#list (for 127.0.0.1 at Fri Nov 25 20:01:45 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;33mTicket Count (0.000000)[m   [1;37mSELECT COUNT(*) FROM tickets [m
+  [4;35mTicket Load (0.010000)[m   [0;37mSELECT * FROM tickets LIMIT 10[m
+Rendering  within layouts/tickets
+Rendering tickets/list (200 OK)
+  [4;33mTicket Columns (0.020000)[m   [1;37mSHOW FIELDS FROM tickets[m
+Completed in 0.31000 (3 reqs/sec) | Rendering: 0.28000 (90%) | DB: 0.02000 (6%) [http://localhost/tickets/list]
+  [4;35mUser Columns (0.010000)[m   [0;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Fri Nov 25 20:03:00 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"8", "controller"=>"tickets"}
+  [4;33mTicket Load (0.000000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '8' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+  [4;33mWorkflow Load (0.051000)[m   [1;37mSELECT * FROM workflows WHERE workflows.ticket_id = 8 [m
+  [4;35mWorkflow Columns (0.010000)[m   [0;37mSHOW FIELDS FROM workflows[m
+Completed in 0.15100 (6 reqs/sec) | Rendering: 0.11100 (73%) | DB: 0.01000 (6%) [http://localhost/tickets/show/8]
+  [4;33mUser Columns (0.010000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Fri Nov 25 20:04:52 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"8", "controller"=>"tickets"}
+  [4;35mTicket Load (0.000000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '8' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mWorkflow Load (0.010000)[m   [0;37mSELECT * FROM workflows WHERE workflows.ticket_id = 8 [m
+  [4;33mWorkflow Columns (0.010000)[m   [1;37mSHOW FIELDS FROM workflows[m
+Completed in 0.13000 (7 reqs/sec) | Rendering: 0.09000 (69%) | DB: 0.01000 (7%) [http://localhost/tickets/show/8]
+  [4;35mUser Columns (0.020000)[m   [0;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Fri Nov 25 20:15:55 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"8", "controller"=>"tickets"}
+  [4;33mTicket Load (0.010000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '8' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+  [4;33mWorkflow Load (0.000000)[m   [1;37mSELECT * FROM workflows WHERE workflows.ticket_id = 8 [m
+  [4;35mWorkflow Columns (0.010000)[m   [0;37mSHOW FIELDS FROM workflows[m
+Completed in 0.11000 (9 reqs/sec) | Rendering: 0.06000 (54%) | DB: 0.03000 (27%) [http://localhost/tickets/show/8]
+  [4;33mUser Columns (0.010000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Fri Nov 25 20:17:30 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"8", "controller"=>"tickets"}
+  [4;35mTicket Load (0.011000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '8' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mWorkflow Load (0.010000)[m   [0;37mSELECT * FROM workflows WHERE workflows.ticket_id = 8 [m
+  [4;33mWorkflow Columns (0.020000)[m   [1;37mSHOW FIELDS FROM workflows[m
+Completed in 0.11100 (9 reqs/sec) | Rendering: 0.08000 (72%) | DB: 0.02100 (18%) [http://localhost/tickets/show/8]
+  [4;35mUser Columns (0.010000)[m   [0;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Fri Nov 25 20:19:04 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"8", "controller"=>"tickets"}
+  [4;33mTicket Load (0.000000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '8' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+  [4;33mWorkflow Load (0.000000)[m   [1;37mSELECT * FROM workflows WHERE workflows.ticket_id = 8 [m
+  [4;35mWorkflow Columns (0.010000)[m   [0;37mSHOW FIELDS FROM workflows[m
+Completed in 0.13000 (7 reqs/sec) | Rendering: 0.08000 (61%) | DB: 0.01000 (7%) [http://localhost/tickets/show/8]
+  [4;33mUser Columns (0.010000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Fri Nov 25 20:22:18 Westeurop‰ische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"8", "controller"=>"tickets"}
+  [4;35mTicket Load (0.000000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '8' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.030000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mWorkflow Load (0.010000)[m   [0;37mSELECT * FROM workflows WHERE workflows.ticket_id = 8 [m
+  [4;33mWorkflow Columns (0.010000)[m   [1;37mSHOW FIELDS FROM workflows[m
+Completed in 0.15000 (6 reqs/sec) | Rendering: 0.10000 (66%) | DB: 0.01000 (6%) [http://localhost/tickets/show/8]
