@@ -1,0 +1,20 @@
+
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+	<td class="estra">
+	<h2>Workflows</h2>
+	<% for workflow in @ticket.workflows %>
+	<li><%= link_to truncate(workflow.workflow_text, length = 40, truncate_string = "..." ), :action => define_javascript_functions() %><br></li>
+<!--	<%= workflow.workflow_text %> -->
+	</hr>
+	<% end %>
+	</td>
+</tr>
+<tr>
+	<td>
+	<%= form_tag :action => "workflow", :id => @ticket %>
+	<%= text_area "workflow", "workflow_text" %><br>
+	<%= submit_tag "Eintragen!" %>
+	</td>
+</td>
+</table>
