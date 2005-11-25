@@ -6,19 +6,26 @@
 	<% for workflow in @ticket.workflows %>
 	<div id="menu">
 	<div class="menu_header" id="menu_header1">
-	<a href="#" onClick="new Effect.SlideDown('menu_block1'); return false;">
+	<a href="#" onClick="new Effect.SlideDown('<%= workflow.created_on %>'); return false;">
 	<%= truncate(workflow.workflow_text, length = 40, truncate_string = "..." ) %>
 	</a>
 	</div>
   	<div class="menu_block_container" id="menu_block_container1">
-   		<div class="menu_block" id="menu_block1">
-   		<div width="400">
+   		<div class="menu_block" id="<%= workflow.created_on %>">
+   		<div style="background-color:#ff8080;width:450px;border:2px solid red;padding:10px;">
+   		<p style="text-align:left;width:300">
 		<%= workflow.workflow_text %><br>
-        <a href="#" class="close_block" onClick="new Effect.SlideUp('menu_block1'); return false;">close</a></div></div>
+		</p>
+        <a href="#" class="close_block" onClick="new Effect.SlideUp('<%= workflow.created_on %>'); return false;">close</a></div></div>
   </div>
   	<% end %>
-
-
 	</td>
 </tr>
+<tr>
+	<td>
+	<%= form_tag :action => "workflow", :id => @ticket %>
+	<%= text_area "workflow", "workflow_text" %><br>
+	<%= submit_tag "Eintragen!" %>
+	</td>
+</td>
 </table>
