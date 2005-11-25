@@ -1,0 +1,41 @@
+<%= start_form_tag :action=> "signup" %>
+
+<div title="Account signup" id="signupform" class="form">
+  <h3>Signup</h3>
+  <%= error_messages_for 'user' %><br/>
+  
+  <label for="user_login">Gewünschter Loginname:</label><br/>
+  <%= text_field "user", "login", :size => 30 %><br/>
+  <label for="user_password">Passwort:</label><br/>
+  <%= password_field "user", "password", :size => 30 %><br/>
+  <label for="user_password_confirmation">Passwort wiederholen:</label><br/>
+  <%= password_field "user", "password_confirmation", :size => 30 %><br/>
+  <hr>
+  <label for="Name">Name</label><br/>
+  <%= text_field "user", "user_name", :size => 30 %><br/>
+
+  <label for="Vorname">Vorname</label><br/>
+  <%= text_field "user", "user_vorname", :size => 30 %><br/>
+
+  <label for="Strasse">Strasse</label><br/>
+  <%= text_field "user", "user_strasse", :size => 30 %><br/>
+
+  <label for="Plz">Postleitzahl</label><br/>
+  <%= text_field "user", "user_plz", :size => 30 %><br/>
+
+  <label for="Ort">Ort</label><br/>
+  <%= text_field "user", "user_ort", :size => 30 %><br/>
+
+  <label for="klasse">Klasse</label><br/>
+  <%= text_field "user", "user_klasse", :size => 30 %><br/>
+
+  <label for="rule">Rule</label><br/>
+  <%= text_field "user", "user_rule", :size => 30 %><br/>
+
+  <label for="Pic">Pic</label><br/>
+  <%= text_field "user", "user_pic", :size => 30 %><br/>
+  
+<input type="submit" value="Signup &#187;" class="primary" />
+
+<%= end_form_tag %>
+

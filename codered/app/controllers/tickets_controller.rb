@@ -1,4 +1,5 @@
 class TicketsController < ApplicationController
+before_filter :login_required
   def index
     list
     render :action => 'list'
