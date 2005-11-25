@@ -7763,3 +7763,214 @@ Rendering tickets/new (200 OK)
   [4;33mClient Columns (0.010000)[m   [1;37mSHOW FIELDS FROM clients[m
   [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
 Completed in 0.12000 (8 reqs/sec) | Rendering: 0.09000 (75%) | DB: 0.01000 (8%) [http://localhost/tickets/new]
+
+
+Processing Base#index (for 127.0.0.1 at 2005-11-23 22:11:34) [GET]
+  Parameters: {}
+
+
+MissingSourceFile (no such file to load -- ./codered/script/../config/../config/routes.rb):
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.3/lib/active_support/dependencies.rb:207:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.3/lib/active_support/dependencies.rb:207:in `load'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.0/lib/action_controller/routing.rb:555:in `reload'
+    /usr/lib/ruby/gems/1.8/gems/rails-0.14.3/lib/dispatcher.rb:69:in `prepare_application'
+    /usr/lib/ruby/gems/1.8/gems/rails-0.14.3/lib/dispatcher.rb:37:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-0.14.3/lib/webrick_server.rb:117:in `handle_dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-0.14.3/lib/webrick_server.rb:83:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rails-0.14.3/lib/webrick_server.rb:69:in `dispatch'
+    codered/script/server:49
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.0/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing Base#index (for 127.0.0.1 at 2005-11-23 22:11:37) [GET]
+  Parameters: {}
+
+
+MissingSourceFile (no such file to load -- ./codered/script/../config/../config/routes.rb):
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.3/lib/active_support/dependencies.rb:207:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.3/lib/active_support/dependencies.rb:207:in `load'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.0/lib/action_controller/routing.rb:555:in `reload'
+    /usr/lib/ruby/gems/1.8/gems/rails-0.14.3/lib/dispatcher.rb:69:in `prepare_application'
+    /usr/lib/ruby/gems/1.8/gems/rails-0.14.3/lib/dispatcher.rb:37:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-0.14.3/lib/webrick_server.rb:117:in `handle_dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-0.14.3/lib/webrick_server.rb:83:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rails-0.14.3/lib/webrick_server.rb:69:in `dispatch'
+    codered/script/server:49
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.0/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing Base#index (for 127.0.0.1 at 2005-11-23 22:11:40) [GET]
+  Parameters: {}
+
+
+MissingSourceFile (no such file to load -- ./codered/script/../config/../config/routes.rb):
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.3/lib/active_support/dependencies.rb:207:in `load'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.3/lib/active_support/dependencies.rb:207:in `load'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.0/lib/action_controller/routing.rb:555:in `reload'
+    /usr/lib/ruby/gems/1.8/gems/rails-0.14.3/lib/dispatcher.rb:69:in `prepare_application'
+    /usr/lib/ruby/gems/1.8/gems/rails-0.14.3/lib/dispatcher.rb:37:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-0.14.3/lib/webrick_server.rb:117:in `handle_dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-0.14.3/lib/webrick_server.rb:83:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rails-0.14.3/lib/webrick_server.rb:69:in `dispatch'
+    codered/script/server:49
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.0/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2005-11-23 22:12:06) [GET]
+  Parameters: {"action"=>"index", "controller"=>"tickets"}
+
+
+Mysql::Error (Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (111)):
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.13.0/lib/active_record/connection_adapters/mysql_adapter.rb:42:in `real_connect'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.13.0/lib/active_record/connection_adapters/mysql_adapter.rb:42:in `mysql_connection'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.13.0/lib/active_record/connection_adapters/abstract/connection_specification.rb:121:in `connection_without_query_cache='
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.13.0/lib/active_record/query_cache.rb:54:in `connection='
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.13.0/lib/active_record/connection_adapters/abstract/connection_specification.rb:83:in `retrieve_connection'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.13.0/lib/active_record/base.rb:253:in `connection'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.13.0/lib/active_record/base.rb:534:in `count_by_sql'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.13.0/lib/active_record/base.rb:527:in `count'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.0/lib/action_controller/pagination.rb:167:in `count_collection_for_pagination'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.0/lib/action_controller/pagination.rb:188:in `paginator_and_collection_for'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.0/lib/action_controller/pagination.rb:124:in `paginate'
+    /app/controllers/tickets_controller.rb:8:in `list'
+    /app/controllers/tickets_controller.rb:3:in `index'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.0/lib/action_controller/base.rb:841:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.0/lib/action_controller/filters.rb:332:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.0/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/lib/ruby/1.8/benchmark.rb:293:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.0/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.0/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.0/lib/action_controller/base.rb:365:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.0/lib/action_controller/session_management.rb:116:in `process'
+    /usr/lib/ruby/gems/1.8/gems/rails-0.14.3/lib/dispatcher.rb:38:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-0.14.3/lib/webrick_server.rb:117:in `handle_dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-0.14.3/lib/webrick_server.rb:83:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rails-0.14.3/lib/webrick_server.rb:69:in `dispatch'
+    script/server:49
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.0/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2005-11-23 22:12:34) [GET]
+  Parameters: {"action"=>"index", "controller"=>"tickets"}
+  [4;36;1mTicket Count (0.131152)[0m   [0;1mSELECT COUNT(*) FROM tickets [0m
+  [4;35;1mTicket Load (0.000992)[0m   [0mSELECT * FROM tickets LIMIT 0, 10[0m
+Rendering layoutfalseactionlist within layouts/tickets
+Rendering tickets/list
+Rendered tickets/_navi (0.00784)
+  [4;36;1mTicket Columns (0.004782)[0m   [0;1mSHOW FIELDS FROM tickets[0m
+Completed in 0.36065 (2 reqs/sec) | Rendering: 0.10726 (29%) | DB: 0.13693 (37%) | 200 OK [http://localhost/tickets/]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2005-11-23 22:12:44) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"tickets"}
+  [4;35;1mTicket Load (0.365696)[0m   [0mSELECT * FROM tickets WHERE (tickets.id = '1') LIMIT 1[0m
+Rendering  within layouts/tickets
+Rendering tickets/show
+Rendered tickets/_navi (0.00225)
+  [4;36;1mTicket Columns (0.004371)[0m   [0;1mSHOW FIELDS FROM tickets[0m
+  [4;35;1mWorkflow Load (0.027412)[0m   [0mSELECT * FROM workflows WHERE (workflows.ticket_id = 1) [0m
+  [4;36;1mWorkflow Columns (0.003291)[0m   [0;1mSHOW FIELDS FROM workflows[0m
+Completed in 0.43485 (2 reqs/sec) | Rendering: 0.02022 (4%) | DB: 0.40077 (92%) | 200 OK [http://localhost/tickets/show/1]
+
+
+Processing ClientController#index (for 127.0.0.1 at 2005-11-23 22:12:57) [GET]
+  Parameters: {"action"=>"index", "controller"=>"client"}
+  [4;35;1mClient Count (0.398016)[0m   [0mSELECT COUNT(*) FROM clients [0m
+  [4;36;1mClient Load (0.000648)[0m   [0;1mSELECT * FROM clients LIMIT 0, 10[0m
+  [4;35;1mClient Columns (0.004318)[0m   [0mSHOW FIELDS FROM clients[0m
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.0/lib/action_controller/templates/scaffolds/layout.rhtml
+Completed in 0.45143 (2 reqs/sec) | DB: 0.40298 (89%) | 200 OK [http://localhost/client/]
+
+
+Processing UserController#index (for 127.0.0.1 at 2005-11-23 22:13:00) [GET]
+  Parameters: {"action"=>"index", "controller"=>"user"}
+  [4;36;1mUser Count (0.006303)[0m   [0;1mSELECT COUNT(*) FROM users [0m
+  [4;35;1mUser Load (0.001921)[0m   [0mSELECT * FROM users LIMIT 0, 10[0m
+  [4;36;1mUser Columns (0.011620)[0m   [0;1mSHOW FIELDS FROM users[0m
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.0/lib/action_controller/templates/scaffolds/layout.rhtml
+Completed in 0.04217 (23 reqs/sec) | DB: 0.01984 (47%) | 200 OK [http://localhost/user/]
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2005-11-23 22:13:04) [GET]
+  Parameters: {"action"=>"index", "controller"=>"tickets"}
+  [4;35;1mTicket Count (0.004726)[0m   [0mSELECT COUNT(*) FROM tickets [0m
+  [4;36;1mTicket Load (0.001986)[0m   [0;1mSELECT * FROM tickets LIMIT 0, 10[0m
+Rendering layoutfalseactionlist within layouts/tickets
+Rendering tickets/list
+Rendered tickets/_navi (0.00240)
+  [4;35;1mTicket Columns (0.005399)[0m   [0mSHOW FIELDS FROM tickets[0m
+Completed in 0.10625 (9 reqs/sec) | Rendering: 0.07978 (75%) | DB: 0.01211 (11%) | 200 OK [http://localhost/tickets/]
+
+
+Processing TicketsController#index (for 127.0.0.1 at 2005-11-23 22:13:08) [GET]
+  Parameters: {"action"=>"index", "controller"=>"tickets", "page"=>"2"}
+  [4;36;1mTicket Count (0.003102)[0m   [0;1mSELECT COUNT(*) FROM tickets [0m
+  [4;35;1mTicket Load (0.004087)[0m   [0mSELECT * FROM tickets LIMIT 10, 10[0m
+Rendering layoutfalseactionlist within layouts/tickets
+Rendering tickets/list
+Rendered tickets/_navi (0.00226)
+  [4;36;1mTicket Columns (0.009636)[0m   [0;1mSHOW FIELDS FROM tickets[0m
+Completed in 0.07530 (13 reqs/sec) | Rendering: 0.03749 (49%) | DB: 0.01682 (22%) | 200 OK [http://localhost/tickets?page=2]
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2005-11-23 22:14:00) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"tickets"}
+  [4;35;1mTicket Load (0.001514)[0m   [0mSELECT * FROM tickets WHERE (tickets.id = '1') LIMIT 1[0m
+Rendering  within layouts/tickets
+Rendering tickets/show
+Rendered tickets/_navi (0.00222)
+  [4;36;1mTicket Columns (0.009867)[0m   [0;1mSHOW FIELDS FROM tickets[0m
+  [4;35;1mWorkflow Load (0.001618)[0m   [0mSELECT * FROM workflows WHERE (workflows.ticket_id = 1) [0m
+  [4;36;1mWorkflow Columns (0.008169)[0m   [0;1mSHOW FIELDS FROM workflows[0m
+Completed in 0.05971 (16 reqs/sec) | Rendering: 0.02626 (43%) | DB: 0.02117 (35%) | 200 OK [http://localhost/tickets/show/1]
+
+
+Processing TicketsController#list (for 127.0.0.1 at 2005-11-23 22:16:34) [GET]
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;35;1mTicket Count (0.002913)[0m   [0mSELECT COUNT(*) FROM tickets [0m
+  [4;36;1mTicket Load (0.003096)[0m   [0;1mSELECT * FROM tickets LIMIT 0, 10[0m
+Rendering  within layouts/tickets
+Rendering tickets/list
+Rendered tickets/_navi (0.00341)
+  [4;35;1mTicket Columns (0.009663)[0m   [0mSHOW FIELDS FROM tickets[0m
+Completed in 0.26828 (3 reqs/sec) | Rendering: 0.23880 (89%) | DB: 0.01567 (5%) | 200 OK [http://localhost/tickets/list]

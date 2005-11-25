@@ -9,7 +9,7 @@
 %>
 <tr valign="top" class="ListLinie<%= endweder_oder %>">
 <td height="40" valign="middle">
-    <%= link_to truncate(ticket.ticket_bezeichnung, length = 30, truncate_string = "..." ), :action => 'show', :id =>ticket  %><br></td>
+	<%= link_to truncate(ticket.ticket_bezeichnung, length = 30, truncate_string = "..." ), :action => 'show', :id =>ticket  %><br></td>
     <td width="60" height="40"><%= link_to image_tag("/images/editpaste.png", :size => "32x32", :border => 0),{:action => 'edit', :id => ticket} %></td>
     <td width="60" height="40"><%= link_to image_tag("/images/remove.png", :size => "32x32", :border => 0), {:action => 'destroy', :id => ticket}, :confirm => 'Are you sure?' %></td>
 </tr>

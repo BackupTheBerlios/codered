@@ -8,6 +8,12 @@
 select(:user, :name, @clienten)
 
 %>
+<p><label for="ticket_user_id">User</label><br/>
+<%=
+@alluser = User.find(:all, :order => "user_name").map {|u| [u.user_name, u.id] }
+select(:user, :name, @alluser)
+%>
+
 
 <p><label for="ticket_ticket_bezeichnung">Ticket bezeichnung</label><br/>
 <%= text_field 'ticket', 'ticket_bezeichnung'  %></p>

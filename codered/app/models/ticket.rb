@@ -5,4 +5,5 @@ class Ticket < ActiveRecord::Base
 	validates_uniqueness_of :ticket_bezeichnung
 	has_many :workflows
 	belongs_to :clients
+	belongs_to :users
 end
