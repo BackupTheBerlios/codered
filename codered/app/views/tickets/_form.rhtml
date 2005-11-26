@@ -3,17 +3,12 @@
 <!--[form:ticket]-->
 <p><label for="ticket_client_id">Clients</label><br/>
 <%=
-
 @clienten = Client.find(:all, :order => "client_name").map {|u| [u.client_name, u.id] }
-select(:user, :name, @clienten)
-
-%>
-<p><label for="ticket_user_id">User</label><br/>
-<%=
-@alluser = User.find(:all, :order => "user_name").map {|u| [u.user_name, u.id] }
-select(:user, :name, @alluser)
+select(:ticket, :client_id, @clienten)
 %>
 
+<p><label for="ticket_betreuer_id">User: </label><%= {@session[:user].user_vorname , @session[:user].user_name} %>
+<%= hidden_field("ticket","betreuer_id", 'value' => session[:user].id )%>
 
 <p><label for="ticket_ticket_bezeichnung">Ticket bezeichnung</label><br/>
 <%= text_field 'ticket', 'ticket_bezeichnung'  %></p>

@@ -21,6 +21,7 @@
 <tr>
 	<td>
 	<%= form_tag :action => "workflow", :id => @ticket %>
+	<%= hidden_field("workflow","user_id", 'value' => session[:user].id )%>
 	<%= text_area "workflow", "workflow_text" %><br>
 	<%= submit_tag "Eintragen!" %>
 	</td>
