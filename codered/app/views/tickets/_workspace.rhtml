@@ -5,16 +5,15 @@
 <div id="menu"> <!--Wrapperklasse fuer IE6.0 -->
 	<div class="workflow_header" id="workflow<%= workspace.id %>_header">
 		<a href="#" onClick="new Effect.SlideDown('workflow<%= workspace.id %>'); return false;">
-			<%= truncate(workspace.workflow_text, length = 40, truncate_string = "..." ) %></a>
-		
+		<%= truncate(workspace.workflow_text, length = 40, truncate_string = "..." ) %></a>
 	</div>
 
 	<div class="workflow_container" id="workflow<%= workspace.id %> ">
 		<div class="workflow" width="400" id="workflow<%= workspace.id %>">
 			<div width="400">
 				<%= workspace.workflow_text %><br>
-				<a href="#" class="close_block" onClick="new Effect.SlideUp('workflow<%= workspace.id  %>'); return false;">close</a>			
+				<a href="#" class="close_block" onClick="new Effect.SlideUp('workflow<%= workspace.id  %>'); return false;">close</a>
+
 		</div>
 	</div>
 </div>
-Eingetragen von: <%= link_to (User.find(workspace.user_id).user_name), :action => 'show', :id =>workspace.user_id , :controller =>"user" %>

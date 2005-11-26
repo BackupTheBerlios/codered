@@ -30,6 +30,7 @@ td.estra {
 	font-size: x-small;
 	font-weight: bolder;
 	color: Black;
+	padding-left: 12;
 }
 td.gray {
 	background-color: #555555;

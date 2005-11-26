@@ -19,11 +19,25 @@
 		</tr>
 	<% end %>
 <tr>
-	<td>
+	<td height="12" class="estra"></td>
+</tr>
+<tr>
+	<td class="estra">
+	
+	
+
+
+<a href="#" onclick="effect_1 = Effect.SlideDown('d1',{duration:1.0}); return false;">Start slide down</a> | 
+<a href="#" onclick="effect_1 = Effect.SlideUp('d1',{duration:1.0}); return false;">Start slide up</a> | 
+
+<div id="d1" style="display:none"><div style="width:450px;padding:10px;">
+<p>
 	<%= form_tag :action => "workflow", :id => @ticket %>
 	<%= hidden_field("workflow","user_id", 'value' => session[:user].id )%>
 	<%= text_area "workflow", "workflow_text" %><br>
 	<%= submit_tag "Eintragen!" %>
+</p>
+</div></div>
 	</td>
 </td>
 </tr>
