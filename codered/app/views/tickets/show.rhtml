@@ -8,6 +8,24 @@
 <%= link_to 'Edit', :action => 'edit', :id => @ticket %> |
 <%= link_to 'Back', :action => 'list' %>
 
-<%= render_partial 'workspace' %>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+	<td><h2>Workflows</h2></td>
+	<% for workflow in @ticket.workflows %>
+		<tr>
+		<td class="estra" >
+			<%= render_partial ('workspace', workflow) %>
+		</td>
+		</tr>
+	<% end %>
+<tr>
+	<td>
+	<%= form_tag :action => "workflow", :id => @ticket %>
+	<%= text_area "workflow", "workflow_text" %><br>
+	<%= submit_tag "Eintragen!" %>
+	</td>
+</td>
+</tr>
+</table>
 
 </form>

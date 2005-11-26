@@ -1,3 +1,3 @@
 class Workflow < ActiveRecord::Base
-belongs_to :ticket
+has_one :ticket
 end

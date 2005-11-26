@@ -119,3 +119,16 @@ div.progressBar div.background {
   height: 18px;
   width: 0%;
 }
+
+/* Warum auch immer, ich bau es ein ;)
+ * die vorlage im css war eindeutig
+ */
+
+div.workflow_container {
+   background-color:#ff8080;
+   width:450px;
+   border:2px solid red;
+   padding:10px;
+   text-align:left;
+   width:300
+}

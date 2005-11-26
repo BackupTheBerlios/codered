@@ -1,31 +1,19 @@
+<% # Dieses Template wird mit einem Objekt Workflow übergeben und stellt dieses dann da (Verwendung in show.rhtml)
+   # Das ganze natürlich dynamisch mit der ID des Objektes
+   # Das Objekt Workflow ist in der variable Workspace gespeichert  render_partial ('variable', objekt) %>
 
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-<tr>
-	<td class="estra">
-	<h2>Workflows</h2>
-	<% for workflow in @ticket.workflows %>
-	<div id="menu">
-	<div class="menu_header" id="menu_header1">
-	<a href="#" onClick="new Effect.SlideDown('<%= workflow.created_on %>'); return false;">
-	<%= truncate(workflow.workflow_text, length = 40, truncate_string = "..." ) %>
-	</a>
+<div id="menu"> <!--Wrapperklasse fuer IE6.0 -->
+	<div class="workflow_header" id="workflow<%= workspace.id %>_header">
+		<a href="#" onClick="new Effect.SlideDown('workflow<%= workspace.id %>'); return false;">
+		<%= truncate(workspace.workflow_text, length = 40, truncate_string = "..." ) %></a>
 	</div>
-  	<div class="menu_block_container" id="menu_block_container1">
-   		<div class="menu_block" id="<%= workflow.created_on %>">
-   		<div style="background-color:#ff8080;width:450px;border:2px solid red;padding:10px;">
-   		<p style="text-align:left;width:300">
-		<%= workflow.workflow_text %><br>
-		</p>
-        <a href="#" class="close_block" onClick="new Effect.SlideUp('<%= workflow.created_on %>'); return false;">close</a></div></div>
-  </div>
-  	<% end %>
-	</td>
-</tr>
-<tr>
-	<td>
-	<%= form_tag :action => "workflow", :id => @ticket %>
-	<%= text_area "workflow", "workflow_text" %><br>
-	<%= submit_tag "Eintragen!" %>
-	</td>
-</td>
-</table>
+
+	<div class="workflow_container" id="workflow<%= workspace.id %> ">
+		<div class="workflow" width="400" id="workflow<%= workspace.id %>">
+			<div width="400">
+				<%= workspace.workflow_text %><br>
+				<a href="#" class="close_block" onClick="new Effect.SlideUp('workflow<%= workspace.id  %>'); return false;">close</a>
+				
+		</div>
+	</div>
+</div>
