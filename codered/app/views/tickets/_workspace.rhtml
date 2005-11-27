@@ -4,11 +4,11 @@
 
 <div id="menu"> <!--Wrapperklasse fuer IE6.0 -->
 	<div class="workflow_header" id="workflow<%= workspace.id %>_header">
-		<a href="#" onClick="new Effect.SlideDown('workflow<%= workspace.id %>'); return false;">
+		<a href="#" onClick="new Effect.SlideDown('workflow<%= workspace.id %>'); document.getElementsByTagName('workflow<%= workspace.id %>').style.display = 'block'; return false;">
 		<%= truncate(workspace.workflow_text, length = 40, truncate_string = "..." ) %></a>
 	</div>
 
-	<div class="workflow_container" id="workflow<%= workspace.id %> ">
+	<div class="workflow_container" id="workflow_container<%= workspace.id %> ">
 		<div class="workflow"  style="display:none" width="400" id="workflow<%= workspace.id %>">
 			<div width="400">
 				<%= workspace.workflow_text %><br>
