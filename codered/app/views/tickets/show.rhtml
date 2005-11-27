@@ -28,17 +28,23 @@
 			<td class="darkgrey"><%= @ticket.ticket_beschreibung %></td>
 		</tr>
 		<tr>
-			<td class="black">Betreuer:</td>
+			<td class="black">Zuständiger Betreuer:</td>
 		</tr>
 		<tr>
-			<td class="darkgrey"><%= @ticket.betreuer_id %></td>
+			<% 
+			@betreuer = User.find(@ticket.betreuer_id) #Speichert das Object "Zuständiger Betreuer" zur weitern verwendung
+			@betreuer_name = @betreuer.user_vorname + @betreuer.user_name # der vor und zuname des zuständigen Betreuers
+			%>
+			<td class="darkgrey"><%= link_to (@betreuer_name), :action => 'show', :id =>@ticket.betreuer_id , :controller =>"user" %></td>
 		</tr>
 		<tr>
 			<td class="black">Statusinformationen:</td>
 		</tr>
 		<tr>
 			<td>
-			<!-- Ticket Status Infos -->
+				<!-- Ticket Status Infos 
+				TODO: Wandlung der Zahlen in Menschen-lesbare Infos
+				-->
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 			<tr>
 				<td class="darkgrey">
@@ -86,7 +92,7 @@
 	&nbsp;
 	<%= link_to image_tag("/images/editpaste.png", :size => "32x32", :border => 0),{:action => 'edit', :id => @ticket} %>
 	&nbsp;&nbsp;
-	<a href="#" onclick="Effect.Appear('hide1'); return false;"><img src="/images/status.png" size="32x32" border="0" title="Erstell und Update Informationen"></a>
+	<a href="#" onclick="Effect.Appear('hide1'); return false;"><img src="/images/status.png" size="32x32" border="0" title="Erstellt und Update Informationen"></a>
 	</td>
 </td>
 <tr>
