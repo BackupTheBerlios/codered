@@ -1,46 +1,101 @@
 <%= render_partial 'navi' %>
-<% for column in Ticket.content_columns %>
-<p>
-  <b><%= column.human_name %>:</b> <%=h @ticket.send(column.name) %>
-</p>
-<% end %>
-
-<%= link_to 'Edit', :action => 'edit', :id => @ticket %> |
-<%= link_to 'Back', :action => 'list' %>
-
+<!-- Ticket Show -->
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 <tr>
-	<td><h2>Workflows</h2></td>
-	<% for workflow in @ticket.workflows %>
-		<tr>
-		<td class="estra" >
-			<%= render_partial ('workspace', workflow) %>
+	<td height="7"></td>
+</td>
+<tr>
+	<td height="15"><img src="/images/table_topblue.png" border="0"></td>
+</td>
+<tr>
+	<td class="entry">
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td width="10"></td>
+		<td>
+		<%= @ticket.ticket_bezeichnung %>
+		<% for column in Ticket.content_columns %>
+		<p>
+  			<b><%= column.human_name %>:</b> <%=h @ticket.send(column.name) %>
+		</p>
+		<% end %>
+		
 		</td>
-		</tr>
+	</td>
+	</table>	
+	</td>
+</td>
+<tr>
+	<td height="4" class="entry"></td>
+</td>
+<tr>
+	<td class="entry">
+	&nbsp;&nbsp;
+	<%= link_to image_tag("/images/page_back.png", :size => "32x32", :border => 0),{:action => 'list'} %>
+	&nbsp;
+	<%= link_to image_tag("/images/editpaste.png", :size => "32x32", :border => 0),{:action => 'edit', :id => @ticket} %>
+	</td>
+</td>
+<tr>
+	<td height="15"><img src="/images/table_downblue.png" border="0"></td>
+</td>
+<tr>
+	<td height="7"></td>
+</td>
+</table>
+<!-- Ticket Show ende -->
+<!-- Workflow Tabelle -->
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+	<td height="7"></td>
+</td>
+<tr>
+	<td height="15"><img src="/images/table_top.png" border="0"></td>
+</td>
+<tr>
+	<td class="estra">
+	<h2>Workflows</h2>
+	</td>
+	<% for workflow in @ticket.workflows %>
+	<tr>
+		<td class="estra" >
+		<%= render_partial ('workspace', workflow) %>
+	</td>
+</tr>
 	<% end %>
 <tr>
 	<td height="12" class="estra"></td>
 </tr>
+<!-- Java Workflow eintragen -->
 <tr>
 	<td class="estra">
-	
-	
-
-
-<a href="#" onclick="effect_1 = Effect.SlideDown('d1',{duration:1.0}); return false;">Start slide down</a> | 
-<a href="#" onclick="effect_1 = Effect.SlideUp('d1',{duration:1.0}); return false;">Start slide up</a> | 
-
-<div id="d1" style="display:none"><div style="width:450px;padding:10px;">
-<p>
-	<%= form_tag :action => "workflow", :id => @ticket %>
-	<%= hidden_field("workflow","user_id", 'value' => session[:user].id )%>
-	<%= text_area "workflow", "workflow_text" %><br>
-	<%= submit_tag "Eintragen!" %>
-</p>
-</div></div>
+		<a href="#" onclick="effect_1 = Effect.SlideDown('d1',{duration:1.0}); return false;">Neuer Workflow</a> |
+		<a href="#" onclick="effect_1 = Effect.SlideUp('d1',{duration:1.0}); return false;">Verstecken</a> |
+		<div id="d1" style="display:none">
+			<div style="width:450px;padding:10px;">
+			<p>
+				<%= form_tag :action => "workflow", :id => @ticket %>
+				<%= hidden_field("workflow","user_id", 'value' => session[:user].id )%>
+				<%= text_area "workflow", "workflow_text" %><br>
+				<%= submit_tag "Eintragen!" %>
+			</p>
+			</div>
+		</div>
 	</td>
 </td>
 </tr>
+<!-- Java Workflow eintragen Ende -->
+<tr>
+	<td class="estra">
+	<%= link_to image_tag("/images/page_back.png", :size => "32x32", :border => 0),{:action => 'list'} %>
+	</td>
+</td>
+<tr>
+	<td height="15"><img src="/images/table_down.png" border="0"></td>
+</td>
+<tr>
+	<td height="7"></td>
+</td>
 </table>
 
 </form>

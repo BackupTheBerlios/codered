@@ -18,7 +18,7 @@ td.statusbar {
 	font-weight: bold;
 }
 td.entry {
-	background-color: #8AAEEE;
+	background-color: #B7CEF6;
 	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 	font-size: x-small;
 	font-weight: bolder;
@@ -34,6 +34,12 @@ td.estra {
 }
 td.gray {
 	background-color: #555555;
+}
+td.darkgrey {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: x-small;
+	font-weight: bolder;
+	color: #616161;
 }
 
 .ListLinie0{

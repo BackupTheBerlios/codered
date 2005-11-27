@@ -9,13 +9,16 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 <tr>
 	<td height="10" class="grey"></td>
-</tr> 
+</tr>
 </table>
 <table border="0" cellspacing="0" cellpadding="0">
 <tr class="silvertext">
-	<td height="34" width="80" align="center"><%= link_to image_tag("/images/exit.png", :size => "32x32", :border => 0), { :controller => "account",:action => "logout"},
+	<td height="34" width="80" align="center">
+	<%= link_to image_tag("/images/exit.png", :size => "32x32", :border => 0), { :controller => "account",:action => "logout"},
 																{:confirm => "Sind sie sicher?"} %></td>
-	<td height="34" width="80" align="center"><%= link_to image_tag("/images/profil.png", :size => "32x32", :border => 0), { :action => 'NIL'} %></td>
+	<td height="34" width="80" align="center">
+	<%= link_to image_tag("/images/profil.png", :size => "32x32", :border => 0), { :controller => "user",:action => 'show'} %>
+	</td>
     <td height="34" width="80" align="center"><%= link_to image_tag("/images/new.png", :size => "32x32", :border => 0), { :action => 'new'} %></td>
     <td height="34" width="80"></td>
 </tr>
