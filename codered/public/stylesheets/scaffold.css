@@ -133,11 +133,12 @@ div.progressBar div.background {
   width: 0%;
 }
 
-/* Warum auch immer, ich bau es ein ;)
- * die vorlage im css war eindeutig
+/* 
+ * TODO: Abklären ob das rot wirklich nötig ist
+ *       und ob nicht evtl die width etwas zu klein ist
  */
 
-div.workflow_container {
+div.workflow {
    background-color:#ff8080;
    width:450px;
    border:2px solid red;
