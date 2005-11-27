@@ -41,6 +41,12 @@ td.darkgrey {
 	font-weight: bolder;
 	color: #616161;
 }
+td.black {
+	color: Black;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: small;
+	font-weight: bolder;
+}
 
 .ListLinie0{
 	background-color: #E4F2F5;

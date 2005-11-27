@@ -9,17 +9,68 @@
 </td>
 <tr>
 	<td class="entry">
+	<!-- Inhalt Ticket -->
 	<table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
 		<td width="10"></td>
 		<td>
-		<%= @ticket.ticket_bezeichnung %>
-		<% for column in Ticket.content_columns %>
-		<p>
-  			<b><%= column.human_name %>:</b> <%=h @ticket.send(column.name) %>
-		</p>
-		<% end %>
-		
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td class="black">Ticketbezeichnung:</td>
+		</tr>
+		<tr>
+			<td class="darkgrey"><%= @ticket.ticket_bezeichnung %></td>
+		</tr>
+		<tr>
+			<td class="black">Ticketbeschreibung:</td>
+		</tr>
+		<tr>
+			<td class="darkgrey"><%= @ticket.ticket_beschreibung %></td>
+		</tr>
+		<tr>
+			<td class="black">Betreuer:</td>
+		</tr>
+		<tr>
+			<td class="darkgrey"><%= @ticket.betreuer_id %></td>
+		</tr>
+		<tr>
+			<td class="black">Statusinformationen:</td>
+		</tr>
+		<tr>
+			<td>
+			<!-- Ticket Status Infos -->
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td class="darkgrey">
+				<%= @ticket.ticket_wichtigkeit %>
+				</td>
+				<td class="darkgrey">
+				<%= @ticket.ticket_status %>
+				</td>
+				<td class="darkgrey">
+				<%= @ticket.client_id %>
+				</td>
+			</tr>
+			</table>
+			<!-- Ende Ticket Status infos -->
+			</td>
+		</tr>
+   		<tr>
+			<td height="7"></td>
+		</tr>
+		<tr>
+			<td>
+			<div id="hide1" style="display:none">
+				<li><b>Erstellt:</b><%= @ticket.created_on %></li>
+				<li><b>Last Update:</b><%= @ticket.updated_on %></li>
+				<br>
+				<a href="#" onclick="Effect.Fade('hide1'); return false;">Close</a>
+				<br>
+			</div>
+			</td>
+		</tr>
+		</table>
+		<!-- inhalt Ticked Ende -->
 		</td>
 	</td>
 	</table>	
@@ -34,6 +85,8 @@
 	<%= link_to image_tag("/images/page_back.png", :size => "32x32", :border => 0),{:action => 'list'} %>
 	&nbsp;
 	<%= link_to image_tag("/images/editpaste.png", :size => "32x32", :border => 0),{:action => 'edit', :id => @ticket} %>
+	&nbsp;&nbsp;
+	<a href="#" onclick="Effect.Appear('hide1'); return false;"><img src="/images/status.png" size="32x32" border="0" title="Erstell und Update Informationen"></a>
 	</td>
 </td>
 <tr>
@@ -69,15 +122,15 @@
 <!-- Java Workflow eintragen -->
 <tr>
 	<td class="estra">
-		<a href="#" onclick="effect_1 = Effect.SlideDown('d1',{duration:1.0}); document.getElementsByTagName('d1').style.display = 'block';  return false;">Neuer Workflow</a> |
-		<a href="#" onclick="effect_1 = Effect.SlideUp('d1',{duration:1.0}); return false;">Verstecken</a> |
-		<div id="d1" style="display:none">
+				<div id="d1" style="display:none">
 			<div style="width:450px;padding:10px;">
 			<p>
 				<%= form_tag :action => "workflow", :id => @ticket %>
 				<%= hidden_field("workflow","user_id", 'value' => session[:user].id )%>
+				<li>Neuer Workflow</li><br>
 				<%= text_area "workflow", "workflow_text" %><br>
 				<%= submit_tag "Eintragen!" %>
+				<a href="#" onclick="effect_1 = Effect.SlideUp('d1',{duration:1.0}); return false;">Verstecken</a>
 			</p>
 			</div>
 		</div>
@@ -88,6 +141,8 @@
 <tr>
 	<td class="estra">
 	<%= link_to image_tag("/images/page_back.png", :size => "32x32", :border => 0),{:action => 'list'} %>
+	&nbsp;&nbsp;
+	<a href="#" onclick="effect_1 = Effect.SlideDown('d1',{duration:1.0}); return false;"><img src="/images/workflow.png" size="32x32" border="0" title="Neuer Workflow"></a>
 	</td>
 </td>
 <tr>

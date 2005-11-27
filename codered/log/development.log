@@ -14986,3 +14986,597 @@ Rendering tickets/show (200 OK)
   [4;33mWorkflow Load (0.010000)[m   [1;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
   [4;35mWorkflow Columns (0.011000)[m   [0;37mSHOW FIELDS FROM workflows[m
 Completed in 0.30100 (3 reqs/sec) | Rendering: 0.27100 (90%) | DB: 0.06000 (19%) [http://localhost/tickets/show/13]
+  [4;33mUser Columns (0.100000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 17:21:56 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;35mTicket Load (0.050000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+
+
+ActionView::TemplateError (undefined method `human_name' for "Dies ist ein Test":String) on line #18 of /tickets/show.rhtml:
+15: 		<td>
+16: 		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+17: 		<td>
+18: 		<%= @ticket.ticket_bezeichnung.human_name %>
+19: 		<% for column in Ticket.content_columns %>
+20: 		<p>
+21:   			<b><%= column.human_name %>:</b> <%=h @ticket.send(column.name) %>
+
+    (erb):18:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:272:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:283:in `rhtml_render'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `send'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `render_template'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:173:in `render_file'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:588:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:591:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:604:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:627:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:210:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:757:in `perform_action_without_filters'
+    /gems/actionpack-1.9.1/lib/action_controller/filters.rb:295:in `perform_action_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    /gems/actionpack-1.9.1/lib/action_controller/rescue.rb:80:in `perform_action'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `send'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `process'
+    /gems/rails-0.13.1/lib/dispatcher.rb:32:in `dispatch'
+    /gems/rails-0.13.1/lib/webrick_server.rb:105:in `handle_dispatch'
+    /gems/rails-0.13.1/lib/webrick_server.rb:71:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:155:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:94:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    /gems/rails-0.13.1/lib/webrick_server.rb:57:in `dispatch'
+    script/server:49
+
+
+Rendering c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+  [4;35mUser Columns (0.010000)[m   [0;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 17:28:06 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;33mTicket Load (0.010000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+  [4;33mWorkflow Load (0.060000)[m   [1;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;35mWorkflow Columns (0.010000)[m   [0;37mSHOW FIELDS FROM workflows[m
+Completed in 0.20000 (4 reqs/sec) | Rendering: 0.14000 (70%) | DB: 0.02000 (9%) [http://localhost/tickets/show/13]
+  [4;33mUser Columns (0.020000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 17:33:59 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;35mTicket Load (0.000000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mWorkflow Load (0.010000)[m   [0;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;33mWorkflow Columns (0.010000)[m   [1;37mSHOW FIELDS FROM workflows[m
+Completed in 0.18000 (5 reqs/sec) | Rendering: 0.12000 (66%) | DB: 0.02000 (11%) [http://localhost/tickets/show/13]
+
+
+Processing TicketsController#list (for 127.0.0.1 at Sun Nov 27 17:35:37 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+Redirected to http://localhost:3000/account/login
+Completed in 0.00010 (10000 reqs/sec) | DB: 0.00000 (0%) [http://localhost/tickets/list]
+
+
+Processing AccountController#login (for 127.0.0.1 at Sun Nov 27 17:35:38 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"login", "controller"=>"account"}
+Rendering  within layouts/scaffold
+Rendering account/login (200 OK)
+Completed in 0.04000 (25 reqs/sec) | Rendering: 0.04000 (100%) | DB: 0.00000 (0%) [http://localhost/account/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at Sun Nov 27 17:35:48 Westeuropäische Normalzeit 2005)
+  Parameters: {"user_login"=>"neuser_ja", "action"=>"login", "controller"=>"account", "user_password"=>"hmbiwnrs", "login"=>"Login \273"}
+  [4;35mUser Load (0.050000)[m   [0;37mSELECT * FROM users WHERE login = 'neuser_ja' AND password = 'f7c63cddeb976faeaa43d8a9160669cc73dfff2c' LIMIT 1[m
+Rendering  within layouts/scaffold
+Rendering account/login (200 OK)
+Completed in 0.10000 (10 reqs/sec) | Rendering: 0.01000 (10%) | DB: 0.05000 (50%) [http://localhost/account/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at Sun Nov 27 17:36:00 Westeuropäische Normalzeit 2005)
+  Parameters: {"user_login"=>"neuser_ja", "action"=>"login", "controller"=>"account", "user_password"=>"enola", "login"=>"Login \273"}
+  [4;33mUser Load (0.010000)[m   [1;37mSELECT * FROM users WHERE login = 'neuser_ja' AND password = '9e0383dcf0cc97197a7c83993808ebb4ae3508dd' LIMIT 1[m
+Redirected to http://localhost:3000/tickets/list
+  [4;35mUser Columns (0.010000)[m   [0;37mSHOW FIELDS FROM users[m
+Completed in 0.02000 (50 reqs/sec) | DB: 0.02000 (100%) [http://localhost/account/login]
+  [4;33mUser Columns (0.010000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#list (for 127.0.0.1 at Sun Nov 27 17:36:00 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;35mTicket Count (0.020000)[m   [0;37mSELECT COUNT(*) FROM tickets [m
+  [4;33mTicket Load (0.010000)[m   [1;37mSELECT * FROM tickets LIMIT 10[m
+Rendering  within layouts/tickets
+Rendering tickets/list (200 OK)
+  [4;35mTicket Columns (0.011000)[m   [0;37mSHOW FIELDS FROM tickets[m
+  [4;33mUser Load (0.010000)[m   [1;37mSELECT * FROM users WHERE users.id = 2 LIMIT 1[m
+  [4;35mClient Load (0.040000)[m   [0;37mSELECT * FROM clients WHERE clients.id = 1 LIMIT 1[m
+  [4;33mClient Columns (0.010000)[m   [1;37mSHOW FIELDS FROM clients[m
+  [4;35mUser Load (0.000000)[m   [0;37mSELECT * FROM users WHERE users.id = 2 LIMIT 1[m
+  [4;33mClient Load (0.000000)[m   [1;37mSELECT * FROM clients WHERE clients.id = 1 LIMIT 1[m
+  [4;35mUser Load (0.000000)[m   [0;37mSELECT * FROM users WHERE users.id = 2 LIMIT 1[m
+  [4;33mClient Load (0.000000)[m   [1;37mSELECT * FROM clients WHERE clients.id = 1 LIMIT 1[m
+Completed in 0.23100 (4 reqs/sec) | Rendering: 0.17100 (74%) | DB: 0.04000 (17%) [http://localhost/tickets/list]
+  [4;35mUser Columns (0.010000)[m   [0;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#list (for 127.0.0.1 at Sun Nov 27 17:36:22 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;33mTicket Count (0.010000)[m   [1;37mSELECT COUNT(*) FROM tickets [m
+  [4;35mTicket Load (0.000000)[m   [0;37mSELECT * FROM tickets LIMIT 10[m
+Rendering  within layouts/tickets
+Rendering tickets/list (200 OK)
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mUser Load (0.010000)[m   [0;37mSELECT * FROM users WHERE users.id = 2 LIMIT 1[m
+  [4;33mClient Load (0.010000)[m   [1;37mSELECT * FROM clients WHERE clients.id = 1 LIMIT 1[m
+  [4;35mClient Columns (0.010000)[m   [0;37mSHOW FIELDS FROM clients[m
+  [4;33mUser Load (0.010000)[m   [1;37mSELECT * FROM users WHERE users.id = 2 LIMIT 1[m
+  [4;35mClient Load (0.010000)[m   [0;37mSELECT * FROM clients WHERE clients.id = 1 LIMIT 1[m
+  [4;33mUser Load (0.030000)[m   [1;37mSELECT * FROM users WHERE users.id = 2 LIMIT 1[m
+  [4;35mClient Load (0.010000)[m   [0;37mSELECT * FROM clients WHERE clients.id = 1 LIMIT 1[m
+Completed in 0.25100 (3 reqs/sec) | Rendering: 0.17100 (68%) | DB: 0.02000 (7%) [http://localhost/tickets/list]
+  [4;33mUser Columns (0.020000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 17:36:44 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;35mTicket Load (0.010000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.020000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mWorkflow Load (0.010000)[m   [0;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;33mWorkflow Columns (0.010000)[m   [1;37mSHOW FIELDS FROM workflows[m
+Completed in 0.19000 (5 reqs/sec) | Rendering: 0.09000 (47%) | DB: 0.03000 (15%) [http://localhost/tickets/show/13]
+  [4;35mUser Columns (0.070000)[m   [0;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 17:38:01 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;33mTicket Load (0.010000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+  [4;33mWorkflow Load (0.000000)[m   [1;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;35mWorkflow Columns (0.000000)[m   [0;37mSHOW FIELDS FROM workflows[m
+Completed in 0.16000 (6 reqs/sec) | Rendering: 0.10000 (62%) | DB: 0.08000 (50%) [http://localhost/tickets/show/13]
+  [4;33mUser Columns (0.010000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 17:44:10 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;35mTicket Load (0.010000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+
+
+ActionView::TemplateError (undefined method `ticket_client_id' for #<Ticket:0x35769f8>) on line #51 of /tickets/show.rhtml:
+48: 				<%= @ticket.ticket_status %>
+49: 				</td>
+50: 				<td>
+51: 				<%= @ticket.ticket_client_id %>
+52: 				</td>
+53: 			</tr>
+54: 			</table>
+
+    /gems/activerecord-1.11.1/lib/active_record/base.rb:1203:in `method_missing'
+    (erb):51:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:272:in `evaluate_locals'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:283:in `rhtml_render'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `send'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:208:in `render_template'
+    /gems/actionpack-1.9.1/lib/action_view/base.rb:173:in `render_file'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:588:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:591:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:604:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:216:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:627:in `render_with_no_layout'
+    /gems/actionpack-1.9.1/lib/action_controller/layout.rb:210:in `render_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:25:in `render'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:757:in `perform_action_without_filters'
+    /gems/actionpack-1.9.1/lib/action_controller/filters.rb:295:in `perform_action_without_benchmark'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `measure'
+    /gems/actionpack-1.9.1/lib/action_controller/benchmarking.rb:41:in `perform_action_without_rescue'
+    /gems/actionpack-1.9.1/lib/action_controller/rescue.rb:80:in `perform_action'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `send'
+    /gems/actionpack-1.9.1/lib/action_controller/base.rb:356:in `process'
+    /gems/rails-0.13.1/lib/dispatcher.rb:32:in `dispatch'
+    /gems/rails-0.13.1/lib/webrick_server.rb:105:in `handle_dispatch'
+    /gems/rails-0.13.1/lib/webrick_server.rb:71:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    c:/ruby/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:155:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:144:in `start_thread'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:94:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `each'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:89:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    c:/ruby/lib/ruby/1.8/webrick/server.rb:79:in `start'
+    /gems/rails-0.13.1/lib/webrick_server.rb:57:in `dispatch'
+    script/server:49
+
+
+Rendering c:/ruby/lib/ruby/gems/1.8/gems/actionpack-1.9.1/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+  [4;35mUser Columns (0.020000)[m   [0;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 17:44:32 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;33mTicket Load (0.000000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+  [4;33mWorkflow Load (0.000000)[m   [1;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;35mWorkflow Columns (0.040000)[m   [0;37mSHOW FIELDS FROM workflows[m
+Completed in 0.52100 (1 reqs/sec) | Rendering: 0.16100 (30%) | DB: 0.02000 (3%) [http://localhost/tickets/show/13]
+  [4;33mUser Columns (0.040000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 17:49:28 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;35mTicket Load (0.050000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.000000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mWorkflow Load (0.050000)[m   [0;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;33mWorkflow Columns (0.000000)[m   [1;37mSHOW FIELDS FROM workflows[m
+Completed in 0.21000 (4 reqs/sec) | Rendering: 0.13000 (61%) | DB: 0.09000 (42%) [http://localhost/tickets/show/13]
+  [4;35mUser Columns (0.010000)[m   [0;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 17:50:29 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;33mTicket Load (0.010000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+  [4;33mWorkflow Load (0.000000)[m   [1;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;35mWorkflow Columns (0.000000)[m   [0;37mSHOW FIELDS FROM workflows[m
+Completed in 0.15000 (6 reqs/sec) | Rendering: 0.10000 (66%) | DB: 0.02000 (13%) [http://localhost/tickets/show/13]
+  [4;33mUser Columns (0.010000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 17:51:51 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;35mTicket Load (0.030000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mWorkflow Load (0.030000)[m   [0;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;33mWorkflow Columns (0.000000)[m   [1;37mSHOW FIELDS FROM workflows[m
+Completed in 0.20100 (4 reqs/sec) | Rendering: 0.13000 (64%) | DB: 0.04000 (19%) [http://localhost/tickets/show/13]
+  [4;35mUser Columns (0.010000)[m   [0;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 17:52:31 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;33mTicket Load (0.010000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+  [4;33mWorkflow Load (0.000000)[m   [1;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;35mWorkflow Columns (0.000000)[m   [0;37mSHOW FIELDS FROM workflows[m
+Completed in 0.18000 (5 reqs/sec) | Rendering: 0.14000 (77%) | DB: 0.02000 (11%) [http://localhost/tickets/show/13]
+  [4;33mUser Columns (0.010000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 17:53:04 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;35mTicket Load (0.000000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mWorkflow Load (0.010000)[m   [0;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;33mWorkflow Columns (0.010000)[m   [1;37mSHOW FIELDS FROM workflows[m
+Completed in 0.15000 (6 reqs/sec) | Rendering: 0.13000 (86%) | DB: 0.01000 (6%) [http://localhost/tickets/show/13]
+  [4;35mUser Columns (0.050000)[m   [0;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 17:53:35 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;33mTicket Load (0.000000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;35mTicket Columns (0.000000)[m   [0;37mSHOW FIELDS FROM tickets[m
+  [4;33mWorkflow Load (0.010000)[m   [1;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;35mWorkflow Columns (0.050000)[m   [0;37mSHOW FIELDS FROM workflows[m
+Completed in 0.20000 (4 reqs/sec) | Rendering: 0.16000 (80%) | DB: 0.05000 (24%) [http://localhost/tickets/show/13]
+  [4;33mUser Columns (0.010000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 17:58:24 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;35mTicket Load (0.000000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mWorkflow Load (0.000000)[m   [0;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;33mWorkflow Columns (0.010000)[m   [1;37mSHOW FIELDS FROM workflows[m
+Completed in 0.18000 (5 reqs/sec) | Rendering: 0.15000 (83%) | DB: 0.01000 (5%) [http://localhost/tickets/show/13]
+  [4;35mUser Columns (0.010000)[m   [0;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 17:58:56 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;33mTicket Load (0.000000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;35mTicket Columns (0.000000)[m   [0;37mSHOW FIELDS FROM tickets[m
+  [4;33mWorkflow Load (0.000000)[m   [1;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;35mWorkflow Columns (0.000000)[m   [0;37mSHOW FIELDS FROM workflows[m
+Completed in 0.17000 (5 reqs/sec) | Rendering: 0.14000 (82%) | DB: 0.01000 (5%) [http://localhost/tickets/show/13]
+  [4;33mUser Columns (0.020000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 18:00:18 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;35mTicket Load (0.000000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.020000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mWorkflow Load (0.000000)[m   [0;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;33mWorkflow Columns (0.040000)[m   [1;37mSHOW FIELDS FROM workflows[m
+Completed in 0.19000 (5 reqs/sec) | Rendering: 0.16000 (84%) | DB: 0.02000 (10%) [http://localhost/tickets/show/13]
+  [4;35mUser Columns (0.010000)[m   [0;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 18:03:16 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;33mTicket Load (0.000000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+  [4;33mWorkflow Load (0.000000)[m   [1;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;35mWorkflow Columns (0.010000)[m   [0;37mSHOW FIELDS FROM workflows[m
+Completed in 0.18000 (5 reqs/sec) | Rendering: 0.14000 (77%) | DB: 0.01000 (5%) [http://localhost/tickets/show/13]
+  [4;33mUser Columns (0.010000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 18:06:15 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;35mTicket Load (0.000000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mWorkflow Load (0.000000)[m   [0;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;33mWorkflow Columns (0.010000)[m   [1;37mSHOW FIELDS FROM workflows[m
+Completed in 0.19000 (5 reqs/sec) | Rendering: 0.13000 (68%) | DB: 0.01000 (5%) [http://localhost/tickets/show/13]
+  [4;35mUser Columns (0.010000)[m   [0;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 18:07:31 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;33mTicket Load (0.010000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+  [4;33mWorkflow Load (0.010000)[m   [1;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;35mWorkflow Columns (0.010000)[m   [0;37mSHOW FIELDS FROM workflows[m
+Completed in 0.17000 (5 reqs/sec) | Rendering: 0.14000 (82%) | DB: 0.02000 (11%) [http://localhost/tickets/show/13]
+  [4;33mUser Columns (0.010000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 18:17:50 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;35mTicket Load (0.000000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mWorkflow Load (0.010000)[m   [0;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;33mWorkflow Columns (0.000000)[m   [1;37mSHOW FIELDS FROM workflows[m
+Completed in 0.20000 (5 reqs/sec) | Rendering: 0.15000 (75%) | DB: 0.01000 (5%) [http://localhost/tickets/show/13]
+  [4;35mUser Columns (0.100000)[m   [0;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 18:20:56 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;33mTicket Load (0.040000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+  [4;33mWorkflow Load (0.030000)[m   [1;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;35mWorkflow Columns (0.010000)[m   [0;37mSHOW FIELDS FROM workflows[m
+Completed in 0.25100 (3 reqs/sec) | Rendering: 0.16000 (63%) | DB: 0.14000 (55%) [http://localhost/tickets/show/13]
+  [4;33mUser Columns (0.010000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 18:22:29 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;35mTicket Load (0.010000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.030000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mWorkflow Load (0.000000)[m   [0;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;33mWorkflow Columns (0.010000)[m   [1;37mSHOW FIELDS FROM workflows[m
+Completed in 0.15000 (6 reqs/sec) | Rendering: 0.12000 (79%) | DB: 0.02000 (13%) [http://localhost/tickets/show/13]
+  [4;35mUser Columns (0.010000)[m   [0;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 18:23:27 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;33mTicket Load (0.010000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;35mTicket Columns (0.000000)[m   [0;37mSHOW FIELDS FROM tickets[m
+  [4;33mWorkflow Load (0.010000)[m   [1;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;35mWorkflow Columns (0.010000)[m   [0;37mSHOW FIELDS FROM workflows[m
+Completed in 0.18000 (5 reqs/sec) | Rendering: 0.12000 (66%) | DB: 0.02000 (11%) [http://localhost/tickets/show/13]
+  [4;33mUser Columns (0.040000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 18:25:09 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;35mTicket Load (0.000000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mWorkflow Load (0.000000)[m   [0;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;33mWorkflow Columns (0.000000)[m   [1;37mSHOW FIELDS FROM workflows[m
+Completed in 0.18000 (5 reqs/sec) | Rendering: 0.15000 (83%) | DB: 0.04000 (22%) [http://localhost/tickets/show/13]
+  [4;35mUser Columns (0.000000)[m   [0;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 18:26:02 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;33mTicket Load (0.010000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;35mTicket Columns (0.000000)[m   [0;37mSHOW FIELDS FROM tickets[m
+  [4;33mWorkflow Load (0.010000)[m   [1;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;35mWorkflow Columns (0.010000)[m   [0;37mSHOW FIELDS FROM workflows[m
+Completed in 0.17000 (5 reqs/sec) | Rendering: 0.14000 (82%) | DB: 0.01000 (5%) [http://localhost/tickets/show/13]
+  [4;33mUser Columns (0.010000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 18:27:20 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;35mTicket Load (0.010000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mWorkflow Load (0.000000)[m   [0;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;33mWorkflow Columns (0.030000)[m   [1;37mSHOW FIELDS FROM workflows[m
+Completed in 0.20000 (4 reqs/sec) | Rendering: 0.16000 (80%) | DB: 0.02000 (9%) [http://localhost/tickets/show/13]
+  [4;35mUser Columns (0.010000)[m   [0;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 18:29:25 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;33mTicket Load (0.010000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+  [4;33mWorkflow Load (0.010000)[m   [1;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;35mWorkflow Columns (0.010000)[m   [0;37mSHOW FIELDS FROM workflows[m
+Completed in 0.16000 (6 reqs/sec) | Rendering: 0.11000 (68%) | DB: 0.02000 (12%) [http://localhost/tickets/show/13]
+  [4;33mUser Columns (0.010000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 18:31:42 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;35mTicket Load (0.000000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mWorkflow Load (0.000000)[m   [0;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;33mWorkflow Columns (0.010000)[m   [1;37mSHOW FIELDS FROM workflows[m
+Completed in 0.14100 (7 reqs/sec) | Rendering: 0.11100 (78%) | DB: 0.01000 (7%) [http://localhost/tickets/show/13]
+  [4;35mUser Columns (0.010000)[m   [0;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 18:34:57 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;33mTicket Load (0.000000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+  [4;33mWorkflow Load (0.010000)[m   [1;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;35mWorkflow Columns (0.011000)[m   [0;37mSHOW FIELDS FROM workflows[m
+Completed in 0.18100 (5 reqs/sec) | Rendering: 0.14100 (77%) | DB: 0.01000 (5%) [http://localhost/tickets/show/13]
+  [4;33mUser Columns (0.010000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 18:39:27 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;35mTicket Load (0.010000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mWorkflow Load (0.000000)[m   [0;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;33mWorkflow Columns (0.030000)[m   [1;37mSHOW FIELDS FROM workflows[m
+Completed in 0.18000 (5 reqs/sec) | Rendering: 0.14000 (77%) | DB: 0.02000 (11%) [http://localhost/tickets/show/13]
+  [4;35mUser Columns (0.010000)[m   [0;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 18:40:13 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;33mTicket Load (0.010000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+  [4;33mWorkflow Load (0.000000)[m   [1;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;35mWorkflow Columns (0.010000)[m   [0;37mSHOW FIELDS FROM workflows[m
+Completed in 0.16000 (6 reqs/sec) | Rendering: 0.12000 (75%) | DB: 0.02000 (12%) [http://localhost/tickets/show/13]
+  [4;33mUser Columns (0.010000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 18:41:19 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;35mTicket Load (0.000000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mWorkflow Load (0.000000)[m   [0;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;33mWorkflow Columns (0.010000)[m   [1;37mSHOW FIELDS FROM workflows[m
+Completed in 0.20000 (4 reqs/sec) | Rendering: 0.17000 (85%) | DB: 0.01000 (4%) [http://localhost/tickets/show/13]
+  [4;35mUser Columns (0.040000)[m   [0;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 18:42:33 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;33mTicket Load (0.000000)[m   [1;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;35mTicket Columns (0.010000)[m   [0;37mSHOW FIELDS FROM tickets[m
+  [4;33mWorkflow Load (0.000000)[m   [1;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;35mWorkflow Columns (0.010000)[m   [0;37mSHOW FIELDS FROM workflows[m
+Completed in 0.17000 (5 reqs/sec) | Rendering: 0.13000 (76%) | DB: 0.04000 (23%) [http://localhost/tickets/show/13]
+  [4;33mUser Columns (0.081000)[m   [1;37mSHOW FIELDS FROM users[m
+
+
+Processing TicketsController#show (for 127.0.0.1 at Sun Nov 27 19:15:46 Westeuropäische Normalzeit 2005)
+  Parameters: {"action"=>"show", "id"=>"13", "controller"=>"tickets"}
+  [4;35mTicket Load (0.070000)[m   [0;37mSELECT * FROM tickets WHERE tickets.id = '13' LIMIT 1[m
+Rendering  within layouts/tickets
+Rendering tickets/show (200 OK)
+  [4;33mTicket Columns (0.010000)[m   [1;37mSHOW FIELDS FROM tickets[m
+  [4;35mWorkflow Load (0.030000)[m   [0;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
+  [4;33mWorkflow Columns (0.010000)[m   [1;37mSHOW FIELDS FROM workflows[m
+Completed in 0.28000 (3 reqs/sec) | Rendering: 0.19000 (67%) | DB: 0.15100 (53%) [http://localhost/tickets/show/13]
