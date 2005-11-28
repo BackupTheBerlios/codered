@@ -15580,3 +15580,4 @@ Rendering tickets/show (200 OK)
   [4;35mWorkflow Load (0.030000)[m   [0;37mSELECT * FROM workflows WHERE workflows.ticket_id = 13 [m
   [4;33mWorkflow Columns (0.010000)[m   [1;37mSHOW FIELDS FROM workflows[m
 Completed in 0.28000 (3 reqs/sec) | Rendering: 0.19000 (67%) | DB: 0.15100 (53%) [http://localhost/tickets/show/13]
+  [4;36;1mUser Columns (0.003620)[0m   [0;1mSHOW FIELDS FROM users[0m

@@ -51,5 +51,9 @@ before_filter :login_required
     flash[:notice] = "Eintrag hinzugefügt!"
     redirect_to :action => "show", :id => params[:id] 
  end	 
-  
+
+ def workspace_text
+     textilize(workspace.workflow_text)	 
+ end
+ 
 end
