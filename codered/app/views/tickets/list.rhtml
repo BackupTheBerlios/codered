@@ -11,7 +11,7 @@
 	<td width="4"></td>
 	<td height="40" valign="middle">
 	<%= link_to truncate(ticket.ticket_bezeichnung, length = 30, truncate_string = "..." ), :action => 'show', :id =>ticket  %></td>
-	<td valign="middle" class="darkgrey"> Zuständig: <%= link_to (User.find(ticket.betreuer_id).user_name), :action => 'show', :id =>ticket.betreuer_id , :controller =>"user" %> </td>
+	<td valign="middle" class="darkgrey"> Zuständig: <%= link_to (User.find(ticket.betreuer_id).user_name), :action => 'show', :id =>ticket.betreuer_id , :controller =>"users" %> </td>
 	<td class="darkgrey" valign="middle"> Client: <%= link_to (Client.find(ticket.client_id).client_name), :action => 'show', :id =>ticket.client_id , :controller =>"client" %> </td>
     <td class="darkgrey" width="60" height="40" valign="middle"><%= link_to image_tag("/images/editpaste.png", :size => "32x32", :border => 0),{:action => 'edit', :id => ticket} %></td>
     <td class="darkgrey" width="60" height="40" valign="middle"><%= link_to image_tag("/images/remove.png", :size => "32x32", :border => 0), {:action => 'destroy', :id => ticket}, :confirm => 'Are you sure?' %></td>
@@ -40,7 +40,7 @@
 <tr valign="top" class="ListLinie<%= endweder_oder %>">
 <td height="40" valign="middle">
 	<%= link_to truncate(ticket.ticket_bezeichnung, length = 30, truncate_string = "..." ), :action => 'show', :id =>ticket  %> </td>
-	<td class="darkgrey" valign="middle"> Zuständig: <%= link_to (User.find(ticket.betreuer_id).user_name), :action => 'show', :id =>ticket.betreuer_id , :controller =>"user" %> </td>
+	<td class="darkgrey" valign="middle"> Zuständig: <%= link_to (User.find(ticket.betreuer_id).user_name), :action => 'show', :id =>ticket.betreuer_id , :controller =>"users" %> </td>
 	<td class="darkgrey" valign="middle"> Client: <%= link_to (Client.find(ticket.client_id).client_name), :action => 'show', :id =>ticket.client_id , :controller =>"client" %> </td>
     <td class="darkgrey" valign="middle" width="60" height="40"><%= link_to image_tag("/images/editpaste.png", :size => "32x32", :border => 0),{:action => 'edit', :id => ticket} %></td>
     <td class="darkgrey" valign="middle" width="60" height="40"><%= link_to image_tag("/images/remove.png", :size => "32x32", :border => 0), {:action => 'destroy', :id => ticket}, :confirm => 'Are you sure?' %></td>
@@ -69,7 +69,7 @@
 <tr valign="top" class="ListLinie<%= endweder_oder %>">
 <td height="40" valign="middle">
 	<%= link_to truncate(ticket.ticket_bezeichnung, length = 30, truncate_string = "..." ), :action => 'show', :id =>ticket  %></td>
-	<td class="darkgrey" valign="middle"> Zuständig: <%= link_to (User.find(ticket.betreuer_id).user_name), :action => 'show', :id =>ticket.betreuer_id , :controller =>"user" %> </td>
+	<td class="darkgrey" valign="middle"> Zuständig: <%= link_to (User.find(ticket.betreuer_id).user_name), :action => 'show', :id =>ticket.betreuer_id , :controller =>"users" %> </td>
 	<td class="darkgrey" valign="middle"> Client: <%= link_to (Client.find(ticket.client_id).client_name), :action => 'show', :id =>ticket.client_id , :controller =>"client" %> </td>
     <td class="darkgrey" valign="middle" width="60" height="40"><%= link_to image_tag("/images/editpaste.png", :size => "32x32", :border => 0),{:action => 'edit', :id => ticket} %></td>
     <td class="darkgrey" valign="middle" width="60" height="40"><%= link_to image_tag("/images/remove.png", :size => "32x32", :border => 0), {:action => 'destroy', :id => ticket}, :confirm => 'Are you sure?' %></td>

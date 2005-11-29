@@ -1,8 +1,52 @@
-<% for column in User.content_columns %>
-<p>
-  <b><%= column.human_name %>:</b> <%=h @user.send(column.name) %>
-</p>
-<% end %>
+<%= render_partial 'navi' %>
+<br>
+<div class="darkgrey" align="center">
+|| Calling Card ||
+<div class="user" align="left">
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+	<td width="275">
+		<div class="login">
+			Login Name:&nbsp;
+			"<%= @user.login %>"
+		</div>
+		<div class="adress">
+			Kontakt Informationen:<br>
+			<%= @user.user_vorname %>&nbsp;
+			<%= @user.user_name %>
+			<br>
+			<%= @user.user_strasse %>
+			<br>
+			<%= @user.user_plz %>
+			<%= @user.user_ort %>
+			<br>
+			Klasse:&nbsp;
+			<%= @user.user_klasse %>
+		</div>
+		<div class="know">
+			Informationen:<br>
+			<%= @user.user_rule %>
+		</div>
+		<div align="left" class="position">
+			<table border="0" cellspacing="0" cellpadding="0">
+			<tr>
+			<td width="45" align="center"><%= link_to image_tag("/images/editpaste.png", :size => "32x32", :border => 0),{:action => 'edit', :id => @user} %></td>
+			</tr>
+			<tr>
+			<td class="silvertext" width="45" align="center">Edit Card</td>
+			</td>
+			</table>
+		</div>
+	</td>
+	<td width="275" align="center" valign="top">
+		<div class="pic" align="center">
+			<img src="" border="0" alt="User Foto" width="100" height="130">
+			<br>
+			<a href="#">Upload</a>
+		</div>	
+	</td>
+</tr>
+</table>
+</div>
+</div>
 
-<%= link_to 'Edit', :action => 'edit', :id => @user %> |
-<%= link_to 'Back', :action => 'list' %>
