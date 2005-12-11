@@ -1,27 +1,31 @@
 <%= render_partial 'navi' %>
-<h1>Listing users</h1>
-
-<table>
-  <tr>
-  <% for column in User.content_columns %>
-    <th><%= column.human_name %></th>
-  <% end %>
-  </tr>
-  
-<% for user in @users %>
-  <tr>
-  <% for column in User.content_columns %>
-    <td><%=h user.send(column.name) %></td>
-  <% end %>
-    <td><%= link_to 'Show', :action => 'show', :id => user %></td>
-    <td><%= link_to 'Edit', :action => 'edit', :id => user %></td>
-    <td><%= link_to 'Destroy', { :action => 'destroy', :id => user }, :confirm => 'Are you sure?' %></td>
-  </tr>
+<h1>Aktuelle User</h1>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<%
+	endweder_oder = 0
+	for ticket in @users
+		endweder_oder = 1 - endweder_oder
+%>
+<tr valign="top" class="ListLinie<%= endweder_oder %>">
+	<td width="4"></td>
+	<td height="40" valign="middle"><%= link_to(user.user_name), {:action => 'show', :id =>user}  %></td>
+	<td valign="middle" class="darkgrey"></td>
+	<td class="darkgrey" valign="middle"></td>
+    <td class="darkgrey" width="60" height="40" valign="middle"></td>
+    <td class="darkgrey" width="60" height="40" valign="middle"></td>
+</tr>
 <% end %>
+  <tr>
+    <td height="15"></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td algin="left"><%= link_to image_tag("/images/page_back.png", :size => "32x32", :border => 0), { :page => @user_pages.current.previous } if @user_pages.current.previous %></td>
+    <td></td>
+    <td><%= link_to image_tag("/images/page_next.png", :size => "32x32", :border => 0), { :page => @user_pages.current.next } if @user_pages.current.next %></td>
+  </tr>
 </table>
-
-<%= link_to 'Previous page', { :page => @user_pages.current.previous } if @user_pages.current.previous %>
-<%= link_to 'Next page', { :page => @user_pages.current.next } if @user_pages.current.next %> 
 
 <br />
 

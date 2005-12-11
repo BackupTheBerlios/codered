@@ -1,7 +1,4 @@
 <%= render_partial 'navi' %>
-<h1>Editing user</h1>
-
-<%= start_form_tag :action => 'update', :id => @user %>
 <br>
 <div class="darkgrey" align="center">
 || Calling Card ||
@@ -12,6 +9,23 @@
 		<div class="login">
 			Login Name:&nbsp;
 			"<%= @user.login %>"
+		<!-- Edit Block -->
+		<div align="right">
+			<a href="#" valgin="bottom" onclick="effect_1 = Effect.SlideDown('d1',{duration:1.0}); return false;">
+			<img src="/images/edit_down2020.png" size="20x20" border="0" title="Loginname Editieren"></a>
+		</div>
+		<div id="d1" style="display:none">
+			<div>
+			<%= start_form_tag :action => 'update', :id => @user %>
+			<%= text_field 'user', 'login'  %>
+			<br>
+			<%= submit_tag 'Edit' %>
+			<a href="#" onclick="effect_1 = Effect.SlideUp('d1',{duration:1.0}); return false;">Verstecken</a>
+			<%= end_form_tag %>
+			<br>
+			</div>
+		</div>
+		<!-- Edit Block Ende -->
 		</div>
 		<div class="adress">
 			Kontakt Informationen:<br>
@@ -25,20 +39,54 @@
 			<br>
 			Klasse:&nbsp;
 			<%= @user.user_klasse %>
+			<!-- Edit Block -->
+			<div align="right">
+				<a href="#" valgin="bottom" onclick="effect_1 = Effect.SlideDown('d2',{duration:1.0}); return false;">
+				<img src="/images/edit_down2020.png" size="20x20" border="0" title="Loginname Editieren"></a>
+			</div>
+			<div id="d2" style="display:none">
+				<div>
+					<%= start_form_tag :action => 'update', :id => @user %>
+					<%= text_field 'user', 'user_vorname'  %>
+					<br>
+					<%= text_field 'user', 'user_name'  %>
+					<br>
+					<%= text_field 'user', 'user_strasse'  %>
+					<br>
+					<%= text_field 'user', 'user_plz'  %>
+					<br>
+					<%= text_field 'user', 'user_ort'  %>
+					<br>
+					<%= text_field 'user', 'user_klasse'  %>
+					<br>
+					<%= submit_tag 'Edit' %>
+					<a href="#" onclick="effect_1 = Effect.SlideUp('d2',{duration:1.0}); return false;">Verstecken</a>
+					<%= end_form_tag %>
+					<br>
+				</div>
+			</div>
+			<!-- Edit Block Ende -->
 		</div>
 		<div class="know">
 			Informationen:<br>
 			<%= @user.user_rule %>
-		</div>
-		<div align="left" class="position">
-			<table border="0" cellspacing="0" cellpadding="0">
-			<tr>
-			<td width="45" align="center"><%= link_to image_tag("/images/editpaste.png", :size => "32x32", :border => 0),{:action => 'edit', :id => @user} %></td>
-			</tr>
-			<tr>
-			<td class="silvertext" width="45" align="center">Edit Card</td>
-			</td>
-			</table>
+			<!-- Edit Block -->
+				<div align="right">
+				<a href="#" valgin="bottom" onclick="effect_1 = Effect.SlideDown('d3',{duration:1.0}); return false;">
+				<img src="/images/edit_down2020.png" size="20x20" border="0" title="Loginname Editieren"></a>
+			</div>
+			<div id="d3" style="display:none">
+				<div>
+				<%= start_form_tag :action => 'update', :id => @user %>
+				<%= text_field 'user', 'user_rule'  %>
+				<br>
+				<%= submit_tag 'Edit' %>
+				<a href="#" onclick="effect_1 = Effect.SlideUp('d3',{duration:1.0}); return false;">Verstecken</a>
+				<%= end_form_tag %>
+				<br>
+				</div>
+			</div>
+			<!-- Edit Block Ende -->
 		</div>
 	</td>
 	<td width="275" align="center" valign="top">
@@ -53,10 +101,3 @@
 </div>
 </div>
 
-
-<%= render :partial => 'form' %>
-  <%= submit_tag 'Edit' %>
-<%= end_form_tag %>
-
-<%= link_to 'Show', :action => 'show', :id => @user %> |
-<%= link_to 'Back', :action => 'list' %>
