@@ -1,0 +1,96 @@
+<%= render_partial 'navi' %>
+<br>
+<div class="darkgrey" align="center">
+|| Clienten Card ||
+<div class="user" align="left">
+<div algin="center">
+<div class="statusbar" align="center"><%= flash[:notice] %></div>
+<div>
+<table border="0" cellspacing="0" cellpadding="0">
+<tr>
+	<td width="275">
+		<div class="login">
+			Clienten Name:&nbsp;
+			"<%= @client.client_name %>"
+		<!-- Edit Block -->
+		<div align="right">
+			<a href="#" valgin="bottom" onclick="effect_1 = Effect.SlideDown('d1',{duration:1.0}); return false;">
+			<img src="/images/edit_down2020.png" size="20x20" border="0" title="Loginname Editieren"></a>
+		</div>
+		<div id="d1" style="display:none">
+			<div>
+			<%= start_form_tag :action => 'update', :id => @client %>
+			<%= text_field 'client', 'client_name'  %>
+			<br>
+			<%= submit_tag 'Edit' %>
+			<a href="#" onclick="effect_1 = Effect.SlideUp('d1',{duration:1.0}); return false;">Verstecken</a>
+			<%= end_form_tag %>
+			<br>
+			</div>
+		</div>
+		<!-- Edit Block Ende -->
+		</div>
+		<div class="adress">
+			Kontakt Informationen:<br>
+			<%= @client.client_strasse %>&nbsp;
+			<br>
+			<%= @client.client_plz %>
+			<%= @client.client_ort %>
+			<br>
+			<!-- Edit Block -->
+			<div align="right">
+				<a href="#" valgin="bottom" onclick="effect_1 = Effect.SlideDown('d2',{duration:1.0}); return false;">
+				<img src="/images/edit_down2020.png" size="20x20" border="0" title="Loginname Editieren"></a>
+			</div>
+			<div id="d2" style="display:none">
+				<div>
+					<%= start_form_tag :action => 'update', :id => @client %>
+					<%= text_field 'client', 'client_strasse'  %>
+					<br>
+					<%= text_field 'client', 'client_plz'  %>
+					<br>
+					<%= text_field 'client', 'client_ort'  %>
+					<br>
+					<%= submit_tag 'Edit' %>
+					<a href="#" onclick="effect_1 = Effect.SlideUp('d2',{duration:1.0}); return false;">Verstecken</a>
+					<%= end_form_tag %>
+					<br>
+				</div>
+			</div>
+			<!-- Edit Block Ende -->
+		</div>
+		<div class="know">
+			Informationen:<br>
+			#Anzeige Dokumente
+			<!-- Dokumente -->
+			<!-- Edit Block -->
+				<div align="right">
+				<a href="#" valgin="bottom" onclick="effect_1 = Effect.SlideDown('d3',{duration:1.0}); return false;">
+				<img src="/images/edit_down2020.png" size="20x20" border="0" title="Loginname Editieren"></a>
+			</div>
+			<div id="d3" style="display:none">
+				<div>
+				#Upload Dokumente
+				<!-- Upload Dokumete Clienten-->
+				<br>
+				<%= submit_tag 'Edit' %>
+				<a href="#" onclick="effect_1 = Effect.SlideUp('d3',{duration:1.0}); return false;">Verstecken</a>
+				<%= end_form_tag %>
+				<br>
+				</div>
+			</div>
+			<!-- Edit Block Ende -->
+		</div>
+	</td>
+	<td width="275" align="center" valign="top">
+		<div class="pic" align="center">
+			<img src="" border="0" alt="User Foto" width="100" height="130">
+			<br>
+			<a href="#">Upload</a>
+		</div>	
+	</td>
+</tr>
+</table>
+</div>
+</div>
+

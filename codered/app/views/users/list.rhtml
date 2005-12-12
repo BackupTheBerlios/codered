@@ -3,16 +3,16 @@
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 <%
 	endweder_oder = 0
-	for ticket in @users
+	for user in @users
 		endweder_oder = 1 - endweder_oder
-%>
+%>	
 <tr valign="top" class="ListLinie<%= endweder_oder %>">
 	<td width="4"></td>
-	<td height="40" valign="middle"><%= link_to(user.user_name), {:action => 'show', :id =>user}  %></td>
-	<td valign="middle" class="darkgrey"></td>
-	<td class="darkgrey" valign="middle"></td>
+	<td height="40" valign="middle" class="darkgrey">Login: <%= link_to (user.login), :action => 'show', :id => user %></td>
+	<td valign="middle" class="darkgrey">Name: <%= link_to (user.user_name), :action => 'show', :id => user %></td>
+	<td class="darkgrey" valign="middle">Klasse: <%= link_to (user.user_klasse), :action => 'show', :id => user %></td>
     <td class="darkgrey" width="60" height="40" valign="middle"></td>
-    <td class="darkgrey" width="60" height="40" valign="middle"></td>
+    <td class="darkgrey" width="60" height="40" valign="middle"><%= link_to image_tag("/images/remove.png", :size => "32x32", :border => 0), {:action => 'destroy', :id => user}, :confirm => 'Are you sure?' %></td>
 </tr>
 <% end %>
   <tr>
@@ -27,6 +27,6 @@
   </tr>
 </table>
 
-<br />
+<br/>
 
-<%= link_to 'New user', :action => 'new' %>
+<%= link_to image_tag("/images/new.png", :size => "32x32", :border => 0), { :action => 'signup', :controller =>"account" } %>
