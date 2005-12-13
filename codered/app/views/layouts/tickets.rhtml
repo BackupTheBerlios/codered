@@ -24,12 +24,11 @@
   	<tr>
     	<td height="1" class="gray"></td>
   	</tr>
-  	<tr>
-    	<td class="text" height="100%">
-		<p style="color: green"><%= flash[:notice] %></p>
-		<%= @content_for_layout %>
-		</td>
-  	</tr>
+</table>
+	<%= render_partial('navi') %>
+	<%= @content_for_layout %>
+	<br>
+	<table width="600" border="0" cellspacing="0" cellpadding="0">
   	<tr>
     	<td height="1" class="gray"></td>
   	</tr>

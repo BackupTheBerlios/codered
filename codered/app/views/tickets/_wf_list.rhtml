@@ -1,0 +1,44 @@
+<% for workflow in @ticket.workflows.reverse
+	@eintragender = User.find(workflow.user_id) #Speichert das Object des eintragendem 
+	@eintragender_name = @eintragender.user_vorname + @eintragender.user_name
+
+	@workflow_trunc = truncate(workflow.workflow_text, length = 40, truncate_string = "..." )
+	@update = "workflow_container"+ workflow.id.to_s
+	%>
+<div width="600" class="workflow" id="workflow_<%=workflow.id%>_head" >
+<table >
+	<colgroup>
+		<col width="400">
+		<col width="*">
+	</colgroup>
+	<tr>
+		<td>
+			<%= link_to_remote @workflow_trunc ,
+			:url => { :action => :wf_text, :id => workflow.id },
+			:update => "workflow" + workflow.id.to_s ,
+			#:loading => "Toogle.Display(\'workflow" + workflow.id.to_s + "\')",
+			:complete => "Effect.SlideDown(\'"+ @update + "\')" %>
+		</td>
+		<td align="right"  valign="top" style="font-size:xx-small">
+			Eingetragen von: <%= link_to (@eintragender_name), 
+											:action => 'show', 
+											:id => workflow.user_id , 
+											:controller => "user" %>
+											<% #name mit links ins profil %>
+			<br>
+			am: <%= workflow.created_on.to_formatted_s(:short) %>
+			<% #ausgabe des erstellungsdatums in "tag mon HH:MM" %>
+		</td>
+	</tr>
+</table>
+</div>
+
+<div id="menu"> <!--Wrapperklasse fuer IE6.0 -->
+	<div class="workflow_container" style="display:none" id="workflow_container<%= workflow.id.to_s %>">
+		<div style="clear:both" id="workflow<%= workflow.id %>">
+		</div>
+	</div>
+</div>
+<div height="5px">
+	</div>
+<% end %>

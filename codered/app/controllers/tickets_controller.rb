@@ -6,7 +6,7 @@ before_filter :login_required
   end
 
   def list
-    @ticket_pages, @tickets = paginate :ticket, :per_page => 10
+    @ticket_pages, @tickets = paginate :ticket, :per_page => 5
   end
 
   def show
@@ -46,14 +46,29 @@ before_filter :login_required
     redirect_to :action => 'list'
   end
 
- def workflow
-    Ticket.find(params[:id]).workflows.create(params[:workflow])
-    flash[:notice] = "Eintrag hinzugefügt!"
-    redirect_to :action => "show", :id => params[:id] 
+ def add_workflow
+	@ticket = Ticket.find(params[:id])
+	@ticket.ticket_status = params[:ticket][:ticket_status]
+	@ticket.save
+ 	if params[:ticket][:ticket_status] == 3
+		@beschreibung = "Geschlossen weil " + params[:beschreibung].to_s
+	end
+	@workflow = Workflow.new
+	@workflow.user_id = 1 
+	@workflow.ticket_id = 1
+	@workflow.workflow_text = params[:beschreibung]
+	@workflow.save
+	render_partial 'wf_list', @ticket
  end	 
 
- def workspace_text
-     textilize(workspace.workflow_text)	 
+ def show_nw_wf 
+     @id = Ticket.find(params[:id])
+	 @grund = params[:grund]
+	 render_partial 'form_nw_wf'
+ end
+
+ def wf_text
+	 render_partial 'wf_text'
  end
  
 end

@@ -1,6 +1,7 @@
-<%= render_partial 'navi' %>
+<div id="tickets_show">
 <!-- Ticket Show -->
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<table width="600" border="0" cellspacing="0" cellpadding="0">
+
 <tr>
 	<td height="7"></td>
 </td>
@@ -104,59 +105,34 @@
 </table>
 <!-- Ticket Show ende -->
 <!-- Workflow Tabelle -->
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-<tr>
-	<td height="7"></td>
-</td>
-<tr>
-	<td height="15"><img src="/images/table_top.png" border="0"></td>
-</td>
-<tr>
-	<td class="estra">
-	<h2>Workflows</h2>
-	</td>
-	<% for workflow in @ticket.workflows %>
-	<tr>
-		<td class="estra" >
-		<%= render_partial ('workspace', workflow) %>
-	</td>
-</tr>
-	<% end %>
-<tr>
-	<td height="12" class="estra"></td>
-</tr>
-<!-- Java Workflow eintragen -->
-<tr>
-	<td class="estra">
-				<div id="d1" style="display:none">
-			<div style="width:450px;padding:10px;">
-			<p>
-				<%= form_tag :action => "workflow", :id => @ticket %>
-				<%= hidden_field("workflow","user_id", 'value' => session[:user].id )%>
-				<li>Neuer Workflow</li><br>
-				<%= text_area "workflow", "workflow_text" %><br>
-				<%= submit_tag "Eintragen!" %>
-				<a href="#" onclick="effect_1 = Effect.SlideUp('d1',{duration:1.0}); return false;">Verstecken</a>
-			</p>
-			</div>
-		</div>
-	</td>
-</td>
-</tr>
-<!-- Java Workflow eintragen Ende -->
-<tr>
-	<td class="estra">
-	<%= link_to image_tag("/images/page_back.png", :size => "32x32", :border => 0),{:action => 'list'} %>
-	&nbsp;&nbsp;
-	<a href="#" onclick="effect_1 = Effect.SlideDown('d1',{duration:1.0}); return false;"><img src="/images/workflow.png" size="32x32" border="0" title="Neuer Workflow"></a>
-	</td>
-</td>
-<tr>
-	<td height="15"><img src="/images/table_down.png" border="0"></td>
-</td>
-<tr>
-	<td height="7"></td>
-</td>
-</table>
+<h1>Workflows</h1>
 
-</form>
+<div class="estra" id="msg_area_wf">
+</div><!-- id="msg_area_wf" -->
+
+<%  # Dieses Gewurschtel ist dafür zuständig die Überschrift des
+	# Workflowbereichs zu wechseln, und die Form nachzuladen
+%>
+<div id="new_wf_h" class="estra" >
+	<%= link_to_remote "Neuen Workflow eintragen",
+	:url => { :action => 'show_nw_wf', :id => @ticket, :grund => "schliessen"},
+	:update => "new_wf" ,
+	:loading => "Element.show('msg_area_wf');
+	Element.hide('new_wf_h');
+	$('msg_area_wf').innerHTML = 'Laden ...';
+	return false;",
+	:complete => "Effect.SlideDown('new_wf', { duration: 1.0 });
+	$('msg_area_wf').innerHTML = 'Wählen sie bitte einen Typ:';
+	Element.hide('new_wf_h');
+	return false;" %>
+</div> <!-- id="new_wf_h" -->
+<div id="new_wf" style="display: none;">
+</div>
+<% # Ende des "Neuen-Workflow" Bereichs jetzt folgt
+   # die Liste der vorhandenen Workflows
+%>
+<div id="wf_list">
+	<%= render_partial('wf_list') %>
+</div><!--id=wf_list -->
+</div><!--class=workflow -->
+</div><!--id="tickets_show"-->
