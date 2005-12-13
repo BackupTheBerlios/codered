@@ -2,7 +2,7 @@
 	@eintragender = User.find(workflow.user_id) #Speichert das Object des eintragendem 
 	@eintragender_name = @eintragender.user_vorname + @eintragender.user_name
 
-	@workflow_trunc = truncate(workflow.workflow_text, length = 40, truncate_string = "..." )
+	@workflow_trunc = truncate(h(workflow.workflow_text), length = 40, truncate_string = "..." ) # h()  verhindert html Tags
 	@update = "workflow_container"+ workflow.id.to_s
 	%>
 <div width="600" class="workflow" id="workflow_<%=workflow.id%>_head" >
@@ -13,10 +13,8 @@
 	</colgroup>
 	<tr>
 		<td>
-			<%= link_to_remote @workflow_trunc ,
-			:url => { :action => :wf_text, :id => workflow.id },
+			<%= link_to_remote @workflow_trunc , :url => { :action => :wf_text, :id => workflow.id },
 			:update => "workflow" + workflow.id.to_s ,
-			#:loading => "Toogle.Display(\'workflow" + workflow.id.to_s + "\')",
 			:complete => "Effect.SlideDown(\'"+ @update + "\')" %>
 		</td>
 		<td align="right"  valign="top" style="font-size:xx-small">
