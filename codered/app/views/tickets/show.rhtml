@@ -132,7 +132,10 @@
    # die Liste der vorhandenen Workflows
 %>
 <div id="wf_list">
-	<%= render_partial('wf_list') %>
+	<% for workflow in @ticket.workflows.reverse %>
+	<% @eintragender = User.find(workflow.user_id) %>
+	<%= render(:partial => "wf_list", :locals => { @workflow => workflow, :eintragender => @eintragender } ) %>
+	<% end %>
 </div><!--id=wf_list -->
 </div><!--class=workflow -->
 </div><!--id="tickets_show"-->

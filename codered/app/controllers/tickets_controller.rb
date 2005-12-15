@@ -54,8 +54,8 @@ before_filter :login_required
 		@beschreibung = "Geschlossen weil " + params[:beschreibung].to_s
 	end
 	@workflow = Workflow.new
-	@workflow.user_id = 1 
-	@workflow.ticket_id = 1
+	@workflow.user_id = User.find(params[:user_id]).id  
+	@workflow.ticket_id = params[:id]
 	@workflow.workflow_text = params[:beschreibung]
 	@workflow.save
 	render_partial 'wf_list', @ticket

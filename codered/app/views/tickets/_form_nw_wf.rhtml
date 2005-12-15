@@ -50,7 +50,7 @@
 
 	<p>
 	<%= form_remote_tag( :update=> "wf_list",
-			 :url=> { :action=> :add_workflow, :controller =>"tickets", :id=> @ticket },
+	:url=> { :action=> :add_workflow, :controller =>"tickets", :id=> @ticket, :user_id => @session[:user].id },
 			:position=> "top",
 			:effects => 'highlight',
 			:loading => "Element.show('msg_area_wf');

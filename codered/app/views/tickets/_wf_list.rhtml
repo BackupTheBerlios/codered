@@ -1,8 +1,7 @@
-<% for workflow in @ticket.workflows.reverse
-	@eintragender = User.find(workflow.user_id) #Speichert das Object des eintragendem 
+	<%
+	#@eintragender = User.find(workflow.user_id) #Speichert das Object des eintragendem 
 	@eintragender_name = @eintragender.user_vorname + @eintragender.user_name
-
-	@workflow_trunc = truncate(h(workflow.workflow_text), length = 40, truncate_string = "..." ) # h()  verhindert html Tags
+    @workflow_trunc = truncate(h(workflow.workflow_text), length = 40, truncate_string = "..." ) # h()  verhindert html Tags
 	@update = "workflow_container"+ workflow.id.to_s
 	%>
 <div width="600" class="workflow" id="workflow_<%=workflow.id%>_head" >
@@ -18,14 +17,16 @@
 			:complete => "Effect.SlideDown(\'"+ @update + "\')" %>
 		</td>
 		<td align="right"  valign="top" style="font-size:xx-small">
-			Eingetragen von: <%= link_to (@eintragender_name), 
+			von: <%= link_to (@eintragender_name), 
 											:action => 'show', 
-											:id => workflow.user_id , 
+											:id => @eintragender.id , 
 											:controller => "user" %>
-											<% #name mit links ins profil %>
+											<% #name mit links ins profil
+											%>
 			<br>
 			am: <%= workflow.created_on.to_formatted_s(:short) %>
-			<% #ausgabe des erstellungsdatums in "tag mon HH:MM" %>
+			<% #ausgabe des erstellungsdatums in "tag mon HH:MM"
+			%>
 		</td>
 	</tr>
 </table>
@@ -38,5 +39,4 @@
 	</div>
 </div>
 <div height="5px">
-	</div>
-<% end %>
+</div>
