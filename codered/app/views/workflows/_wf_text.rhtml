@@ -1,0 +1,12 @@
+<%
+@workflow = Workflow.find(params[:id])
+@workflow_container = "workflow" + @workflow.id.to_s
+%>
+
+<%=h @workflow.workflow_text %>
+	<br>
+	<div  style="float:left; with:50px">
+		<%= link_to_remote "|Verstecken|",
+		:before => "Effect.SlideUp(\'workflow_container"+ @workflow.id.to_s + "\')" %>
+	</div>
+	<div style="clear:left;" ></div>
