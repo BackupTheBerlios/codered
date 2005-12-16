@@ -1,0 +1,43 @@
+<% # Das Navigations Template was unter dem Logo aber über dem Inhalt erscheint
+%>
+<table align="center" width="600px" border="0" cellspacing="0" cellpadding="0">
+	<tr align="left">
+	<td class="silvertext" width="40">User:</td>
+	<td width="100" class="statusbar" align="left"><%= @session[:user].user_vorname + " " + @session[:user].user_name %></td>
+	<td class="silvertext" width="40">Status:</td>
+	<td width="100" class="statusbar" align="left"><%= @session[:user].user_rule %></td>
+	<td class="silvertext" width="40"></td>
+	<td width="100" class="statusbar" align="left"><%= Time.now.to_formatted_s(format = :short) %></td>
+</td>
+<tr>
+	<td height="10" class="grey">
+	</td>
+</tr>
+<!-- </table>
+<table border="0" cellspacing="0" cellpadding="0"> -->
+<tr align="left" width="40%" class="silvertext">
+	<td height="34" width="80" align="center">
+		<%= link_to image_tag("/images/exit.png",
+		  :size => "32x32", :border => 0),
+		{ :controller => "account",:action => "logout"},
+		{ :confirm => "Sind sie sicher?"} %>
+	</td>
+	<td height="34" width="80" align="center">
+		<%= link_to image_tag("/images/profil.png", 
+			:size => "32x32", :border => 0),
+			{ :controller => "users",:action => 'show', :id => @session[:user] } %>
+	</td>
+	<td height="34" width="80" align="center">
+		<%= link_to image_tag("/images/new.png", :size => "32x32", :border => 0),
+		{ :action => 'new'}
+		%>
+	</td>
+    <td height="34" width="80"></td>
+</tr>
+<tr class="silvertext" valign="top" align="center">
+    <td height="15" width="80" class="silvertext">Logout</td>
+    <td height="15" width="80" class="silvertext">Mein Profil</td>
+    <td height="15" width="80" class="silvertext">Neues Ticket</td>
+    <td height="15" width="80" class="silvertext"></td>
+</tr>
+</table>
