@@ -6,7 +6,7 @@ before_filter :login_required
   end
 
   def list
-    @ticket_pages, @tickets = paginate :ticket, :per_page => 5
+    @ticket_pages, @tickets = paginate :tickets, :per_page => 10
   end
 
   def show
@@ -19,6 +19,8 @@ before_filter :login_required
 
   def create
     @ticket = Ticket.new(params[:ticket])
+	@ticket.betreuer_id = 1  # TODO UNbeding noch auf ein "automatisch freien Mentor suchen" anpassen!!
+	@ticket.user_id = User.find(params[:user]).id
     if @ticket.save
       flash[:notice] = 'Ticket was successfully created.'
       redirect_to :action => 'list'
@@ -45,30 +47,4 @@ before_filter :login_required
     Ticket.find(params[:id]).destroy
     redirect_to :action => 'list'
   end
-
- def add_workflow
-	@ticket = Ticket.find(params[:id])
-	@ticket.ticket_status = params[:ticket][:ticket_status]
-	@ticket.save
- 	if params[:ticket][:ticket_status] == 3
-		@beschreibung = "Geschlossen weil " + params[:beschreibung].to_s
-	end
-	@workflow = Workflow.new
-	@workflow.user_id = User.find(params[:user_id]).id  
-	@workflow.ticket_id = params[:id]
-	@workflow.workflow_text = params[:beschreibung]
-	@workflow.save
-	render_partial 'wf_list', @ticket
- end	 
-
- def show_nw_wf 
-     @id = Ticket.find(params[:id])
-	 @grund = params[:grund]
-	 render_partial 'form_nw_wf'
- end
-
- def wf_text
-	 render_partial 'wf_text'
- end
- 
 end

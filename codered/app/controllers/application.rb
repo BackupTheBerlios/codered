@@ -1,8 +1,8 @@
-# The filters added to this controller will be run for all controllers in the application.
-# Likewise will all the methods added be available for all controllers.
-require_dependency "login_system"
+# Filters added to this controller will be run for all controllers in the application.
+# Likewise, all the methods added will be available for all controllers.
+require_dependency "login_system" 
 
 class ApplicationController < ActionController::Base
-include LoginSystem
-    model :user
+	    include LoginSystem
+	    model :user
 end

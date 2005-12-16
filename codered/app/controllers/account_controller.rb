@@ -6,10 +6,10 @@ class AccountController < ApplicationController
       when :post
       if @session[:user] = User.authenticate(@params[:user_login], @params[:user_password])
 
-        flash['notice']  = "Login erfolgreich"
+        flash['notice']  = "Login successful"
         redirect_back_or_default :action => "welcome"
       else
-        flash.now['notice']  = "Login nicht erfolgreich"
+        flash.now['notice']  = "Login unsuccessful"
 
         @login = @params[:user_login]
       end
@@ -21,7 +21,7 @@ class AccountController < ApplicationController
 
     if @request.post? and @user.save
       @session[:user] = User.authenticate(@user.login, @params[:user][:password])
-      flash['notice']  = "Neuer User angemeldet "
+      flash['notice']  = "Signup successful"
       redirect_back_or_default :action => "welcome"
     end      
   end  

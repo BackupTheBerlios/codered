@@ -1,28 +1,22 @@
 <%= error_messages_for 'ticket' %>
 
 <!--[form:ticket]-->
-<p><label for="ticket_client_id">Clients</label><br/>
+<p><label for="ticket_client_id">Client: </label>
 <%=
 @clienten = Client.find(:all, :order => "client_name").map {|u| [u.client_name, u.id] }
 select(:ticket, :client_id, @clienten)
 %>
+</p>
 
-<p><label for="ticket_betreuer_id">User: </label><%= {@session[:user].user_vorname , @session[:user].user_name} %>
-<%= hidden_field("ticket","betreuer_id", 'value' => session[:user].id )%>
-
-<p><label for="ticket_ticket_bezeichnung">Ticket bezeichnung</label><br/>
+<p><label for="ticket_ticket_bezeichnung">Ticket bezeichnung:</label><br/>
 <%= text_field 'ticket', 'ticket_bezeichnung'  %></p>
 
-<p><label for="ticket_ticket_beschreibung">Ticket beschreibung</label><br/>
+<p><label for="ticket_ticket_beschreibung">Ticket beschreibung:</label><br/>
 <%= text_area 'ticket', 'ticket_beschreibung'  %></p>
 
-<p><label for="ticket_ticket_status">Ticket status</label><br/>
-<%= text_field 'ticket', 'ticket_status'  %></p>
+<p><label for="ticket_ticket_status">Ticket status: </label> Unzugewiesen oder Neu
+<%= hidden_field("ticket","ticket_status", 'value' => 0) %></p>
 
-<p><label for="ticket_created_on">Created on</label><br/>
-</p>
-
-<p><label for="ticket_updated_on">Updated on</label><br/>
-</p>
+<p><label for="ticket_created_on">Eingetragen am:</label>
+<%= DateTime.now.to_formatted_s(format = :short) %></p>
 <!--[eoform:ticket]-->
-

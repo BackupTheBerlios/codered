@@ -29,14 +29,20 @@
 			<td class="darkgrey"><%=h @ticket.ticket_beschreibung %></td>
 		</tr>
 		<tr>
-			<td class="black">Zuständiger Betreuer:</td>
+			<td class="black">Zuständiger Betreuer:</td><td class="black">Eintragender:</td>
 		</tr>
 		<tr>
 			<% 
 			@betreuer = User.find(@ticket.betreuer_id) #Speichert das Object "Zuständiger Betreuer" zur weitern verwendung
-			@betreuer_name = @betreuer.user_vorname + @betreuer.user_name # der vor und zuname des zuständigen Betreuers
+			@betreuer_name = @betreuer.user_vorname + " " + @betreuer.user_name # der vor und zuname des zuständigen Betreuers
 			%>
-			<td class="darkgrey"><%= link_to (@betreuer_name), :action => 'show', :id =>@ticket.betreuer_id , :controller =>"user" %></td>
+			<td class="darkgrey"><%= link_to (@betreuer_name), :action => 'show', :id =>@ticket.betreuer_id , :controller =>"users" %></td>
+			<% 
+			@user = User.find(@ticket.user_id) #Speichert das Object "Users" zur weitern verwendung
+			@user_name = @user.user_vorname + " " + @user.user_name # der vor und zuname des Users
+			%>
+			<td class="darkgrey"><%= link_to (@user_name), :action => 'show', :id =>@ticket.user_id , :controller =>"users" %></td>
+			
 		</tr>
 		<tr>
 			<td class="black">Statusinformationen:</td>
@@ -55,7 +61,7 @@
 				<%= @ticket.ticket_status %>
 				</td>
 				<td class="darkgrey">
-				<%= @ticket.client_id %>
+					<%= link_to (Client.find(@ticket.client_id).client_name), :action => 'show', :id =>@ticket.client_id , :controller =>"clients" %>
 				</td>
 			</tr>
 			</table>
@@ -68,8 +74,8 @@
 		<tr>
 			<td>
 			<div id="hide1" style="display:none">
-				<li><b>Erstellt:</b><%= @ticket.created_on %></li>
-				<li><b>Last Update:</b><%= @ticket.updated_on %></li>
+				<li><b>Erstellt:</b><%= @ticket.created_on.to_formatted_s(format = :long) %></li>
+				<li><b>Last Update:</b><%= @ticket.updated_on.to_formatted_s(format = :long) %></li>
 				<br>
 				<a href="#" onclick="Effect.Fade('hide1'); return false;">Close</a>
 				<br>
@@ -115,7 +121,7 @@
 %>
 <div id="new_wf_h" class="estra" >
 	<%= link_to_remote "Neuen Workflow eintragen",
-	:url => { :action => 'show_nw_wf', :id => @ticket, :grund => "schliessen"},
+	:url => { :action => 'new', :controller => 'workflows', :ticket => @ticket, :grund => "schliessen" },
 	:update => "new_wf" ,
 	:loading => "Element.show('msg_area_wf');
 	Element.hide('new_wf_h');
@@ -131,11 +137,17 @@
 <% # Ende des "Neuen-Workflow" Bereichs jetzt folgt
    # die Liste der vorhandenen Workflows
 %>
-<div id="wf_list">
-	<% for workflow in @ticket.workflows.reverse %>
-	<% @eintragender = User.find(workflow.user_id) %>
-	<%= render(:partial => "wf_list", :locals => { @workflow => workflow, :eintragender => @eintragender } ) %>
-	<% end %>
+<div id="wf_list_h" class="estra" >
+	<%= link_to_remote "refresh",
+	:url => { :action => 'ticket_list', :controller => "workflows", :ticket => @ticket},
+	:update => "wf_list" ,
+	:loading => "Element.show('msg_area_wf');
+	$('msg_area_wf').innerHTML = 'Laden ...';
+	return false;",
+	:complete => "Element.hide('msg_area_wf');
+	return false;" %>
+</div> <!-- id="new_wf_h" -->
+<div id="wf_list">	
 </div><!--id=wf_list -->
 </div><!--class=workflow -->
 </div><!--id="tickets_show"-->

@@ -1,11 +1,8 @@
 <!-- Aktuelle Tickets -->
 <h1>Aktuelle Tickets</h1>
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-<%
-	endweder_oder = 0
-	for ticket in @tickets
-		endweder_oder = 1 - endweder_oder
-%>
+<table width="600" border="0" cellspacing="0" cellpadding="0">
+<%  # gestreifte Anzeige der Tickets
+	endweder_oder = 0 ;	for ticket in @tickets ; endweder_oder = 1 - endweder_oder %>
 <tr valign="top" class="ListLinie<%= endweder_oder %>">
 	<td width="4"></td>
 	<td height="40" valign="middle">
@@ -30,7 +27,7 @@
 <!-- Aktuelle Tickets Ende -->
 <!-- Bearbeitete Tickets -->
 <h1>Bearbeitete Tickets</h1>
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<table width="600" border="0" cellspacing="0" cellpadding="0">
 <%
 	endweder_oder = 0
 	for ticket in @tickets
@@ -59,7 +56,7 @@
 <!-- Bearbeitete Tickets Ende -->
 <!-- Beendete Tickets -->
 <h1>Beendete Tickets</h1>
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<table width="600" border="0" cellspacing="0" cellpadding="0">
 <%
 	endweder_oder = 0
 	for ticket in @tickets

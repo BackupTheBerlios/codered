@@ -1,6 +1,6 @@
 <h1>Editing ticket</h1>
 
-<%= start_form_tag :action => 'update', :id => @ticket %>
+<%= start_form_tag :action => 'update', :id => @ticket , :user => @session[:user]%>
   <%= render_partial 'form' %>
   <%= submit_tag 'Edit' %>
 <%= end_form_tag %>

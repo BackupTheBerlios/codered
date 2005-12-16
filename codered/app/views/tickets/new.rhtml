@@ -1,17 +1,14 @@
 <h1>Neues Ticket</h1>
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-<tr>
-	<td><%= end_form_tag %></td>
-</tr>
+<table width="600px" border="0" cellspacing="0" cellpadding="0">
 <tr>
 	<td height="40" class="estra"></td>
 </tr>
 <tr>
 	<td class="entry">
-	<table border="0" cellspacing="0" cellpadding="0">
+		<table width="600px" border="0" cellspacing="0" cellpadding="0">
 	<tr>
 		<td width="10"></td>
-		<td class="entry"><%= start_form_tag :action => 'create' %><%= render_partial 'form' %></td>
+		<td class="entry"><%= start_form_tag :action => 'create' , :user => @session[:user] %><%= render_partial 'form' %></td>
 		<td width="250" align="center">
 			<table border="0" cellspacing="0" cellpadding="0">
 			<tr class="estra">
@@ -36,6 +33,9 @@
 </tr>
 <tr>
 	<td valign="middle" height="50"><%= link_to image_tag("/images/page_back.png", :size => "32x32", :border => 0), {:action => 'list' }%></td>
+</tr>
+<tr>
+	<td><%= end_form_tag %></td>
 </tr>
 
 </table>

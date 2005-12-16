@@ -5,7 +5,7 @@ class ClientsController < ApplicationController
   end
 
   def list
-    @client_pages, @clients = paginate :client, :per_page => 10
+    @client_pages, @clients = paginate :clients, :per_page => 10
   end
 
   def show
