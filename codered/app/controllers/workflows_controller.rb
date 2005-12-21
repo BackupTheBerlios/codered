@@ -15,19 +15,21 @@ require 'workflow'
   end
 
   def create
-    @workflow = Workflow.new(params[:workflow])
 	@ticket = Ticket.find(params[:ticket])
-	@ticket.ticket_status = params[:post][:ticket_status]
+	if params[:grund] == '2' # Beim Schliessen
+		@ticket.ticket_status = params[:workflow][:ticket_status]
+	else 
+		@ticket.ticket_status = params[:ticket_status]
+	end	
     @ticket.save
-    if params[:ticket_status] == 3
-        @beschreibung = "Geschlossen weil " + params[:beschreibung].to_s
-    end
     @workflow = Workflow.new
     @workflow.user_id = User.find(params[:user]).id  
+	@workflow.grund = params[:grund]
     @workflow.ticket_id = params[:ticket]
     @workflow.workflow_text = params[:beschreibung]
     if @workflow.save
-      redirect_to :action => 'ticket_list', :ticket => @ticket
+        @workflows = Workflow.find(:all, :conditions => ["id=(?)",@workflow.id]) #sieht komisch aus, ist aber nötig (partials workflow will nen array mit workflows und "find(@workflow.id)" wuerde nur ein einzelnes objekt zurueckliefern)
+		render_partial 'workflow' 
     else
       render :text => "Hier ist ein Fehler aufgetreten"
     end	
@@ -59,6 +61,7 @@ require 'workflow'
     redirect_to :action => 'list'
   end
 
+
 def ticket_list 
 	unless @params[:ticket].nil?
 		@ticket = Ticket.find(params[:ticket])
@@ -70,7 +73,29 @@ end
 def wf_text
      render_partial 'wf_text'
  end
-
-
-
+  def new_schliessen
+	 @ticket = Ticket.find(params[:ticket])
+     render_partial 'tmpl_schliessen'
+  end 
+  def new_freitext
+	 @ticket = Ticket.find(params[:ticket])
+     render_partial 'tmpl_freitext'
+  end 
+  def new_zurueckweisen
+	 @ticket = Ticket.find(params[:ticket])
+     render_partial 'tmpl_zurueckweisen'
+  end 
+  def new_zuweisen
+	 @ticket = Ticket.find(params[:ticket])
+     render_partial 'tmpl_zuweisen'
+  end 
+	
+  	def search
+	 	@betreuer = User.find(:all, :order => "user_name") #TODO: noch nach "user-klasse" filtern
+		@phrase = request.raw_post || request.query_string
+		@phrase = @phrase.chomp("&_=")
+		matcher = Regexp.new(@phrase)
+		@results = @betreuer.find_all { |betreuer| betreuer.user_name + betreuer.user_vorname + betreuer.login =~ matcher } 
+		render(:layout => false)
+	end
 end

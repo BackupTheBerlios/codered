@@ -4,6 +4,7 @@ body {
 	margin-bottom: 0;
 	margin-left: 0;
 	margin-right: 0;
+	height:101%; /* Mozialla-Zucken wegen Scrollbalken */
 }
 
 body, p, ol, ul, td {
@@ -113,16 +114,18 @@ a:hover { color: #fff; background-color:#000; }
   list-style: square;
 }
 div.user {
-	width: 550;
-	padding-left: 10;
+	/*padding:10px;*/
+	width:600px;
 	border: 1px solid grey;
-	padding-bottom: 20;
-	margin-bottom: 20;
+	
+}
+div.left{
+	width:300px;
 }
 div.login {
-	width: 250;
-	padding-left: 10;
 	border: 1px;
+	margin:10px;
+	padding:10px;
 	background-color: #FFE0C3;
 	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 	font-size: smaller;
@@ -132,9 +135,9 @@ div.login {
 	-moz-border-radius: 12px
 }
 div.adress {
-	width: 250;
 	border: 1px;
-	padding-left: 10;
+	margin:10px;
+	padding:10px;
 	background-color: #F1EAA9;
 	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 	font-size: smaller;
@@ -144,19 +147,22 @@ div.adress {
 	-moz-border-radius: 12px
 }
 div.know {
-	width: 250;
-	padding-left: 10;
 	border: 1px;
+	margin:10px;
+	padding:10px;
 	background-color: #EAEAEA;
 	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 	font-size: smaller;
 	color: Black;
 	font-weight: bolder;
 	-moz-border-radius: 12px;
-	margin-top: 10;
+	margin-top: 20;
 }
 div.pic {
-	width: 150;
+	float:right;
+	margin:10px;
+	padding:10px;
+	width: 150px;
 	border: 1px;
 	background-color: #B2F0B3;
 	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
@@ -164,10 +170,6 @@ div.pic {
 	color: Black;
 	font-weight: bolder;
 	-moz-border-radius: 12px;
-	margin-top: 20;
-	margin-left: 30;
-	height: 165;
-	padding-top: 12;
 }
 div.position {
 	margin-top: 10;
@@ -224,4 +226,29 @@ div.system_message {
    background: #ffff00 ;
    width:180px;
    text-align:center;
+}
+div.helper{
+	background:white;
+	-moz-border-radius: 5px;
+	border-bottom:2px solid  #c7c5c5;
+	border-right:2px solid  #c7c5c5;
+	float: right;
+	width:  80px;
+	/*height: 80px;*/
+	elevation: above;
+	padding:5px;
+	text-align:left;	
+}
+div.betreuer{
+	background:white;
+	-moz-border-radius: 5px;
+	border-bottom:2px solid  #c7c5c5;
+	border-right:2px solid  #c7c5c5;
+	float: left;
+	elevation: above;
+	padding:5px;
+	text-align:left;	
+	width:400; 
+	height:150; 
+	overflow:auto;
 }

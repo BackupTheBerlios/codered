@@ -1,11 +1,19 @@
+<div align="center" width="600px">
 <%= render_partial 'navi' %>
 <br>
-<div class="darkgrey" align="center">
-|| Calling Card ||
+	<div class="darkgrey" align="center">
+	|| Calling Card ||
+	</div>
 <div class="user" align="left">
-<table border="0" cellspacing="0" cellpadding="0">
-<tr>
-	<td width="275">
+	<div class="statusbar">
+		<%= flash[:notice] %>
+	</div>
+	<div class="pic">
+			<img src="" border="0" alt="User Foto" width="100" height="130">
+			<br>
+			<a href="#">Upload</a>
+	</div><!-- class="pic"-->
+	<div class="left">
 		<div class="login">
 			Login Name:&nbsp;
 			"<%= @user.login %>"
@@ -87,16 +95,6 @@
 			</div>
 			<!-- Edit Block Ende -->
 		</div>
-	</td>
-	<td width="275" align="center" valign="top">
-		<div class="pic" align="center">
-			<img src="" border="0" alt="User Foto" width="100" height="130">
-			<br>
-			<a href="#">Upload</a>
-		</div>	
-	</td>
-</tr>
-</table>
-</div>
+	</div>
 </div>
 

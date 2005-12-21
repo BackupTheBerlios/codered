@@ -2,7 +2,7 @@
 <table border="0" cellspacing="0" cellpadding="0">
 <tr>
 	<td class="silvertext" width="40">User:</td>
-	<td width="100" class="statusbar" align="center"><%= {@session[:user].user_vorname , @session[:user].user_name} %></td>
+	<td width="100" class="statusbar" align="center"><%= @session[:user].user_vorname + " " + @session[:user].user_name %></td>
 	<td class="silvertext" width="40">Status:</td>
 	<td width="100" class="statusbar" align="center">$Mentor</td>
 </td>

@@ -1,35 +1,40 @@
+<div align="center" width="600px">
 <%= render_partial 'navi' %>
 <br>
 <div class="darkgrey" align="center">
-|| Clienten Card ||
-<div class="user" align="left">
-<div algin="center">
-<div class="statusbar" align="center"><%= flash[:notice] %></div>
-<div>
-<table border="0" cellspacing="0" cellpadding="0">
-<tr>
-	<td width="275">
+	|| Clienten Card ||
+</div>
+<div align="left" class="user">
+	<div class="statusbar">
+		<%= flash[:notice] %>
+	</div>
+	<div class="pic">
+			<img src="" border="0" alt="User Foto" width="100" height="130">
+			<br>
+			<a href="#">Upload</a>
+	</div><!-- class="pic"-->
+	<div class="left">
 		<div class="login">
-			Clienten Name:&nbsp;
-			"<%= @client.client_name %>"
-		<!-- Edit Block -->
-		<div align="right">
-			<a href="#" valgin="bottom" onclick="effect_1 = Effect.SlideDown('d1',{duration:1.0}); return false;">
-			<img src="/images/edit_down2020.png" size="20x20" border="0" title="Loginname Editieren"></a>
-		</div>
-		<div id="d1" style="display:none">
-			<div>
-			<%= start_form_tag :action => 'update', :id => @client %>
-			<%= text_field 'client', 'client_name'  %>
-			<br>
-			<%= submit_tag 'Edit' %>
-			<a href="#" onclick="effect_1 = Effect.SlideUp('d1',{duration:1.0}); return false;">Verstecken</a>
-			<%= end_form_tag %>
-			<br>
+				Clienten Name:&nbsp;
+				"<%= @client.client_name %>"
+			<!-- Edit Block -->
+			<div align="right">
+				<a href="#" valgin="bottom" onclick="effect_1 = Effect.SlideDown('d1',{duration:1.0}); return false;">
+					<img src="/images/edit_down2020.png" size="20x20" border="0" title="Loginname Editieren"><br>Editieren</a>
 			</div>
-		</div>
-		<!-- Edit Block Ende -->
-		</div>
+			<div id="d1" style="display:none">
+				<div>
+					<%= start_form_tag :action => 'update', :id => @client %>
+					<%= text_field 'client', 'client_name'  %>
+					<br>
+					<%= submit_tag 'Edit' %>
+					<a href="#" onclick="effect_1 = Effect.SlideUp('d1',{duration:1.0}); return false;">Verstecken</a>
+					<%= end_form_tag %>
+					<br>
+				</div>
+			</div> 
+			<!-- Edit Block Ende -->
+		</div><!-- class="login"-->
 		<div class="adress">
 			Kontakt Informationen:<br>
 			<%= @client.client_strasse %>&nbsp;
@@ -40,7 +45,7 @@
 			<!-- Edit Block -->
 			<div align="right">
 				<a href="#" valgin="bottom" onclick="effect_1 = Effect.SlideDown('d2',{duration:1.0}); return false;">
-				<img src="/images/edit_down2020.png" size="20x20" border="0" title="Loginname Editieren"></a>
+				<img src="/images/edit_down2020.png" size="20x20" border="0" title="Loginname Editieren"><br>Editieren</a>
 			</div>
 			<div id="d2" style="display:none">
 				<div>
@@ -58,13 +63,13 @@
 				</div>
 			</div>
 			<!-- Edit Block Ende -->
-		</div>
+		</div><!-- class="adress"-->
 		<div class="know">
 			Informationen:<br>
 			#Anzeige Dokumente
 			<!-- Dokumente -->
 			<!-- Edit Block -->
-				<div align="right">
+			<div align="right">
 				<a href="#" valgin="bottom" onclick="effect_1 = Effect.SlideDown('d3',{duration:1.0}); return false;">
 				<img src="/images/edit_down2020.png" size="20x20" border="0" title="Loginname Editieren"></a>
 			</div>
@@ -80,17 +85,6 @@
 				</div>
 			</div>
 			<!-- Edit Block Ende -->
-		</div>
-	</td>
-	<td width="275" align="center" valign="top">
-		<div class="pic" align="center">
-			<img src="" border="0" alt="User Foto" width="100" height="130">
-			<br>
-			<a href="#">Upload</a>
-		</div>	
-	</td>
-</tr>
-</table>
-</div>
-</div>
-
+		</div><!-- class="know"-->
+	</div><!-- class="left"-->
+</div><!-- class="user"-->

@@ -1,0 +1,24 @@
+<div class="workflow" style="width:550px;padding:10px;">
+	<%= form_remote_tag( :update=> "wf_list",
+	:url=> { :action=> "create", :controller =>"workflows", :ticket=> @ticket, :user => @session[:user], :grund => '2' },
+			:position=> "top",
+			:effects => 'highlight',
+			:loading => "Element.show('msg_area_wf');
+						Effect.SlideUp('new_wf', { duration: 1.0 });
+						$('msg_area_wf').innerHTML = 'Speichern ...';
+						return false;",
+			:complete => " $('msg_area_wf').innerHTML = '<div class=\"system_message\">Eintrag Hinzugefügt</div>';
+						Element.show('new_wf_h');
+						return false;" )%>
+						<div class="helper" id="helper"></div>
+		<% auswahl = [["Fertig",3], ["Ungültig",5]]	%> 
+		<%= select(:workflow, :ticket_status , auswahl) %>
+		<br>
+		<%= text_area_tag :beschreibung, "Geschlossen: ..", :size => "35x10"  %><br>
+		<%= submit_tag "Eintragen!" %>	
+		<%= end_form_tag %>
+
+	
+		<a href="#" onclick="effect_1 = Effect.SlideUp('new_wf',{duration:1.0});Element.show('new_wf_h');Element.hide('msg_area_wf');return false;">Verstecken</a>
+	</div>
+
