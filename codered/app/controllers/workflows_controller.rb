@@ -20,7 +20,10 @@ require 'workflow'
 		@ticket.ticket_status = params[:workflow][:ticket_status]
 	else 
 		@ticket.ticket_status = params[:ticket_status]
-	end	
+	end
+	if params[:grund] == '4'
+		@ticket.betreuer_id = params[:betreuer_id]
+	end
     @ticket.save
     @workflow = Workflow.new
     @workflow.user_id = User.find(params[:user]).id  

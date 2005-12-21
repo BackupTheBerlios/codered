@@ -1,5 +1,6 @@
 <div class="workflow" style="width:550px;padding:10px;">
-<div class="helper" id="helper"></div>
+	<div class="helper" id="helper"></div>
+	<div id="suchen">
 <label for="search">Betreuer suchen:</label>
 <%= text_field_tag :search %>
 <%= observe_field(:search,
@@ -7,7 +8,12 @@
 :update => :betreuer,
 :url => { :action => :search }) %>		
 <div align="left" id="betreuer" class="betreuer"></div>
-<%= form_remote_tag( :update=> "wf_list",
+</div>
+<div id="gefunden" style="display:none">
+	An <span id="betreuer_name"></span> zuweisen.<br>
+	<a href="#" onclick="Element.hide('gefunden');Element.show('suchen');return false;">Anderen Betreuer wählen</a>
+</div>
+<%= form_remote_tag( :update=> "wf_list", :name=> "zuweisen",
 	:url=> { :action=> "create", :controller =>"workflows", :ticket=> @ticket, :user => @session[:user], :grund => '4', :ticket_status => '1'},
 			:position=> "top",
 			:effects => 'highlight',
@@ -19,7 +25,7 @@
 						Element.show('new_wf_h');
 						return false;" ) %>
 		<p>
-		<%= text_field_tag :betreuer_name %>
+	    <%= hidden_field_tag :betreuer_id %>	
 		<%= text_area_tag :beschreibung, "Zugewiesen: ..", :size => "25x10"  %><br>
 		<%= submit_tag "Eintragen!" %>	
 		</p>		
