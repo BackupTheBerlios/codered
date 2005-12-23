@@ -1,31 +1,32 @@
 <!-- Navigation Anfang -->
-<table text-align="left" align="center" width="600px" border="0" cellspacing="0" cellpadding="0">
+<table align="center" text-align="right" width="600px" border="0" cellspacing="0" cellpadding="0">
 	<tr>
-		<td class="silvertext" width="40px">User:</td>
-		<td width="100px" class="statusbar" align="center"><%= @session[:user].user_vorname + " " + @session[:user].user_name %></td>
-		<td class="silvertext" width="40px">Status:</td>
-		<td width="100px" class="statusbar" align="center">$Mentor</td>
-		<table width="100%" border="0" cellspacing="0" cellpadding="0">
-			<tr>
-				<td class="grey"></td>
-			</tr>
-		</table>
-		<table border="0" cellspacing="0" cellpadding="0">
-			<tr class="silvertext">
-				<td width="80px" align="center">
-				<%= link_to image_tag("/images/exit.png", :size => "32x32", :border => 0), { :controller => "account",:action => "logout"},
-				{:confirm => "Sind sie sicher?"} %></td>
-				<td width="80px" align="center"></td>
-				<td width="80px" align="center"></td>
-				<td width="80px"></td>
-			</tr>
-			<tr class="silvertext" valign="top" align="center">
-				<td width="80px" class="silvertext">Logout</td>
-				<td width="80px" class="silvertext"></td>
-				<td width="80px" class="silvertext"></td>
-				<td width="80px" class="silvertext"></td>
-			</tr>
-		</table>
+		<td class="silvertext">User:</td>
+		<td class="statusbar"><%= @session[:user].user_vorname + " " + @session[:user].user_name %></td>
+		<td class="silvertext">Status:</td>
+		<td class="statusbar"><%= @session[:user].user_rule %></td>
+		<td class="silvertext">Zeit:</td>
+		<td class="statusbar"><%= Time.now.to_formatted_s(format = :short) %></td>
+	</tr>
+</table>
+<br>
+<table align="center" text-align="center" width="250px" border="0" cellspacing="0" cellpadding="0">
+	<tr align="center">
+		<td>
+			<%= link_to image_tag("/images/exit.png",
+			  :size => "32x32", :border => 0),
+			{ :controller => "account",:action => "logout"},
+			{ :confirm => "Sind sie sicher?"} %>
+		</td>
+		<td>
+		</td>
+		<td>
+		</td>
+	</tr>
+	<tr align="center">
+		<td class="silvertext">Logout</td>
+		<td class="silvertext"></td>
+		<td class="silvertext"></td>
 	</tr>
 </table>
 <!-- Navigation Ende -->

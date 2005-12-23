@@ -19,7 +19,7 @@ before_filter :login_required
 
   def create
     @ticket = Ticket.new(params[:ticket])
-	@ticket.betreuer_id = 1  # TODO UNbeding noch auf ein "automatisch freien Mentor suchen" anpassen!!
+	@ticket.betreuer_id = User.find(params[:user]).id  # TODO UNbeding noch auf ein "automatisch freien Mentor suchen" anpassen!!
 	@ticket.user_id = User.find(params[:user]).id
     if @ticket.save
       flash[:notice] = 'Ticket was successfully created.'

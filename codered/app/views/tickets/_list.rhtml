@@ -1,0 +1,25 @@
+<table width="600px" border="0" cellspacing="0" cellpadding="0">
+<%  # gestreifte Anzeige der Tickets
+	endweder_oder = 0 ;	for ticket in @tickets ; endweder_oder = 1 - endweder_oder %>
+<tr valign="top" class="ListLinie<%= endweder_oder %>">
+	<td width="4"></td>
+	<td height="40" valign="middle">
+		<% @trunc_link = h(truncate(ticket.ticket_bezeichnung, length = 30, truncate_string = "...")) %>
+		<%= link_to(@trunc_link , :action => 'show', :id =>ticket)  %></td>
+	<td valign="middle" class="darkgrey"> Zuständig: <%= link_to h(User.find(ticket.betreuer_id).user_name), :action => 'show', :id =>ticket.betreuer_id , :controller =>"users" %> </td>
+	<td class="darkgrey" valign="middle"> Client: <%= link_to h(Client.find(ticket.client_id).client_name), :action => 'show', :id =>ticket.client_id , :controller =>"client" %> </td>
+    <td class="darkgrey" width="60" height="40" valign="middle"><%= link_to image_tag("/images/editpaste.png", :size => "32x32", :border => 0),{:action => 'edit', :id => ticket} %></td>
+    <td class="darkgrey" width="60" height="40" valign="middle"><%= link_to image_tag("/images/remove.png", :size => "32x32", :border => 0), {:action => 'destroy', :id => ticket}, :confirm => 'Are you sure?' %></td>
+</tr>
+<% end %>
+  <tr>
+    <td height="15"></td>
+    <td></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td algin="left"><%= link_to image_tag("/images/page_back.png", :size => "32x32", :border => 0), { :page => @ticket_pages.current.previous } if @ticket_pages.current.previous %></td>
+    <td></td>
+    <td><%= link_to image_tag("/images/page_next.png", :size => "32x32", :border => 0), { :page => @ticket_pages.current.next } if @ticket_pages.current.next %></td>
+  </tr>
+</table>

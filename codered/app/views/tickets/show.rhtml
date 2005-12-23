@@ -1,20 +1,7 @@
-<div id="tickets_show">
+<div align="center" id="tickets_show">
 <!-- Ticket Show -->
-<table width="600" border="0" cellspacing="0" cellpadding="0">
-
-<tr>
-	<td></td>
-</td>
-<tr>
-	<td><img src="/images/table_topblue.png" border="0"></td>
-</td>
-<tr>
-	<td class="entry"><!-- Inhalt Ticket -->
+<div width="600px" class="entry"><!-- Inhalt Ticket -->
 	<table width="100%" border="0" cellspacing="0" cellpadding="0">
-	<tr>
-		<td width="10"></td>
-		<td>
-		<table width="100%" border="0" cellspacing="0" cellpadding="0">
 		<tr>
 			<td class="black">Ticketbezeichnung:</td>
 		</tr>
@@ -42,16 +29,13 @@
 			%>
 			<td class="darkgrey"><%= link_to (h(@user_name)), :action => 'show', :id =>@ticket.user_id , :controller =>"users" %></td>
 			
-		</tr>
-		<tr>
-			<td class="black">Statusinformationen:</td>
-		</tr>
-		<tr>
-			<td>
+			</tr>
+		</table>
 				<!-- Ticket Status Infos 
 				TODO: Wandlung der Zahlen in Menschen-lesbare Infos
 				-->
-			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				<table width="600px" border="0" cellspacing="0" cellpadding="0">
+					<tr><td class="black">Statusinformationen:</td><tr>
 			<tr>
 				<td class="darkgrey">
 				<%= @ticket.ticket_wichtigkeit %>
@@ -63,9 +47,7 @@
 					<%= link_to (Client.find(@ticket.client_id).client_name), :action => 'show', :id =>@ticket.client_id , :controller =>"clients" %>
 				</td>
 			</tr>
-			</table><!-- Ende Ticket Status infos --></td></tr>
-		<tr>
-			<td>
+		</table><!-- Ende Ticket Status infos --></td></tr>
 			<div id="hide1" style="display:none">
 				<li><b>Erstellt:</b><%= @ticket.created_on.to_formatted_s(format = :long) %></li>
 				<li><b>Last Update:</b><%= @ticket.updated_on.to_formatted_s(format = :long) %></li>
@@ -73,37 +55,18 @@
 				<a href="#" onclick="Effect.Fade('hide1'); return false;">Close</a>
 				<br>
 			</div>
-			</td>
-		</tr>
-		</table>
 		<!-- inhalt Ticked Ende -->
-		</td>
-	</td>
-	</table>	
-	</td>
-</td>
-<tr>
-	<td height="4" class="entry"></td>
-</td>
-<tr>
-	<td class="entry">
 	&nbsp;&nbsp;
 	<%= link_to image_tag("/images/page_back.png", :size => "32x32", :border => 0),{:action => 'list'} %>
 	&nbsp;
 	<%= link_to image_tag("/images/editpaste.png", :size => "32x32", :border => 0),{:action => 'edit', :id => @ticket} %>
 	&nbsp;&nbsp;
 	<a href="#" onclick="Effect.Appear('hide1'); return false;"><img src="/images/status.png" size="32x32" border="0" title="Erstellt und Update Informationen"></a>
-	</td>
-</td>
-<tr>
-	<td height="15"><img src="/images/table_downblue.png" border="0"></td>
-</td>
-<tr>
-	<td height="7"></td>
-</td>
-</table>
+</div> <!-- class="entry" -->
+</div>
 <!-- Ticket Show ende -->
 <!-- Workflow Tabelle -->
+<div align="center" >
 <span style="font-size:x-large;">Workflows</span>
 <div class="user">
 <div id="msg_area_wf">
@@ -145,3 +108,4 @@
 </div><!--class=workflow -->
 </div><!--id="tickets_show"-->
 </div><!--class=user -->
+</div><!--align=center -->
