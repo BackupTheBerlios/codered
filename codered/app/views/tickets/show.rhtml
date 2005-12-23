@@ -3,14 +3,13 @@
 <table width="600" border="0" cellspacing="0" cellpadding="0">
 
 <tr>
-	<td height="7"></td>
+	<td></td>
 </td>
 <tr>
-	<td height="15"><img src="/images/table_topblue.png" border="0"></td>
+	<td><img src="/images/table_topblue.png" border="0"></td>
 </td>
 <tr>
-	<td class="entry">
-	<!-- Inhalt Ticket -->
+	<td class="entry"><!-- Inhalt Ticket -->
 	<table width="100%" border="0" cellspacing="0" cellpadding="0">
 	<tr>
 		<td width="10"></td>
@@ -36,12 +35,12 @@
 			@betreuer = User.find(@ticket.betreuer_id) #Speichert das Object "Zuständiger Betreuer" zur weitern verwendung
 			@betreuer_name = @betreuer.user_vorname + " " + @betreuer.user_name # der vor und zuname des zuständigen Betreuers
 			%>
-			<td class="darkgrey"><%= link_to (@betreuer_name), :action => 'show', :id =>@ticket.betreuer_id , :controller =>"users" %></td>
+			<td class="darkgrey"><%= link_to (h(@betreuer_name)), :action => 'show', :id =>@ticket.betreuer_id , :controller =>"users" %></td>
 			<% 
 			@user = User.find(@ticket.user_id) #Speichert das Object "Users" zur weitern verwendung
 			@user_name = @user.user_vorname + " " + @user.user_name # der vor und zuname des Users
 			%>
-			<td class="darkgrey"><%= link_to (@user_name), :action => 'show', :id =>@ticket.user_id , :controller =>"users" %></td>
+			<td class="darkgrey"><%= link_to (h(@user_name)), :action => 'show', :id =>@ticket.user_id , :controller =>"users" %></td>
 			
 		</tr>
 		<tr>
@@ -64,13 +63,7 @@
 					<%= link_to (Client.find(@ticket.client_id).client_name), :action => 'show', :id =>@ticket.client_id , :controller =>"clients" %>
 				</td>
 			</tr>
-			</table>
-			<!-- Ende Ticket Status infos -->
-			</td>
-		</tr>
-   		<tr>
-			<td height="7"></td>
-		</tr>
+			</table><!-- Ende Ticket Status infos --></td></tr>
 		<tr>
 			<td>
 			<div id="hide1" style="display:none">
@@ -111,15 +104,15 @@
 </table>
 <!-- Ticket Show ende -->
 <!-- Workflow Tabelle -->
-<h1>Workflows</h1>
-
-<div class="estra" id="msg_area_wf">
+<span style="font-size:x-large;">Workflows</span>
+<div class="user">
+<div id="msg_area_wf">
 </div><!-- id="msg_area_wf" -->
 
 <%  # Dieses Gewurschtel ist dafür zuständig die Überschrift des
 	# Workflowbereichs zu wechseln, und die Form nachzuladen
 %>
-<div id="new_wf_h" class="estra" >
+<div id="new_wf_h">
 	<%= link_to_remote "Neuen Workflow eintragen",
 	:url => { :action => 'new', :controller => 'workflows', :ticket => @ticket, :grund => "schliessen" },
 	:update => "new_wf" ,
@@ -137,7 +130,7 @@
 <% # Ende des "Neuen-Workflow" Bereichs jetzt folgt
    # die Liste der vorhandenen Workflows
 %>
-<div id="wf_list_h" class="estra" >
+<div id="wf_list_h">
 	<%= link_to_remote "refresh",
 	:url => { :action => 'ticket_list', :controller => "workflows", :ticket => @ticket},
 	:update => "wf_list" ,
@@ -151,3 +144,4 @@
 </div><!--id=wf_list -->
 </div><!--class=workflow -->
 </div><!--id="tickets_show"-->
+</div><!--class=user -->

@@ -13,6 +13,8 @@ body, p, ol, ul, td {
   line-height: 18px;
 }
 td.statusbar {
+	text-align:left;
+	width:100px;
 	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 	font-size: xx-small;
 	color: Black;
@@ -25,7 +27,8 @@ td.entry {
 	font-weight: bolder;
 	color: Black;
 }
-td.estra {
+td.estra, div.estra {
+	text-align:left;
 	background-color: #CEE9F0;
 	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 	font-size: x-small;
@@ -202,7 +205,7 @@ div.workflow {
 	-moz-border-radius: 7px;
    margin-top:5px;
    background: #FFF987;
-   width:600px;
+   width:550px;
    padding:10px;
    text-align:left;
 }
@@ -213,7 +216,7 @@ div.workflow_container {
    color: Black;
    background: #CCF987;
    padding:10px;
-   width:580px;
+   width:530px;
    text-align:left;
 }
 
@@ -230,6 +233,8 @@ div.system_message {
 div.helper{
 	background:white;
 	-moz-border-radius: 5px;
+	border-top:2px solid  #5e5e5e;
+	border-left:2px solid  #5e5e5e;
 	border-bottom:2px solid  #c7c5c5;
 	border-right:2px solid  #c7c5c5;
 	float: right;
@@ -242,13 +247,14 @@ div.helper{
 div.betreuer{
 	background:white;
 	-moz-border-radius: 5px;
+	border-top:2px solid  #5e5e5e;
+	border-left:2px solid  #5e5e5e;
 	border-bottom:2px solid  #c7c5c5;
 	border-right:2px solid  #c7c5c5;
-	float: left;
-	elevation: above;
+	/*float: left;*/
 	padding:5px;
 	text-align:left;	
-	width:400px; 
+	max-width:382px; 
 	max-height:150px; 
 	overflow:auto;
 }

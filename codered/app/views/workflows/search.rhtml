@@ -1,9 +1,11 @@
 <%  #Hiermit werden die Suchergebnisse formatiert wenn man im tmpl_zuweisen einen suchbegriff eingibt
-#Suchbegriffe koennen sein "user_name, user_vorname und user_login" aber vorsicht es beachtet Gross und Kleinschreibung %>
+#Suchbegriffe koennen sein "user_name, user_vorname und user_login" aber vorsicht es beachtet Gross und Kleinschreibung
+#TODO: hier muss noch das profil.png gegen das "echte" userpic ausgetauscht werden.
+%>
 
 
 <% if @results.empty? %>
-	'<%=h @phrase %>' ist kein Betreuer!
+'<%=h @phrase %>' ist kein Betreuer!<br>Sie können nach Login, Nachname oder Vorname suchen.<br> Bitte beachten sie dabei Gross- und Kleinschreibung
 <% else %>
 		<table align="left">
 		<% @results.each_with_index do |betreuer, i| #fuer jeden betreuer mit index %>
@@ -13,7 +15,7 @@
 				$('betreuer_id').value = '<%=betreuer.id%>';
 				Element.hide('suchen'); Element.show('gefunden');
 				return false;" align="left" class="ListLinie<%= row_class %>" style="heigth:25px;width:175px;padding:1px;">
-				<tr><td rowspan="2" style="heigth:25px;width:25px;padding:1px;"><img src="/images/profil.png"><%= betreuer.user_pic %></td></tr>
+				<tr><td rowspan="2" style="heigth:25px;width:25px;padding:1px;"><img src="/images/profil.png"></td></tr>
 				<tr><td></td> <td><%=h betreuer.user_vorname + " " + betreuer.user_name %></td></tr>
 			</table>
 		</tr>

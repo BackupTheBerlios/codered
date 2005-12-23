@@ -1,30 +1,31 @@
 <!-- Navigation Anfang -->
-<table border="0" cellspacing="0" cellpadding="0">
-<tr>
-	<td class="silvertext" width="40">User:</td>
-	<td width="100" class="statusbar" align="center"><%= @session[:user].user_vorname + " " + @session[:user].user_name %></td>
-	<td class="silvertext" width="40">Status:</td>
-	<td width="100" class="statusbar" align="center">$Mentor</td>
-</td>
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
-<tr>
-	<td height="10" class="grey"></td>
-</tr>
-</table>
-<table border="0" cellspacing="0" cellpadding="0">
-<tr class="silvertext">
-	<td height="34" width="80" align="center">
-	<%= link_to image_tag("/images/exit.png", :size => "32x32", :border => 0), { :controller => "account",:action => "logout"},
-	{:confirm => "Sind sie sicher?"} %></td>
-	<td height="34" width="80" align="center"></td>
-    <td height="34" width="80" align="center"></td>
-    <td height="34" width="80"></td>
-</tr>
-<tr class="silvertext" valign="top" align="center">
-    <td height="15" width="80" class="silvertext">Logout</td>
-    <td height="15" width="80" class="silvertext"></td>
-    <td height="15" width="80" class="silvertext"></td>
-    <td height="15" width="80" class="silvertext"></td>
-</tr>
+<table text-align="left" align="center" width="600px" border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td class="silvertext" width="40px">User:</td>
+		<td width="100px" class="statusbar" align="center"><%= @session[:user].user_vorname + " " + @session[:user].user_name %></td>
+		<td class="silvertext" width="40px">Status:</td>
+		<td width="100px" class="statusbar" align="center">$Mentor</td>
+		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+			<tr>
+				<td class="grey"></td>
+			</tr>
+		</table>
+		<table border="0" cellspacing="0" cellpadding="0">
+			<tr class="silvertext">
+				<td width="80px" align="center">
+				<%= link_to image_tag("/images/exit.png", :size => "32x32", :border => 0), { :controller => "account",:action => "logout"},
+				{:confirm => "Sind sie sicher?"} %></td>
+				<td width="80px" align="center"></td>
+				<td width="80px" align="center"></td>
+				<td width="80px"></td>
+			</tr>
+			<tr class="silvertext" valign="top" align="center">
+				<td width="80px" class="silvertext">Logout</td>
+				<td width="80px" class="silvertext"></td>
+				<td width="80px" class="silvertext"></td>
+				<td width="80px" class="silvertext"></td>
+			</tr>
+		</table>
+	</tr>
 </table>
 <!-- Navigation Ende -->

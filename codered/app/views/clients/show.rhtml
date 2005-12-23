@@ -16,7 +16,7 @@
 	<div class="left">
 		<div class="login">
 				Clienten Name:&nbsp;
-				"<%= @client.client_name %>"
+				"<%=h @client.client_name %>"
 			<!-- Edit Block -->
 			<div align="right">
 				<a href="#" valgin="bottom" onclick="effect_1 = Effect.SlideDown('d1',{duration:1.0}); return false;">
@@ -37,10 +37,10 @@
 		</div><!-- class="login"-->
 		<div class="adress">
 			Kontakt Informationen:<br>
-			<%= @client.client_strasse %>&nbsp;
+			<%=h @client.client_strasse %>&nbsp;
 			<br>
-			<%= @client.client_plz %>
-			<%= @client.client_ort %>
+			<%=h @client.client_plz %>
+			<%=h @client.client_ort %>
 			<br>
 			<!-- Edit Block -->
 			<div align="right">

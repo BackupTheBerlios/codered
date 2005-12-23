@@ -13,7 +13,7 @@
 	An <span id="betreuer_name"></span> zuweisen.<br>
 	<a href="#" onclick="Element.hide('gefunden');Element.show('suchen');return false;">Anderen Betreuer wählen</a>
 </div>
-<%= form_remote_tag( :update=> "wf_list", :name=> "zuweisen",
+<%= form_remote_tag( :update=> "wf_list",
 	:url=> { :action=> "create", :controller =>"workflows", :ticket=> @ticket, :user => @session[:user], :grund => '4', :ticket_status => '1'},
 			:position=> "top",
 			:effects => 'highlight',

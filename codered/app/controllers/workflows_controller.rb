@@ -24,6 +24,10 @@ require 'workflow'
 	if params[:grund] == '4'
 		@ticket.betreuer_id = params[:betreuer_id]
 	end
+	if params[:grund] == '3'
+		@ticket.betreuer_id = @ticket.betreuer_id  #TODO: muss auf einen freien Mentor zeigen
+		@ticket.ticket_status = '0' 
+	end
     @ticket.save
     @workflow = Workflow.new
     @workflow.user_id = User.find(params[:user]).id  

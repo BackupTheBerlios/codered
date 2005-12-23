@@ -1,6 +1,6 @@
 <%= render_partial 'navi' %>
 <h1>Aktuelle Clienten</h1>
-<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<table align="center" width="600px" border="0" cellspacing="0" cellpadding="0">
 <%
 	endweder_oder = 0
 	for client in @clients
@@ -8,8 +8,8 @@
 %>	
 <tr valign="top" class="ListLinie<%= endweder_oder %>">
 	<td width="4"></td>
-	<td height="40" valign="middle" class="darkgrey">Name: <%= link_to (client.client_name), :action => 'show', :id => client %></td>
-	<td valign="middle" class="darkgrey">Name: <%= link_to (client.client_ort), :action => 'show', :id => client %></td>
+	<td height="40" valign="middle" class="darkgrey">Name: <%= link_to (h(client.client_name)), :action => 'show', :id => client %></td>
+	<td valign="middle" class="darkgrey">Name: <%= link_to (h(client.client_ort)), :action => 'show', :id => client %></td>
 	<td class="darkgrey" valign="middle">User:</td>
     <td class="darkgrey" width="60" height="40" valign="middle"></td>
     <td class="darkgrey" width="60" height="40" valign="middle"><%= link_to image_tag("/images/remove.png", :size => "32x32", :border => 0), {:action => 'destroy', :id => client}, :confirm => 'Are you sure?' %></td>
@@ -26,4 +26,4 @@
     <td><%= link_to image_tag("/images/page_next.png", :size => "32x32", :border => 0), { :page => @client_pages.current.next } if @client_pages.current.next %></td>
   </tr>
 </table>
-<%= link_to image_tag("/images/new.png", :size => "32x32", :border => 0), { :action => 'new' } %>
+<div style="width:600px;"><%= link_to image_tag("/images/new.png", :size => "32x32", :border => 0), { :action => 'new' } %><div>

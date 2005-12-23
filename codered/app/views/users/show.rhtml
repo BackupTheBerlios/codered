@@ -16,7 +16,7 @@
 	<div class="left">
 		<div class="login">
 			Login Name:&nbsp;
-			"<%= @user.login %>"
+			"<%=h @user.login %>"
 		<!-- Edit Block -->
 		<div align="right">
 			<a href="#" valgin="bottom" onclick="effect_1 = Effect.SlideDown('d1',{duration:1.0}); return false;">
@@ -37,15 +37,15 @@
 		</div>
 		<div class="adress">
 			Kontakt Informationen:<br>
-			<%= @user.user_vorname + " " + @user.user_name %>
+			<%=h @user.user_vorname + " " + @user.user_name %>
 			<br>
-			<%= @user.user_strasse %>
+			<%=h @user.user_strasse %>
 			<br>
-			<%= @user.user_plz %>
-			<%= @user.user_ort %>
+			<%=h @user.user_plz %>
+			<%=h @user.user_ort %>
 			<br>
 			Klasse:&nbsp;
-			<%= @user.user_klasse %>
+			<%=h @user.user_klasse %>
 			<!-- Edit Block -->
 			<div align="right">
 				<a href="#" valgin="bottom" onclick="effect_1 = Effect.SlideDown('d2',{duration:1.0}); return false;">
@@ -76,7 +76,7 @@
 		</div>
 		<div class="know">
 			Informationen:<br>
-			<%= @user.user_rule %>
+			<%=h @user.user_rule %>
 			<!-- Edit Block -->
 				<div align="right">
 				<a href="#" valgin="bottom" onclick="effect_1 = Effect.SlideDown('d3',{duration:1.0}); return false;">

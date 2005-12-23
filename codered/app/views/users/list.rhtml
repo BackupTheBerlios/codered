@@ -8,9 +8,9 @@
 %>	
 <tr valign="top" class="ListLinie<%= endweder_oder %>">
 	<td width="4"></td>
-	<td height="40" valign="middle" class="darkgrey">Login: <%= link_to (user.login), :action => 'show', :id => user %></td>
-	<td valign="middle" class="darkgrey">Name: <%= link_to (user.user_name), :action => 'show', :id => user %></td>
-	<td class="darkgrey" valign="middle">Klasse: <%= link_to (user.user_klasse), :action => 'show', :id => user %></td>
+	<td height="40" valign="middle" class="darkgrey">Login: <%= link_to h(user.login), :action => 'show', :id => user %></td>
+	<td valign="middle" class="darkgrey">Name: <%= link_to h(user.user_name), :action => 'show', :id => user %></td>
+	<td class="darkgrey" valign="middle">Klasse: <%= link_to h(user.user_klasse), :action => 'show', :id => user %></td>
     <td class="darkgrey" width="60" height="40" valign="middle"></td>
     <td class="darkgrey" width="60" height="40" valign="middle"><%= link_to image_tag("/images/remove.png", :size => "32x32", :border => 0), {:action => 'destroy', :id => user}, :confirm => 'Are you sure?' %></td>
 </tr>

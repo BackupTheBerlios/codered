@@ -1,85 +1,14 @@
+<div align="center" width="600px" >
 <!-- Aktuelle Tickets -->
-<h1>Aktuelle Tickets</h1>
-<table width="600" border="0" cellspacing="0" cellpadding="0">
-<%  # gestreifte Anzeige der Tickets
-	endweder_oder = 0 ;	for ticket in @tickets ; endweder_oder = 1 - endweder_oder %>
-<tr valign="top" class="ListLinie<%= endweder_oder %>">
-	<td width="4"></td>
-	<td height="40" valign="middle">
-	<%= link_to truncate(ticket.ticket_bezeichnung, length = 30, truncate_string = "..." ), :action => 'show', :id =>ticket  %></td>
-	<td valign="middle" class="darkgrey"> Zuständig: <%= link_to (User.find(ticket.betreuer_id).user_name), :action => 'show', :id =>ticket.betreuer_id , :controller =>"users" %> </td>
-	<td class="darkgrey" valign="middle"> Client: <%= link_to (Client.find(ticket.client_id).client_name), :action => 'show', :id =>ticket.client_id , :controller =>"client" %> </td>
-    <td class="darkgrey" width="60" height="40" valign="middle"><%= link_to image_tag("/images/editpaste.png", :size => "32x32", :border => 0),{:action => 'edit', :id => ticket} %></td>
-    <td class="darkgrey" width="60" height="40" valign="middle"><%= link_to image_tag("/images/remove.png", :size => "32x32", :border => 0), {:action => 'destroy', :id => ticket}, :confirm => 'Are you sure?' %></td>
-</tr>
-<% end %>
-  <tr>
-    <td height="15"></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td algin="left"><%= link_to image_tag("/images/page_back.png", :size => "32x32", :border => 0), { :page => @ticket_pages.current.previous } if @ticket_pages.current.previous %></td>
-    <td></td>
-    <td><%= link_to image_tag("/images/page_next.png", :size => "32x32", :border => 0), { :page => @ticket_pages.current.next } if @ticket_pages.current.next %></td>
-  </tr>
-</table>
+	<h1>Aktuelle Tickets</h1>
+	<%= render_partial('list')%>
 <!-- Aktuelle Tickets Ende -->
 <!-- Bearbeitete Tickets -->
-<h1>Bearbeitete Tickets</h1>
-<table width="600" border="0" cellspacing="0" cellpadding="0">
-<%
-	endweder_oder = 0
-	for ticket in @tickets
-		endweder_oder = 1 - endweder_oder
-%>
-<tr valign="top" class="ListLinie<%= endweder_oder %>">
-<td height="40" valign="middle">
-	<%= link_to truncate(ticket.ticket_bezeichnung, length = 30, truncate_string = "..." ), :action => 'show', :id =>ticket  %> </td>
-	<td class="darkgrey" valign="middle"> Zuständig: <%= link_to (User.find(ticket.betreuer_id).user_name), :action => 'show', :id =>ticket.betreuer_id , :controller =>"users" %> </td>
-	<td class="darkgrey" valign="middle"> Client: <%= link_to (Client.find(ticket.client_id).client_name), :action => 'show', :id =>ticket.client_id , :controller =>"client" %> </td>
-    <td class="darkgrey" valign="middle" width="60" height="40"><%= link_to image_tag("/images/editpaste.png", :size => "32x32", :border => 0),{:action => 'edit', :id => ticket} %></td>
-    <td class="darkgrey" valign="middle" width="60" height="40"><%= link_to image_tag("/images/remove.png", :size => "32x32", :border => 0), {:action => 'destroy', :id => ticket}, :confirm => 'Are you sure?' %></td>
-</tr>
-<% end %>
-  <tr>
-    <td height="15"></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td algin="left"><%= link_to image_tag("/images/page_back.png", :size => "32x32", :border => 0), { :page => @ticket_pages.current.previous } if @ticket_pages.current.previous %></td>
-    <td></td>
-    <td><%= link_to image_tag("/images/page_next.png", :size => "32x32", :border => 0), { :page => @ticket_pages.current.next } if @ticket_pages.current.next %></td>
-  </tr>
-</table>
+	<h1>Bearbeitete Tickets</h1>
+	<%= render_partial('list')%>
 <!-- Bearbeitete Tickets Ende -->
 <!-- Beendete Tickets -->
-<h1>Beendete Tickets</h1>
-<table width="600" border="0" cellspacing="0" cellpadding="0">
-<%
-	endweder_oder = 0
-	for ticket in @tickets
-		endweder_oder = 1 - endweder_oder
-%>
-<tr valign="top" class="ListLinie<%= endweder_oder %>">
-<td height="40" valign="middle">
-	<%= link_to truncate(ticket.ticket_bezeichnung, length = 30, truncate_string = "..." ), :action => 'show', :id =>ticket  %></td>
-	<td class="darkgrey" valign="middle"> Zuständig: <%= link_to (User.find(ticket.betreuer_id).user_name), :action => 'show', :id =>ticket.betreuer_id , :controller =>"users" %> </td>
-	<td class="darkgrey" valign="middle"> Client: <%= link_to (Client.find(ticket.client_id).client_name), :action => 'show', :id =>ticket.client_id , :controller =>"client" %> </td>
-    <td class="darkgrey" valign="middle" width="60" height="40"><%= link_to image_tag("/images/editpaste.png", :size => "32x32", :border => 0),{:action => 'edit', :id => ticket} %></td>
-    <td class="darkgrey" valign="middle" width="60" height="40"><%= link_to image_tag("/images/remove.png", :size => "32x32", :border => 0), {:action => 'destroy', :id => ticket}, :confirm => 'Are you sure?' %></td>
-</tr>
-<% end %>
-  <tr>
-    <td height="15"></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td algin="left"><%= link_to image_tag("/images/page_back.png", :size => "32x32", :border => 0), { :page => @ticket_pages.current.previous } if @ticket_pages.current.previous %></td>
-    <td></td>
-    <td><%= link_to image_tag("/images/page_next.png", :size => "32x32", :border => 0), { :page => @ticket_pages.current.next } if @ticket_pages.current.next %></td>
-  </tr>
-</table>
+	<h1>Beendete Tickets</h1>
+	<%= render_partial('list')%>
 <!-- Beendete Tickets Ende -->
+</div>

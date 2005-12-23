@@ -2,31 +2,37 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de">
 <head>
   <title>Tickets: <%= controller.action_name %></title>
-  <%= javascript_include_tag :defaults %>
   <%= stylesheet_link_tag 'scaffold' %>
+  <%= javascript_include_tag :defaults %>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 </head>
 <body>
 <!-- Rahmen -->
-<table align="center" width="600px" border="0" cellspacing="0" cellpadding="0">
-  	<tr>
-    	<td height="60"></td>
-  	</tr>
+<table width="100%"  border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top" align="center">
+	<!-- vertikal -->
+	<table width="600" border="0" cellspacing="0" cellpadding="0">
   	<tr>
     	<td align="right"><img src="/images/logo.gif" border="0" alt="codered"></td>
   	</tr>
   	<tr>
-    	<td height="1" class="gray"></td>
+		<td><hr></td>
+  	</tr>
+</table>
+	<%= @content_for_layout %>
+	<br>
+	<table width="600" border="0" cellspacing="0" cellpadding="0">
+  	<tr>
+		<td><hr></td>
+  	</tr>
+  	<tr>
+    	<td class="silvertext" align="right">Kontakt || Impressum ||</td>
   	</tr>
 	</table>
-		<%= @content_for_layout %>
-		<table align="center" width="600px" >
-  	<tr>
-    	<td height="1" class="gray"></td>
-  	</tr>
-  	<tr>
-    	<td height="7" class="silvertext" align="right">Kontakt || Impressum ||</td>
-  	</tr>
+	<!-- vertikal ende -->
+	</td>
+  </tr>
 </table>
 
 </body>
