@@ -1,5 +1,4 @@
 <%= render_partial 'navi' %>
-<div align="center" width="600px">
 <h1>Aktuelle User</h1>
 <table width="600px" border="0" cellspacing="0" cellpadding="0">
 <%
@@ -8,27 +7,17 @@
 		endweder_oder = 1 - endweder_oder
 %>	
 <tr valign="top" class="ListLinie<%= endweder_oder %>">
-	<td width="4"></td>
-	<td height="40" valign="middle" class="darkgrey">Login: <%= link_to h(user.login), :action => 'show', :id => user %></td>
+	<td valign="middle" class="darkgrey">Login: <%= link_to h(user.login), :action => 'show', :id => user %></td>
 	<td valign="middle" class="darkgrey">Name: <%= link_to h(user.user_name), :action => 'show', :id => user %></td>
 	<td class="darkgrey" valign="middle">Klasse: <%= link_to h(user.user_klasse), :action => 'show', :id => user %></td>
-    <td class="darkgrey" width="60" height="40" valign="middle"></td>
-    <td class="darkgrey" width="60" height="40" valign="middle"><%= link_to image_tag("/images/remove.png", :size => "32x32", :border => 0), {:action => 'destroy', :id => user}, :confirm => 'Are you sure?' %></td>
+    <td class="darkgrey" valign="middle"></td>
+	<td class="darkgrey" valign="middle"><%= link_to image_tag("/images/remove.png", :size => "32x32"),
+		{:action => 'destroy', :id => user}, :confirm => 'Are you sure?' %>
+	</td>
 </tr>
 <% end %>
-  <tr>
-    <td height="15"></td>
-    <td></td>
-    <td></td>
-  </tr>
-  <tr>
-    <td algin="left"><%= link_to image_tag("/images/page_back.png", :size => "32x32", :border => 0), { :page => @user_pages.current.previous } if @user_pages.current.previous %></td>
-    <td></td>
-    <td><%= link_to image_tag("/images/page_next.png", :size => "32x32", :border => 0), { :page => @user_pages.current.next } if @user_pages.current.next %></td>
-  </tr>
 </table>
-
-<br/>
-
-<%= link_to image_tag("/images/new.png", :size => "32x32", :border => 0), { :action => 'signup', :controller =>"account" } %>
+<div style="width:600px; margin-right: auto; text-align:right;">
+<%= link_to image_tag("/images/page_back.png", :size => "32x32"), { :page => @user_pages.current.previous } if @user_pages.current.previous %><%= link_to image_tag("/images/page_next.png", :size => "32x32", :border => 0), { :page => @user_pages.current.next } if @user_pages.current.next %>
+<%= link_to image_tag("/images/new.png", :size => "32x32"), { :action => 'signup', :controller =>"account" } %>
 </div>

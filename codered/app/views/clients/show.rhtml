@@ -1,90 +1,79 @@
-<div align="center" width="600px">
 <%= render_partial 'navi' %>
-<br>
-<div class="darkgrey" align="center">
-	|| Clienten Card ||
-</div>
-<div align="left" class="user">
+<br />
+<span class="darkgrey">	|| Clienten Card || </span>
+<div class="user">
 	<div class="statusbar">
 		<%= flash[:notice] %>
 	</div>
 	<div class="pic">
-			<img src="" border="0" alt="User Foto" width="100" height="130">
-			<br>
+		<img src="" alt="User Foto" />
+			<br />
 			<a href="#">Upload</a>
-	</div><!-- class="pic"-->
+	</div><!-- class="pic"-->	
 	<div class="left">
 		<div class="login">
-				Clienten Name:&nbsp;
+				Clienten Name:
 				"<%=h @client.client_name %>"
 			<!-- Edit Block -->
-			<div align="right">
-				<a href="#" valgin="bottom" onclick="effect_1 = Effect.SlideDown('d1',{duration:1.0}); return false;">
-					<img src="/images/edit_down2020.png" size="20x20" border="0" title="Loginname Editieren"><br>Editieren</a>
+			<div style="text-align:right">
+				<a href="#" onclick="effect_1 = Effect.SlideDown('d1',{duration:1.0}); return false;">
+					<img src="/images/edit_down2020.png" alt="Loginname Editieren" title="Loginname Editieren" /><br />Editieren</a>
 			</div>
 			<div id="d1" style="display:none">
 				<div>
 					<%= start_form_tag :action => 'update', :id => @client %>
-					<%= text_field 'client', 'client_name'  %>
-					<br>
-					<%= submit_tag 'Edit' %>
-					<a href="#" onclick="effect_1 = Effect.SlideUp('d1',{duration:1.0}); return false;">Verstecken</a>
+					<p>	<%= text_field 'client', 'client_name'  %></p>
+					<p><%= submit_tag 'Edit' %></p>
 					<%= end_form_tag %>
-					<br>
+					<a href="#" onclick="effect_1 = Effect.SlideUp('d1',{duration:1.0}); return false;">Verstecken</a>
 				</div>
-			</div> 
-			<!-- Edit Block Ende -->
+			</div><!-- Edit Block Ende -->
 		</div><!-- class="login"-->
 		<div class="adress">
-			Kontakt Informationen:<br>
-			<%=h @client.client_strasse %>&nbsp;
-			<br>
+			Kontakt Informationen:<br />
+			<%=h @client.client_strasse %>
+			<br />
 			<%=h @client.client_plz %>
 			<%=h @client.client_ort %>
-			<br>
+			<br />
 			<!-- Edit Block -->
-			<div align="right">
-				<a href="#" valgin="bottom" onclick="effect_1 = Effect.SlideDown('d2',{duration:1.0}); return false;">
-				<img src="/images/edit_down2020.png" size="20x20" border="0" title="Loginname Editieren"><br>Editieren</a>
+			<div style="text-align:right">
+				<a href="#" onclick="effect_1 = Effect.SlideDown('d2',{duration:1.0}); return false;">
+					<img src="/images/edit_down2020.png" alt="Loginname Editieren" title="Loginname Editieren" /><br />Editieren</a>
 			</div>
 			<div id="d2" style="display:none">
 				<div>
 					<%= start_form_tag :action => 'update', :id => @client %>
-					<%= text_field 'client', 'client_strasse'  %>
-					<br>
-					<%= text_field 'client', 'client_plz'  %>
-					<br>
-					<%= text_field 'client', 'client_ort'  %>
-					<br>
-					<%= submit_tag 'Edit' %>
-					<a href="#" onclick="effect_1 = Effect.SlideUp('d2',{duration:1.0}); return false;">Verstecken</a>
+					<p><%= text_field 'client', 'client_strasse'  %></p>
+					<p><%= text_field 'client', 'client_plz'  %></p>
+					<p><%= text_field 'client', 'client_ort'  %></p>
+					<p><%= submit_tag 'Edit' %></p>
 					<%= end_form_tag %>
-					<br>
+					<a href="#" onclick="effect_1 = Effect.SlideUp('d2',{duration:1.0}); return false;">Verstecken</a>
 				</div>
 			</div>
 			<!-- Edit Block Ende -->
 		</div><!-- class="adress"-->
 		<div class="know">
-			Informationen:<br>
+			Informationen:<br />
 			#Anzeige Dokumente
 			<!-- Dokumente -->
 			<!-- Edit Block -->
-			<div align="right">
-				<a href="#" valgin="bottom" onclick="effect_1 = Effect.SlideDown('d3',{duration:1.0}); return false;">
-				<img src="/images/edit_down2020.png" size="20x20" border="0" title="Loginname Editieren"></a>
+			<div style="text-align:right">
+				<a href="#" onclick="effect_1 = Effect.SlideDown('d3',{duration:1.0}); return false;">
+					<img src="/images/edit_down2020.png" alt="Loginname Editieren" title="Loginname Editieren" /><br />Editieren</a>
 			</div>
 			<div id="d3" style="display:none">
 				<div>
-				#Upload Dokumente
+				<%= start_form_tag :action => 'update', :id => @client %>
+				<p>#Upload Dokumente</p>
 				<!-- Upload Dokumete Clienten-->
-				<br>
-				<%= submit_tag 'Edit' %>
-				<a href="#" onclick="effect_1 = Effect.SlideUp('d3',{duration:1.0}); return false;">Verstecken</a>
+				<p><%= submit_tag 'Edit' %></p>
 				<%= end_form_tag %>
-				<br>
+				<a href="#" onclick="effect_1 = Effect.SlideUp('d3',{duration:1.0}); return false;">Verstecken</a>
+				<br />
 				</div>
-			</div>
-			<!-- Edit Block Ende -->
+			</div><!-- Edit Block Ende -->
 		</div><!-- class="know"-->
 	</div><!-- class="left"-->
 </div><!-- class="user"-->

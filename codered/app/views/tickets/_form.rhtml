@@ -17,6 +17,7 @@ select(:ticket, :client_id, @clienten)
 <p><label for="ticket_ticket_status">Ticket status: </label> Unzugewiesen oder Neu
 <%= hidden_field("ticket","ticket_status", 'value' => 0) %></p>
 
-<p><label for="ticket_created_on">Eingetragen am:</label>
-<%= DateTime.now.to_formatted_s(format = :short) %></p>
+<p>Eingetragen am: <%= DateTime.now.to_formatted_s(format = :short) #TODO: Besseres Datumsformat suchen
+		%>
+</p>
 <!--[eoform:ticket]-->

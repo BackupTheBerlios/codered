@@ -1,21 +1,16 @@
 <!-- Navigation Anfang -->
-<table align="center" text-align="right" width="600px" border="0" cellspacing="0" cellpadding="0">
-	<tr>
-		<td class="silvertext">User:</td>
-		<td class="statusbar"><%= @session[:user].user_vorname + " " + @session[:user].user_name %></td>
-		<td class="silvertext">Status:</td>
-		<td class="statusbar"><%= @session[:user].user_rule %></td>
-		<td class="silvertext">Zeit:</td>
-		<td class="statusbar"><%= Time.now.to_formatted_s(format = :short) %></td>
-	</tr>
-</table>
-<br>
-<table align="center" text-align="center" width="250px" border="0" cellspacing="0" cellpadding="0">
+<div style="width:600px; margin-right: auto; margin-left: auto;text-align:right;" >
+	<span class="silvertext">User:</span>
+	<span class="statusbar"><%=h @session[:user].user_vorname + " " + @session[:user].user_name %></span>
+	<span class="silvertext">Status:</span>
+	<span class="statusbar"><%=h @session[:user].user_rule %></span>
+	<span class="silvertext">Zeit:</span>
+	<span class="statusbar"><%= Time.now.to_formatted_s(format = :short) %></span>
+<table width="250px" border="0" cellspacing="0" cellpadding="0">
 	<tr align="center">
 		<td>
 			<%= link_to image_tag("/images/exit.png",
-			  :size => "32x32", :border => 0),
-			{ :controller => "account",:action => "logout"},
+			:size => "32x32"),{ :controller => "account",:action => "logout"},
 			{ :confirm => "Sind sie sicher?"} %>
 		</td>
 		<td>
@@ -29,4 +24,5 @@
 		<td class="silvertext"></td>
 	</tr>
 </table>
+</div>
 <!-- Navigation Ende -->

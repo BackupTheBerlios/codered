@@ -6,7 +6,7 @@ before_filter :login_required
   end
 
   def list
-    @ticket_pages, @tickets = paginate :tickets, :per_page => 10
+    @ticket_pages, @tickets = paginate :tickets, :per_page => 5
   end
 
   def show

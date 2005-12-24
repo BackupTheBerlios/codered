@@ -12,7 +12,7 @@ body, p, ol, ul, td {
   font-size:   13px;
   line-height: 18px;
 }
-td.statusbar {
+.statusbar {
 	text-align:left;
 	width:100px;
 	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
@@ -20,19 +20,20 @@ td.statusbar {
 	color: Black;
 	font-weight: bold;
 }
-div.entry {
-	margin:10px;
+.entry {
 	padding:10px;
 	text-align:left;
 	-moz-border-radius: 15px;
-	width:600px;
+	width:580px;
+	margin-right: auto;
+	margin-left: auto;
 	background-color: #B7CEF6;
 	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 	font-size: x-small;
 	font-weight: bolder;
 	color: Black;
 }
-td.estra, div.estra {
+.estra {
 	text-align:left;
 	background-color: #CEE9F0;
 	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
@@ -41,16 +42,16 @@ td.estra, div.estra {
 	color: Black;
 	padding-left: 12;
 }
-td.gray {
+.gray {
 	background-color: #555555;
 }
-td.darkgrey, div.darkgrey {
+.darkgrey {
 	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 	font-size: x-small;
 	font-weight: bolder;
 	color: #616161;
 }
-td.black {
+.black {
 	color: Black;
 	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 	font-size: small;
@@ -64,13 +65,13 @@ td.black {
 	background-color: #CEE9F0;
 }
 
-td.silvertext, div.silvertext {
+.silvertext {
 	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 	font-size: xx-small;
 	font-weight: bolder;
 	color: Silver;
 }
-td.text {
+.text {
 	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 	font-size: smaller;
 	color: Black;
@@ -124,13 +125,17 @@ a:hover { color: #fff; background-color:#000; }
 div.user {
 	/*padding:10px;*/
 	width:600px;
+	margin-right: auto;
+	margin-left: auto;	
 	border: 1px solid grey;
 	
 }
 div.left{
-	width:300px;
+	text-align:left;
+	width:400px;
 }
 div.login {
+	text-align:left;
 	border: 1px;
 	margin:10px;
 	padding:10px;
@@ -143,6 +148,7 @@ div.login {
 	-moz-border-radius: 12px
 }
 div.adress {
+	text-align:left;
 	border: 1px;
 	margin:10px;
 	padding:10px;
@@ -155,6 +161,7 @@ div.adress {
 	-moz-border-radius: 12px
 }
 div.know {
+	text-align:left;
 	border: 1px;
 	margin:10px;
 	padding:10px;
@@ -209,6 +216,8 @@ div.workflow {
 	color: Black;
 	-moz-border-radius: 7px;
    margin-top:5px;
+   margin-right: auto;
+   margin-left: auto;
    background: #FFF987;
    width:550px;
    padding:10px;
@@ -223,6 +232,8 @@ div.workflow_container {
    padding:10px;
    width:530px;
    text-align:left;
+   margin-right: auto;
+   margin-left: auto;
 }
 
 div.system_message {

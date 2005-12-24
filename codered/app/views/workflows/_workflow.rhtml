@@ -2,11 +2,11 @@
 	<% for workflow in @workflows %>
 		<%
 		@eintragender = User.find(workflow.user_id) #Speichert das Object des eintragendem 
-		@eintragender_name = @eintragender.user_vorname + " " + @eintragender.user_name
+		@eintragender_name = h(@eintragender.user_vorname + " " + @eintragender.user_name)
 		@workflow_trunc = truncate(h(workflow.workflow_text), length = 40, truncate_string = "..." ) # h()  verhindert html Tags
 		@update = "workflow_container"+ workflow.id.to_s
 		%>
-	<div width="600" class="workflow" id="workflow_<%=workflow.id%>_head" >
+<div class="workflow" id="workflow_<%=workflow.id%>_head" >
 	<table >
 		<colgroup>
 			<col width="400">
@@ -18,7 +18,7 @@
 				:update => "workflow" + workflow.id.to_s ,
 				:complete => "Effect.SlideDown(\'"+ @update + "\')" %>
 			</td>
-			<td align="right"  valign="top" style="font-size:xx-small">
+			<td valign="top" style="font-size:xx-small">
 				von: <%= link_to (@eintragender_name), 
 												:action => 'show', 
 												:id => @eintragender.id , 
@@ -36,11 +36,9 @@
 
 	<div id="menu"> <!--Wrapperklasse fuer IE6.0 -->
 		<div class="workflow_container" style="display:none" id="workflow_container<%= workflow.id.to_s %>">
-			<div style="clear:both" id="workflow<%= workflow.id %>">
+			<div id="workflow<%= workflow.id %>">
 			</div>
 		</div>
-	</div>
-	<div height="5px">
 	</div>
 	<% end %>
 <% else %>
