@@ -13,7 +13,7 @@
 		</td>
 		<td class="darkgrey" valign="middle">
 			Client: <%= link_to h(Client.find(ticket.client_id).client_name), 
-			:action => 'show', :id =>ticket.client_id , :controller =>"client" %>
+			:action => 'show', :id =>ticket.client_id , :controller =>"clients" %>
 		</td>
 		<td class="darkgrey" valign="middle">
 			<%= link_to image_tag("/images/editpaste.png", :size => "32x32"),
