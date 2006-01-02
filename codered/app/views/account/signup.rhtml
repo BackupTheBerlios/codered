@@ -29,9 +29,12 @@
 
   <label for="user_user_klasse">Klasse</label><br/>
   <%= text_field "user", "user_klasse", :size => 30 %><br/>
-
-  <label for="user_user_rule">Rule</label><br/>
-  <%= text_field "user", "user_rule", :size => 30 %><br/>
+  <%= hidden_field "user", "user_rule", :value => 5 %>
+<!-- <label for="user_user_rule">Rule</label><br/>
+<br/>
+# Rule deklariere ich jetzt einfach als "UserStatus" ich bin mir
+# nicht mehr sicher ob "klasse" evtl dafuer gedacht war, aber jetzt ist es zu spät
+-->
 
   <label for="user_user_pic">Pic</label><br/>
   <%= text_field "user", "user_pic", :size => 30 %><br/>
