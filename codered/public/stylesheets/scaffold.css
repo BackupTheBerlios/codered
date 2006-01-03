@@ -12,6 +12,13 @@ body, p, ol, ul, td {
   font-size:   13px;
   line-height: 18px;
 }
+p.hilfetext {
+	text-align:left;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: x-small;
+	font-weight: bolder;
+	color: #330033;
+}
 .statusbar {
 	text-align:left;
 	width:100px;
@@ -51,6 +58,15 @@ body, p, ol, ul, td {
 	font-weight: bolder;
 	color: #616161;
 }
+.backgrey{
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: x-small;
+	font-weight: bolder;
+	background-color: #616161;
+	color: #fff;
+	-moz-border-radius: 4px 4px 0px 0px;
+	 margin: 0px;
+}
 .black {
 	color: Black;
 	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
@@ -83,9 +99,15 @@ pre {
   font-size: 11px;
 }
 
-a { color: #000; }
+a { 
+	color: #000; 
+	border: 0;
+}
 a:visited { color: #666; }
-a:hover { color: #fff; background-color:#000; }
+
+img {
+border:0px;
+}
 
 .fieldWithErrors {
   padding: 2px;

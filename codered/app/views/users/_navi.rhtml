@@ -6,21 +6,23 @@
 	<span class="statusbar"><%=h @session[:user].user_rule %></span>
 	<span class="silvertext">Zeit:</span>
 	<span class="statusbar"><%= Time.now.to_formatted_s(format = :short) %></span>
-<table width="250px" border="0" cellspacing="0" cellpadding="0">
+<table border="0" cellspacing="0" cellpadding="0">
 	<tr align="center">
-		<td>
+		<td  width="80px">
 			<%= link_to image_tag("/images/exit.png",
 			:size => "32x32"),{ :controller => "account",:action => "logout"},
 			{ :confirm => "Sind sie sicher?"} %>
 		</td>
-		<td>
+		<td  width="80px">
+			<%= link_to image_tag("/images/ticketlist.png", 
+			:size => "32x32"),{ :controller => "tickets",:action => 'list' } %>
 		</td>
 		<td>
 		</td>
 	</tr>
 	<tr align="center">
 		<td class="silvertext">Logout</td>
-		<td class="silvertext"></td>
+		<td class="silvertext">Tickets</td>
 		<td class="silvertext"></td>
 	</tr>
 </table>

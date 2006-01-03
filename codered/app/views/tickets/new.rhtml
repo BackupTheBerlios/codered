@@ -1,8 +1,50 @@
 <h1>Neues Ticket</h1>
 <div class="entry">
-<%= start_form_tag :action => 'create' , :user => @session[:user] %>
-<%= render_partial 'form' %>
-<p><%= submit_tag "Create" %></p>
-<%= end_form_tag %>
+<table  border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="300px">
+		<div>
+		<%= start_form_tag :action => 'create' , :user => @session[:user] %>
+		<p class="hilfetext"><label for="ticket_client_id">Client: </label><br>
+			<%=
+				@clienten = Client.find(:all, :order => "client_name").map {|u| [u.client_name, u.id] }
+				select(:ticket, :client_id, @clienten)
+			%>
+		</p>
+		<p><label for="ticket_ticket_bezeichnung">Ticket bezeichnung:</label><br/>
+			<%= text_field 'ticket', 'ticket_bezeichnung'  %></p>
+
+		<p><label for="ticket_ticket_beschreibung">Ticket beschreibung:</label><br/>
+		<%= text_area 'ticket', 'ticket_beschreibung'  %></p>
+
+		<p><label for="ticket_ticket_status">Ticket status: </label> Unzugewiesen oder Neu
+		<%= hidden_field("ticket","ticket_status", 'value' => 0) %></p>
+
+		<p>Eingetragen am: <%= DateTime.now.to_formatted_s(format = :short) #TODO: Besseres Datumsformat suchen
+		%>
+		</p>
+
+	<p><%= submit_tag "Create" %></p>
+		<%= end_form_tag %>
+	</div>
+</td>
+<td width="300px">
+	<div style="text-align:right">
+				<a href="#" onclick="effect_1 = Effect.SlideDown('d1',{duration:1.0}); return false;">
+					<img src="/images/edit_down2020.png" alt="Hilfe" title="Hilfetext Anzeigen" /></a>
+			</div>
+			<div id="d1" style="display:none; text-align:right">
+				<div>
+					<p class="hilfetext" >Bitte wählen sie den betreffenden Clienten aus.<br>
+					Clienten sind die Alert Orte!<br>
+					Also die Stelle an der das Probelem Aufgetreten ist.
+					</p> 
+					<a href="#" onclick="effect_1 = Effect.SlideUp('d1',{duration:1.0}); return false;">Hilfe Ausblenden</a>
+				</div>
+			</div>
+</td>
+</tr>
+</table>
 </div>
+
 <p><%= link_to image_tag("/images/page_back.png", :size => "32x32"), {:action => 'list' }%></p>
