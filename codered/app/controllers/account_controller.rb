@@ -22,8 +22,9 @@ class AccountController < ApplicationController
     if @request.post? and @user.save
       @session[:user] = User.authenticate(@user.login, @params[:user][:password])
       flash['notice']  = "Signup successful"
-      redirect_back_or_default :action => "welcome"
-    end      
+    #redirect_back_or_default :action => "welcome"
+     redirect_to :controller => "users" , :action => 'show' , :id => @user.id
+    end
   end  
   
   def logout
