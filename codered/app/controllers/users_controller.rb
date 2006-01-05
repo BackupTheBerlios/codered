@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  def index
+before_filter :login_required
+ def index
     list
     render :action => 'list'
   end

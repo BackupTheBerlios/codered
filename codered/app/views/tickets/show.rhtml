@@ -35,7 +35,8 @@
 	<div id="status" style="clear:both">
 	<p>
 	<span class="black">Statusinformationen:</span>
-	<span class="darkgrey"><%= @ticket.ticket_wichtigkeit %></span>
+	<span class="darkgrey"><%= #@ticket.ticket_wichtigkeit 
+		%></span>
 	<span class="darkgrey"><%= @ticket.ticket_status %></span>
 	<span class="darkgrey">
 		<%= link_to (h(Client.find(@ticket.client_id).client_name)),

@@ -1,9 +1,5 @@
 body {
-	background-color: #fff;
-	color: #333;
-	margin-bottom: 0;
-	margin-left: 0;
-	margin-right: 0;
+	background: #fff url(/images/topbluefade.gif) repeat-x;
 	height:101%; /* Mozialla-Zucken wegen Scrollbalken */
 }
 
