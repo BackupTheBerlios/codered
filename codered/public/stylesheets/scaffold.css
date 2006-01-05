@@ -1,5 +1,9 @@
 body {
-	background: #fff url(/images/topbluefade.gif) repeat-x;
+	background-color: #fff;
+	color: #333;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0;
 	height:101%; /* Mozialla-Zucken wegen Scrollbalken */
 }
 
@@ -61,7 +65,9 @@ p.hilfetext {
 	background-color: #616161;
 	color: #fff;
 	-moz-border-radius: 4px 4px 0px 0px;
-	 margin-bottom: 0px;
+	 margin-bottom: -5px;
+	 padding-bottom: -5px;
+	 border: 0px;
 }
 .black {
 	color: Black;
