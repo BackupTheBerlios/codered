@@ -1,5 +1,9 @@
 body {
-	background: #fff url(/images/topbluefade.gif) repeat-x;
+	background-color: #fff;
+	color: #333;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0;
 	height:101%; /* Mozialla-Zucken wegen Scrollbalken */
 }
 
@@ -13,7 +17,7 @@ p.hilfetext {
 	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 	font-size: x-small;
 	font-weight: bolder;
-	color: #330033;
+	color: #870D0D;
 }
 .statusbar {
 	text-align:left;
@@ -61,7 +65,7 @@ p.hilfetext {
 	background-color: #616161;
 	color: #fff;
 	-moz-border-radius: 4px 4px 0px 0px;
-	 margin: 0px;
+	 margin-bottom: 0px;
 }
 .black {
 	color: Black;
@@ -150,7 +154,8 @@ div.user {
 	/*padding:10px;*/
 	width:600px;
 	margin-right: auto;
-	margin-left: auto;	
+	margin-left: auto;
+	margin-top: 0;	
 	border: 1px solid grey;
 	
 }
@@ -184,7 +189,7 @@ div.adress {
 	margin-top: 20;
 	-moz-border-radius: 12px
 }
-div.know {
+div.know {margin-top: 20;
 	text-align:left;
 	border: 1px;
 	margin:10px;
