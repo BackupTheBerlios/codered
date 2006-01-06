@@ -17,13 +17,15 @@
 			<%= link_to image_tag("/images/ticketlist.png", 
 			:size => "32x32"),{ :controller => "tickets",:action => 'list' } %>
 		</td>
-		<td>
+		<td style="width:80px">
+			<%= link_to image_tag("/images/new.png", 
+			:size => "32x32"),{ :controller => "clients",:action => 'new' } %>
 		</td>
 	</tr>
 	<tr align="center">
 		<td class="silvertext">Logout</td>
 		<td class="silvertext">Tickets</td>
-		<td class="silvertext"></td>
+		<td class="silvertext">Neuer Client</td>
 	</tr>
 </table>
 </div>

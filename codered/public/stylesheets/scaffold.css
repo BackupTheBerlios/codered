@@ -161,6 +161,15 @@ div.user {
 	border: 1px solid grey;
 	
 }
+div.frame {
+	/*padding:10px;*/
+	width:600px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 0;	
+	border: 1px solid withe;
+	
+}
 div.left{
 	text-align:left;
 	width:400px;

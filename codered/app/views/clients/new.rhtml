@@ -1,10 +1,22 @@
-<div align="center" width="600px">
-<h1>New client</h1>
+<%= render_partial 'navi' %>
+<br />
+<span class="backgrey">&nbsp;&nbsp; Neuer Client &nbsp;&nbsp;  </span>
+<div class="user">
+	<div class="right">
+		<div class="pic">
+			<p><label for="client_client_pic">Client pic</label><br/>
+			Upload</p>
+		</div>
+	</div>
+	<div class="left">
+		<div class="adress">
+			<%= start_form_tag :action => 'create' %>
+  			<%= render_partial 'form' %>
+  			<%= submit_tag "Create" %>
+			<%= end_form_tag %>
 
-<%= start_form_tag :action => 'create' %>
-  <%= render_partial 'form' %>
-  <%= submit_tag "Create" %>
-<%= end_form_tag %>
-
-<%= link_to 'Back', :action => 'list' %>
+		<!-- TODO:Wenn ein Client angelet worden ist, am besten sofort den Show schalten -->
+		</div>
+	</div>
 </div>
+
