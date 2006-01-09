@@ -19,7 +19,7 @@ require 'workflow'
 	@ticket = Ticket.find(params[:ticket])
 	
 	if @user.user_rule > 1 &&  @user.user_rule < 5 then
-	# wenn ein User ungueltig oder administrator ist hat er nix einzutragen!
+	# wenn ein User ungueltig oder administrator ist, hat er nix einzutragen!
 		if @ticket.ticket_status == 0 then
 			# wenn ticket neu
 			if @user.user_rule == 2 then

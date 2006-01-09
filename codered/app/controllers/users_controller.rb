@@ -41,6 +41,17 @@ before_filter :login_required
     end
   end
 
+	def update_strasse
+		@user = User.find(params[:id])
+		if @user.update_attribute(:user_strasse, params[:value])
+			render :layout => false, :inline => "<%= h(@user.user_strasse) %>" 
+		else
+			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
+		end
+	end
+
+
+  
   def destroy
     User.find(params[:id]).destroy
     redirect_to :action => 'list'
