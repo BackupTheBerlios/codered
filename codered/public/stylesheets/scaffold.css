@@ -65,8 +65,9 @@ p.hilfetext {
 	background-color: #616161;
 	color: #fff;
 	-moz-border-radius: 4px 4px 0px 0px;
-	 margin-bottom: -5px;
-	 padding-bottom: -5px;
+	 margin-bottom: -15px;
+	 padding-left: 15px;
+	 padding-right: 15px;
 	 border: 0px;
 }
 .black {

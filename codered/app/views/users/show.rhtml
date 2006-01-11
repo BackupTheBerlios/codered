@@ -1,6 +1,6 @@
 <%= render_partial 'navi' %>
 <br />
-	<span class="backgrey">&nbsp;&nbsp; Users Card&nbsp; &nbsp; </span>
+	<span class="backgrey">Users Card</span>
 	<div class="user">
 	<div class="statusbar">
 		<%= flash[:notice] %>
@@ -15,29 +15,38 @@
 			Login Name:
 			<p id="login"><%=h @user.login %></p>
 			<script language="JavaScript">
- 			new Ajax.InPlaceEditor('login', '/demoajaxreturn.html');
+			new Ajax.InPlaceEditor('login', '/users/update_login/&lt;%= @user.id %&gt;');
 			</script>
 		</div>
 		<div class="adress">
 			Kontakt Informationen:
-			<p id="name"><%=h @user.user_vorname + " " + @user.user_name %></p>
+			<table>
+				<tr>
+					<td>
+						Name:
+					</td>
+					<td>
+						<span id="name"><%=h @user.user_vorname + " " + @user.user_name %></span>
+					</td>
+				</tr>
+			</table>
 			<p id="strasse"><%=h @user.user_strasse %></p>
 			<p id="plz"><%=h @user.user_plz %></p>
 			<p id="ort"><%=h @user.user_ort %></p>
 			<p id="klasse"><%=h @user.user_klasse %></p>
 			<script language="JavaScript">
- 			new Ajax.InPlaceEditor('name', '/demoajaxreturn.html');
- 			new Ajax.InPlaceEditor('strasse', '/demoajaxreturn.html');
- 			new Ajax.InPlaceEditor('plz', '/demoajaxreturn.html');
- 			new Ajax.InPlaceEditor('ort', '/demoajaxreturn.html');
- 			new Ajax.InPlaceEditor('klasse', '/demoajaxreturn.html');
+			new Ajax.InPlaceEditor('name', '/users/update_name/<%= @user.id %>');
+			new Ajax.InPlaceEditor('strasse', '/users/update_strasse/<%= @user.id  %>');
+			new Ajax.InPlaceEditor('plz', '/users/update_plz/');
+			new Ajax.InPlaceEditor('ort', '/users/update_ort/');
+			new Ajax.InPlaceEditor('klasse', '/users/update_klasse/');
 			</script>
 		</div><!--class=adress-->
 		<div class="know">
 			Informationen:
 			<p id="rule"><%=h @user.user_rule %></p>
 			<script language="JavaScript">
- 			new Ajax.InPlaceEditor('rule', '/demoajaxreturn.html');
+ 			new Ajax.InPlaceEditor('rule', '/users/update_rule/&lt;%= @user.id %&gt;');
  			</script>
 		</div>
 	</div>
