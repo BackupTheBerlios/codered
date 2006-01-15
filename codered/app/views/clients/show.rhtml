@@ -12,68 +12,50 @@
 	</div><!-- class="pic"-->	
 	<div class="left">
 		<div class="login">
-				Clienten Name:
-				"<%=h @client.client_name %>"
-			<!-- Edit Block -->
-			<div style="text-align:right">
-				<a href="#" onclick="effect_1 = Effect.SlideDown('d1',{duration:1.0}); return false;">
-					<img src="/images/edit_down2020.png" alt="Loginname Editieren" title="Loginname Editieren" /><br />Editieren</a>
-			</div>
-			<div id="d1" style="display:none">
-				<div>
-					<%= start_form_tag :action => 'update', :id => @client %>
-					<p>	<%= text_field 'client', 'client_name'  %></p>
-					<p><%= submit_tag 'Edit' %></p>
-					<%= end_form_tag %>
-					<a href="#" onclick="effect_1 = Effect.SlideUp('d1',{duration:1.0}); return false;">Verstecken</a>
-				</div>
-			</div><!-- Edit Block Ende -->
+			Clienten Name:
+			<p id="c_name"><%=h @client.client_name %></p>
+			<script type="text/javascript">
+			new Ajax.InPlaceEditor('c_name', '/clients/update_c_name/ <%= @client.id %>');
+			</script>
 		</div><!-- class="login"-->
 		<div class="adress">
 			Kontakt Informationen:<br />
-			<%=h @client.client_strasse %>
-			<br />
-			<%=h @client.client_plz %>
-			<%=h @client.client_ort %>
-			<br />
-			<!-- Edit Block -->
-			<div style="text-align:right">
-				<a href="#" onclick="effect_1 = Effect.SlideDown('d2',{duration:1.0}); return false;">
-					<img src="/images/edit_down2020.png" alt="Loginname Editieren" title="Loginname Editieren" /><br />Editieren</a>
-			</div>
-			<div id="d2" style="display:none">
-				<div>
-					<%= start_form_tag :action => 'update', :id => @client %>
-					<p><%= text_field 'client', 'client_strasse'  %></p>
-					<p><%= text_field 'client', 'client_plz'  %></p>
-					<p><%= text_field 'client', 'client_ort'  %></p>
-					<p><%= submit_tag 'Edit' %></p>
-					<%= end_form_tag %>
-					<a href="#" onclick="effect_1 = Effect.SlideUp('d2',{duration:1.0}); return false;">Verstecken</a>
-				</div>
-			</div>
-			<!-- Edit Block Ende -->
+			<table>
+				<tr>
+					<td style="width:50px;">
+						Strasse:
+					</td>
+					<td>
+						<span id="c_strasse"><%=h @client.client_strasse %></span>
+					</td>
+				</tr>
+				<tr>
+					<td style="width:50px;">
+						PLZ/Ort:
+					</td>
+					<td>
+						<span id="c_plz"><%=h @client.client_plz %></span><span id="c_ort"><%=h @client.client_ort %></span>
+					</td>
+				</tr>
+				<tr>
+					<td style="width:50px;">
+						E-Mail:
+					</td>
+					<td>
+						<span id="c_email">E-Mail</span>
+					</td>
+				</tr>
+			</table>
+			<script type="text/javascript">
+			new Ajax.InPlaceEditor('c_strasse', '/clients/update_c_name/ <%= @client.id %>');
+			new Ajax.InPlaceEditor('c_plz', '/clients/update_c_name/ <%= @client.id %>');
+			new Ajax.InPlaceEditor('c_ort', '/clients/update_c_name/ <%= @client.id %>');
+			new Ajax.InPlaceEditor('c_email', '/clients/update_c_email/ <%= @client.id %>');
+			</script>
 		</div><!-- class="adress"-->
 		<div class="know">
 			Informationen:<br />
 			#Anzeige Dokumente
-			<!-- Dokumente -->
-			<!-- Edit Block -->
-			<div style="text-align:right">
-				<a href="#" onclick="effect_1 = Effect.SlideDown('d3',{duration:1.0}); return false;">
-					<img src="/images/edit_down2020.png" alt="Loginname Editieren" title="Loginname Editieren" /><br />Editieren</a>
-			</div>
-			<div id="d3" style="display:none">
-				<div>
-				<%= start_form_tag :action => 'update', :id => @client %>
-				<p>#Upload Dokumente</p>
-				<!-- Upload Dokumete Clienten-->
-				<p><%= submit_tag 'Edit' %></p>
-				<%= end_form_tag %>
-				<a href="#" onclick="effect_1 = Effect.SlideUp('d3',{duration:1.0}); return false;">Verstecken</a>
-				<br />
-				</div>
-			</div><!-- Edit Block Ende -->
 		</div><!-- class="know"-->
 	</div><!-- class="left"-->
 </div><!-- class="user"-->
