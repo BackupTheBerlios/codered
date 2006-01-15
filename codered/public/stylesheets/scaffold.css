@@ -19,6 +19,13 @@ p.hilfetext {
 	font-weight: bolder;
 	color: #870D0D;
 }
+p.zitat {
+	text-align:left;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: xx-small;
+	font-weight: bolder;
+	color: #000000;
+}
 .statusbar {
 	text-align:left;
 	width:100px;

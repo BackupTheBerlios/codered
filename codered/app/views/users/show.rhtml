@@ -14,7 +14,7 @@
 		<div class="login">
 			Login Name:
 			<p id="login"><%=h @user.login %></p>
-			<script language="JavaScript">
+			<script type="text/javascript">
 			new Ajax.InPlaceEditor('login', '/users/update_login/&lt;%= @user.id %&gt;');
 			</script>
 		</div>
@@ -22,19 +22,45 @@
 			Kontakt Informationen:
 			<table>
 				<tr>
-					<td>
+					<td style="width:50px;">
 						Name:
 					</td>
 					<td>
 						<span id="name"><%=h @user.user_vorname + " " + @user.user_name %></span>
 					</td>
 				</tr>
+				<tr>
+					<td style="width:50px;">
+						Adresse:
+					</td>
+				 	<td>
+				 	<span id="strasse"><%=h @user.user_strasse %></span>
+				 	</td>
+				</tr>
+				<tr>
+					<td style="width:50px;">
+					</td>
+				 	<td>
+				 	<span id="plz"><%=h @user.user_plz %></span><span id="ort" ><%=h @user.user_plz %></span>
+				 	</td>
+				</tr>
+				<tr>
+					<td style="width:50px;">
+					</td>
+				 	<td>
+				 	<span id="klasse"><%=h @user.user_klasse %></span>
+				 	</td>
+				</tr>
+				<tr>
+					<td style="width:50px;">
+					E-Mail:
+					</td>
+				 	<td>
+				 	<span id="email">E-Mail adresse</span>
+				 	</td>
+				</tr>
 			</table>
-			<p id="strasse"><%=h @user.user_strasse %></p>
-			<p id="plz"><%=h @user.user_plz %></p>
-			<p id="ort"><%=h @user.user_ort %></p>
-			<p id="klasse"><%=h @user.user_klasse %></p>
-			<script language="JavaScript">
+			<script type="text/javascript">
 			new Ajax.InPlaceEditor('name', '/users/update_name/<%= @user.id %>');
 			new Ajax.InPlaceEditor('strasse', '/users/update_strasse/<%= @user.id  %>');
 			new Ajax.InPlaceEditor('plz', '/users/update_plz/');
@@ -45,7 +71,7 @@
 		<div class="know">
 			Informationen:
 			<p id="rule"><%=h @user.user_rule %></p>
-			<script language="JavaScript">
+			<script type="text/javascript">
  			new Ajax.InPlaceEditor('rule', '/users/update_rule/&lt;%= @user.id %&gt;');
  			</script>
 		</div>
