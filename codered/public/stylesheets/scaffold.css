@@ -12,6 +12,13 @@ body, p, ol, ul, td {
   font-size:   13px;
   line-height: 18px;
 }
+td.ghelp {
+	text-align:left;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: x-small;
+	font-weight: bolder;
+	color: #000000;
+}
 p.hilfetext {
 	text-align:left;
 	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
