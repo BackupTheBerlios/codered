@@ -11,6 +11,7 @@ before_filter :login_required
 
   def show
     @client = Client.find(params[:id])
+	@reports = Report.find(:all, :conditions => [ "client_id IN (?)", @client.id])
   end
 
   def new
@@ -19,6 +20,7 @@ before_filter :login_required
 
   def create
     @client = Client.new(params[:client])
+	@client.user_id = User.find(params[:user]).id
     if @client.save
       flash[:notice] = 'Client was successfully created.'
       redirect_to :action => 'list'

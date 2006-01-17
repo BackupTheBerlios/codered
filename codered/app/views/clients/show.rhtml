@@ -11,7 +11,7 @@
 			else
 				image_tag( "/images/profil.png", :border => 0)
 			end %>
-			<%= form_tag_with_upload_progress({:action => 'update_pic', :id => @client.id }, {}, {:action => :custom_status}) %>
+			<%= form_tag_with_upload_progress({:action => 'update_pic',:user => @session[:user], :id => @client.id }, {}, {:action => :custom_status}) %>
 			<%= upload_status_tag %>
 			<%= file_field 'client', 'client_pic' %>
 			<%= submit_tag "Upload" %>
@@ -62,7 +62,45 @@
 		</div><!-- class="adress"-->
 		<div class="know">
 			Informationen:<br />
-			#Anzeige Dokumente
+			<div class="upload">
+				<%= form_tag_with_upload_progress({:controller => 'reports', :action => 'create',:user => @session[:user], :client_id => @client.id }, {}, {:action => :custom_status}) %>
+				<%= text_area("report","beschreibung","cols" => 30, "rows" => 5)%>
+				<%= upload_status_tag %>
+				<%= file_field 'report', 'datei' %>
+				<%= submit_tag "Upload" %>
+				<%= end_form_tag %>
+			</div>
+			<% if @reports.empty? %>
+			Es Wurden noch keine Dateien hinzugefügt.
+			<% else %>
+			<table align="left">
+				<% @reports.each_with_index do |report, i| #fuer jeden betreuer mit index %>
+				<% @ersteller = User.find(:first, :conditions => [ "id = ?", report.user_id]) %>
+				<% row_class = i%2 == 0 ? "1" : "0" %>
+			<tr>
+			<table align="left" class="ListLinie<%= row_class %>" style="heigth:25px;width:175px;padding:1px;">
+				<tr>
+					<td rowspan="2" style="heigth:25px;width:25px;padding:1px;">
+						<%= #url_for_file_column("report", "datei")
+						%>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<%=h report.beschreibung%>
+					</td>
+					<td>
+						<%=h @ersteller.user_vorname + " " + @ersteller.user_name %>
+					</td>
+				</tr>
+			</table>
+		</tr>
+		<% if (i%2 != 0) %>
+		<br><br><br>
+		<%end%>
+		<%end%>
+		</table>
+<%end%>
 		</div><!-- class="know"-->
 	</div><!-- class="left"-->
 </div><!-- class="client"-->
