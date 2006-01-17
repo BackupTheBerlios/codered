@@ -1,0 +1,42 @@
+<!-- Navigation Anfang -->
+<div style="width:600px; margin-right: auto; margin-left: auto;text-align:right;" >
+	<span class="silvertext">User:</span>
+	<span class="statusbar"><%=h @session[:user].user_vorname + " " + @session[:user].user_name %></span>
+	<span class="silvertext">Status:</span>
+	<span class="statusbar"><%=h @session[:user].user_rule %></span>
+	<span class="silvertext">Zeit:</span>
+	<span class="statusbar"><%= Time.now.to_formatted_s(format = :short) %></span>
+<table border="0" cellspacing="0" cellpadding="0">
+	<tr align="center">
+		<td style="width:80px">
+			<%= link_to image_tag("/images/exit.png",
+			:size => "32x32"),{ :controller => "account",:action => "logout"},
+			{ :confirm => "Sind sie sicher?"} %>
+		</td>
+		<td style="width:80px">
+			<%= link_to image_tag("/images/profil.png", 
+			:size => "32x32"),{ :controller => "users",:action => 'show', :id => @session[:user] } %>
+		</td>
+		<td style="width:80px">
+			<%= link_to image_tag("/images/ticketlist.png", 
+			:size => "32x32"),{ :controller => "tickets",:action => 'list' } %>
+		</td>
+		<td style="width:80px">
+			<%= link_to image_tag("/images/new.png", 
+			:size => "32x32"),{ :controller => "tickets",:action => 'new' } %>
+		</td>
+		<td style="width:80px">
+			<%= link_to image_tag("/images/client.png", 
+			:size => "32x32"),{ :controller => "clients",:action => 'new' } %>
+		</td>
+	</tr>
+	<tr align="center">
+		<td class="silvertext">Logout</td>
+		<td class="silvertext">Profil</td>
+		<td class="silvertext">Tickets</td>
+		<td class="silvertext">Neues Ticket</td>
+		<td class="silvertext">Neuer Client</td>
+	</tr>
+</table>
+</div>
+<!-- Navigation Ende -->
