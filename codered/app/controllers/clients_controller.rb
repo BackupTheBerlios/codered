@@ -41,6 +41,22 @@ before_filter :login_required
     end
   end
 
+upload_status_for :update_pic
+	def update_pic
+		@client = Client.find(params[:id])
+    	upload_progress.message = "Upload ..."
+		if @client.update_attribute(:client_pic, params[:client][:client_pic])
+    		redirect_to :action => 'show', :id => @client.id
+		else
+			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
+		end
+	end
+
+  def upload_status
+    render :inline => '<%= upload_progress.completed_percent rescue 0 %> % complete <div>Uploaded am <%= Time.now %></div>', :layout => false
+  end
+
+
   def destroy
     Client.find(params[:id]).destroy
     redirect_to :action => 'list'

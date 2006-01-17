@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 before_filter :login_required
+
  def index
     list
     render :action => 'list'
@@ -8,6 +9,9 @@ before_filter :login_required
   def list
     @user_pages, @users = paginate :users, :per_page => 10
   end
+  
+ # Add this line to get uplaod status for your action 
+ # upload_status_for :upload
 
   def show
     @user = User.find(params[:id])
@@ -50,8 +54,21 @@ before_filter :login_required
 		end
 	end
 
+upload_status_for :update_pic
+	def update_pic
+		@user = User.find(params[:id])
+    	upload_progress.message = "Upload ..."
+		if @user.update_attribute(:user_pic, params[:user][:user_pic])
+    		redirect_to :action => 'show', :id => @user.id
+		else
+			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
+		end
+	end
 
-  
+  def upload_status
+    render :inline => '<%= upload_progress.completed_percent rescue 0 %> % complete <div>Uploaded am <%= Time.now %></div>', :layout => false
+  end
+ 
   def destroy
     User.find(params[:id]).destroy
     redirect_to :action => 'list'

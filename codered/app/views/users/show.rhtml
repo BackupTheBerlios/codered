@@ -6,9 +6,21 @@
 		<%= flash[:notice] %>
 	</div>
 	<div class="pic">
-			<img src="" alt="User Foto" />
-			<br />
-			<a href="#">Upload</a>
+		<%= if url_for_file_column("user", "user_pic") then
+				image_tag( url_for_file_column("user", "user_pic") , :size => "31x45", :border => 0)
+			else
+				image_tag( "/images/profil.png", :border => 0)
+			end %>
+			<%= form_tag_with_upload_progress({:action => 'update_pic', :id => @user.id }, {}, {:action => :custom_status}) %>
+			<%= upload_status_tag %>
+			<%= file_field 'user', 'user_pic' %>
+			<%= submit_tag "Upload" %>
+			<%= end_form_tag %>
+  <div id="status" style="display: none">
+  </div>
+
+  <div id="message"><%= @message %></div>
+
 	</div><!-- class="pic"-->
 	<div class="left">
 		<div class="login">

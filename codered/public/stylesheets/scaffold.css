@@ -1,6 +1,6 @@
 body {
-	background-color: #fff;
-	color: #333;
+	background-image: url("/images/topbluefade.gif");
+	background-repeat: repeat-x;
 	margin-bottom: 0;
 	margin-left: 0;
 	margin-right: 0;
@@ -347,3 +347,5 @@ div.betreuer{
 	max-height:150px; 
 	overflow:auto;
 }
+.progressBar .border { background-color: blue; border: 1px solid red; width: 100%; }
+.progressBar .background { background-color: green; height: 18px; width: 0%; }

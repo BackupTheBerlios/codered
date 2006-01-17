@@ -49,3 +49,4 @@ end
 # end
 
 # Include your application configuration below
+ActionController::Base.enable_upload_progress
