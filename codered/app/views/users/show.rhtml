@@ -38,7 +38,8 @@
 						Name:
 					</td>
 					<td>
-						<span id="name"><%=h @user.user_vorname + " " + @user.user_name %></span>
+						<span id="vorname"><%= if @user.user_vorname != "" then h(@user.user_vorname + " ") else render :inline => "Kein Eintrag" end  %></span>
+						<span id="name"><%= if @user.user_name != "" then h(@user.user_name) else render :inline => "Kein Eintrag" end  %></span>
 					</td>
 				</tr>
 				<tr>
@@ -46,21 +47,24 @@
 						Adresse:
 					</td>
 				 	<td>
-				 	<span id="strasse"><%=h @user.user_strasse %></span>
+						<span id="strasse"><%= if @user.user_strasse != "" then h(@user.user_strasse) else render :inline => "Kein Eintrag" end  %></span>
 				 	</td>
 				</tr>
 				<tr>
 					<td style="width:50px;">
 					</td>
 				 	<td>
-				 	<span id="plz"><%=h @user.user_plz %></span><span id="ort" ><%=h @user.user_plz %></span>
+						<span id="plz"><%= if @user.user_plz != "" then h(@user.user_plz) else render :inline => "Kein Eintrag" end  %></span>
+						<span id="ort"><%= if @user.user_ort != "" then h(@user.user_ort) else render :inline => "Kein Eintrag" end  %></span>
+
 				 	</td>
 				</tr>
 				<tr>
 					<td style="width:50px;">
+					 Klasse:
 					</td>
 				 	<td>
-				 	<span id="klasse"><%=h @user.user_klasse %></span>
+						<span id="klasse"><%= if @user.user_klasse != "" then h(@user.user_klasse) else render :inline => "Kein Eintrag" end  %></span>
 				 	</td>
 				</tr>
 				<tr>
@@ -68,16 +72,18 @@
 					E-Mail:
 					</td>
 				 	<td>
-				 	<span id="email">E-Mail adresse</span>
+						<span id="email"><%= if @user.user_email != "" then h(@user.user_email) else render :inline => "Kein Eintrag" end  %></span>
 				 	</td>
 				</tr>
 			</table>
 			<script type="text/javascript">
 			new Ajax.InPlaceEditor('name', '/users/update_name/<%= @user.id %>');
+			new Ajax.InPlaceEditor('vorname', '/users/update_vorname/<%= @user.id %>');
 			new Ajax.InPlaceEditor('strasse', '/users/update_strasse/<%= @user.id  %>');
-			new Ajax.InPlaceEditor('plz', '/users/update_plz/');
-			new Ajax.InPlaceEditor('ort', '/users/update_ort/');
-			new Ajax.InPlaceEditor('klasse', '/users/update_klasse/');
+			new Ajax.InPlaceEditor('plz', '/users/update_plz/<%= @user.id  %>');
+			new Ajax.InPlaceEditor('ort', '/users/update_ort/<%= @user.id  %>');
+			new Ajax.InPlaceEditor('klasse', '/users/update_klasse/<%= @user.id  %>');
+			new Ajax.InPlaceEditor('email', '/users/update_email/<%= @user.id  %>');
 			</script>
 		</div><!--class=adress-->
 		<div class="know">

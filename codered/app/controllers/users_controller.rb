@@ -45,10 +45,58 @@ before_filter :login_required
     end
   end
 
+	def update_name
+		@user = User.find(params[:id])
+		if @user.update_attribute(:user_name, params[:value])
+			render :layout => false, :inline => "<%= h(@user.user_name) %>" 
+		else
+			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
+		end
+	end
+	def update_vorname
+		@user = User.find(params[:id])
+		if @user.update_attribute(:user_vorname, params[:value])
+			render :layout => false, :inline => "<%= h(@user.user_vorname) %>" 
+		else
+			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
+		end
+	end
 	def update_strasse
 		@user = User.find(params[:id])
 		if @user.update_attribute(:user_strasse, params[:value])
 			render :layout => false, :inline => "<%= h(@user.user_strasse) %>" 
+		else
+			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
+		end
+	end
+	def update_plz
+		@user = User.find(params[:id])
+		if @user.update_attribute(:user_plz, params[:value])
+			render :layout => false, :inline => "<%= h(@user.user_plz) %>" 
+		else
+			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
+		end
+	end
+	def update_ort
+		@user = User.find(params[:id])
+		if @user.update_attribute(:user_ort, params[:value])
+			render :layout => false, :inline => "<%= h(@user.user_ort) %>" 
+		else
+			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
+		end
+	end
+	def update_klasse
+		@user = User.find(params[:id])
+		if @user.update_attribute(:user_klasse, params[:value])
+			render :layout => false, :inline => "<%= h(@user.user_klasse) %>" 
+		else
+			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
+		end
+	end
+	def update_email
+		@user = User.find(params[:id])
+		if @user.update_attribute(:user_email, params[:value])
+			render :layout => false, :inline => "<%= h(@user.user_email) %>" 
 		else
 			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
 		end
