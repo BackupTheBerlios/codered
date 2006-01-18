@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   # Please change the salt to something else, 
   # Every application should use a different one 
-  @@salt = 'LL0yD'
+  @@salt = 'LL0yDsadxycxyw'
   cattr_accessor :salt
 
   # Authenticate a user. 
@@ -43,12 +43,12 @@ class User < ActiveRecord::Base
   # If its empty we assume that the user didn't want to change his
   # password and just reset it to the old value.
   def crypt_unless_empty
-    if password.empty?      
-      user = self.class.find(self.id)
-      self.password = user.password
-    else
-      write_attribute "password", self.class.sha1(password)
-    end        
+#    if password.empty?      
+	user = self.class.find(self.id)
+#      self.password = user.password
+#    else
+      write_attribute "password", self.class.sha1(password) if !password.empty? && user.password != self.password
+#    end        
   end  
   
   validates_uniqueness_of :login, :on => :create
