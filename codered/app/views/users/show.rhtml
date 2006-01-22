@@ -88,9 +88,12 @@
 		</div><!--class=adress-->
 		<div class="know">
 			Informationen:
-			<p id="rule"><%=h @user.user_rule %></p>
+			<p id="rule"><%=#h @user.user_rule
+							%></p>
+			<% auswahl = [["Mentor",2], ["Betreuer",3], ["Kontakt",4], ["Deaktivieren",5]]	%> 
+			<%= select(:user, :user_rule , auswahl) %>
 			<script type="text/javascript">
- 			new Ajax.InPlaceEditor('rule', '/users/update_rule/&lt;%= @user.id %&gt;');
+				new Ajax.InPlaceEditor('rule', '/users/update_rule/<%= @user.id %>');
  			</script>
 		</div>
 	</div>

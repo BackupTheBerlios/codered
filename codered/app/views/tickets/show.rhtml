@@ -13,6 +13,11 @@
 		<div class="pic">
 			<div style="float:left;">
 				<span class="black">Zust&auml;ndiger Betreuer:</span><br />
+						<%= if @betreuer.user_pic then
+						image_tag url_for_file_column("betreuer", "user_pic") , :size => "60x75", :border => 0
+							else
+								image_tag( "/images/profil.png", :size => "30x45", :border => 0)
+								end %><br />
 				<span class="darkgrey">
 				<%= link_to (h(@betreuer_name)), :action => 'show',
 				:id => @ticket.betreuer_id , :controller =>"users" %>
@@ -22,6 +27,11 @@
 		<div class="pic">
 			<div style="float:left;">
 				<span class="black">Eintragender:</span><br />
+					<%= if @user.user_pic then
+					image_tag url_for_file_column("user", "user_pic") , :size => "60x75", :border => 0
+							else
+								image_tag( "/images/profil.png", :size => "30x45", :border => 0)
+							end %><br />
 				<span class="darkgrey">
 				<%= link_to (h(@user_name)), :action => 'show',
 				:id =>@ticket.user_id , :controller =>"users" %>
@@ -49,6 +59,12 @@
 							<span class="darkgrey">
 							<%= link_to (h(Client.find(@ticket.client_id).client_name)),
 							:action => 'show', :id =>@ticket.client_id , :controller =>"clients" %>
+							<%= @client = Client.find(@ticket.client_id)
+							if @client.client_pic then
+							image_tag url_for_file_column("client", "client_pic") , :size => "60x75", :border => 0
+							else
+								image_tag( "/images/profil.png", :size => "30x45", :border => 0)
+							end %><br />
 							</span>
 						</p>
 			</div>

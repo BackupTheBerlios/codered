@@ -1,25 +1,35 @@
 <table width="600px" border="0" cellspacing="0" cellpadding="0">
+	<tr><th >Bezeichnung:</th>
+		<th >Zuständig: </th>
+		<th >Client:</th>
+		<th >Datum:</th>
+		<th ></th>
+		<th ></th>
+	</tr>
 	<%  # gestreifte Anzeige der Tickets
-	endweder_oder = 0 ;	for ticket in @tickets ; endweder_oder = 1 - endweder_oder
-	@trunc_link = h(truncate(ticket.ticket_bezeichnung, length = 30, truncate_string = "..."))
+		endweder_oder = 0 ;	for ticket in @tickets ; endweder_oder = 1 - endweder_oder
+		@trunc_link = h(truncate(ticket.ticket_bezeichnung, length = 30, truncate_string = "..."))
 	%>
-	<tr valign="top" class="ListLinie<%= endweder_oder %>">
-		<td valign="middle">
+	<tr class="ListLinie<%= endweder_oder %>">
+		<td  style="vertical-align:middle;">
 			<%= link_to(@trunc_link , :action => 'show', :id =>ticket)  %>
 		</td>
-		<td valign="middle" class="darkgrey">
-			Zuständig: <%= link_to h(User.find(ticket.betreuer_id).user_name),
+		<td valign="center" style="vertical-align:middle;" class="darkgrey">
+		<%= link_to h(User.find(ticket.betreuer_id).user_name),
 			:action => 'show', :id =>ticket.betreuer_id , :controller =>"users" %>
 		</td>
-		<td class="darkgrey" valign="middle">
-			Client: <%= link_to h(Client.find(ticket.client_id).client_name), 
+		<td  style="vertical-align:middle;"class="darkgrey">
+			<%= link_to h(Client.find(ticket.client_id).client_name), 
 			:action => 'show', :id =>ticket.client_id , :controller =>"clients" %>
 		</td>
-		<td class="darkgrey" valign="middle">
+		<td  style="vertical-align:middle;"class="darkgrey">
+			<%= ticket.created_on.to_formatted_s(format = :short) %>
+		</td>
+		<td  style="vertical-align:middle;"class="darkgrey">
 			<%= link_to image_tag("/images/editpaste.png", :size => "32x32"),
 			{:action => 'edit', :id => ticket} %>
 		</td>
-		<td class="darkgrey" valign="middle">
+		<td  style="vertical-align:middle;"class="darkgrey">
 			<%= link_to image_tag("/images/remove.png", :size => "32x32"),
 			{:action => 'destroy', :id => ticket}, :confirm => 'Are you sure?' %>
 		</td>
