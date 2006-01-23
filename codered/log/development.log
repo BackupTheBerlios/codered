@@ -1322,3 +1322,475 @@ Rendering  within layouts/account
 Rendering account/welcome
 Rendered account/_navi (0.01344)
 Completed in 0.02079 (48 reqs/sec) | Rendering: 0.01800 (86%) | DB: 0.00212 (10%) | 200 OK [http://localhost/account/welcome]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-01-23 11:58:57) [GET]
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+
+
+MysqlError (Unknown database 'codered_db'):
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.13.2/lib/active_record/connection_adapters/mysql_adapter.rb:316:in `real_connect'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.13.2/lib/active_record/connection_adapters/mysql_adapter.rb:316:in `connect'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.13.2/lib/active_record/connection_adapters/mysql_adapter.rb:87:in `initialize'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.13.2/lib/active_record/connection_adapters/mysql_adapter.rb:37:in `mysql_connection'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.13.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:145:in `connection_without_query_cache='
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.13.2/lib/active_record/query_cache.rb:54:in `connection='
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.13.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:106:in `retrieve_connection'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.13.2/lib/active_record/connection_adapters/abstract/connection_specification.rb:20:in `connection'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.13.2/lib/active_record/base.rb:734:in `columns'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.13.2/lib/active_record/base.rb:1663:in `attributes_from_column_definition'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.13.2/lib/active_record/base.rb:1185:in `initialize_without_callbacks'
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.13.2/lib/active_record/callbacks.rb:236:in `initialize'
+    .//app/controllers/account_controller.rb:20:in `signup'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/base.rb:853:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/filters.rb:332:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/benchmarking.rb:69:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/base.rb:369:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/session_management.rb:116:in `process'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/dispatcher.rb:38:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:117:in `handle_dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:83:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:172:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:161:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:161:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:69:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/server.rb:28
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    ./script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-01-23 12:03:39) [GET]
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;36;1mUser Columns (0.000725)[0m   [0;1mSHOW FIELDS FROM users[0m
+Rendering  within layouts/account
+Rendering account/signup
+Completed in 0.07823 (12 reqs/sec) | Rendering: 0.06959 (88%) | DB: 0.00073 (0%) | 200 OK [http://localhost/account/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-01-23 12:04:11) [POST]
+  Parameters: {"user"=>{"user_pic"=>"", "user_email"=>"marco@bytes-delivery.de", "password_confirmation"=>"Marco", "user_rule"=>"5", "user_vorname"=>"Marco", "user_strasse"=>"Bitzengarten 16", "user_klasse"=>"", "user_ort"=>"werdorf", "user_name"=>"Benecke", "login"=>"Risktaker", "password"=>"Marco", "user_plz"=>"33351"}, "action"=>"signup", "controller"=>"account"}
+  [4;35;1mUser Columns (0.006060)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mSQL (0.007564)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.008041)[0m   [0mSELECT * FROM users WHERE (login = 'Risktaker') LIMIT 1[0m
+  [4;36;1mSQL (0.003733)[0m   [0;1mINSERT INTO users (`created_on`, `user_pic`, `user_telefon`, `user_email`, `updated_on`, `user_rule`, `user_strasse`, `user_vorname`, `user_klasse`, `user_ort`, `login`, `password`, `user_name`, `user_plz`) VALUES('2006-01-23 12:04:11', NULL, '', 'marco@bytes-delivery.de', '2006-01-23 12:04:11', 5, 'Bitzengarten 16', 'Marco', '', 'werdorf', 'Risktaker', '57a2d951f74be89adaa8612565f98050d747ae50', 'Benecke', 33351)[0m
+  [4;35;1mSQL (0.021695)[0m   [0mCOMMIT[0m
+  [4;36;1mUser Load (0.000776)[0m   [0;1mSELECT * FROM users WHERE (login = 'Risktaker' AND password = '57a2d951f74be89adaa8612565f98050d747ae50') LIMIT 1[0m
+Redirected to http://localhost:3000/users/show/1
+Completed in 0.12323 (8 reqs/sec) | DB: 0.04787 (38%) | 302 Found [http://localhost/account/signup]
+  [4;35;1mUser Columns (0.000435)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2006-01-23 12:04:12) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Load (0.000828)[0m   [0;1mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+Rendering  within layouts/users
+Rendering users/show
+Rendered users/_navi (0.00996)
+Completed in 0.05480 (18 reqs/sec) | Rendering: 0.04926 (89%) | DB: 0.00126 (2%) | 200 OK [http://localhost/users/show/1]
+  [4;35;1mUser Columns (0.000866)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#update_ort (for 127.0.0.1 at 2006-01-23 12:04:21) [POST]
+  Parameters: {""=>"ok", "action"=>"update_ort", "id"=>"1", "value"=>"Oberlemp", "controller"=>"users"}
+  [4;36;1mUser Load (0.000264)[0m   [0;1mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+  [4;35;1mSQL (0.000132)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.000605)[0m   [0;1mSELECT * FROM users WHERE (users.id = 1) LIMIT 1[0m
+  [4;35;1mUser Update (0.000998)[0m   [0mUPDATE users SET `user_plz` = 33351, `user_klasse` = '', `user_name` = 'Benecke', `login` = 'Risktaker', `user_email` = 'marco@bytes-delivery.de', `user_ort` = 'Oberlemp', `user_telefon` = '', `user_vorname` = 'Marco', `user_rule` = 5, `updated_on` = '2006-01-23 12:04:21', `password` = '57a2d951f74be89adaa8612565f98050d747ae50', `user_strasse` = 'Bitzengarten 16', `user_pic` = NULL, `created_on` = '2006-01-23 12:04:11' WHERE id = 1[0m
+  [4;36;1mSQL (0.004007)[0m   [0;1mCOMMIT[0m
+Completed in 0.02258 (44 reqs/sec) | Rendering: 0.00132 (5%) | DB: 0.00687 (30%) | 200 OK [http://localhost/users/update_ort/1]
+  [4;35;1mUser Columns (0.009600)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#list (for 127.0.0.1 at 2006-01-23 12:04:40) [GET]
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;36;1mTicket Count (0.000594)[0m   [0;1mSELECT COUNT(*) FROM tickets [0m
+  [4;35;1mTicket Load (0.000383)[0m   [0mSELECT * FROM tickets LIMIT 0, 5[0m
+Rendering  within layouts/tickets
+Rendering tickets/list
+Rendered tickets/_list (0.00858)
+Rendered layouts/_navi (0.01539)
+Completed in 0.10680 (9 reqs/sec) | Rendering: 0.05966 (55%) | DB: 0.01058 (9%) | 200 OK [http://localhost/tickets/list]
+  [4;36;1mUser Columns (0.013692)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#logout (for 127.0.0.1 at 2006-01-23 12:04:47) [GET]
+  Parameters: {"action"=>"logout", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/logout
+Completed in 0.04235 (23 reqs/sec) | Rendering: 0.03854 (90%) | DB: 0.01369 (32%) | 200 OK [http://localhost/account/logout]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-01-23 12:04:49) [GET]
+  Parameters: {"action"=>"login", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/login
+Completed in 0.04706 (21 reqs/sec) | Rendering: 0.02455 (52%) | DB: 0.00000 (0%) | 200 OK [http://localhost/account/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-01-23 12:05:01) [POST]
+  Parameters: {"user_login"=>"Risktaker", "action"=>"login", "controller"=>"account", "user_password"=>"Marco", "login"=>"Login \302\273"}
+  [4;35;1mUser Load (0.006151)[0m   [0mSELECT * FROM users WHERE (login = 'Risktaker' AND password = '57a2d951f74be89adaa8612565f98050d747ae50') LIMIT 1[0m
+Redirected to http://localhost:3000/account/welcome
+  [4;36;1mUser Columns (0.007702)[0m   [0;1mSHOW FIELDS FROM users[0m
+Completed in 0.02798 (35 reqs/sec) | DB: 0.01385 (49%) | 302 Found [http://localhost/account/login]
+  [4;35;1mUser Columns (0.000445)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#welcome (for 127.0.0.1 at 2006-01-23 12:05:02) [GET]
+  Parameters: {"action"=>"welcome", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/welcome
+Rendered account/_navi (0.15278)
+Completed in 0.19620 (5 reqs/sec) | Rendering: 0.19194 (97%) | DB: 0.00044 (0%) | 200 OK [http://localhost/account/welcome]
+  [4;36;1mUser Columns (0.000479)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#new (for 127.0.0.1 at 2006-01-23 12:05:09) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clients"}
+  [4;35;1mClient Columns (0.000596)[0m   [0mSHOW FIELDS FROM clients[0m
+Rendering  within layouts/clients
+Rendering clients/new
+Rendered clients/_navi (0.02020)
+Rendered clients/_form (0.00740)
+Completed in 0.08647 (11 reqs/sec) | Rendering: 0.04495 (51%) | DB: 0.00108 (1%) | 200 OK [http://localhost/clients/new]
+  [4;36;1mUser Columns (0.000508)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#create (for 127.0.0.1 at 2006-01-23 12:05:39) [POST]
+  Parameters: {"user"=>"1", "commit"=>"Create", "client"=>{"client_ort"=>"asdxyc", "client_strasse"=>"Basdlllasdr", "client_name"=>"Schule Klein Kr\303\266ffelbach", "client_plz"=>"22324"}, "action"=>"create", "controller"=>"clients"}
+  [4;35;1mClient Columns (0.000407)[0m   [0mSHOW FIELDS FROM clients[0m
+  [4;36;1mUser Load (0.000715)[0m   [0;1mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+  [4;35;1mSQL (0.000137)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.000707)[0m   [0;1mINSERT INTO clients (`client_ort`, `client_telefon`, `created_on`, `client_email`, `client_strasse`, `client_fax`, `client_name`, `client_plz`, `updated_on`, `client_pic`, `user_id`) VALUES('asdxyc', '', '2006-01-23 12:05:39', '', 'Basdlllasdr', '', 'Schule Klein Kröffelbach', 22324, '2006-01-23 12:05:39', NULL, 1)[0m
+  [4;35;1mSQL (0.002649)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/clients/show
+Completed in 0.04600 (21 reqs/sec) | DB: 0.00512 (11%) | 302 Found [http://localhost/clients/create?user=1]
+  [4;36;1mUser Columns (0.000485)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2006-01-23 12:05:39) [GET]
+  Parameters: {"action"=>"show", "controller"=>"clients"}
+
+
+ActiveRecord::RecordNotFound (Couldn't find Client without an ID):
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.13.2/lib/active_record/base.rb:407:in `find'
+    .//app/controllers/clients_controller.rb:13:in `show'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/base.rb:853:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/filters.rb:332:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/benchmarking.rb:69:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/base.rb:369:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/session_management.rb:116:in `process'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/dispatcher.rb:38:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:117:in `handle_dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:83:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:172:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:161:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:161:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:69:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/server.rb:28
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    ./script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+  [4;35;1mUser Columns (0.000503)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#create (for 127.0.0.1 at 2006-01-23 12:05:50) [POST]
+  Parameters: {"user"=>"1", "commit"=>"Create", "client"=>{"client_ort"=>"asdxyc", "client_strasse"=>"Basdlllasdr", "client_name"=>"Schule Klein Kr\303\266ffelbach", "client_plz"=>"22324"}, "action"=>"create", "controller"=>"clients"}
+  [4;36;1mClient Columns (0.002991)[0m   [0;1mSHOW FIELDS FROM clients[0m
+  [4;35;1mUser Load (0.001289)[0m   [0mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.006591)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.006119)[0m   [0mINSERT INTO clients (`client_ort`, `client_telefon`, `created_on`, `client_email`, `client_strasse`, `client_fax`, `client_name`, `client_plz`, `updated_on`, `client_pic`, `user_id`) VALUES('asdxyc', '', '2006-01-23 12:05:50', '', 'Basdlllasdr', '', 'Schule Klein Kröffelbach', 22324, '2006-01-23 12:05:50', NULL, 1)[0m
+  [4;36;1mSQL (0.003376)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/clients/show
+Completed in 0.07313 (13 reqs/sec) | DB: 0.02135 (29%) | 302 Found [http://localhost/clients/create?user=1]
+  [4;35;1mUser Columns (0.000439)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2006-01-23 12:05:51) [GET]
+  Parameters: {"action"=>"show", "controller"=>"clients"}
+
+
+ActiveRecord::RecordNotFound (Couldn't find Client without an ID):
+    /usr/lib/ruby/gems/1.8/gems/activerecord-1.13.2/lib/active_record/base.rb:407:in `find'
+    .//app/controllers/clients_controller.rb:13:in `show'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/base.rb:853:in `perform_action_without_filters'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/filters.rb:332:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/benchmarking.rb:69:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/base.rb:369:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/session_management.rb:116:in `process'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/dispatcher.rb:38:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:117:in `handle_dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:83:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:172:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:161:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:161:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:69:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/server.rb:28
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    ./script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/templates/rescues/layout.rhtml (500 Internal Error)
+  [4;36;1mUser Columns (0.007587)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2006-01-23 12:06:01) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"clients"}
+  [4;35;1mClient Load (0.010425)[0m   [0mSELECT * FROM clients WHERE (clients.id = '1') LIMIT 1[0m
+  [4;36;1mClient Columns (0.001220)[0m   [0;1mSHOW FIELDS FROM clients[0m
+  [4;35;1mReport Load (0.003676)[0m   [0mSELECT * FROM reports WHERE (client_id IN (1)) [0m
+Rendering  within layouts/clients
+Rendering clients/show
+Rendered clients/_navi (0.00569)
+Completed in 0.14728 (6 reqs/sec) | Rendering: 0.03976 (26%) | DB: 0.02335 (15%) | 200 OK [http://localhost/clients/show/1]
+  [4;36;1mUser Columns (0.000462)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#update_c_name (for 127.0.0.1 at 2006-01-23 12:06:19) [POST]
+  Parameters: {""=>"ok", "action"=>"update_c_name", "id"=>" 1", "value"=>"Schule Klein Kr\303\266ffelbach", "controller"=>"clients"}
+
+
+ActionController::UnknownAction (No action responded to update_c_name):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/filters.rb:332:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/benchmarking.rb:69:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/base.rb:369:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/session_management.rb:116:in `process'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/dispatcher.rb:38:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:117:in `handle_dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:83:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:172:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:161:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:161:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:69:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/server.rb:28
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    ./script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+  [4;35;1mUser Columns (0.000437)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#new (for 127.0.0.1 at 2006-01-23 12:07:12) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clients"}
+  [4;36;1mClient Columns (0.000403)[0m   [0;1mSHOW FIELDS FROM clients[0m
+Rendering  within layouts/clients
+Rendering clients/new
+Rendered clients/_navi (0.00545)
+Rendered clients/_form (0.00278)
+Completed in 0.03957 (25 reqs/sec) | Rendering: 0.01400 (35%) | DB: 0.00130 (3%) | 200 OK [http://localhost/clients/new]
+  [4;35;1mUser Columns (0.003153)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#create (for 127.0.0.1 at 2006-01-23 12:07:20) [POST]
+  Parameters: {"user"=>"1", "commit"=>"Create", "client"=>{"client_ort"=>"sadxy", "client_strasse"=>"asd", "client_name"=>"asd", "client_plz"=>"123"}, "action"=>"create", "controller"=>"clients"}
+  [4;36;1mClient Columns (0.000427)[0m   [0;1mSHOW FIELDS FROM clients[0m
+  [4;35;1mUser Load (0.000229)[0m   [0mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.000140)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000486)[0m   [0mINSERT INTO clients (`client_ort`, `client_telefon`, `created_on`, `client_email`, `client_strasse`, `client_fax`, `client_name`, `client_plz`, `updated_on`, `client_pic`, `user_id`) VALUES('sadxy', '', '2006-01-23 12:07:20', '', 'asd', '', 'asd', 123, '2006-01-23 12:07:20', NULL, 1)[0m
+  [4;36;1mSQL (0.003181)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/clients/show/3
+Completed in 0.04194 (23 reqs/sec) | DB: 0.00762 (18%) | 302 Found [http://localhost/clients/create?user=1]
+  [4;35;1mUser Columns (0.000438)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2006-01-23 12:07:20) [GET]
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"clients"}
+  [4;36;1mClient Load (0.000609)[0m   [0;1mSELECT * FROM clients WHERE (clients.id = '3') LIMIT 1[0m
+  [4;35;1mClient Columns (0.000427)[0m   [0mSHOW FIELDS FROM clients[0m
+  [4;36;1mReport Load (0.000652)[0m   [0;1mSELECT * FROM reports WHERE (client_id IN (3)) [0m
+Rendering  within layouts/clients
+Rendering clients/show
+Rendered clients/_navi (0.00560)
+Completed in 0.08053 (12 reqs/sec) | Rendering: 0.04911 (60%) | DB: 0.00213 (2%) | 200 OK [http://localhost/clients/show/3]
+  [4;35;1mUser Columns (0.000431)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2006-01-23 12:08:12) [GET]
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"clients"}
+  [4;36;1mClient Load (0.000193)[0m   [0;1mSELECT * FROM clients WHERE (clients.id = '3') LIMIT 1[0m
+  [4;35;1mClient Columns (0.000399)[0m   [0mSHOW FIELDS FROM clients[0m
+  [4;36;1mReport Load (0.000253)[0m   [0;1mSELECT * FROM reports WHERE (client_id IN (3)) [0m
+Rendering  within layouts/clients
+Rendering clients/show
+Rendered clients/_navi (0.00543)
+Completed in 0.06627 (15 reqs/sec) | Rendering: 0.03393 (51%) | DB: 0.00128 (1%) | 200 OK [http://localhost/clients/show/3]
+  [4;35;1mUser Columns (0.001079)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#new (for 127.0.0.1 at 2006-01-23 12:08:16) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clients"}
+  [4;36;1mClient Columns (0.004775)[0m   [0;1mSHOW FIELDS FROM clients[0m
+Rendering  within layouts/clients
+Rendering clients/new
+Rendered clients/_navi (0.00297)
+Rendered clients/_form (0.00151)
+Completed in 0.02841 (35 reqs/sec) | Rendering: 0.00794 (27%) | DB: 0.00585 (20%) | 200 OK [http://localhost/clients/new]
+  [4;35;1mUser Columns (0.001690)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#create (for 127.0.0.1 at 2006-01-23 12:08:23) [POST]
+  Parameters: {"user"=>"1", "commit"=>"Create", "client"=>{"client_ort"=>"sajjdsajdsa", "client_strasse"=>"asjdjdsajdsa", "client_name"=>"dsadsajdsaj", "client_plz"=>"2132321"}, "action"=>"create", "controller"=>"clients"}
+  [4;36;1mClient Columns (0.000400)[0m   [0;1mSHOW FIELDS FROM clients[0m
+  [4;35;1mUser Load (0.000256)[0m   [0mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.000130)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000807)[0m   [0mINSERT INTO clients (`client_ort`, `client_telefon`, `created_on`, `client_email`, `client_strasse`, `client_fax`, `client_name`, `client_plz`, `updated_on`, `client_pic`, `user_id`) VALUES('sajjdsajdsa', '', '2006-01-23 12:08:23', '', 'asjdjdsajdsa', '', 'dsadsajdsaj', 2132321, '2006-01-23 12:08:23', NULL, 1)[0m
+  [4;36;1mSQL (0.005359)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/clients/show/4
+Completed in 0.05871 (17 reqs/sec) | DB: 0.00864 (14%) | 302 Found [http://localhost/clients/create?user=1]
+  [4;35;1mUser Columns (0.000442)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2006-01-23 12:08:23) [GET]
+  Parameters: {"action"=>"show", "id"=>"4", "controller"=>"clients"}
+  [4;36;1mClient Load (0.000664)[0m   [0;1mSELECT * FROM clients WHERE (clients.id = '4') LIMIT 1[0m
+  [4;35;1mClient Columns (0.000932)[0m   [0mSHOW FIELDS FROM clients[0m
+  [4;36;1mReport Load (0.000452)[0m   [0;1mSELECT * FROM reports WHERE (client_id IN (4)) [0m
+Rendering  within layouts/clients
+Rendering clients/show
+Rendered clients/_navi (0.00581)
+Completed in 0.05904 (16 reqs/sec) | Rendering: 0.02337 (39%) | DB: 0.00249 (4%) | 200 OK [http://localhost/clients/show/4]
+  [4;35;1mUser Columns (0.001596)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#new (for 127.0.0.1 at 2006-01-23 12:09:03) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clients"}
+  [4;36;1mClient Columns (0.000456)[0m   [0;1mSHOW FIELDS FROM clients[0m
+Rendering  within layouts/clients
+Rendering clients/new
+Rendered clients/_navi (0.00747)
+Rendered clients/_form (0.00292)
+Completed in 0.04844 (20 reqs/sec) | Rendering: 0.01810 (37%) | DB: 0.00205 (4%) | 200 OK [http://localhost/clients/new]
+  [4;35;1mUser Columns (0.000455)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#create (for 127.0.0.1 at 2006-01-23 12:09:11) [POST]
+  Parameters: {"user"=>"1", "commit"=>"Create", "client"=>{"client_ort"=>"34sasd", "client_strasse"=>"sakjkjkjkj", "client_name"=>"dsajdsa", "client_plz"=>"123"}, "action"=>"create", "controller"=>"clients"}
+  [4;36;1mClient Columns (0.000403)[0m   [0;1mSHOW FIELDS FROM clients[0m
+  [4;35;1mUser Load (0.000238)[0m   [0mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.000131)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.000484)[0m   [0mINSERT INTO clients (`client_ort`, `client_telefon`, `created_on`, `client_email`, `client_strasse`, `client_fax`, `client_name`, `client_plz`, `updated_on`, `client_pic`, `user_id`) VALUES('34sasd', '', '2006-01-23 12:09:11', '', 'sakjkjkjkj', '', 'dsajdsa', 123, '2006-01-23 12:09:11', NULL, 1)[0m
+  [4;36;1mSQL (0.002961)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/clients/show/5
+Completed in 0.04355 (22 reqs/sec) | DB: 0.00467 (10%) | 302 Found [http://localhost/clients/create?user=1]
+  [4;35;1mUser Columns (0.000464)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2006-01-23 12:09:11) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"clients"}
+  [4;36;1mClient Load (0.000632)[0m   [0;1mSELECT * FROM clients WHERE (clients.id = '5') LIMIT 1[0m
+  [4;35;1mClient Columns (0.000436)[0m   [0mSHOW FIELDS FROM clients[0m
+  [4;36;1mReport Load (0.000462)[0m   [0;1mSELECT * FROM reports WHERE (client_id IN (5)) [0m
+Rendering  within layouts/clients
+Rendering clients/show
+Rendered clients/_navi (0.00897)
+Completed in 0.06835 (14 reqs/sec) | Rendering: 0.03483 (50%) | DB: 0.00199 (2%) | 200 OK [http://localhost/clients/show/5]
+  [4;35;1mUser Columns (0.001432)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2006-01-23 12:12:35) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"clients"}
+  [4;36;1mClient Load (0.000219)[0m   [0;1mSELECT * FROM clients WHERE (clients.id = '5') LIMIT 1[0m
+  [4;35;1mClient Columns (0.000405)[0m   [0mSHOW FIELDS FROM clients[0m
+  [4;36;1mReport Load (0.000177)[0m   [0;1mSELECT * FROM reports WHERE (client_id IN (5)) [0m
+Rendering  within layouts/clients
+Rendering clients/show
+Rendered clients/_navi (0.00533)
+Completed in 0.19488 (5 reqs/sec) | Rendering: 0.16456 (84%) | DB: 0.00223 (1%) | 200 OK [http://localhost/clients/show/5]
+  [4;35;1mUser Columns (0.001694)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2006-01-23 12:13:42) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"clients"}
+  [4;36;1mClient Load (0.011772)[0m   [0;1mSELECT * FROM clients WHERE (clients.id = '5') LIMIT 1[0m
+  [4;35;1mClient Columns (0.000423)[0m   [0mSHOW FIELDS FROM clients[0m
+  [4;36;1mReport Load (0.000165)[0m   [0;1mSELECT * FROM reports WHERE (client_id IN (5)) [0m
+Rendering  within layouts/clients
+Rendering clients/show
+Rendered clients/_navi (0.00557)
+Completed in 0.08261 (12 reqs/sec) | Rendering: 0.02832 (34%) | DB: 0.01405 (17%) | 200 OK [http://localhost/clients/show/5]
+  [4;35;1mUser Columns (0.000489)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2006-01-23 12:14:06) [GET]
+  Parameters: {"action"=>"show", "id"=>"5", "controller"=>"clients"}
+  [4;36;1mClient Load (0.024496)[0m   [0;1mSELECT * FROM clients WHERE (clients.id = '5') LIMIT 1[0m
+  [4;35;1mClient Columns (0.008581)[0m   [0mSHOW FIELDS FROM clients[0m
+  [4;36;1mReport Load (0.008914)[0m   [0;1mSELECT * FROM reports WHERE (client_id IN (5)) [0m
+Rendering  within layouts/clients
+Rendering clients/show
+Rendered clients/_navi (0.00561)
+Completed in 0.10934 (9 reqs/sec) | Rendering: 0.02830 (25%) | DB: 0.04248 (38%) | 200 OK [http://localhost/clients/show/5]
+  [4;35;1mUser Columns (0.002631)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#list (for 127.0.0.1 at 2006-01-23 12:15:02) [GET]
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;36;1mTicket Count (0.000147)[0m   [0;1mSELECT COUNT(*) FROM tickets [0m
+  [4;35;1mTicket Load (0.001109)[0m   [0mSELECT * FROM tickets LIMIT 0, 5[0m
+Rendering  within layouts/tickets
+Rendering tickets/list
+Rendered tickets/_list (0.00031)
+Rendered layouts/_navi (0.00573)
+Completed in 0.03979 (25 reqs/sec) | Rendering: 0.01105 (27%) | DB: 0.00389 (9%) | 200 OK [http://localhost/tickets/list]

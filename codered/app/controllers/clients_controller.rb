@@ -22,8 +22,8 @@ before_filter :login_required
     @client = Client.new(params[:client])
 	@client.user_id = User.find(params[:user]).id
     if @client.save
-      flash[:notice] = 'Client was successfully created.'
-      redirect_to :action => 'list'
+      flash[:notice] = 'Client wurde erfolgreich erstellt' 
+      redirect_to :action => 'show', :id => @client.id 
     else
       render :action => 'new'
     end
