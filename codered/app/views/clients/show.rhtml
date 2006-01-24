@@ -22,7 +22,7 @@
 			Clienten Name:
 			<p id="c_name"><%=h @client.client_name %></p>
 			<script type="text/javascript">
-			new Ajax.InPlaceEditor('c_name', '/clients/update_c_name/ <%= @client.id %>');
+			new Ajax.InPlaceEditor('c_name', '/clients/update_name/ <%= @client.id %>');
 			</script>
 		</div><!-- class="login"-->
 		<div class="adress">
@@ -54,10 +54,10 @@
 				</tr>
 			</table>
 			<script type="text/javascript">
-			new Ajax.InPlaceEditor('c_strasse', '/clients/update_c_name/ <%= @client.id %>');
-			new Ajax.InPlaceEditor('c_plz', '/clients/update_c_name/ <%= @client.id %>');
-			new Ajax.InPlaceEditor('c_ort', '/clients/update_c_name/ <%= @client.id %>');
-			new Ajax.InPlaceEditor('c_email', '/clients/update_c_email/ <%= @client.id %>');
+			new Ajax.InPlaceEditor('c_strasse', '/clients/update_strasse/<%= @client.id %>');
+			new Ajax.InPlaceEditor('c_plz', '/clients/update_plz/<%= @client.id %>');
+			new Ajax.InPlaceEditor('c_ort', '/clients/update_ort/<%= @client.id %>');
+			new Ajax.InPlaceEditor('c_email', '/clients/update_email/<%= @client.id %>');
 			</script>
 		</div><!-- class="adress"-->
 		<div class="know">
@@ -78,9 +78,9 @@
 				<% @ersteller = User.find(:first, :conditions => [ "id = ?", report.user_id]) %>
 				<% row_class = i%2 == 0 ? "1" : "0" %>
 			<tr>
-			<table align="left" class="ListLinie<%= row_class %>" style="heigth:25px;width:175px;padding:1px;">
+			<table align="left" class="ListLinie<%= row_class %>" style="width:175px;padding:1px;">
 				<tr>
-					<td rowspan="2" style="heigth:25px;width:25px;padding:1px;">
+					<td rowspan="2" style="width:25px;padding:1px;">
 						<%= #url_for_file_column("report", "datei")
 						%>
 					</td>

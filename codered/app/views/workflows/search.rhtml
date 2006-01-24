@@ -14,9 +14,9 @@
 			<table onclick="$('betreuer_name').innerHTML = '<%=betreuer.user_vorname + " " + betreuer.user_name %>';
 				$('betreuer_id').value = '<%=betreuer.id%>';
 				Element.hide('suchen'); Element.show('gefunden');
-				return false;" align="left" class="ListLinie<%= row_class %>" style="heigth:25px;width:175px;padding:1px;">
+				return false;" align="left" class="ListLinie<%= row_class %>" style="width:175px;padding:1px;">
 				<tr>
-					<td rowspan="2" style="heigth:25px;width:25px;padding:1px;">
+					<td rowspan="2" style="width:25px;padding:1px;">
 						<%= if betreuer.user_pic then
 							@user = betreuer
 							image_tag url_for_file_column("user", "user_pic") , :size => "30x45", :border => 0

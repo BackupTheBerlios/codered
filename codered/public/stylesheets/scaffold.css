@@ -61,7 +61,7 @@ p.zitat {
 	font-size: x-small;
 	font-weight: bolder;
 	color: Black;
-	padding-left: 12;
+	padding-left: 12px;
 }
 .gray {
 	background-color: #555555;
@@ -134,7 +134,7 @@ border:0px;
 
 #ErrorExplanation {
   width: 400px;
-  border: 2px solid 'red';
+  border: 2px solid red;
   padding: 7px;
   padding-bottom: 12px;
   margin-bottom: 20px;
@@ -182,7 +182,7 @@ div.frame {
 	margin-right: auto;
 	margin-left: auto;
 	margin-top: 0;	
-	border: 1px solid withe;
+	border: 1px solid white;
 	
 }
 div.left{
@@ -199,7 +199,7 @@ div.login {
 	font-size: smaller;
 	color: Black;
 	font-weight: bolder;
-	margin-top: 20;
+	margin-top: 20px;
 	-moz-border-radius: 12px
 }
 div.adress {
@@ -212,10 +212,10 @@ div.adress {
 	font-size: smaller;
 	color: Black;
 	font-weight: bolder;
-	margin-top: 20;
+	margin-top: 20px;
 	-moz-border-radius: 12px
 }
-div.know {margin-top: 20;
+div.know {
 	text-align:left;
 	border: 1px;
 	margin:10px;
@@ -226,9 +226,9 @@ div.know {margin-top: 20;
 	color: Black;
 	font-weight: bolder;
 	-moz-border-radius: 12px;
-	margin-top: 20;
+	margin-top: 20px;
 }
-div.unavi {margin-top: 20;
+div.unavi {
 	text-align:left;
 	border: 1px;
 	margin:10px;
@@ -239,7 +239,7 @@ div.unavi {margin-top: 20;
 	color: Black;
 	font-weight: bolder;
 	-moz-border-radius: 12px;
-	margin-top: 20;
+	margin-top: 20px;
 }
 div.right {
 	width: 150px;
@@ -258,10 +258,10 @@ div.pic {
 	font-weight: bolder;
 	-moz-border-radius: 12px;
 }
-
 div.position {
-	margin-top: 10;
+	margin-top: 10px;
 }
+
 div.uploadStatus {
   margin: 5px;
 }

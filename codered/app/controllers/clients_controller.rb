@@ -42,6 +42,14 @@ before_filter :login_required
       render :action => 'edit'
     end
   end
+	def update_name
+		@client = Client.find(params[:id])
+		if @client.update_attribute(:client_name, params[:value])
+			render :layout => false, :inline => "<%= h(@client.client_name) %>" 
+		else
+			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
+		end
+	end
 
 upload_status_for :update_pic
 	def update_pic
