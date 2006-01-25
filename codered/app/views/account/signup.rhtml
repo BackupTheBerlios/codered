@@ -1,17 +1,29 @@
-<div class="memo">
-<%= start_form_tag :action=> "signup" %>
+<br />
+<span class="backgrey">Anmeldung </span>
+<div class="user">
+	<div class="memo" style="text-align:center;">
+			  <h3>Anmeldeprozess</h3>
+	<p>Durch das Angeben ihrer Daten melden sie sich an dem System an.</p>
+	</div>
+	<div class="adress">
+	<br />
+	<%= start_form_tag :action=> "signup" %>
 
 <div title="Account signup" id="signupform" class="form">
-  <h3>Signup</h3>
+
   <%= error_messages_for 'user' %><br/>
-  
-  <label for="user_login">Gewünschter Loginname:</label><br/>
+   <h3>Anmeldeinformationen</h3>
+  <label for="user_login">Gew&uuml;nschter Loginname:</label><br/>
   <%= text_field "user", "login", :size => 30 %><br/>
+  <label style="color:#074307">Benutzen Sie ein Namesk&uuml;rzel z.B. &quot;Sebastian Blink&quot; wird zu &quot;blink_se&quot;</label>
+  <br />
   <label for="user_password">Passwort:</label><br/>
   <%= password_field "user", "password", :size => 30 %><br/>
   <label for="user_password_confirmation">Passwort wiederholen:</label><br/>
   <%= password_field "user", "password_confirmation", :size => 30 %><br/>
-  <hr />
+ <label style="color:#074307">Bitte w&auml;hlen Sie ein Passwort mit einer  min. 7Stelligen kompination aus Zahlen und Buchstaben</label>
+  <hr  style="width:400px;"/>
+  <h3>Kontaktinformationen</h3>
   <label for="user_user_name">Name</label><br/>
   <%= text_field "user", "user_name", :size => 30 %><br/>
 
@@ -26,24 +38,25 @@
 
   <label for="user_user_ort">Ort</label><br/>
   <%= text_field "user", "user_ort", :size => 30 %><br/>
-  
+   <hr  style="width:400px;"/>
   <label for="user_user_email">Email</label><br/>
   <%= text_field "user", "user_email", :size => 30 %><br/>
+   <label style="color:#074307">Bitte tragen sie unbedingt eine g&uuml;ltige E-Mail Adresse ein! </label>
+   <br />
 
   <label for="user_user_klasse">Klasse</label><br/>
   <%= text_field "user", "user_klasse", :size => 30 %><br/>
+   <label style="color:#074307">Die Klasse kann optional eingetragen werden.</label>
+   <br />
   <%= hidden_field "user", "user_rule", :value => 5 %>
 <!-- <label for="user_user_rule">Rule</label><br/>
 <br/>
 # Rule deklariere ich jetzt einfach als "UserStatus" ich bin mir
-# nicht mehr sicher ob "klasse" evtl dafuer gedacht war, aber jetzt ist es zu spät
+# nicht mehr sicher ob "klasse" evtl dafuer gedacht war, aber jetzt ist es zu sp�t
 -->
-
-  <label for="user_user_pic">Pic</label><br/>
-  <%= text_field "user", "user_pic", :size => 30 %><br/>
-  
+ <br />
 <input type="submit" value="Signup &#187;" class="primary" />
 </div>
-
 <%= end_form_tag %>
+</div>
 </div>

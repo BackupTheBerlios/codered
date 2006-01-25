@@ -1,4 +1,4 @@
-<% # Das Navigations Template was unter dem Logo aber Ã¼ber dem Inhalt erscheint
+<% # Das Navigations Template was unter dem Logo aber über dem Inhalt erscheint
 %>
 <div style="width:600px; margin-right: auto; margin-left: auto;text-align:right;" >
 	<span class="silvertext">User:</span>
@@ -19,14 +19,24 @@
 			:size => "32x32"),{ :controller => "users",:action => 'show', :id => @session[:user] } %>
 		</td>
 		<td style="width:80px">
+			<%= link_to image_tag("/images/ticketlist.png", 
+			:size => "32x32"),{ :controller => "tickets",:action => 'list' } %>
+		</td>
+		<td style="width:80px">
 			<%= link_to image_tag("/images/new.png", :size => "32x32"), { :action => 'new'}
 			%>
+		</td>
+		<td style="width:80px">
+			<%= link_to image_tag("/images/client.png", 
+			:size => "32x32"),{ :controller => "clients",:action => 'new' } %>
 		</td>
 	</tr>
 	<tr align="center">
 		<td class="silvertext">Logout</td>
 		<td class="silvertext">Mein Profil</td>
+		<td class="silvertext">Tickets</td>
 		<td class="silvertext">Neues Ticket</td>
+		<td class="silvertext">Neuen Clienten</td>
 	</tr>
 </table>
 </div>

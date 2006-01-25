@@ -1322,6 +1322,551 @@ Rendering  within layouts/account
 Rendering account/welcome
 Rendered account/_navi (0.01344)
 Completed in 0.02079 (48 reqs/sec) | Rendering: 0.01800 (86%) | DB: 0.00212 (10%) | 200 OK [http://localhost/account/welcome]
+<<<<<<< development.log
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-01-19 21:15:09) [GET]
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;36;1mUser Columns (0.043196)[0m   [0;1mSHOW FIELDS FROM users[0m
+Rendering  within layouts/account
+Rendering account/signup
+Completed in 0.16763 (5 reqs/sec) | Rendering: 0.05482 (32%) | DB: 0.04320 (25%) | 200 OK [http://localhost/account/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-01-19 21:16:37) [POST]
+  Parameters: {"user"=>{"user_pic"=>"", "user_email"=>"jan@truematrix.de", "password_confirmation"=>"enola", "user_rule"=>"5", "user_vorname"=>"Jan", "user_strasse"=>"M\303\274nchbornstr.4", "user_klasse"=>"cnws04", "user_ort"=>"Greifenstein", "user_name"=>"Neuser", "login"=>"neuser_ja", "password"=>"enola", "user_plz"=>"34467"}, "action"=>"signup", "controller"=>"account"}
+  [4;35;1mUser Columns (0.000502)[0m   [0mSHOW FIELDS FROM users[0m
+  [4;36;1mSQL (0.000217)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.100814)[0m   [0mSELECT * FROM users WHERE (login = 'neuser_ja') LIMIT 1[0m
+  [4;36;1mSQL (0.052836)[0m   [0;1mINSERT INTO users (`created_on`, `user_pic`, `user_telefon`, `user_email`, `updated_on`, `user_rule`, `user_strasse`, `user_vorname`, `user_klasse`, `user_ort`, `login`, `password`, `user_name`, `user_plz`) VALUES('2006-01-19 21:16:37', NULL, '', 'jan@truematrix.de', '2006-01-19 21:16:37', 5, 'Münchbornstr.4', 'Jan', 'cnws04', 'Greifenstein', 'neuser_ja', '531d26a7d74ef0df1c63d74f90ae011fa2a473a1', 'Neuser', 34467)[0m
+  [4;35;1mSQL (0.030566)[0m   [0mCOMMIT[0m
+  [4;36;1mUser Load (0.000833)[0m   [0;1mSELECT * FROM users WHERE (login = 'neuser_ja' AND password = '531d26a7d74ef0df1c63d74f90ae011fa2a473a1') LIMIT 1[0m
+Redirected to http://localhost:3000/users/show/1
+Completed in 0.21256 (4 reqs/sec) | DB: 0.18577 (87%) | 302 Found [http://localhost/account/signup]
+  [4;35;1mUser Columns (0.000468)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2006-01-19 21:16:37) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Load (0.000850)[0m   [0;1mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+Rendering  within layouts/users
+Rendering users/show
+Rendered users/_navi (0.01982)
+Completed in 0.08073 (12 reqs/sec) | Rendering: 0.07487 (92%) | DB: 0.00132 (1%) | 200 OK [http://localhost/users/show/1]
+  [4;35;1mUser Columns (0.002883)[0m   [0mSHOW FIELDS FROM users[0m
+Multipart upload with progress (id: 1, size: 35879)
+Finished processing multipart upload in 0.14825s
+
+
+Processing UsersController#update_pic (for 127.0.0.1 at 2006-01-19 21:16:59) [POST]
+  Parameters: {"user"=>{"user_pic"=>#<File:/tmp/CGI13139.0>}, "commit"=>"Upload", "action"=>"update_pic", "id"=>"1", "controller"=>"users", "upload_id"=>"1"}
+  [4;36;1mUser Load (0.000329)[0m   [0;1mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+  [4;35;1mSQL (0.000287)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.000732)[0m   [0;1mSELECT * FROM users WHERE (users.id = 1) LIMIT 1[0m
+  [4;35;1mUser Update (0.018034)[0m   [0mUPDATE users SET `user_plz` = 34467, `user_klasse` = 'cnws04', `user_name` = 'Neuser', `login` = 'neuser_ja', `user_email` = 'jan@truematrix.de', `user_ort` = 'Greifenstein', `user_telefon` = '', `user_vorname` = 'Jan', `user_rule` = 5, `updated_on` = '2006-01-19 21:16:59', `password` = '531d26a7d74ef0df1c63d74f90ae011fa2a473a1', `user_strasse` = 'Münchbornstr.4', `user_pic` = '051216.jpg', `created_on` = '2006-01-19 21:16:37' WHERE id = 1[0m
+  [4;36;1mSQL (0.057583)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/users/show/1
+Completed in 0.19039 (5 reqs/sec) | Rendering: 0.00249 (1%) | DB: 0.07985 (41%) | 200 OK [http://localhost/users/update_pic/1?upload_id=1]
+  [4;35;1mUser Columns (0.000480)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#upload_status (for 127.0.0.1 at 2006-01-19 21:16:59) [POST]
+  Parameters: {"action"=>"upload_status", "controller"=>"users", "upload_id"=>"1"}
+Completed in 0.00661 (151 reqs/sec) | Rendering: 0.00196 (29%) | DB: 0.00048 (7%) | 200 OK [http://localhost/users/upload_status?upload_id=1]
+  [4;36;1mUser Columns (0.000535)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2006-01-19 21:17:00) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Load (0.000798)[0m   [0mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+Rendering  within layouts/users
+Rendering users/show
+Rendered users/_navi (0.00555)
+Completed in 0.02351 (42 reqs/sec) | Rendering: 0.01745 (74%) | DB: 0.00133 (5%) | 200 OK [http://localhost/users/show/1]
+  [4;36;1mUser Columns (0.000463)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#list (for 127.0.0.1 at 2006-01-19 21:17:11) [GET]
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;35;1mTicket Count (0.000568)[0m   [0mSELECT COUNT(*) FROM tickets [0m
+  [4;36;1mTicket Load (0.000474)[0m   [0;1mSELECT * FROM tickets LIMIT 0, 5[0m
+Rendering  within layouts/tickets
+Rendering tickets/list
+Rendered tickets/_list (0.01029)
+Rendered tickets/_list (0.00032)
+Rendered tickets/_list (0.00027)
+Rendered layouts/_navi (0.01425)
+Completed in 0.11408 (8 reqs/sec) | Rendering: 0.05624 (49%) | DB: 0.00150 (1%) | 200 OK [http://localhost/tickets/list]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-01-23 11:13:31) [GET]
+  Parameters: {"action"=>"login", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/login
+Completed in 0.03221 (31 reqs/sec) | Rendering: 0.02947 (91%) | 200 OK [http://localhost/account/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-01-23 11:13:41) [POST]
+  Parameters: {"user_login"=>"neuser_ja", "action"=>"login", "controller"=>"account", "user_password"=>"enola", "login"=>"Login \302\273"}
+  [4;36;1mUser Load (0.117195)[0m   [0;1mSELECT * FROM users WHERE (login = 'neuser_ja' AND password = '531d26a7d74ef0df1c63d74f90ae011fa2a473a1') LIMIT 1[0m
+Redirected to http://localhost:3000/account/welcome
+  [4;35;1mUser Columns (0.023470)[0m   [0mSHOW FIELDS FROM users[0m
+Completed in 0.23409 (4 reqs/sec) | DB: 0.14066 (60%) | 302 Found [http://localhost/account/login]
+  [4;36;1mUser Columns (0.000432)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#welcome (for 127.0.0.1 at 2006-01-23 11:13:42) [GET]
+  Parameters: {"action"=>"welcome", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/welcome
+Rendered account/_navi (0.02067)
+Completed in 0.05430 (18 reqs/sec) | Rendering: 0.05121 (94%) | DB: 0.00043 (0%) | 200 OK [http://localhost/account/welcome]
+  [4;35;1mUser Columns (0.000479)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#list (for 127.0.0.1 at 2006-01-23 11:16:18) [GET]
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;36;1mTicket Count (0.024274)[0m   [0;1mSELECT COUNT(*) FROM tickets [0m
+  [4;35;1mTicket Load (0.003479)[0m   [0mSELECT * FROM tickets LIMIT 0, 5[0m
+Rendering  within layouts/tickets
+Rendering tickets/list
+Rendered tickets/_list (0.00986)
+Rendered layouts/_navi (0.02509)
+Completed in 0.12685 (7 reqs/sec) | Rendering: 0.06596 (51%) | DB: 0.02823 (22%) | 200 OK [http://localhost/tickets/list]
+  [4;36;1mUser Columns (0.006890)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#new (for 127.0.0.1 at 2006-01-23 11:16:36) [GET]
+  Parameters: {"action"=>"new", "controller"=>"tickets"}
+  [4;35;1mTicket Columns (0.007479)[0m   [0mSHOW FIELDS FROM tickets[0m
+Rendering  within layouts/tickets
+Rendering tickets/new
+  [4;36;1mClient Load (0.000676)[0m   [0;1mSELECT * FROM clients ORDER BY client_name [0m
+Rendered layouts/_navi (0.00663)
+Completed in 0.11279 (8 reqs/sec) | Rendering: 0.07961 (70%) | DB: 0.01505 (13%) | 200 OK [http://localhost/tickets/new]
+  [4;35;1mUser Columns (0.000487)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2006-01-23 11:16:59) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Load (0.024323)[0m   [0;1mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+Rendering  within layouts/users
+Rendering users/show
+Rendered users/_navi (0.03037)
+Completed in 0.13370 (7 reqs/sec) | Rendering: 0.09437 (70%) | DB: 0.02481 (18%) | 200 OK [http://localhost/users/show/1]
+  [4;35;1mUser Columns (0.006369)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#list (for 127.0.0.1 at 2006-01-23 11:17:29) [GET]
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;36;1mTicket Count (0.002680)[0m   [0;1mSELECT COUNT(*) FROM tickets [0m
+  [4;35;1mTicket Load (0.000717)[0m   [0mSELECT * FROM tickets LIMIT 0, 5[0m
+Rendering  within layouts/tickets
+Rendering tickets/list
+Rendered tickets/_list (0.00036)
+Rendered layouts/_navi (0.00655)
+Completed in 0.03711 (26 reqs/sec) | Rendering: 0.01266 (34%) | DB: 0.00977 (26%) | 200 OK [http://localhost/tickets/list]
+  [4;36;1mUser Columns (0.030526)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#welcome (for 127.0.0.1 at 2006-01-23 11:17:41) [GET]
+  Parameters: {"action"=>"welcome", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/welcome
+Rendered account/_navi (0.01182)
+Completed in 0.02305 (43 reqs/sec) | Rendering: 0.01864 (80%) | DB: 0.03053 (132%) | 200 OK [http://localhost/account/welcome]
+  [4;35;1mUser Columns (0.000876)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#new (for 127.0.0.1 at 2006-01-23 11:17:43) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clients"}
+  [4;36;1mClient Columns (0.001227)[0m   [0;1mSHOW FIELDS FROM clients[0m
+Rendering  within layouts/clients
+Rendering clients/new
+Rendered clients/_navi (0.04068)
+Rendered clients/_form (0.01909)
+Completed in 0.12607 (7 reqs/sec) | Rendering: 0.08420 (66%) | DB: 0.00210 (1%) | 200 OK [http://localhost/clients/new]
+  [4;35;1mUser Columns (0.000783)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#create (for 127.0.0.1 at 2006-01-23 11:18:14) [POST]
+  Parameters: {"user"=>"1", "commit"=>"Create", "client"=>{"client_ort"=>"Niederlustbach", "client_strasse"=>"Zunderweg 11", "client_name"=>"Hauptschule Tahlheim", "client_plz"=>"44556"}, "action"=>"create", "controller"=>"clients"}
+  [4;36;1mClient Columns (0.000444)[0m   [0;1mSHOW FIELDS FROM clients[0m
+  [4;35;1mUser Load (0.000266)[0m   [0mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.000271)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.089041)[0m   [0mINSERT INTO clients (`client_ort`, `client_telefon`, `created_on`, `client_email`, `client_strasse`, `client_fax`, `client_name`, `client_plz`, `updated_on`, `client_pic`, `user_id`) VALUES('Niederlustbach', '', '2006-01-23 11:18:14', '', 'Zunderweg 11', '', 'Hauptschule Tahlheim', 44556, '2006-01-23 11:18:14', NULL, 1)[0m
+  [4;36;1mSQL (0.027837)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/clients/list
+Completed in 0.17204 (5 reqs/sec) | DB: 0.11864 (68%) | 302 Found [http://localhost/clients/create?user=1]
+  [4;35;1mUser Columns (0.000511)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#list (for 127.0.0.1 at 2006-01-23 11:18:15) [GET]
+  Parameters: {"action"=>"list", "controller"=>"clients"}
+  [4;36;1mClient Count (0.000479)[0m   [0;1mSELECT COUNT(*) FROM clients [0m
+  [4;35;1mClient Load (0.000610)[0m   [0mSELECT * FROM clients LIMIT 0, 10[0m
+Rendering  within layouts/clients
+Rendering clients/list
+Rendered clients/_navi (0.00636)
+  [4;36;1mClient Columns (0.000478)[0m   [0;1mSHOW FIELDS FROM clients[0m
+Completed in 0.07338 (13 reqs/sec) | Rendering: 0.03787 (51%) | DB: 0.00208 (2%) | 200 OK [http://localhost/clients/list]
+  [4;35;1mUser Columns (0.004148)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#list (for 127.0.0.1 at 2006-01-23 11:32:31) [GET]
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;36;1mTicket Count (0.000291)[0m   [0;1mSELECT COUNT(*) FROM tickets [0m
+  [4;35;1mTicket Load (0.000237)[0m   [0mSELECT * FROM tickets LIMIT 0, 5[0m
+Rendering  within layouts/tickets
+Rendering tickets/list
+Rendered tickets/_list (0.00036)
+Rendered layouts/_navi (0.01023)
+Completed in 0.04919 (20 reqs/sec) | Rendering: 0.01702 (34%) | DB: 0.00468 (9%) | 200 OK [http://localhost/tickets/list]
+  [4;36;1mUser Columns (0.007059)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#new (for 127.0.0.1 at 2006-01-23 11:32:33) [GET]
+  Parameters: {"action"=>"new", "controller"=>"tickets"}
+  [4;35;1mTicket Columns (0.013607)[0m   [0mSHOW FIELDS FROM tickets[0m
+Rendering  within layouts/tickets
+Rendering tickets/new
+  [4;36;1mClient Load (0.001867)[0m   [0;1mSELECT * FROM clients ORDER BY client_name [0m
+  [4;35;1mClient Columns (0.000732)[0m   [0mSHOW FIELDS FROM clients[0m
+Rendered layouts/_navi (0.00681)
+Completed in 0.08477 (11 reqs/sec) | Rendering: 0.04146 (48%) | DB: 0.02327 (27%) | 200 OK [http://localhost/tickets/new]
+  [4;36;1mUser Columns (0.001247)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#create (for 127.0.0.1 at 2006-01-23 11:33:08) [POST]
+  Parameters: {"user"=>"1", "ticket"=>{"client_id"=>"1", "ticket_beschreibung"=>"Mal schauen wie es nun Aussieht ", "ticket_status"=>"0", "ticket_bezeichnung"=>"Hallo Ticket"}, "commit"=>"Create", "action"=>"create", "controller"=>"tickets"}
+  [4;35;1mTicket Columns (0.002427)[0m   [0mSHOW FIELDS FROM tickets[0m
+  [4;36;1mUser Load (0.001650)[0m   [0;1mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+  [4;35;1mUser Load (0.004672)[0m   [0mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.000865)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.004225)[0m   [0mINSERT INTO tickets (`created_on`, `updated_on`, `client_id`, `ticket_beschreibung`, `ticket_status`, `ticket_bezeichnung`, `ticket_wichtigkeit`, `user_id`, `betreuer_id`) VALUES('2006-01-23 11:33:08', '2006-01-23 11:33:08', 1, 'Mal schauen wie es nun Aussieht ', 0, 'Hallo Ticket', 0, 1, 1)[0m
+  [4;36;1mSQL (0.018238)[0m   [0;1mCOMMIT[0m
+Redirected to http://localhost:3000/tickets/list
+Completed in 0.07855 (12 reqs/sec) | DB: 0.03332 (42%) | 302 Found [http://localhost/tickets/create?user=1]
+  [4;35;1mUser Columns (0.000494)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#list (for 127.0.0.1 at 2006-01-23 11:33:09) [GET]
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;36;1mTicket Count (0.000586)[0m   [0;1mSELECT COUNT(*) FROM tickets [0m
+  [4;35;1mTicket Load (0.016158)[0m   [0mSELECT * FROM tickets LIMIT 0, 5[0m
+Rendering  within layouts/tickets
+Rendering tickets/list
+  [4;36;1mTicket Columns (0.000457)[0m   [0;1mSHOW FIELDS FROM tickets[0m
+  [4;35;1mUser Load (0.000787)[0m   [0mSELECT * FROM users WHERE (users.id = 1) LIMIT 1[0m
+  [4;36;1mClient Load (0.000690)[0m   [0;1mSELECT * FROM clients WHERE (clients.id = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (0.000416)[0m   [0mSHOW FIELDS FROM clients[0m
+Rendered tickets/_list (0.03468)
+Rendered layouts/_navi (0.00869)
+Completed in 0.10022 (9 reqs/sec) | Rendering: 0.04695 (46%) | DB: 0.01959 (19%) | 200 OK [http://localhost/tickets/list]
+  [4;36;1mUser Columns (0.003015)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2006-01-23 11:36:35) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"tickets"}
+  [4;35;1mTicket Load (0.000739)[0m   [0mSELECT * FROM tickets WHERE (tickets.id = '1') LIMIT 1[0m
+Rendering  within layouts/tickets
+Rendering tickets/show
+  [4;36;1mTicket Columns (0.014765)[0m   [0;1mSHOW FIELDS FROM tickets[0m
+  [4;35;1mUser Load (0.002771)[0m   [0mSELECT * FROM users WHERE (users.id = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.000278)[0m   [0;1mSELECT * FROM users WHERE (users.id = 1) LIMIT 1[0m
+  [4;35;1mClient Load (0.000231)[0m   [0mSELECT * FROM clients WHERE (clients.id = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (0.000427)[0m   [0;1mSHOW FIELDS FROM clients[0m
+  [4;35;1mClient Load (0.000341)[0m   [0mSELECT * FROM clients WHERE (clients.id = 1) LIMIT 1[0m
+Rendered layouts/_navi (0.01342)
+Completed in 0.34526 (2 reqs/sec) | Rendering: 0.30036 (86%) | DB: 0.02257 (6%) | 200 OK [http://localhost/tickets/show/1]
+  [4;36;1mUser Columns (0.005303)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2006-01-23 11:43:39) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Load (0.000696)[0m   [0mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+Rendering  within layouts/users
+Rendering users/show
+Rendered users/_navi (0.02373)
+Completed in 0.04724 (21 reqs/sec) | Rendering: 0.04006 (84%) | DB: 0.00600 (12%) | 200 OK [http://localhost/users/show/1]
+  [4;36;1mUser Columns (0.003671)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#list (for 127.0.0.1 at 2006-01-23 11:44:55) [GET]
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;35;1mTicket Count (0.000172)[0m   [0mSELECT COUNT(*) FROM tickets [0m
+  [4;36;1mTicket Load (0.000217)[0m   [0;1mSELECT * FROM tickets LIMIT 0, 5[0m
+Rendering  within layouts/tickets
+Rendering tickets/list
+  [4;35;1mTicket Columns (0.000456)[0m   [0mSHOW FIELDS FROM tickets[0m
+  [4;36;1mUser Load (0.000306)[0m   [0;1mSELECT * FROM users WHERE (users.id = 1) LIMIT 1[0m
+  [4;35;1mClient Load (0.000229)[0m   [0mSELECT * FROM clients WHERE (clients.id = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (0.000492)[0m   [0;1mSHOW FIELDS FROM clients[0m
+Rendered tickets/_list (0.04290)
+Rendered layouts/_navi (0.00392)
+Completed in 0.29714 (3 reqs/sec) | Rendering: 0.05103 (17%) | DB: 0.00554 (1%) | 200 OK [http://localhost/tickets/list]
+  [4;35;1mUser Columns (0.016660)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#logout (for 127.0.0.1 at 2006-01-23 11:45:10) [GET]
+  Parameters: {"action"=>"logout", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/logout
+Completed in 0.03310 (30 reqs/sec) | Rendering: 0.02396 (72%) | DB: 0.01666 (50%) | 200 OK [http://localhost/account/logout]
+
+
+Processing AccountController#imp.html (for 127.0.0.1 at 2006-01-23 11:46:36) [GET]
+  Parameters: {"action"=>"imp.html", "controller"=>"account"}
+
+
+ActionController::UnknownAction (No action responded to imp.html):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/filters.rb:332:in `perform_action_without_benchmark'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/benchmarking.rb:69:in `measure'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/benchmarking.rb:69:in `perform_action_without_rescue'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/rescue.rb:82:in `perform_action'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/base.rb:369:in `process_without_session_management_support'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/session_management.rb:116:in `process'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/dispatcher.rb:38:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:117:in `handle_dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:83:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:172:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:161:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:161:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:69:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/server.rb:28
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    ./script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-01-23 11:47:16) [GET]
+  Parameters: {"action"=>"login", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/login
+Completed in 0.02010 (49 reqs/sec) | Rendering: 0.01655 (82%) | DB: 0.00000 (0%) | 200 OK [http://localhost/account/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-01-23 11:47:21) [POST]
+  Parameters: {"user_login"=>"neuser_ja", "action"=>"login", "controller"=>"account", "user_password"=>"enola", "login"=>"Login \302\273"}
+  [4;36;1mUser Load (0.000386)[0m   [0;1mSELECT * FROM users WHERE (login = 'neuser_ja' AND password = '531d26a7d74ef0df1c63d74f90ae011fa2a473a1') LIMIT 1[0m
+Redirected to http://localhost:3000/account/welcome
+  [4;35;1mUser Columns (0.002123)[0m   [0mSHOW FIELDS FROM users[0m
+Completed in 0.02412 (41 reqs/sec) | DB: 0.00251 (10%) | 302 Found [http://localhost/account/login]
+  [4;36;1mUser Columns (0.000480)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#welcome (for 127.0.0.1 at 2006-01-23 11:47:21) [GET]
+  Parameters: {"action"=>"welcome", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/welcome
+Rendered account/_navi (0.01070)
+Completed in 0.03070 (32 reqs/sec) | Rendering: 0.01721 (56%) | DB: 0.00048 (1%) | 200 OK [http://localhost/account/welcome]
+  [4;35;1mUser Columns (0.000554)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#list (for 127.0.0.1 at 2006-01-23 11:50:23) [GET]
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;36;1mTicket Count (0.001978)[0m   [0;1mSELECT COUNT(*) FROM tickets [0m
+  [4;35;1mTicket Load (0.003693)[0m   [0mSELECT * FROM tickets LIMIT 0, 5[0m
+Rendering  within layouts/tickets
+Rendering tickets/list
+  [4;36;1mTicket Columns (0.002513)[0m   [0;1mSHOW FIELDS FROM tickets[0m
+  [4;35;1mUser Load (0.000320)[0m   [0mSELECT * FROM users WHERE (users.id = 1) LIMIT 1[0m
+  [4;36;1mClient Load (0.000247)[0m   [0;1mSELECT * FROM clients WHERE (clients.id = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (0.000417)[0m   [0mSHOW FIELDS FROM clients[0m
+Rendered tickets/_list (0.03598)
+Rendered layouts/_navi (0.00387)
+Completed in 0.08315 (12 reqs/sec) | Rendering: 0.04333 (52%) | DB: 0.00972 (11%) | 200 OK [http://localhost/tickets/list]
+  [4;36;1mUser Columns (0.002498)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2006-01-23 11:52:39) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Load (0.003953)[0m   [0mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+Rendering  within layouts/users
+Rendering users/show
+Rendered users/_navi (0.00782)
+Completed in 0.07648 (13 reqs/sec) | Rendering: 0.06445 (84%) | DB: 0.00645 (8%) | 200 OK [http://localhost/users/show/1]
+  [4;36;1mUser Columns (0.001042)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2006-01-23 11:52:58) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"clients"}
+  [4;35;1mClient Load (0.001811)[0m   [0mSELECT * FROM clients WHERE (clients.id = '1') LIMIT 1[0m
+  [4;36;1mClient Columns (0.000499)[0m   [0;1mSHOW FIELDS FROM clients[0m
+  [4;35;1mReport Load (0.000594)[0m   [0mSELECT * FROM reports WHERE (client_id IN (1)) [0m
+Rendering  within layouts/clients
+Rendering clients/show
+Rendered clients/_navi (0.00641)
+Completed in 0.13456 (7 reqs/sec) | Rendering: 0.05982 (44%) | DB: 0.00395 (2%) | 200 OK [http://localhost/clients/show/1]
+  [4;36;1mUser Columns (0.002274)[0m   [0;1mSHOW FIELDS FROM users[0m
+Multipart upload with progress (id: 1, size: 191866)
+Finished processing multipart upload in 0.040591s
+
+
+Processing ClientsController#update_pic (for 127.0.0.1 at 2006-01-23 11:57:00) [POST]
+  Parameters: {"user"=>"1", "commit"=>"Upload", "client"=>{"client_pic"=>#<File:/tmp/CGI9576.0>}, "action"=>"update_pic", "id"=>"1", "controller"=>"clients", "upload_id"=>"1"}
+  [4;35;1mClient Load (0.000242)[0m   [0mSELECT * FROM clients WHERE (clients.id = '1') LIMIT 1[0m
+  [4;36;1mClient Columns (0.000531)[0m   [0;1mSHOW FIELDS FROM clients[0m
+  [4;35;1mSQL (0.000188)[0m   [0mBEGIN[0m
+  [4;36;1mClient Update (0.000966)[0m   [0;1mUPDATE clients SET `client_plz` = 44556, `client_name` = 'Hauptschule Tahl', `client_fax` = '', `client_strasse` = 'Zunderweg 11', `client_email` = '', `user_id` = 1, `updated_on` = '2006-01-23 11:57:00', `client_telefon` = '', `client_ort` = 'Niederlustbach', `client_pic` = 'Photo-0019.jpg', `created_on` = '2006-01-23 11:18:14' WHERE id = 1[0m
+  [4;35;1mSQL (0.026351)[0m   [0mCOMMIT[0m
+Redirected to http://localhost:3000/clients/show/1
+Completed in 0.29669 (3 reqs/sec) | Rendering: 0.00243 (0%) | DB: 0.03055 (10%) | 200 OK [http://localhost/clients/update_pic/1?user=1&upload_id=1]
+  [4;36;1mUser Columns (0.000475)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#upload_status (for 127.0.0.1 at 2006-01-23 11:57:00) [POST]
+  Parameters: {"action"=>"upload_status", "controller"=>"clients", "upload_id"=>"1"}
+Completed in 0.00874 (114 reqs/sec) | Rendering: 0.00538 (61%) | DB: 0.00047 (5%) | 200 OK [http://localhost/clients/upload_status?upload_id=1]
+  [4;35;1mUser Columns (0.000480)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2006-01-23 11:57:01) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"clients"}
+  [4;36;1mClient Load (0.000704)[0m   [0;1mSELECT * FROM clients WHERE (clients.id = '1') LIMIT 1[0m
+  [4;35;1mClient Columns (0.000519)[0m   [0mSHOW FIELDS FROM clients[0m
+  [4;36;1mReport Load (0.000214)[0m   [0;1mSELECT * FROM reports WHERE (client_id IN (1)) [0m
+Rendering  within layouts/clients
+Rendering clients/show
+Rendered clients/_navi (0.00650)
+Completed in 0.09204 (10 reqs/sec) | Rendering: 0.04250 (46%) | DB: 0.00192 (2%) | 200 OK [http://localhost/clients/show/1]
+  [4;35;1mUser Columns (0.003913)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#list (for 127.0.0.1 at 2006-01-23 11:57:09) [GET]
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;36;1mTicket Count (0.001171)[0m   [0;1mSELECT COUNT(*) FROM tickets [0m
+  [4;35;1mTicket Load (0.000296)[0m   [0mSELECT * FROM tickets LIMIT 0, 5[0m
+Rendering  within layouts/tickets
+Rendering tickets/list
+  [4;36;1mTicket Columns (0.000438)[0m   [0;1mSHOW FIELDS FROM tickets[0m
+  [4;35;1mUser Load (0.000284)[0m   [0mSELECT * FROM users WHERE (users.id = 1) LIMIT 1[0m
+  [4;36;1mClient Load (0.000680)[0m   [0;1mSELECT * FROM clients WHERE (clients.id = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (0.000398)[0m   [0mSHOW FIELDS FROM clients[0m
+Rendered tickets/_list (0.03360)
+Rendered layouts/_navi (0.00367)
+Completed in 0.07119 (14 reqs/sec) | Rendering: 0.04108 (57%) | DB: 0.00718 (10%) | 200 OK [http://localhost/tickets/list]
+  [4;36;1mUser Columns (0.012493)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2006-01-23 11:57:12) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"tickets"}
+  [4;35;1mTicket Load (0.003258)[0m   [0mSELECT * FROM tickets WHERE (tickets.id = '1') LIMIT 1[0m
+Rendering  within layouts/tickets
+Rendering tickets/show
+  [4;36;1mTicket Columns (0.001122)[0m   [0;1mSHOW FIELDS FROM tickets[0m
+  [4;35;1mUser Load (0.001266)[0m   [0mSELECT * FROM users WHERE (users.id = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.000714)[0m   [0;1mSELECT * FROM users WHERE (users.id = 1) LIMIT 1[0m
+  [4;35;1mClient Load (0.002787)[0m   [0mSELECT * FROM clients WHERE (clients.id = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (0.001326)[0m   [0;1mSHOW FIELDS FROM clients[0m
+  [4;35;1mClient Load (0.014190)[0m   [0mSELECT * FROM clients WHERE (clients.id = 1) LIMIT 1[0m
+Rendered layouts/_navi (0.00581)
+Completed in 0.10320 (9 reqs/sec) | Rendering: 0.05849 (56%) | DB: 0.03716 (36%) | 200 OK [http://localhost/tickets/show/1]
+  [4;36;1mUser Columns (0.000475)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing WorkflowsController#ticket_list (for 127.0.0.1 at 2006-01-23 12:00:35) [POST]
+  Parameters: {"ticket"=>"1", "action"=>"ticket_list", "controller"=>"workflows"}
+  [4;35;1mTicket Load (0.000249)[0m   [0mSELECT * FROM tickets WHERE (tickets.id = '1') LIMIT 1[0m
+  [4;36;1mTicket Columns (0.000417)[0m   [0;1mSHOW FIELDS FROM tickets[0m
+  [4;35;1mWorkflow Load (0.000627)[0m   [0mSELECT * FROM workflows WHERE (ticket_id = (1)) ORDER BY created_on DESC [0m
+Rendered workflows/_workflow (0.01755)
+Completed in 0.03053 (32 reqs/sec) | DB: 0.00177 (5%) | 200 OK [http://localhost/workflows/ticket_list?ticket=1]
+  [4;36;1mUser Columns (0.000469)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing WorkflowsController#new (for 127.0.0.1 at 2006-01-23 12:00:37) [POST]
+  Parameters: {"grund"=>"schliessen", "ticket"=>"1", "action"=>"new", "controller"=>"workflows"}
+  [4;35;1mTicket Load (0.000227)[0m   [0mSELECT * FROM tickets WHERE (tickets.id = '1') LIMIT 1[0m
+  [4;36;1mTicket Columns (0.000560)[0m   [0;1mSHOW FIELDS FROM tickets[0m
+Rendered workflows/_form (0.02280)
+Completed in 0.04055 (24 reqs/sec) | DB: 0.00126 (3%) | 200 OK [http://localhost/workflows/new?grund=schliessen&ticket=1]
+  [4;35;1mUser Columns (0.006318)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2006-01-23 12:03:40) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"clients"}
+  [4;36;1mClient Load (0.001724)[0m   [0;1mSELECT * FROM clients WHERE (clients.id = '1') LIMIT 1[0m
+  [4;35;1mClient Columns (0.003580)[0m   [0mSHOW FIELDS FROM clients[0m
+  [4;36;1mReport Load (0.001531)[0m   [0;1mSELECT * FROM reports WHERE (client_id IN (1)) [0m
+Rendering  within layouts/clients
+Rendering clients/show
+Rendered clients/_navi (0.00639)
+Completed in 0.13224 (7 reqs/sec) | Rendering: 0.02790 (21%) | DB: 0.01315 (9%) | 200 OK [http://localhost/clients/show/1]
+  [4;35;1mUser Columns (0.021521)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#list (for 127.0.0.1 at 2006-01-23 12:15:38) [GET]
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;36;1mTicket Count (0.000254)[0m   [0;1mSELECT COUNT(*) FROM tickets [0m
+  [4;35;1mTicket Load (0.000230)[0m   [0mSELECT * FROM tickets LIMIT 0, 5[0m
+Rendering  within layouts/tickets
+Rendering tickets/list
+  [4;36;1mTicket Columns (0.000436)[0m   [0;1mSHOW FIELDS FROM tickets[0m
+  [4;35;1mUser Load (0.000280)[0m   [0mSELECT * FROM users WHERE (users.id = 1) LIMIT 1[0m
+  [4;36;1mClient Load (0.000237)[0m   [0;1mSELECT * FROM clients WHERE (clients.id = 1) LIMIT 1[0m
+  [4;35;1mClient Columns (0.000421)[0m   [0mSHOW FIELDS FROM clients[0m
+Rendered tickets/_list (0.03288)
+Rendered layouts/_navi (0.00373)
+Completed in 0.07166 (13 reqs/sec) | Rendering: 0.04091 (57%) | DB: 0.02338 (32%) | 200 OK [http://localhost/tickets/list]
+  [4;36;1mUser Columns (0.001596)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2006-01-23 12:15:48) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"tickets"}
+  [4;35;1mTicket Load (0.015633)[0m   [0mSELECT * FROM tickets WHERE (tickets.id = '1') LIMIT 1[0m
+Rendering  within layouts/tickets
+Rendering tickets/show
+  [4;36;1mTicket Columns (0.002373)[0m   [0;1mSHOW FIELDS FROM tickets[0m
+  [4;35;1mUser Load (0.003333)[0m   [0mSELECT * FROM users WHERE (users.id = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.000858)[0m   [0;1mSELECT * FROM users WHERE (users.id = 1) LIMIT 1[0m
+  [4;35;1mClient Load (0.000273)[0m   [0mSELECT * FROM clients WHERE (clients.id = 1) LIMIT 1[0m
+  [4;36;1mClient Columns (0.000398)[0m   [0;1mSHOW FIELDS FROM clients[0m
+  [4;35;1mClient Load (0.000247)[0m   [0mSELECT * FROM clients WHERE (clients.id = 1) LIMIT 1[0m
+Rendered layouts/_navi (0.00394)
+Completed in 0.09829 (10 reqs/sec) | Rendering: 0.05198 (52%) | DB: 0.02471 (25%) | 200 OK [http://localhost/tickets/show/1]
+  [4;36;1mUser Columns (0.000481)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing WorkflowsController#new (for 127.0.0.1 at 2006-01-23 12:20:14) [POST]
+  Parameters: {"grund"=>"schliessen", "ticket"=>"1", "action"=>"new", "controller"=>"workflows"}
+  [4;35;1mTicket Load (0.000244)[0m   [0mSELECT * FROM tickets WHERE (tickets.id = '1') LIMIT 1[0m
+  [4;36;1mTicket Columns (0.000468)[0m   [0;1mSHOW FIELDS FROM tickets[0m
+Rendered workflows/_form (0.01443)
+Completed in 0.03277 (30 reqs/sec) | DB: 0.00119 (3%) | 200 OK [http://localhost/workflows/new?grund=schliessen&ticket=1]
+  [4;35;1mUser Columns (0.000468)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing WorkflowsController#new_zuweisen (for 127.0.0.1 at 2006-01-23 12:20:18) [POST]
+  Parameters: {"grund"=>"zuweisen", "ticket"=>"1", "action"=>"new_zuweisen", "controller"=>"workflows"}
+  [4;36;1mTicket Load (0.000408)[0m   [0;1mSELECT * FROM tickets WHERE (tickets.id = '1') LIMIT 1[0m
+  [4;35;1mTicket Columns (0.000496)[0m   [0mSHOW FIELDS FROM tickets[0m
+Rendered workflows/_tmpl_zuweisen (0.03595)
+Completed in 0.05665 (17 reqs/sec) | DB: 0.00137 (2%) | 200 OK [http://localhost/workflows/new_zuweisen?grund=zuweisen&ticket=1]
+  [4;36;1mUser Columns (0.000473)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing WorkflowsController#search (for 127.0.0.1 at 2006-01-23 12:20:22) [POST]
+  Parameters: {"Jan"=>"", "action"=>"search", "controller"=>"workflows"}
+  [4;35;1mUser Load (0.000835)[0m   [0mSELECT * FROM users ORDER BY user_name [0m
+Rendering workflows/search
+Completed in 0.03127 (31 reqs/sec) | Rendering: 0.02246 (71%) | DB: 0.00131 (4%) | 200 OK [http://localhost/workflows/search]
+=======
 
 
 Processing AccountController#signup (for 127.0.0.1 at 2006-01-23 11:58:57) [GET]
@@ -1794,3 +2339,188 @@ Rendering tickets/list
 Rendered tickets/_list (0.00031)
 Rendered layouts/_navi (0.00573)
 Completed in 0.03979 (25 reqs/sec) | Rendering: 0.01105 (27%) | DB: 0.00389 (9%) | 200 OK [http://localhost/tickets/list]
+>>>>>>> 1.23
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-01-25 16:24:01) [GET]
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;36;1mUser Columns (0.047009)[0m   [0;1mSHOW FIELDS FROM users[0m
+Rendering  within layouts/account
+Rendering account/signup
+Completed in 0.26869 (3 reqs/sec) | Rendering: 0.05442 (20%) | DB: 0.04701 (17%) | 200 OK [http://localhost/account/signup]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-01-25 16:24:06) [GET]
+  Parameters: {"action"=>"login", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/login
+Completed in 0.04484 (22 reqs/sec) | Rendering: 0.03598 (80%) | DB: 0.00000 (0%) | 200 OK [http://localhost/account/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-01-25 16:24:11) [POST]
+  Parameters: {"user_login"=>"neuser_ja", "action"=>"login", "controller"=>"account", "user_password"=>"enola", "login"=>"Login \302\273"}
+  [4;35;1mUser Load (0.148960)[0m   [0mSELECT * FROM users WHERE (login = 'neuser_ja' AND password = '531d26a7d74ef0df1c63d74f90ae011fa2a473a1') LIMIT 1[0m
+Redirected to http://localhost:3000/account/welcome
+  [4;36;1mUser Columns (0.000612)[0m   [0;1mSHOW FIELDS FROM users[0m
+Completed in 0.16288 (6 reqs/sec) | DB: 0.14957 (91%) | 302 Found [http://localhost/account/login]
+  [4;35;1mUser Columns (0.008535)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#welcome (for 127.0.0.1 at 2006-01-25 16:24:12) [GET]
+  Parameters: {"action"=>"welcome", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/welcome
+Rendered account/_navi (0.02866)
+Completed in 0.05523 (18 reqs/sec) | Rendering: 0.05019 (90%) | DB: 0.00853 (15%) | 200 OK [http://localhost/account/welcome]
+  [4;36;1mUser Columns (0.000488)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#logout (for 127.0.0.1 at 2006-01-25 16:32:11) [GET]
+  Parameters: {"action"=>"logout", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/logout
+Completed in 0.01202 (83 reqs/sec) | Rendering: 0.00730 (60%) | DB: 0.00049 (4%) | 200 OK [http://localhost/account/logout]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-01-25 16:32:21) [GET]
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;35;1mUser Columns (0.004862)[0m   [0mSHOW FIELDS FROM users[0m
+Rendering  within layouts/account
+Rendering account/signup
+Completed in 0.32001 (3 reqs/sec) | Rendering: 0.29101 (90%) | DB: 0.00486 (1%) | 200 OK [http://localhost/account/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-01-25 16:33:30) [GET]
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;36;1mUser Columns (0.001522)[0m   [0;1mSHOW FIELDS FROM users[0m
+Rendering  within layouts/account
+Rendering account/signup
+Completed in 0.06455 (15 reqs/sec) | Rendering: 0.04189 (64%) | DB: 0.00152 (2%) | 200 OK [http://localhost/account/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-01-25 16:34:03) [GET]
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;35;1mUser Columns (0.002005)[0m   [0mSHOW FIELDS FROM users[0m
+Rendering  within layouts/account
+Rendering account/signup
+Completed in 0.06688 (14 reqs/sec) | Rendering: 0.02796 (41%) | DB: 0.00201 (2%) | 200 OK [http://localhost/account/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-01-25 16:37:10) [GET]
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;36;1mUser Columns (0.001882)[0m   [0;1mSHOW FIELDS FROM users[0m
+Rendering  within layouts/account
+Rendering account/signup
+Completed in 0.07452 (13 reqs/sec) | Rendering: 0.04342 (58%) | DB: 0.00188 (2%) | 200 OK [http://localhost/account/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-01-25 16:43:28) [GET]
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;35;1mUser Columns (0.000504)[0m   [0mSHOW FIELDS FROM users[0m
+Rendering  within layouts/account
+Rendering account/signup
+Completed in 0.03961 (25 reqs/sec) | Rendering: 0.02915 (73%) | DB: 0.00050 (1%) | 200 OK [http://localhost/account/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-01-25 16:47:07) [GET]
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;36;1mUser Columns (0.001292)[0m   [0;1mSHOW FIELDS FROM users[0m
+Rendering  within layouts/account
+Rendering account/signup
+Completed in 0.06506 (15 reqs/sec) | Rendering: 0.03458 (53%) | DB: 0.00129 (1%) | 200 OK [http://localhost/account/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-01-25 16:49:34) [GET]
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;35;1mUser Columns (0.001693)[0m   [0mSHOW FIELDS FROM users[0m
+Rendering  within layouts/account
+Rendering account/signup
+Completed in 0.04187 (23 reqs/sec) | Rendering: 0.03030 (72%) | DB: 0.00169 (4%) | 200 OK [http://localhost/account/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-01-25 16:50:51) [GET]
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;36;1mUser Columns (0.000836)[0m   [0;1mSHOW FIELDS FROM users[0m
+Rendering  within layouts/account
+Rendering account/signup
+Completed in 0.04638 (21 reqs/sec) | Rendering: 0.02902 (62%) | DB: 0.00084 (1%) | 200 OK [http://localhost/account/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-01-25 16:52:44) [GET]
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;35;1mUser Columns (0.004461)[0m   [0mSHOW FIELDS FROM users[0m
+Rendering  within layouts/account
+Rendering account/signup
+Completed in 0.06410 (15 reqs/sec) | Rendering: 0.04352 (67%) | DB: 0.00446 (6%) | 200 OK [http://localhost/account/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-01-25 16:53:58) [GET]
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;36;1mUser Columns (0.000757)[0m   [0;1mSHOW FIELDS FROM users[0m
+Rendering  within layouts/account
+Rendering account/signup
+Completed in 0.05687 (17 reqs/sec) | Rendering: 0.03265 (57%) | DB: 0.00076 (1%) | 200 OK [http://localhost/account/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-01-25 16:54:23) [GET]
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;35;1mUser Columns (0.023747)[0m   [0mSHOW FIELDS FROM users[0m
+Rendering  within layouts/account
+Rendering account/signup
+Completed in 0.07541 (13 reqs/sec) | Rendering: 0.02871 (38%) | DB: 0.02375 (31%) | 200 OK [http://localhost/account/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-01-25 17:00:07) [GET]
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;36;1mUser Columns (0.009959)[0m   [0;1mSHOW FIELDS FROM users[0m
+Rendering  within layouts/account
+Rendering account/signup
+Completed in 0.05470 (18 reqs/sec) | Rendering: 0.02770 (50%) | DB: 0.00996 (18%) | 200 OK [http://localhost/account/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-01-25 17:02:39) [GET]
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;35;1mUser Columns (0.002303)[0m   [0mSHOW FIELDS FROM users[0m
+Rendering  within layouts/account
+Rendering account/signup
+Completed in 0.05987 (16 reqs/sec) | Rendering: 0.04293 (71%) | DB: 0.00230 (3%) | 200 OK [http://localhost/account/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-01-25 17:03:56) [GET]
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;36;1mUser Columns (0.000765)[0m   [0;1mSHOW FIELDS FROM users[0m
+Rendering  within layouts/account
+Rendering account/signup
+Completed in 0.05159 (19 reqs/sec) | Rendering: 0.02834 (54%) | DB: 0.00076 (1%) | 200 OK [http://localhost/account/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-01-25 17:04:28) [GET]
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;35;1mUser Columns (0.003523)[0m   [0mSHOW FIELDS FROM users[0m
+Rendering  within layouts/account
+Rendering account/signup
+Completed in 0.05677 (17 reqs/sec) | Rendering: 0.04210 (74%) | DB: 0.00352 (6%) | 200 OK [http://localhost/account/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-01-25 17:10:27) [GET]
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;36;1mUser Columns (0.000507)[0m   [0;1mSHOW FIELDS FROM users[0m
+Rendering  within layouts/account
+Rendering account/signup
+Completed in 0.05641 (17 reqs/sec) | Rendering: 0.04201 (74%) | DB: 0.00051 (0%) | 200 OK [http://localhost/account/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-01-25 17:11:01) [GET]
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;35;1mUser Columns (0.001536)[0m   [0mSHOW FIELDS FROM users[0m
+Rendering  within layouts/account
+Rendering account/signup
+Completed in 0.06454 (15 reqs/sec) | Rendering: 0.03103 (48%) | DB: 0.00154 (2%) | 200 OK [http://localhost/account/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-01-25 17:17:44) [GET]
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;36;1mUser Columns (0.000510)[0m   [0;1mSHOW FIELDS FROM users[0m
+Rendering  within layouts/account
+Rendering account/signup
+Completed in 0.05099 (19 reqs/sec) | Rendering: 0.04287 (84%) | DB: 0.00051 (1%) | 200 OK [http://localhost/account/signup]
