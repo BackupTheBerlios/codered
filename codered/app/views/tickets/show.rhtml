@@ -11,10 +11,10 @@
 	<!-- Rechte informationen -->
 	<div class="right">
 		<div class="pic">
-			<div style="float:left;">
-				<span class="black">Zust&auml;ndiger Betreuer:</span><br />
+			<div style="text-align:center;">
+				<span class="black" style="font-size:x-small;">Zugewiesener Betreuer:</span><br />
 						<%= if @betreuer.user_pic then
-						image_tag url_for_file_column("betreuer", "user_pic") , :size => "60x75", :border => 0
+						image_tag url_for_file_column("betreuer", "user_pic") , :size => "95x105", :border => 0
 							else
 								image_tag( "/images/profil.png", :size => "30x45", :border => 0)
 								end %><br />
@@ -25,10 +25,11 @@
 			</div>
 		</div>
 		<div class="pic">
-			<div style="float:left;">
-				<span class="black">Eintragender:</span><br />
+		<div style="text-align:center;">
+				<span class="black" style="font-size:x-small;">Eintragender:</span><br />
+				
 					<%= if @user.user_pic then
-					image_tag url_for_file_column("user", "user_pic") , :size => "60x75", :border => 0
+					image_tag url_for_file_column("user", "user_pic") , :size => "95x105", :border => 0
 							else
 								image_tag( "/images/profil.png", :size => "30x45", :border => 0)
 							end %><br />
@@ -54,14 +55,14 @@
 			<div class="know">
 						<p>
 							<span class="black">Statusinformationen:</span><br />
-							<span class="darkgrey"><%= @ticket.ticket_wichtigkeit %></span>
-							<span class="darkgrey"><%= @ticket.ticket_status %></span>
-							<span class="darkgrey">
+							<span class="darkgrey">Ticket-Wichtigkeit : <%= @ticket.ticket_wichtigkeit %></span><br />
+							<span class="darkgrey">Ticket-Status : <%= @ticket.ticket_status %></span><br />
+							<span class="darkgrey">Ticket-Client :<br />
 							<%= link_to (h(Client.find(@ticket.client_id).client_name)),
 							:action => 'show', :id =>@ticket.client_id , :controller =>"clients" %>
-							<%= @client = Client.find(@ticket.client_id)
+							<br /> <%= @client = Client.find(@ticket.client_id)
 							if @client.client_pic then
-							image_tag url_for_file_column("client", "client_pic") , :size => "60x75", :border => 0
+							image_tag url_for_file_column("client", "client_pic") , :size => "60x75", :title => "Clienten Avatar", :border => 0
 							else
 								image_tag( "/images/profil.png", :size => "30x45", :border => 0)
 							end %><br />
@@ -78,8 +79,6 @@
 							<a href="#" onclick="Effect.Fade('hide1'); return false;">Close</a>
 						<br />
 					</div>
-				<%= link_to image_tag("/images/page_back.png", :size => "32x32"),
-				{:action => 'list'} %>
 	    			<a href="#" onclick="Effect.Appear('hide1'); return false;">
 				<img src="/images/status.png" title="Erstellt und Update Informationen" alt="Update Informationen" />
 				</a>

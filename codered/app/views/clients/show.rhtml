@@ -6,15 +6,20 @@
 		<%= flash[:notice] %>
 	</div>
 	<div class="pic">
+	<div style="text-align:center;">
 		<%= if url_for_file_column("client", "client_pic") then
-				image_tag( url_for_file_column("client", "client_pic") , :size => "31x45", :border => 0)
+				image_tag( url_for_file_column("client", "client_pic") , :size => "95x125", :border => 0)
 			else
 				image_tag( "/images/profil.png", :border => 0)
 			end %>
+			</div>
 			<%= form_tag_with_upload_progress({:action => 'update_pic',:user => @session[:user], :id => @client.id }, {}, {:action => :custom_status}) %>
 			<%= upload_status_tag %>
-			<%= file_field 'client', 'client_pic' %>
+			<br />
+			<%= file_field 'client', 'client_pic',{"size" => 5} %>
+			<br /><br />
 			<%= submit_tag "Upload" %>
+			<br />
 			<%= end_form_tag %>
 	</div><!-- class="pic"-->	
 	<div class="left">
@@ -61,46 +66,53 @@
 			</script>
 		</div><!-- class="adress"-->
 		<div class="know">
-			Informationen:<br />
-			<div class="upload">
+			Dokumenten Upload:<a href="#" onclick="Effect.Appear('hide1'); return false;"> <%= image_tag("/images/edit_down2020.png", :size => "20x20", :title => "Bitte hier Klicken um ein Dokument hoch zu laden") %> </a><br />
+			<div class="upload" id="hide1" style="display:none;">
 				<%= form_tag_with_upload_progress({:controller => 'reports', :action => 'create',:user => @session[:user], :client_id => @client.id }, {}, {:action => :custom_status}) %>
 				<%= text_area("report","beschreibung","cols" => 30, "rows" => 5)%>
 				<%= upload_status_tag %>
 				<%= file_field 'report', 'datei' %>
 				<%= submit_tag "Upload" %>
 				<%= end_form_tag %>
+				<a href="#" onclick="Effect.Fade('hide1'); return false;">Verstecken</a>
 			</div>
+
+		</div><!-- class="know"-->
+		<div  class="know">
+				Dokumentenarchiv :
+			<br />
+
 			<% if @reports.empty? %>
-			Es Wurden noch keine Dateien hinzugefÃ¼gt.
+			Es Wurden noch keine Dateien hinzugefügt.
 			<% else %>
-			<table align="left">
+
 				<% @reports.each_with_index do |report, i| #fuer jeden betreuer mit index %>
 				<% @ersteller = User.find(:first, :conditions => [ "id = ?", report.user_id]) %>
 				<% row_class = i%2 == 0 ? "1" : "0" %>
-			<tr>
-			<table align="left" class="ListLinie<%= row_class %>" style="width:175px;padding:1px;">
-				<tr>
-					<td rowspan="2" style="width:25px;padding:1px;">
-						<%= #url_for_file_column("report", "datei")
-						%>
-					</td>
-				</tr>
-				<tr>
-					<td>
-						<%=h report.beschreibung%>
-					</td>
-					<td>
-						<%=h @ersteller.user_vorname + " " + @ersteller.user_name %>
-					</td>
-				</tr>
-			</table>
-		</tr>
-		<% if (i%2 != 0) %>
-		<br><br><br>
-		<%end%>
-		<%end%>
-		</table>
-<%end%>
-		</div><!-- class="know"-->
+				<div style="text-align:left;width:360px;" class="ListLinie<%= row_class %>">
+				<table>
+					<tr>
+						<td style="width:24px">
+							<%= image_tag("/images/docdefault.png", :size => "22x22") %>
+						</td>
+						<td class="upload" style="width:100px">
+							Upload Datum
+						</td>
+						<td class="upload" style="width:160px">
+							<%=h report.beschreibung%>
+						</td>
+						<td class="upload" style="width:100px">
+							<%=h @ersteller.user_vorname + " " + @ersteller.user_name %>
+						</td>
+					</tr	>
+				</table>
+				</div>
+				<% if (i%2 != 0) %>
+		
+				<%end%>
+				<%end%>
+			<%end%>
+
+		</div><!-- class="know" -->
 	</div><!-- class="left"-->
 </div><!-- class="client"-->
