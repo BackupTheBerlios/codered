@@ -1,23 +1,42 @@
-<div class="memo">
-<%= start_form_tag :action=> "login" %>
+<br />
+<span class="backgrey">Login</span>
+<div class="user">
+<div class="right">
+	<div class="pic" style="text-align:center;">
+	Code Red Links<br />
+		<img src="/images/sinup1616.png" alt="Login" /><%= link_to "Anmelden", :action=>"signup"%><br />
+	</div>
+</div>
+<div class="left">
+	<div class="adress">
+		<%= start_form_tag :action=> "login" %>
 
-<div title="Account login" id="loginform" class="form">
-	<h3>Bitte einloggen</h3>
+		<div title="Account login" id="loginform" class="form">
+			<p style="font-size:small;">Bitte geben sie Ihren Benutzernamen und Ihr Passwort in die Felder ein um sich an dem System anzumelden.</p>
     
-    <% if @flash['notice'] %>
-      <div id="message"><%= @flash['notice'] %></div>
-    <% end %>
+    		<% if @flash['notice'] %>
+      		<div id="message"><%= @flash['notice'] %></div>
+    		<% end %>
 
-    <label for="user_login">Login:</label><br/>
-    <input type="text" name="user_login" id="user_login" size="30" value=""/><br/>
+    		<label for="user_login">Login:</label><br/>
+    		<input type="text" name="user_login" id="user_login" size="30" value=""/><br/>
 
-    <label for="user_password">Password:</label><br/>
-    <input type="password" name="user_password" id="user_password" size="30"/>
+    		<label for="user_password">Password:</label><br/>
+    		<input type="password" name="user_password" id="user_password" size="30"/>
+		<br />
+    		<br/>
+    		<input type="submit" name="login" value="Login &#187;" class="primary" />
 
-    <br/>
-    <input type="submit" name="login" value="Login &#187;" class="primary" />
+		</div>
 
+		<%= end_form_tag %>
+		<p style="font-size:x-small;">*Wenn sie noch keinen Zugang haben, klicken sie links auf Anmelden.</p>
+	</div>
+	
+</div>
 </div>
 
-<%= end_form_tag %>
+
+<div class="memo">
+
 </div>

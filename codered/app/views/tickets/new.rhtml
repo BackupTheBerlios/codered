@@ -1,5 +1,5 @@
 <br />
-<span class="backgrey">&nbsp;&nbsp; Neues Ticket erstellen&nbsp;&nbsp;  </span>
+<span class="backgrey">Neues Ticket erstellen</span>
 <div class="user">
 		<div class="pic">
 			<%= start_form_tag :action => 'create' , :user => @session[:user] %>
@@ -8,9 +8,17 @@
 					@clienten = Client.find(:all, :order => "client_name").map {|u| [u.client_name, u.id] }
 					select(:ticket, :client_id, @clienten)
 				%>
-				<a href="#" onclick="effect_1 = Effect.SlideDown('d1',{duration:1.0}); return false;">
+				<a href="#" onclick="effect_1 = Effect.SlideDown('d4',{duration:1.0}); return false;">
 				<img src="/images/hilfe.png" alt="Hilfe Anzeigen" title="Hilfe Anzeigen" /></a>
 			</p>
+		<!-- Hilfe -->
+		<div id="d4" style="display:none">
+			<div>
+			<p class="hilfetext">
+			Hier w&auml;hlen sie bitte den Betreffenden Clienten aus.</p>
+			<a href="#" onclick="effect_1 = Effect.SlideUp('d4',{duration:1.0}); return false;">Ohne Hilfe</a>
+			</div>
+		</div><!-- Hilfe Ende -->
 			
 		</div>
 	<div class="left">
@@ -52,10 +60,8 @@
 		%>
 		</p>
 
-	<p><%= submit_tag "Create" %></p>
+	<p><%= submit_tag "Erstellen" %></p>
 		<%= end_form_tag %>
 		</div>
 	</div>
 </div>
-
-<p><%= link_to image_tag("/images/page_back.png", :size => "32x32"), {:action => 'list' }%></p>
