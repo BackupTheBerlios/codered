@@ -96,7 +96,7 @@
 							<%= image_tag("/images/docdefault.png", :size => "22x22") %>
 						</td>
 						<td class="upload" style="width:100px">
-							Upload Datum
+						<%=h report.created_on.to_formatted_s(format = :short) %>
 						</td>
 						<td class="upload" style="width:160px">
 							<%=h report.beschreibung%>
@@ -104,6 +104,13 @@
 						<td class="upload" style="width:100px">
 							<%=h @ersteller.user_vorname + " " + @ersteller.user_name %>
 						</td>
+						<% 	if @session[:rechte] <= 2 || report.user_id == @session[:user].id 
+						# löschen darf ersteller, admin und mentor
+						%>
+						<td class="upload" style="width:100px">
+							TODO: hier noch nen löschen link
+						</td>
+						<% end %>
 					</tr	>
 				</table>
 				</div>

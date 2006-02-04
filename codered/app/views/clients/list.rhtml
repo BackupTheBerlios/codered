@@ -13,10 +13,12 @@
 	<td valign="middle" class="darkgrey">
 		Ort: <%= link_to (h(client.client_ort)), :action => 'show', :id => client %>
 	</td>
+	<% if @session[:rechte] == 1 then %>
 	<td class="darkgrey" valign="middle">
 		<%= link_to image_tag("/images/remove.png", :size => "32x32"),
 		{:action => 'destroy', :id => client}, :confirm => 'Are you sure?' %>
 	</td>
+	<% end %>
 </tr>
 <% end %>
 </table>

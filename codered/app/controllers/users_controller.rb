@@ -7,6 +7,7 @@ before_filter :login_required
   end
 
   def list
+
     @user_pages, @users = paginate :users, :per_page => 10
   end
   
@@ -37,83 +38,102 @@ before_filter :login_required
 
   def update
     @user = User.find(params[:id])
+	if @session[:rechte] == 1 || @user.id == @session[:user].id
     if @user.update_attributes(params[:user])
       flash[:notice] = 'User was successfully updated.'
       redirect_to :action => 'show', :id => @user
     else
       render :action => 'edit'
     end
+    end
   end
 
 	def update_login
 		@user = User.find(params[:id])
+		if @session[:rechte] == 1 || @user.id == @session[:user].id
 		if @user.update_attribute(:login, params[:value])
 			render :layout => false, :inline => "<%= h(@user.login) %>" 
 		else
 			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
 		end
 	end
+	end
 
 	def update_name
 		@user = User.find(params[:id])
+		if @session[:rechte] == 1 || @user.id == @session[:user].id
 		if @user.update_attribute(:user_name, params[:value])
 			render :layout => false, :inline => "<%= h(@user.user_name) %>" 
 		else
 			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
 		end
 	end
+	end
 	def update_vorname
 		@user = User.find(params[:id])
+		if @session[:rechte] == 1 || @user.id == @session[:user].id
 		if @user.update_attribute(:user_vorname, params[:value])
 			render :layout => false, :inline => "<%= h(@user.user_vorname) %>" 
 		else
 			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
 		end
 	end
+	end
 	def update_strasse
 		@user = User.find(params[:id])
+		if @session[:rechte] == 1 || @user.id == @session[:user].id
 		if @user.update_attribute(:user_strasse, params[:value])
 			render :layout => false, :inline => "<%= h(@user.user_strasse) %>" 
 		else
 			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
 		end
 	end
+	end
 	def update_plz
 		@user = User.find(params[:id])
+		if @session[:rechte] == 1 || @user.id == @session[:user].id
 		if @user.update_attribute(:user_plz, params[:value])
 			render :layout => false, :inline => "<%= h(@user.user_plz) %>" 
 		else
 			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
 		end
 	end
+	end
 	def update_ort
 		@user = User.find(params[:id])
+		if @session[:rechte] == 1 || @user.id == @session[:user].id
 		if @user.update_attribute(:user_ort, params[:value])
 			render :layout => false, :inline => "<%= h(@user.user_ort) %>" 
 		else
 			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
 		end
 	end
+	end
 	def update_klasse
 		@user = User.find(params[:id])
+		if @session[:rechte] == 1 || @user.id == @session[:user].id
 		if @user.update_attribute(:user_klasse, params[:value])
 			render :layout => false, :inline => "<%= h(@user.user_klasse) %>" 
 		else
 			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
 		end
 	end
+	end
 	def update_email
 		@user = User.find(params[:id])
+		if @session[:rechte] == 1 || @user.id == @session[:user].id
 		if @user.update_attribute(:user_email, params[:value])
 			render :layout => false, :inline => "<%= h(@user.user_email) %>" 
 		else
 			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
+	end
 		end
 	end
 
 upload_status_for :update_pic
 	def update_pic
 		@user = User.find(params[:id])
+		if @session[:rechte] == 1 || @user.id == @session[:user].id
     	upload_progress.message = "Upload ..."
 		if @user.update_attribute(:user_pic, params[:user][:user_pic])
     		redirect_to :action => 'show', :id => @user.id
@@ -121,13 +141,28 @@ upload_status_for :update_pic
 			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
 		end
 	end
+	end
 
   def upload_status
     render :inline => '<%= upload_progress.completed_percent rescue 0 %> % complete <div>Uploaded am <%= Time.now %></div>', :layout => false
   end
+	def update_rule
+		@user = User.find(params[:id])
+		if @session[:rechte] <= 2
+		if @user.update_attribute(:user_rule, params[:user][:user_rule])
+			render :layout => false, :inline => "<%= h(@user.user_rule) %>" 
+		else
+			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
+		end
+	end
+	end
  
   def destroy
-    User.find(params[:id]).destroy
-    redirect_to :action => 'list'
+    if @session[:rechte] == 1
+		User.find(params[:id]).destroy
+    	redirect_to :action => 'list'
+	else
+		render :action => 'new'
+    end
   end
 end

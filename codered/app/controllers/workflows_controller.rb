@@ -24,7 +24,7 @@ require 'workflow'
 			# wenn ticket neu
 			if @user.user_rule == 2 then
 				#Mentor
-				if params[:grund] == "4" || params[:grund] == "4" then
+				if params[:grund] == "2" || params[:grund] == "4" then
 					#darf 2schliessen 4zuweisen
 					schreiben
 				else 
@@ -158,7 +158,7 @@ def schreiben
 		@workflow.ticket_id = params[:ticket]
 		@workflow.workflow_text = params[:beschreibung]
 		if @workflow.save
-			@workflows = Workflow.find(:all, :conditions => ["id=(?)",@workflow.id]) #sieht komisch aus, ist aber nötig (partials workflow will nen array mit workflows und "find(@workflow.id)" wuerde nur ein einzelnes objekt zurueckliefern)
+			@workflows = Workflow.find(:all, :conditions => ["ticket_id=(?)",@workflow.ticket_id])
 			render_partial 'workflow' 
 		else
 		  render :text => "Hier ist ein Fehler aufgetreten"
@@ -166,22 +166,67 @@ def schreiben
 end
 
   def new
-	 @ticket = Ticket.find(params[:ticket])
-     @grund = params[:grund]
-     render_partial 'form'
+    @user = @session[:user]
+	@ticket = Ticket.find(params[:ticket])
+	#@regeln.new
+	@regeln = []
+	if @user.user_rule > 1 &&  @user.user_rule < 5 then
+	# wenn ein User ungueltig oder administrator ist, hat er nix einzutragen!
+		if @ticket.ticket_status == 0 then# wenn ticket neu
+			if @user.user_rule == 2 then #Mentor
+				@regeln = [2,4] #darf 2schliessen 4zuweisen
+			elsif @user.user_rule == 3 then	#Betreuer
+				@regeln = [5] # er darf 5ticketübernehmen
+			elsif @user.user_rule == 4 then	#Kontakt
+				@regeln = [2] # er darf 2schliessen
+			end #userstatus
+		elsif @ticket.ticket_status == 1 then # wenn ticket zugewiesen
+			if @user.user_rule == 2 then #Mentor
+				if @user.id == @ticket.betreuer_id then #wenn das Ticket dem Betreuer(ein Mentor kann auch betreuer sein) zugewiesen wurde
+					@regeln = [1,2,3,4] # er darf 1freitext 2schliessen 3zurueckweisen 4zuweisen
+				else
+					@regeln = [1,4,5] # er darf 4zuweisen 1freitext 5ticketübernehmen
+				end# zugewiesen an person
+			elsif @user.user_rule == 3 then
+				#Betreuer
+				if @user.id == @ticket.betreuer_id then #wenn das Ticket dem Betreuer zugewiesen wurde
+					@regeln = [1,2,3]	# er darf 1freitext 2schliessen 3zurueckweisen
+				end	#zugewiesen an person
+			elsif @user.user_rule == 4 then
+				#Kontakt
+				if @user.id == @ticket.betreuer_id then #wenn das Ticket dem Kontakt zugewiesen wurde (was falsch ist)
+				else
+					@regeln = [1,2]	# er darf 1freitext 2schliessen
+				end	#zugewiesen an person
+			end #userstatus
+		elsif @ticket.ticket_status == 2 then # wenn ticket vollzuggemeldet
+			if @user.user_rule == 2 then #Mentor
+					@regeln = [1,4] # er darf 1freitext 4zuweisen
+        	elsif @user.user_rule == 3 then	#Betreuer
+					@regeln = [5]	# er darf 5ticketuebernehmen
+			elsif @user.user_rule == 4 then	#Kontakt
+					@regeln = [2,3] # er darf 2schliessen 3zurueckweisen
+			end #userstatus
+	  end#ticketstatus
+	end# admin oder ungueltig bremse
+	render_partial 'form'
   end 
   
   def edit
-    @workflow = Workflow.find(params[:id])
+	if @session[:rechte] == 1
+    	@workflow = Workflow.find(params[:id])
+	end
   end
 
   def update
     @workflow = Workflow.find(params[:id])
+	if @session[:rechte] == 1
     if @workflow.update_attributes(params[:workflow])
       flash[:notice] = 'Workflow was successfully updated.'
       redirect_to :action => 'show', :id => @workflow
     else
       render :action => 'edit'
+	end
     end
   end
 
@@ -220,12 +265,16 @@ def wf_text
   end 
 	
   	def search
+	if @session[:rechte] == 2
 	 	@betreuer = User.find(:all, :order => "user_name") #TODO: noch nach "user-klasse" filtern
 		@phrase = request.raw_post || request.query_string
 		@phrase = @phrase.chomp("&_=")
 		matcher = Regexp.new(@phrase)
 		@results = @betreuer.find_all { |betreuer| betreuer.user_name + betreuer.user_vorname + betreuer.login =~ matcher } 
 		render(:layout => false)
+	else
+		render(:layout => false)
+	end
 	end
 
 end

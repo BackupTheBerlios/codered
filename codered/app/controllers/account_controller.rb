@@ -5,8 +5,9 @@ class AccountController < ApplicationController
     case @request.method
       when :post
       if @session[:user] = User.authenticate(@params[:user_login], @params[:user_password])
-
+		  #[["Mentor",2], ["Betreuer",3], ["Kontakt",4], ["Deaktivieren",5]]
         flash['notice']  = "Login successful"
+		@session[:rechte] = @session[:user].user_rule
         redirect_back_or_default :action => "welcome"
       else
         flash.now['notice']  = "Login unsuccessful"

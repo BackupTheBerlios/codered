@@ -13,6 +13,7 @@
 				image_tag( "/images/profil.png", :border => 0)
 			end %>
 		</div>
+		<% if @session[:rechte] == 1 || @user.id == @session[:user].id  %>
 			<%= form_tag_with_upload_progress({:action => 'update_pic', :id => @user.id }, {}, {:action => :custom_status}) %>
 			<%= upload_status_tag %>
 			<%= file_field 'user', 'user_pic', {"size" => 5}  %>
@@ -20,6 +21,7 @@
 			<%= submit_tag "Speichern" %>
 			<br />
 			<%= end_form_tag %>
+		<% end %>
   <div id="status" style="display: none">
   </div>
 
@@ -30,9 +32,6 @@
 		<div class="login">
 			Login Name:
 			<p id="login"><%=h @user.login %></p>
-			<script type="text/javascript">
-			new Ajax.InPlaceEditor('login', '/users/update_login/<%= @user.id %>');
-			</script>
 		</div>
 		<div class="adress">
 			Kontakt Informationen:
@@ -80,25 +79,38 @@
 				 	</td>
 				</tr>
 			</table>
+
+			<% if @session[:rechte] == 1 || @user.id == @session[:user].id  %>
+
 			<script type="text/javascript">
-			new Ajax.InPlaceEditor('name', '/users/update_name/<%= @user.id %>');
-			new Ajax.InPlaceEditor('vorname', '/users/update_vorname/<%= @user.id %>');
-			new Ajax.InPlaceEditor('strasse', '/users/update_strasse/<%= @user.id  %>');
-			new Ajax.InPlaceEditor('plz', '/users/update_plz/<%= @user.id  %>');
-			new Ajax.InPlaceEditor('ort', '/users/update_ort/<%= @user.id  %>');
-			new Ajax.InPlaceEditor('klasse', '/users/update_klasse/<%= @user.id  %>');
-			new Ajax.InPlaceEditor('email', '/users/update_email/<%= @user.id  %>');
+			new Ajax.InPlaceEditor('login', '/users/update_login/<%= @user.id %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
+			new Ajax.InPlaceEditor('name', '/users/update_name/<%= @user.id %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
+			new Ajax.InPlaceEditor('vorname', '/users/update_vorname/<%= @user.id %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
+			new Ajax.InPlaceEditor('strasse', '/users/update_strasse/<%= @user.id  %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
+			new Ajax.InPlaceEditor('plz', '/users/update_plz/<%= @user.id  %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
+			new Ajax.InPlaceEditor('ort', '/users/update_ort/<%= @user.id  %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
+			new Ajax.InPlaceEditor('klasse', '/users/update_klasse/<%= @user.id  %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
+			new Ajax.InPlaceEditor('email', '/users/update_email/<%= @user.id  %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
 			</script>
+			<% end %>
 		</div><!--class=adress-->
 		<div class="know">
 			Informationen:
-			<p id="rule"><%=#h @user.user_rule
-							%></p>
+			<p id="rule">
+			<ul>
+				<li class="darkgrey"><b>Erstellt: </b><%= @user.created_on.to_formatted_s(format = :short) %></li>
+				<li class="darkgrey"><b>Last Update: </b><%= @user.updated_on.to_formatted_s(format = :short) %></li>
+				<li class="darkgrey"><b>Nutzer-Level: </b><%= @user.user_rule %>
+				<br \> 2-Mentor , 3-Betreuer , 4-Kontakt , 5-Deaktiviert </li>				
+		   </ul>
+			<% if @session[:rechte] <= 2 %>
+			<%= form_tag({ :action => "update_rule", :id => @user.id  }, { :multipart => true }) %>
 			<% auswahl = [["Mentor",2], ["Betreuer",3], ["Kontakt",4], ["Deaktivieren",5]]	%> 
 			<%= select(:user, :user_rule , auswahl) %>
-			<script type="text/javascript">
-				new Ajax.InPlaceEditor('rule', '/users/update_rule/<%= @user.id %>');
- 			</script>
+			<%= submit_tag(value = "Save changes", options = {}) %>
+			<%= end_form_tag %>
+			<% end %>
+			</p>
 		</div>
 	</div>
 </div>

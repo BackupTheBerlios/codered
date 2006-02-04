@@ -6,7 +6,7 @@ before_filter :login_required
   end
 
   def list
-    @ticket_pages, @tickets = paginate :tickets, :per_page => 5
+    @ticket_pages, @tickets = paginate :tickets, :per_page => 10
   end
 
   def show
@@ -30,10 +30,15 @@ before_filter :login_required
   end
 
   def edit
-    @ticket = Ticket.find(params[:id])
+	if @session[:rechte] == 1
+    	@ticket = Ticket.find(params[:id])
+	else
+      render :action => 'new'
+    end
   end
 
   def update
+	if @session[:rechte] == 1
     @ticket = Ticket.find(params[:id])
     if @ticket.update_attributes(params[:ticket])
       flash[:notice] = 'Ticket was successfully updated.'
@@ -41,10 +46,17 @@ before_filter :login_required
     else
       render :action => 'edit'
     end
+	else
+      render :action => 'new'
+    end
   end
 
   def destroy
+	if @session[:rechte] == 1	  
     Ticket.find(params[:id]).destroy
     redirect_to :action => 'list'
+	else
+      render :action => 'new'
+    end
   end
 end

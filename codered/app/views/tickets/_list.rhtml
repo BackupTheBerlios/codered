@@ -25,6 +25,7 @@
 		<td  style="vertical-align:middle;"class="darkgrey">
 			<%= ticket.created_on.to_formatted_s(format = :short) %>
 		</td>
+		<% if @session[:rechte] == 1 then %>
 		<td  style="vertical-align:middle;"class="darkgrey">
 			<%= link_to image_tag("/images/editpaste.png", :size => "32x32"),
 			{:action => 'edit', :id => ticket} %>
@@ -33,6 +34,7 @@
 			<%= link_to image_tag("/images/remove.png", :size => "32x32"),
 			{:action => 'destroy', :id => ticket}, :confirm => 'Are you sure?' %>
 		</td>
+		<% end %>
 	</tr>
 	<% end %>
 </table>

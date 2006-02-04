@@ -30,16 +30,24 @@ before_filter :login_required
   end
 
   def edit
-    @client = Client.find(params[:id])
+	if @session[:rechte] == 1
+		@client = Client.find(params[:id])
+	else 
+	   render :action => 'new'
+    end
   end
 
   def update
     @client = Client.find(params[:id])
+	if @session[:rechte] == 1
     if @client.update_attributes(params[:client])
       flash[:notice] = 'Client was successfully updated.'
       redirect_to :action => 'show', :id => @client
     else
-      render :action => 'edit'
+      render :action => 'show'
+    end
+	else 
+	   render :action => 'new'
     end
   end
 	def update_name
@@ -68,7 +76,11 @@ upload_status_for :update_pic
 
 
   def destroy
+	if @session[:rechte] == 1	
     Client.find(params[:id]).destroy
     redirect_to :action => 'list'
+	else 
+	   render :action => 'new'
+    end
   end
 end

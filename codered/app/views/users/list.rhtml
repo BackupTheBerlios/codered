@@ -11,9 +11,11 @@
 	<td valign="middle" class="darkgrey">Name: <%= link_to h(user.user_name), :action => 'show', :id => user %></td>
 	<td class="darkgrey" valign="middle">Klasse: <%= link_to h(user.user_klasse), :action => 'show', :id => user %></td>
     <td class="darkgrey" valign="middle"></td>
+	<% if @session[:rechte] == 1 then %>
 	<td class="darkgrey" valign="middle"><%= link_to image_tag("/images/remove.png", :size => "32x32"),
 		{:action => 'destroy', :id => user}, :confirm => 'Are you sure?' %>
 	</td>
+	<% end %>
 </tr>
 <% end %>
 </table>

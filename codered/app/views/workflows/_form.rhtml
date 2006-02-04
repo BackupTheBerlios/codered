@@ -1,5 +1,23 @@
 <div class="workflow" style="width:450px;padding:10px;">
-	<%= link_to_remote "Ticket abschliessen",
+<% unless @regeln.nil? or @regeln.empty? %>
+<% @regeln.each do |regel| %>
+<%= if regel == 1 then
+	link_to_remote("Freie Beschreibung",
+	:url => { :action => 'new_freitext', :controller => 'workflows', :ticket => @ticket, :grund => "freitext" },
+	:update => "new_wf" ,
+	:loading => "Element.show('msg_area_wf');
+	Element.hide('new_wf');
+	$('msg_area_wf').innerHTML = 'Laden ...';
+	return false;",
+	:complete => "Effect.SlideDown('new_wf', { duration: 1.0 });
+	$('msg_area_wf').innerHTML = 'Geben sie eine Beschreibung ein:';
+	$('helper').innerHTML = 'Hier können sie ein freie Beschreibung eingeben, z.b. Zwischenbericht.';
+	Element.hide('new_wf');
+	return false;")
+end %>
+
+<%= if regel == 2 then
+	link_to_remote("Ticket abschliessen",
 	:url => { :action => 'new_schliessen', :controller => 'workflows', :ticket => @ticket },
 	:update => "new_wf" ,
 	:loading => "Element.show('msg_area_wf');
@@ -10,22 +28,10 @@
 	$('msg_area_wf').innerHTML = 'Grund und Status eingeben:';
 	$('helper').innerHTML = 'Wählen Sie hier den Abschluss des Tickets und geben sie eine Beschreibung dazu ein';
 	Element.hide('new_wf');
-	return false;" %>
-	
-	<%= link_to_remote "Freie Beschreibung",
-	:url => { :action => 'new_freitext', :controller => 'workflows', :ticket => @ticket, :grund => "freitext"},
-	:update => "new_wf" ,
-	:loading => "Element.show('msg_area_wf');
-	Element.hide('new_wf');
-	$('msg_area_wf').innerHTML = 'Laden ...';
-	return false;",
-	:complete => "Effect.SlideDown('new_wf', { duration: 1.0 });
-	$('msg_area_wf').innerHTML = 'Geben sie eine Beschreibung ein:';
-	$('helper').innerHTML = 'Hier können sie ein freie Beschreibung eingeben, z.b. Zwischenbericht.';
-	Element.hide('new_wf');
-	return false;" %>
-	
-	<%= link_to_remote "Ticket zurückweisen",
+	return false;")
+end %>
+
+<%= if regel == 3 then link_to_remote("Ticket zurückweisen",
 	:url => { :action => 'new_zurueckweisen', :controller => 'workflows', :ticket => @ticket, :grund => "zurueckweisen"},
 	:update => "new_wf" ,
 	:loading => "Element.show('msg_area_wf');
@@ -36,9 +42,10 @@
 	$('msg_area_wf').innerHTML = 'Grund und oder Beschreibung eingeben:';
 	$('helper').innerHTML = 'Hiermit können sie ein Ticket ablehnen.';
 	Element.hide('new_wf');
-	return false;" %>
-	
-	<%= link_to_remote "Zuweisen",
+	return false;")
+end %>
+
+<%= if regel == 4 then link_to_remote("Zuweisen",
 	:url => { :action => 'new_zuweisen', :controller => 'workflows', :ticket => @ticket, :grund => "zuweisen"},
 	:update => "new_wf" ,
 	:loading => "Element.show('msg_area_wf');
@@ -49,6 +56,9 @@
 	$('msg_area_wf').innerHTML = 'Wählen sie hier den Betreuer aus:';
 	$('helper').innerHTML = 'Hier können sie einen Betreuer aus der Liste wählen und ihm dieses Ticket zuweisen.';
 	Element.hide('new_wf');
-	return false;" %>
+	return false;")
+end %>
+<% end %>
+<% end %>
 	<a href="#" onclick="effect_1 = Effect.SlideUp('new_wf',{duration:1.0});Element.show('new_wf_h');Element.hide('msg_area_wf');return false;">Verstecken</a>
 </div>
