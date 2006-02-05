@@ -8,6 +8,7 @@ class AccountController < ApplicationController
 		  #[["Mentor",2], ["Betreuer",3], ["Kontakt",4], ["Deaktivieren",5]]
         flash['notice']  = "Login successful"
 		@session[:rechte] = @session[:user].user_rule
+		@session[:rechte_namen] = ["nil", "Admistrator", "Mentor", "Betreuer", "Kontakt", "Deaktiviert"] 
         redirect_back_or_default :action => "welcome"
       else
         flash.now['notice']  = "Login unsuccessful"
@@ -24,6 +25,8 @@ class AccountController < ApplicationController
       @session[:user] = User.authenticate(@user.login, @params[:user][:password])
       flash['notice']  = "Signup successful"
     #redirect_back_or_default :action => "welcome"
+		@session[:rechte] = @session[:user].user_rule
+		@session[:rechte_namen] = ["nil", "Admistrator", "Mentor", "Betreuer", "Kontakt", "Deaktiviert"] 
      redirect_to :controller => "users" , :action => 'show' , :id => @user.id
     end
   end  
@@ -34,5 +37,5 @@ class AccountController < ApplicationController
     
   def welcome
   end
-  
+ 
 end

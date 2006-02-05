@@ -8,13 +8,13 @@ before_filter :login_required
   def list 
   # @tickets_pages, @tickets = paginate :tickets, :per_page => 10
 	@my_ticket_pages, @my_tickets = paginate :tickets, :per_page => 10,
-										:conditions => ["betreuer_id = ? && ticket_status != 3", @session[:user].id],
+										:conditions => ["betreuer_id = ? && ticket_status != 5", @session[:user].id],
 						  				:order => 'created_on'
 	@all_ticket_pages, @all_tickets = paginate :tickets, :per_page => 10,
-										:conditions => ["betreuer_id != ? && ticket_status != 3 ", @session[:user].id],
+										:conditions => ["betreuer_id != ? && ticket_status != 5 ", @session[:user].id],
 						  				:order => 'created_on'
 	@old_ticket_pages, @old_tickets = paginate :tickets, :per_page => 10,
-										:conditions => ["Ticket_status = 3 ", @session[:user].id],
+										:conditions => ["Ticket_status = 5 ", @session[:user].id],
 						  				:order => 'created_on DESC'
 
   end
@@ -24,10 +24,13 @@ before_filter :login_required
   end
 
   def new
-    @ticket = Ticket.new
+    if @session[:rechte] >= 2 && @session[:rechte] <= 4
+		@ticket = Ticket.new
+	end	
   end
 
   def create
+	if @session[:rechte] >= 2 && @session[:rechte] <= 4
     @ticket = Ticket.new(params[:ticket])
 	@ticket.betreuer_id = User.find(params[:user]).id  # TODO UNbeding noch auf ein "automatisch freien Mentor suchen" anpassen!!
 	@ticket.user_id = User.find(params[:user]).id
@@ -37,6 +40,7 @@ before_filter :login_required
     else
       render :action => 'new'
     end
+	end
   end
 
   def edit

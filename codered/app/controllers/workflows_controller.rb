@@ -144,10 +144,10 @@ def schreiben
 		else 
 			@ticket.ticket_status = params[:ticket_status]
 		end
-		if params[:grund] == '4'
+		if params[:grund] == '4' # zuweisen
 			@ticket.betreuer_id = params[:betreuer_id]
 		end
-		if params[:grund] == '3'
+		if params[:grund] == '3' # zurueckweisen
 			@ticket.betreuer_id = @ticket.betreuer_id  #TODO: muss auf einen freien Mentor zeigen
 			@ticket.ticket_status = '0' 
 		end

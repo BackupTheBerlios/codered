@@ -54,7 +54,15 @@
 						E-Mail:
 					</td>
 					<td>
-						<span id="c_email">E-Mail</span>
+						<span id="c_email"><%=h @client.client_email %></span>
+					</td>
+				</tr>
+				<tr>
+					<td style="width:50px;">
+					Notizen:	
+					</td>
+					<td>
+						<span id="c_beschreibung"><%=h @client.beschreibung %></span>
 					</td>
 				</tr>
 			</table>
@@ -63,6 +71,7 @@
 			new Ajax.InPlaceEditor('c_plz', '/clients/update_plz/<%= @client.id %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
 			new Ajax.InPlaceEditor('c_ort', '/clients/update_ort/<%= @client.id %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
 			new Ajax.InPlaceEditor('c_email', '/clients/update_email/<%= @client.id %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
+			new Ajax.InPlaceEditor('c_beschreibung', '/clients/update_beschreibung/<%= @client.id %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
 			</script>
 		</div><!-- class="adress"-->
 		<div class="know">
@@ -86,14 +95,15 @@
 			Es Wurden noch keine Dateien hinzugefügt.
 			<% else %>
 
-				<% @reports.each_with_index do |report, i| #fuer jeden betreuer mit index %>
-				<% @ersteller = User.find(:first, :conditions => [ "id = ?", report.user_id]) %>
-				<% row_class = i%2 == 0 ? "1" : "0" %>
+				<% @reports.each_with_index do |report, i| #fuer jeden betreuer mit index
+				   @ersteller = User.find(:first, :conditions => [ "id = ?", report.user_id])
+				   row_class = i%2 == 0 ? "1" : "0" %>
 				<div style="text-align:left;width:360px;" class="ListLinie<%= row_class %>">
 				<table>
 					<tr>
 						<td style="width:24px">
-							<%= link_to( image_tag("/images/docdefault.png", :size => "22x22"), report.datei)%>
+							<%= @entry = report ; link_to( image_tag("/images/docdefault.png", :size => "22x22"),
+								   	url_for_file_column("entry" , "datei")) %>
 						</td>
 						<td class="upload" style="width:100px">
 						<%=h report.created_on.to_formatted_s(format = :short) %>

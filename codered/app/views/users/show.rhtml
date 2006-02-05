@@ -100,8 +100,7 @@
 			<ul>
 				<li class="darkgrey"><b>Erstellt: </b><%= @user.created_on.to_formatted_s(format = :short) %></li>
 				<li class="darkgrey"><b>Last Update: </b><%= @user.updated_on.to_formatted_s(format = :short) %></li>
-				<li class="darkgrey"><b>Nutzer-Level: </b><%= @user.user_rule %>
-				<br \> 2-Mentor , 3-Betreuer , 4-Kontakt , 5-Deaktiviert </li>				
+				<li class="darkgrey"><b>Nutzer-Level: </b><%= @session[:rechte_namen][@user.user_rule] %></li>				
 		   </ul>
 			<% if @session[:rechte] <= 2 %>
 			<%= form_tag({ :action => "update_rule", :id => @user.id  }, { :multipart => true }) %>

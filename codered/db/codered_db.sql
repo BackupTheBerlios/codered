@@ -22,7 +22,7 @@ USE `codered_db`;
 CREATE TABLE `clients` (
   `id` int(11) NOT NULL auto_increment,
   `user_id` int(11) NOT NULL,
-  `client_name` varchar(16) NOT NULL,
+  `client_name` varchar(50) NOT NULL,
   `client_strasse` varchar(25) NOT NULL,
   `client_plz` int(11) NOT NULL,
   `client_ort` varchar(25) NOT NULL,
@@ -30,6 +30,7 @@ CREATE TABLE `clients` (
   `client_telefon` varchar(25) NOT NULL,
   `client_fax` varchar(25) NOT NULL,
   `client_pic` varchar(255) default NULL,
+  `beschreibung` text NOT NULL,
   `created_on` timestamp NOT NULL default CURRENT_TIMESTAMP,
   `updated_on` timestamp NOT NULL default '0000-00-00 00:00:00',
   PRIMARY KEY  (`id`)
