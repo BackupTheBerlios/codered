@@ -2,15 +2,9 @@
 <br />
 <span class="backgrey">&nbsp;&nbsp; Neuer Client &nbsp;&nbsp;  </span>
 <div class="user">
-	<div class="right">
-		<div class="pic">
-			<p><label for="client_client_pic">Client pic</label><br/>
-			Upload</p>
-		</div>
-	</div>
 	<div class="left">
 		<div class="adress">
-			<%= start_form_tag :user => @session[:user] , :action => 'create' %>
+			<%= start_form_tag({:user => @session[:user] , :action => 'create'} , :multipart => true)%>
   			<%= render_partial 'form' %>
   			<%= submit_tag "Erstellen" %>
 			<%= end_form_tag %>

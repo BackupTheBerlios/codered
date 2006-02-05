@@ -27,7 +27,7 @@
 			Clienten Name:
 			<p id="c_name"><%=h @client.client_name %></p>
 			<script type="text/javascript">
-			new Ajax.InPlaceEditor('c_name', '/clients/update_name/ <%= @client.id %>');
+			new Ajax.InPlaceEditor('c_name', '/clients/update_name/<%= @client.id %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
 			</script>
 		</div><!-- class="login"-->
 		<div class="adress">
@@ -46,7 +46,7 @@
 						PLZ/Ort:
 					</td>
 					<td>
-						<span id="c_plz"><%=h @client.client_plz %></span><span id="c_ort"><%=h @client.client_ort %></span>
+						<span id="c_plz"><%=h @client.client_plz %></span> <span id="c_ort"><%=h @client.client_ort %></span>
 					</td>
 				</tr>
 				<tr>
@@ -58,11 +58,11 @@
 					</td>
 				</tr>
 			</table>
-			<script type="text/javascript">
-			new Ajax.InPlaceEditor('c_strasse', '/clients/update_strasse/<%= @client.id %>');
-			new Ajax.InPlaceEditor('c_plz', '/clients/update_plz/<%= @client.id %>');
-			new Ajax.InPlaceEditor('c_ort', '/clients/update_ort/<%= @client.id %>');
-			new Ajax.InPlaceEditor('c_email', '/clients/update_email/<%= @client.id %>');
+		<script type="text/javascript">
+			new Ajax.InPlaceEditor('c_strasse', '/clients/update_strasse/<%= @client.id %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
+			new Ajax.InPlaceEditor('c_plz', '/clients/update_plz/<%= @client.id %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
+			new Ajax.InPlaceEditor('c_ort', '/clients/update_ort/<%= @client.id %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
+			new Ajax.InPlaceEditor('c_email', '/clients/update_email/<%= @client.id %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
 			</script>
 		</div><!-- class="adress"-->
 		<div class="know">
@@ -93,7 +93,7 @@
 				<table>
 					<tr>
 						<td style="width:24px">
-							<%= image_tag("/images/docdefault.png", :size => "22x22") %>
+							<%= link_to( image_tag("/images/docdefault.png", :size => "22x22"), report.datei)%>
 						</td>
 						<td class="upload" style="width:100px">
 						<%=h report.created_on.to_formatted_s(format = :short) %>

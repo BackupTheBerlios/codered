@@ -58,6 +58,38 @@ before_filter :login_required
 			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
 		end
 	end
+	def update_strasse
+		@client = Client.find(params[:id])
+		if @client.update_attribute(:client_strasse, params[:value])
+			render :layout => false, :inline => "<%= h(@client.client_strasse) %>" 
+		else
+			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
+		end
+	end
+	def update_plz
+		@client = Client.find(params[:id])
+		if @client.update_attribute(:client_plz, params[:value])
+			render :layout => false, :inline => "<%= h(@client.client_plz) %>" 
+		else
+			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
+		end
+	end
+	def update_ort
+		@client = Client.find(params[:id])
+		if @client.update_attribute(:client_ort, params[:value])
+			render :layout => false, :inline => "<%= h(@client.client_ort) %>" 
+		else
+			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
+		end
+	end
+	def update_email
+		@client = Client.find(params[:id])
+		if @client.update_attribute(:client_email, params[:value])
+			render :layout => false, :inline => "<%= h(@client.client_email) %>" 
+		else
+			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
+		end
+	end
 
 upload_status_for :update_pic
 	def update_pic

@@ -5,10 +5,20 @@ before_filter :login_required
     render :action => 'list'
   end
 
-  def list
-    @ticket_pages, @tickets = paginate :tickets, :per_page => 10
-  end
+  def list 
+  # @tickets_pages, @tickets = paginate :tickets, :per_page => 10
+	@my_ticket_pages, @my_tickets = paginate :tickets, :per_page => 10,
+										:conditions => ["betreuer_id = ? && ticket_status != 3", @session[:user].id],
+						  				:order => 'created_on'
+	@all_ticket_pages, @all_tickets = paginate :tickets, :per_page => 10,
+										:conditions => ["betreuer_id != ? && ticket_status != 3 ", @session[:user].id],
+						  				:order => 'created_on'
+	@old_ticket_pages, @old_tickets = paginate :tickets, :per_page => 10,
+										:conditions => ["Ticket_status = 3 ", @session[:user].id],
+						  				:order => 'created_on DESC'
 
+  end
+  
   def show
     @ticket = Ticket.find(params[:id])
   end
