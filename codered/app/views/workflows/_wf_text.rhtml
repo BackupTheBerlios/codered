@@ -5,7 +5,7 @@
 
 <%=h @workflow.workflow_text %>
 	<br>
-	<div  style="float:left; with:50px">
+	<div  style="float:left">
 		<%= link_to_remote "|Verstecken|",
 		:before => "Effect.SlideUp(\'workflow_container"+ @workflow.id.to_s + "\')" %>
 	</div>

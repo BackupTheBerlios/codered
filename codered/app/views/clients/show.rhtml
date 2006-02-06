@@ -90,7 +90,7 @@
 			</span>
 			<span style="display:none;" id="hoch">
 			<a href="#" onclick="Effect.Fade('hide1'); Effect.Fade('hoch'); Effect.Appear('runter')  ; return false;">
-			<%= image_tag("/images/edit_down2020.png", :size => "20x20",
+			<%= image_tag("/images/edit_up2020.png", :size => "20x20",
 					:title => "Bitte hier Klicken um ein Dokument hoch zu laden") %> </a>
 			</span>
 			<br />
@@ -118,6 +118,7 @@
 				   row_class = i%2 == 0 ? "1" : "0" %>
 				<div style="text-align:left;width:360px;" class="ListLinie<%= row_class %>">
 				<table>
+
 					<tr>
 						<td style="width:24px">
 							<%= @entry = report ; link_to( image_tag("/images/docdefault.png", :size => "22x22"),
@@ -126,20 +127,23 @@
 						<td class="upload" style="width:100px">
 						<%=h report.created_on.to_formatted_s(format = :short) %>
 						</td>
-						<td class="upload" style="width:160px">
-							<%=h report.beschreibung%>
-						</td>
-						<td class="upload" style="width:100px">
+						<td class="upload" style="width:200px">
 							<%=h @ersteller.user_vorname + " " + @ersteller.user_name %>
 						</td>
+						<td class="upload" style="width:76px">
 						<% 	if @session[:rechte] <= 2 || report.user_id == @session[:user].id 
 						# löschen darf ersteller, admin und mentor
 						%>
-						<td class="upload" style="width:100px">
-							TODO: hier noch nen löschen link
-						</td>
+						<%= image_tag("/images/remove_2222.png", :size => "20x20",
+					:title => "Bitte hier Klicken um die Datei zu löschen") %>
 						<% end %>
+						</td>
 					</tr	>
+					<tr>
+						<td colspan="4" class="upload">
+							<%=h report.beschreibung %>
+						</td>
+					</tr>
 				</table>
 				</div>
 				<% if (i%2 != 0) %>
