@@ -15,10 +15,13 @@ before_filter :login_required
   end
 
   def new
-    @client = Client.new
+	if @session[:rechte] >= 2 && @session[:rechte] <= 4
+    	@client = Client.new
+	end
   end
 
   def create
+	if @session[:rechte] >= 2 && @session[:rechte] <= 4
     @client = Client.new(params[:client])
 	@client.user_id = User.find(params[:user]).id
     if @client.save
@@ -27,6 +30,7 @@ before_filter :login_required
     else
       render :action => 'new'
     end
+	end
   end
 
   def edit
@@ -93,12 +97,22 @@ before_filter :login_required
 	def update_beschreibung
 		@client = Client.find(params[:id])
 		if @client.update_attribute(:beschreibung, params[:value])
-			render :layout => false, :inline => "<%= h(@client.beschreibung) %>" 
+			render :layout => false, :inline => "<%= textilize(@client.beschreibung) %>" 
 		else
 			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
 		end
 	end
 
+	def return_unformatted_text
+		@client = Client.find(params[:id])
+	    @unformatted_text =  @client.beschreibung
+	    render :layout => false, :inline => "<%= @unformatted_text %>" 
+	end
+
+
+
+
+	
 upload_status_for :update_pic
 	def update_pic
 		@client = Client.find(params[:id])

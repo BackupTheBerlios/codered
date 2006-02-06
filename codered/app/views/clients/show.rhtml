@@ -13,6 +13,7 @@
 				image_tag( "/images/profil.png", :border => 0)
 			end %>
 			</div>
+<%	if @session[:rechte] >= 1 && @session[:rechte] <= 4 %>
 			<%= form_tag_with_upload_progress({:action => 'update_pic',:user => @session[:user], :id => @client.id }, {}, {:action => :custom_status}) %>
 			<%= upload_status_tag %>
 			<br />
@@ -21,14 +22,12 @@
 			<%= submit_tag "Speichern" %>
 			<br />
 			<%= end_form_tag %>
+			<% end %>
 	</div><!-- class="pic"-->	
 	<div class="left">
 		<div class="login">
 			Clienten Name:
 			<p id="c_name"><%=h @client.client_name %></p>
-			<script type="text/javascript">
-			new Ajax.InPlaceEditor('c_name', '/clients/update_name/<%= @client.id %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
-			</script>
 		</div><!-- class="login"-->
 		<div class="adress">
 			Kontakt Informationen:<br />
@@ -62,20 +61,39 @@
 					Notizen:	
 					</td>
 					<td>
-						<span id="c_beschreibung"><%=h @client.beschreibung %></span>
+						<div id="c_beschreibung" class="beschreibung">
+						<%= if @client.beschreibung != "" then textilize( @client.beschreibung) else render :inline => "Kein Eintrag" end  %>
+						</div>
 					</td>
 				</tr>
 			</table>
+<%	if @session[:rechte] >= 1 && @session[:rechte] <= 4 %>
 		<script type="text/javascript">
 			new Ajax.InPlaceEditor('c_strasse', '/clients/update_strasse/<%= @client.id %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
 			new Ajax.InPlaceEditor('c_plz', '/clients/update_plz/<%= @client.id %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
 			new Ajax.InPlaceEditor('c_ort', '/clients/update_ort/<%= @client.id %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
 			new Ajax.InPlaceEditor('c_email', '/clients/update_email/<%= @client.id %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
-			new Ajax.InPlaceEditor('c_beschreibung', '/clients/update_beschreibung/<%= @client.id %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
+			new Ajax.InPlaceEditor('c_name', '/clients/update_name/<%= @client.id %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
+			new Ajax.InPlaceEditor('c_beschreibung', '/clients/update_beschreibung/<%= @client.id %>',
+					{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere...", 
+						rows:10, cols:35, loadTextURL:'/clients/return_unformatted_text/<%= @client.id %>'});
 			</script>
+	<% end %>
 		</div><!-- class="adress"-->
+<%	if @session[:rechte] >= 2 && @session[:rechte] <= 4 %>
 		<div class="know">
-			Dokumenten Upload:<a href="#" onclick="Effect.Appear('hide1'); return false;"> <%= image_tag("/images/edit_down2020.png", :size => "20x20", :title => "Bitte hier Klicken um ein Dokument hoch zu laden") %> </a><br />
+			Dokumenten Upload:
+			<span id="runter">
+			<a href="#" onclick="Effect.Appear('hide1'); Effect.Fade('runter'); Effect.Appear('hoch') ; return false;">
+			<%= image_tag("/images/edit_down2020.png", :size => "20x20",
+					:title => "Bitte hier Klicken um ein Dokument hoch zu laden") %> </a>
+			</span>
+			<span style="display:none;" id="hoch">
+			<a href="#" onclick="Effect.Fade('hide1'); Effect.Fade('hoch'); Effect.Appear('runter')  ; return false;">
+			<%= image_tag("/images/edit_down2020.png", :size => "20x20",
+					:title => "Bitte hier Klicken um ein Dokument hoch zu laden") %> </a>
+			</span>
+			<br />
 			<div class="upload" id="hide1" style="display:none;">
 				<%= form_tag_with_upload_progress({:controller => 'reports', :action => 'create',:user => @session[:user], :client_id => @client.id }, {}, {:action => :custom_status}) %>
 				<%= text_area("report","beschreibung","cols" => 30, "rows" => 5)%>
@@ -83,10 +101,10 @@
 				<%= file_field 'report', 'datei' %>
 				<%= submit_tag "Upload" %>
 				<%= end_form_tag %>
-				<a href="#" onclick="Effect.Fade('hide1'); return false;">Verstecken</a>
 			</div>
 
 		</div><!-- class="know"-->
+	<% end %>
 		<div  class="know">
 				Dokumentenarchiv :
 			<br />

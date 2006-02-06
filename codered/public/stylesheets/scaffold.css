@@ -222,6 +222,14 @@ div.adress {
 	margin-top: 20px;
 	-moz-border-radius: 12px
 }
+div.beschreibung
+ {
+	text-align:left;
+	border: 1px;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: smaller;
+	color: Black;
+}
 div.know {
 	text-align:left;
 	border: 1px;
