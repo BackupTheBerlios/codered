@@ -20,6 +20,10 @@
 	<%  if @session[:rechte] >= 2 && @session[:rechte] <= 4 %>
 		<td style="width:80px">
 			<%= link_to image_tag("/images/client.png", 
+			:size => "32x32"),{ :controller => "clients",:action => 'list' } %>
+		</td>
+		<td style="width:80px">
+			<%= link_to image_tag("/images/clientnew.png", 
 			:size => "32x32"),{ :controller => "clients",:action => 'new' } %>
 		</td>
 	<%  end %>
@@ -28,6 +32,7 @@
 		<td class="silvertext">Logout</td>
 		<td class="silvertext">Tickets</td>
 	<%  if @session[:rechte] >= 2 && @session[:rechte] <= 4 %>
+		<td class="silvertext">Clienten</td>
 		<td class="silvertext">Neuer Client</td>
 	<%  end %>
 	</tr>

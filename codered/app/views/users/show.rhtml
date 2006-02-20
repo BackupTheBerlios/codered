@@ -96,8 +96,7 @@
 		</div><!--class=adress-->
 		<div class="know">
 			Informationen:
-			<p id="rule">
-			<ul>
+		<ul>
 				<li class="darkgrey"><b>Erstellt: </b><%= @user.created_on.to_formatted_s(format = :short) %></li>
 				<li class="darkgrey"><b>Last Update: </b><%= @user.updated_on.to_formatted_s(format = :short) %></li>
 				<li class="darkgrey"><b>Nutzer-Level: </b><%= @session[:rechte_namen][@user.user_rule] %></li>				
@@ -106,10 +105,9 @@
 			<%= form_tag({ :action => "update_rule", :id => @user.id  }, { :multipart => true }) %>
 			<% auswahl = [["Mentor",2], ["Betreuer",3], ["Kontakt",4], ["Deaktivieren",5]]	%> 
 			<%= select(:user, :user_rule , auswahl) %>
-			<%= submit_tag(value = "Save changes", options = {}) %>
+			<%= submit_tag(value = "Eintragen", options = {}) %>
 			<%= end_form_tag %>
 			<% end %>
-			</p>
 		</div>
 	</div>
 </div>

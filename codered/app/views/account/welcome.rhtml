@@ -33,7 +33,7 @@
 	<tr>
 <%  if @session[:rechte] >= 2 && @session[:rechte] <= 4 %>
 		<td style="width:80px;text-align:center;">
-			<%= link_to image_tag("/images/new.png", 
+			<%= link_to image_tag("/images/ticketnew.png", 
 			:size => "32x32"),{ :controller => "tickets",:action => 'new' } %>
 		</td>
 		<td class="ghelp">Mit Hilfe dieses Buttons k&ouml;nnen sie sofort ein neuses Ticket erstellen.</td>
@@ -41,6 +41,13 @@
 	<tr>
 		<td style="width:80px;text-align:center;">
 			<%= link_to image_tag("/images/client.png", 
+			:size => "32x32"),{ :controller => "clients",:action => 'list' } %>
+		</td>
+		<td class="ghelp">Dieser Button f&uuml;hrt Sie in das Clienten Men&uuml;, wo unteranderm alle Clienten f&uuml;r Sie Aufgelistet sind.</td>
+	</tr>
+		<tr>
+		<td style="width:80px;text-align:center;">
+			<%= link_to image_tag("/images/clientnew.png", 
 			:size => "32x32"),{ :controller => "clients",:action => 'new' } %>
 		</td>
 		<td class="ghelp">Hier k&ouml;nnen Sie einen neuen Clienten einrichten.Beachten Sie das Clienten die Orte der Servicef&auml;lle darstellt! (z.B eine Schule,...) </td>

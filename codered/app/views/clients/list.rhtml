@@ -1,6 +1,7 @@
 <%= render_partial 'navi' %>
-<h1>Aktuelle Clienten</h1>
-<table width="600px" border="0" cellspacing="0" cellpadding="0">
+<span class="backgrey">Clienten</span>
+<div class="user">
+<table style="width:600px" border="0" cellspacing="0" cellpadding="0">
 <%
 	endweder_oder = 0
 	for client in @clients
@@ -27,6 +28,5 @@
 	{ :page => @client_pages.current.previous } if @client_pages.current.previous %>
 	<%= link_to image_tag("/images/page_next.png", :size => "32x32"),
 	{ :page => @client_pages.current.next } if @client_pages.current.next %>
-	<%= link_to image_tag("/images/new.png", :size => "32x32"),
-	{ :action => 'new' } %>
+</div>
 </div>

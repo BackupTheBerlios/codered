@@ -1,6 +1,6 @@
-<table width="600px" border="0" cellspacing="0" cellpadding="0">
+<table style="width:600px"  border="0" cellspacing="0" cellpadding="0">
 	<tr><th >Bezeichnung:</th>
-		<th >Zuständig: </th>
+		<th >Zust&auml;ndig: </th>
 		<th >Client:</th>
 		<th >Datum:</th>
 		<th ></th>
@@ -14,7 +14,7 @@
 		<td  style="vertical-align:middle;">
 			<%= link_to(@trunc_link , :action => 'show', :id =>ticket)  %>
 		</td>
-		<td valign="center" style="vertical-align:middle;" class="darkgrey">
+		<td valign="middle" style="vertical-align:middle;" class="darkgrey">
 		<%= link_to h(User.find(ticket.betreuer_id).user_name),
 			:action => 'show', :id =>ticket.betreuer_id , :controller =>"users" %>
 		</td>

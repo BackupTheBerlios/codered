@@ -99,7 +99,7 @@
 				<%= text_area("report","beschreibung","cols" => 30, "rows" => 5)%>
 				<%= upload_status_tag %>
 				<%= file_field 'report', 'datei' %>
-				<%= submit_tag "Upload" %>
+				<%= submit_tag "Speichern" %>
 				<%= end_form_tag %>
 			</div>
 
@@ -110,7 +110,7 @@
 			<br />
 
 			<% if @reports.empty? %>
-			Es Wurden noch keine Dateien hinzugefügt.
+			Es Wurden noch keine Dateien hinzugef&uuml;gt.
 			<% else %>
 
 				<% @reports.each_with_index do |report, i| #fuer jeden betreuer mit index
