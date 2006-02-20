@@ -150,6 +150,7 @@ upload_status_for :update_pic
 		@user = User.find(params[:id])
 		if @session[:rechte] <= 2
 		if @user.update_attribute(:user_rule, params[:user][:user_rule])
+			CodeRedMailer::deliver_user_rule_change(@user)
 			render :layout => false, :inline => "<%= h(@user.user_rule) %>" 
 		else
 			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
