@@ -134,8 +134,10 @@
 						<% 	if @session[:rechte] <= 2 || report.user_id == @session[:user].id 
 						# löschen darf ersteller, admin und mentor
 						%>
-						<%= image_tag("/images/remove_2222.png", :size => "20x20",
-					:title => "Bitte hier Klicken um die Datei zu löschen") %>
+						<%= link_to image_tag("/images/remove_2222.png", :size => "20x20",
+					:title => "Bitte hier Klicken um die Datei zu löschen"),
+						{:action => 'destroy',:controller => 'reports' , :id => report.id, :client => @client.id }, :confirm => 'Sind Sie sicher?' 
+						%>
 						<% end %>
 						</td>
 					</tr	>

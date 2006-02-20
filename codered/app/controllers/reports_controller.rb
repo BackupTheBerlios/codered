@@ -42,7 +42,7 @@ upload_status_for :create
   def destroy
 	if @session[:rechte] <= 2 || @report.user_id == @session[:user].id
     Report.find(params[:id]).destroy
-    	redirect_to :action => 'list'
+    	redirect_to :controller => 'clients', :action => 'show' , :id => Client.find(params[:client]).id
 	else
     	redirect_to :action => 'list'
     end
