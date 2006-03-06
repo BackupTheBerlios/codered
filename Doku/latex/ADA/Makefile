@@ -2,7 +2,7 @@ FILE = ada
 TMP = $(shell find . )
 TEX = $(wildcard *.tex)
 
-all: clean ps pdf clear
+all: clean pdf clear
 
 clear:
 	@echo Lösche alle temporären Dateien

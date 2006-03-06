@@ -1,8 +1,8 @@
 [General]
 img_extIsRegExp=false
 img_extensions=.eps .pdf .dvi .ps .fig .gif .jpg .jpeg .png
-lastDocument=file:///home/risk/Code-Red/cvs/Doku/latex/ADA/ada.tex
-masterDocument=
+lastDocument=
+masterDocument=/home/risk/Code-Red/cvs/Doku/latex/ADA/ada.tex
 name=ADA
 pkg_extIsRegExp=false
 pkg_extensions=.cls .sty .dtx
@@ -11,14 +11,14 @@ src_extensions=.tex .ltx .bib .mp
 
 [Tools]
 MakeIndex=
-QuickBuild=
+QuickBuild=PDFLaTeX+ViewPDF
 
 [item:Analyse_Lernumgebung.tex]
 archive=true
 column=0
-encoding=UTF-8
-highlight=LaTeX
-line=13
+encoding=
+highlight=
+line=0
 open=false
 
 [item:Sachanalyse.tex]
@@ -39,23 +39,23 @@ open=false
 
 [item:ada.tex]
 archive=true
-column=7
-encoding=UTF-8
-highlight=LaTeX
-line=116
-open=true
+column=3058010432
+encoding=
+highlight=
+line=0
+open=false
 
 [item:literaturverzeichnis.tex]
 archive=true
-column=0
-encoding=UTF-8
-highlight=LaTeX
+column=120
+encoding=
+highlight=
 line=0
 open=false
 
 [item:titelseite.tex]
 archive=true
-column=16
+column=0
 encoding=
 highlight=
 line=0
