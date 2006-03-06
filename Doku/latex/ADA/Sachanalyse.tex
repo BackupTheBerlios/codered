@@ -1,0 +1,70 @@
+\chapter{Überschrift}  % Kapitel % Steht dann über dem Text
+\label{chapter:Überschrift}  % Steht als Text im Inhaltsverzeichnis
+\index{Überschrift} % für das Stichwortverzeichnis
+
+%Hier wird dann der Text stehen. 
+%oder Auflistungen;
+%---------------------------------------------------------
+Code Red ist ein Webbasierendes Ticketsystem. Das Ticketsystem erfasst und verwaltet alle Aufgaben und Probleme von Clienten oder Benutzern, die an dem System Angemeldet sind.Nach der Erfassung eines Problems, begleitet das System den Service Mitarbeiter bei der kompletten Problemlösung.Das System bietet verschiede Möglichkeiten den Lösungsweg zu Dokumentieren und zu verfolgen.Diese Dokumentationen stehen damit nachhaltig allen Nutzern dieses Systems zur verfügung.
+
+ 
+\begin{itemize}
+\item erstes Lernziel,
+\item zweites Lernziel,
+\item drittes Lernziel.
+\end{itemize}
+
+Weiteres Verschachteln :
+
+\section{Oberpunkt}
+\label{section:Oberpunkt}
+\index{Thema!Oberpunkt}
+\index{Oberpunkt}
+
+Gleiches gilt auch f¨ur weitere Unterpunkte.
+
+\subsection{Unterpunkt}
+\label{subsection:Unterpunkt}
+\index{Oberpunkt!Unterpunkt}
+\index{Unterpunkt}
+
+
+Tabellen bitte einheitlich so:
+Wenn nicht möglich dann anpassen.
+
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular*}{0.95\textwidth}{p{0.3\textwidth}p{0.6\textwidth}}
+\hline
+\textbf{erste Spalte} & \textbf{zweite Spalte} \\
+\hline
+1. & Zeile \\
+2. & Zeile \\
+3. & Zeile \\
+\hline
+\end{tabular*}
+\caption{Tabellenbeschriftung}
+\label{table:Tabellenbeschriftung}
+\end{center}
+\end{table}
+
+
+
+So sind bilder einzubinden (Dateipfad beachten!)
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{filename.eps}
+\caption{Bildunterschrift}
+\label{figure:Bildunterschrift}
+\end{figure}
+
+
+urls bitte so:
+\href{http://codered.berlios.de}{Codered Projektseite}
+
+
+für consolen komandos:
+\verb|kommando -option parameter|
+
+Fußnoten:
+RubyonRails\footnote{eine Software- und Systemenwicklungsumgebung} für unser Projekt.
