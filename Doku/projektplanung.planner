@@ -22,18 +22,18 @@
   <tasks>
     <task id="1" name="Ada-Praktische Pr&#xFC;fung" note="" work="0" start="20060320T081500Z" end="20060320T081500Z" work-start="20060320T081500Z" percent-complete="0" priority="0" type="milestone" scheduling="fixed-work">
       <predecessors>
-        <predecessor id="1" predecessor-id="20" type="FS"/>
+        <predecessor id="1" predecessor-id="21" type="FS"/>
       </predecessors>
     </task>
     <task id="2" name="Projekt Pr&#xE4;sentation" note="" work="0" start="20060412T170000Z" end="20060412T170000Z" work-start="20060412T170000Z" percent-complete="0" priority="0" type="milestone" scheduling="fixed-work">
       <predecessors>
-        <predecessor id="1" predecessor-id="10" type="FS"/>
+        <predecessor id="1" predecessor-id="11" type="FS"/>
         <predecessor id="1" predecessor-id="4" type="FS"/>
       </predecessors>
     </task>
     <task id="3" name="Abgabe der Projekt Dokumentation" note="" work="0" start="20060329T151500Z" end="20060329T151500Z" work-start="20060329T151500Z" percent-complete="0" priority="0" type="milestone" scheduling="fixed-work">
       <predecessors>
-        <predecessor id="1" predecessor-id="10" type="FS"/>
+        <predecessor id="1" predecessor-id="11" type="FS"/>
       </predecessors>
     </task>
     <task id="4" name="CodeRed Abschliessen" note="" work="2587500" start="20060320T081500Z" end="20060412T170000Z" work-start="20060320T081500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
@@ -51,110 +51,115 @@
       <task id="9" name="Betreuer Schulung" note="" work="115200" start="20060403T170000Z" end="20060407T170000Z" work-start="20060404T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="7" type="FS"/>
-          <predecessor id="1" predecessor-id="23" type="FS"/>
-          <predecessor id="1" predecessor-id="19" type="FS"/>
+          <predecessor id="1" predecessor-id="24" type="FS"/>
+          <predecessor id="1" predecessor-id="20" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="10" name="Https Einrichten " note="" work="28800" start="20060403T170000Z" end="20060404T170000Z" work-start="20060404T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="7" type="FS"/>
         </predecessors>
       </task>
     </task>
-    <task id="10" name="CodeRed Doku" note="" work="446400" start="20060320T081500Z" end="20060329T151500Z" work-start="20060320T081500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+    <task id="11" name="CodeRed Doku" note="" work="446400" start="20060320T081500Z" end="20060329T151500Z" work-start="20060320T081500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
       <predecessors>
-        <predecessor id="1" predecessor-id="20" type="FS"/>
-        <predecessor id="1" predecessor-id="26" type="FS"/>
+        <predecessor id="1" predecessor-id="21" type="FS"/>
+        <predecessor id="1" predecessor-id="27" type="FS"/>
       </predecessors>
-      <task id="11" name="Rechtschreibung &amp; Gramatik " note="" work="144900" start="20060322T090000Z" end="20060329T091500Z" work-start="20060322T090000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="12" name="Rechtschreibung &amp; Gramatik " note="" work="144900" start="20060322T090000Z" end="20060329T091500Z" work-start="20060322T090000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="13" type="FS"/>
+          <predecessor id="1" predecessor-id="15" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="13" name="Einleitung &amp; Allgemeine Erkl&#xE4;rungen" note="" work="28800" start="20060320T081500Z" end="20060321T081500Z" work-start="20060320T081500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+      <task id="14" name="Drucken" note="" work="18000" start="20060329T091500Z" end="20060329T151500Z" work-start="20060329T091500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="12" type="FS"/>
-          <predecessor id="1" predecessor-id="14" type="FS"/>
         </predecessors>
       </task>
-      <task id="12" name="Einleitung &amp; Allgemeine Erkl&#xE4;rungen" note="" work="28800" start="20060320T081500Z" end="20060321T081500Z" work-start="20060320T081500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-      <task id="13" name="Drucken" note="" work="18000" start="20060329T091500Z" end="20060329T151500Z" work-start="20060329T091500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-        <predecessors>
-          <predecessor id="1" predecessor-id="11" type="FS"/>
-        </predecessors>
-      </task>
-      <task id="14" name="Bedienungsanleitung" note="" work="60300" start="20060320T081500Z" end="20060322T090000Z" work-start="20060320T081500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-        <task id="15" name="Admin" note="" work="28800" start="20060320T081500Z" end="20060321T081500Z" work-start="20060320T081500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-        <task id="16" name="Betreuer" note="" work="28800" start="20060321T090000Z" end="20060322T090000Z" work-start="20060321T090000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="15" name="Bedienungsanleitung" note="" work="60300" start="20060320T081500Z" end="20060322T090000Z" work-start="20060320T081500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <task id="16" name="Admin" note="" work="28800" start="20060320T081500Z" end="20060321T081500Z" work-start="20060320T081500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+        <task id="17" name="Betreuer" note="" work="28800" start="20060321T090000Z" end="20060322T090000Z" work-start="20060321T090000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
           <predecessors>
-            <predecessor id="1" predecessor-id="19" type="FS"/>
+            <predecessor id="1" predecessor-id="20" type="FS"/>
           </predecessors>
         </task>
-        <task id="17" name="Mentoren" note="" work="28800" start="20060321T090000Z" end="20060322T090000Z" work-start="20060321T090000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <task id="18" name="Mentoren" note="" work="28800" start="20060321T090000Z" end="20060322T090000Z" work-start="20060321T090000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
           <predecessors>
-            <predecessor id="1" predecessor-id="19" type="FS"/>
+            <predecessor id="1" predecessor-id="20" type="FS"/>
           </predecessors>
         </task>
-        <task id="18" name="Klienten" note="" work="28800" start="20060321T090000Z" end="20060322T090000Z" work-start="20060321T090000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <task id="19" name="Klienten" note="" work="28800" start="20060321T090000Z" end="20060322T090000Z" work-start="20060321T090000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
           <predecessors>
-            <predecessor id="1" predecessor-id="19" type="FS"/>
+            <predecessor id="1" predecessor-id="20" type="FS"/>
           </predecessors>
         </task>
       </task>
-      <task id="19" name="Ablauf Diagramme f&#xFC;r Tickets" note="" work="63000" start="20060320T081500Z" end="20060321T090000Z" work-start="20060320T081500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+      <task id="20" name="Ablauf Diagramme f&#xFC;r Tickets" note="" work="63000" start="20060320T081500Z" end="20060321T090000Z" work-start="20060320T081500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
     </task>
-    <task id="20" name="ADA-Unterweisung" note="" work="275400" start="20060306T114500Z" end="20060320T081500Z" work-start="20060306T114500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+    <task id="21" name="ADA-Unterweisung" note="" work="275400" start="20060306T114500Z" end="20060320T081500Z" work-start="20060306T114500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
       <predecessors>
-        <predecessor id="1" predecessor-id="26" type="FS"/>
+        <predecessor id="1" predecessor-id="27" type="FS"/>
       </predecessors>
-      <task id="21" name="Drucken" note="" work="29700" start="20060316T170000Z" end="20060320T081500Z" work-start="20060317T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="22" name="Drucken" note="" work="29700" start="20060316T170000Z" end="20060320T081500Z" work-start="20060317T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="26" type="FS"/>
+        </predecessors>
+      </task>
+      <task id="23" name="Analysen" note="" work="41400" start="20060306T114500Z" end="20060307T161500Z" work-start="20060306T114500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+      <task id="24" name="Methoden" note="" work="132300" start="20060308T161500Z" end="20060315T120000Z" work-start="20060308T161500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="25" type="FS"/>
         </predecessors>
       </task>
-      <task id="22" name="Analysen" note="" work="41400" start="20060306T114500Z" end="20060307T161500Z" work-start="20060306T114500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
-      <task id="23" name="Methoden" note="" work="132300" start="20060308T161500Z" end="20060315T120000Z" work-start="20060308T161500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-        <predecessors>
-          <predecessor id="1" predecessor-id="24" type="FS"/>
-        </predecessors>
-      </task>
-      <task id="24" name="Didaktischen &#xDC;berlegungen" note="" work="28800" start="20060307T161500Z" end="20060308T161500Z" work-start="20060307T161500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
-        <predecessors>
-          <predecessor id="1" predecessor-id="22" type="FS"/>
-        </predecessors>
-      </task>
-      <task id="25" name="&#xDC;berpr&#xFC;fung" note="" work="86400" start="20060315T120000Z" end="20060316T170000Z" work-start="20060315T130000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+      <task id="25" name="Didaktischen &#xDC;berlegungen" note="" work="28800" start="20060307T161500Z" end="20060308T161500Z" work-start="20060307T161500Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
         <predecessors>
           <predecessor id="1" predecessor-id="23" type="FS"/>
         </predecessors>
       </task>
+      <task id="26" name="&#xDC;berpr&#xFC;fung" note="" work="86400" start="20060315T120000Z" end="20060316T170000Z" work-start="20060315T130000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work">
+        <predecessors>
+          <predecessor id="1" predecessor-id="24" type="FS"/>
+        </predecessors>
+      </task>
     </task>
-    <task id="26" name="Latex Vorlage erstellen" note="" work="13500" start="20060306T000000Z" end="20060306T114500Z" work-start="20060306T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
+    <task id="27" name="Latex Vorlage erstellen" note="" work="13500" start="20060306T000000Z" end="20060306T114500Z" work-start="20060306T080000Z" percent-complete="0" priority="0" type="normal" scheduling="fixed-work"/>
   </tasks>
   <resource-groups>
-    <group id="1" name="Klienten" admin-name="" admin-phone="" admin-email=""/>
-    <group id="2" name="Betreuer" admin-name="" admin-phone="" admin-email=""/>
-    <group id="3" name="Durchf&#xFC;hrende" admin-name="MBJN" admin-phone="" admin-email="codered@farbspielchen.de"/>
-    <group id="4" name="Lehrer" admin-name="" admin-phone="" admin-email=""/>
+    <group id="1" name="Lehrer" admin-name="" admin-phone="" admin-email=""/>
+    <group id="2" name="Durchf&#xFC;hrende" admin-name="MBJN" admin-phone="" admin-email="codered@farbspielchen.de"/>
+    <group id="3" name="Betreuer" admin-name="" admin-phone="" admin-email=""/>
+    <group id="4" name="Klienten" admin-name="" admin-phone="" admin-email=""/>
   </resource-groups>
   <resources>
-    <resource group="2" id="1" name="Metzemacher Dirk Heinrich" short-name="Metze" type="1" units="0" email="heinrich-metzemacher@web.de" note="" std-rate="0"/>
-    <resource group="4" id="2" name="H&#xE4;ring-Heckelmann Astrid" short-name="AHH" type="1" units="0" email="NHaering@aol.com" note="" std-rate="0"/>
-    <resource group="4" id="3" name="Christ J&#xF6;rg" short-name="JC" type="1" units="0" email="christ@stsweilburg.de" note="" std-rate="0"/>
-    <resource group="4" id="4" name="Holzh&#xE4;user Christine" short-name="CH" type="1" units="0" email="holzhaeuser.c@web.de" note="" std-rate="0"/>
-    <resource group="4" id="5" name="Rau-Tiegs Anja" short-name="ART" type="1" units="0" email="anja.tiegs@gmx.de" note="" std-rate="0"/>
-    <resource group="3" id="6" name="Neuser Jan" short-name="JN" type="1" units="0" email="nean77@gmail.com" note="" std-rate="0"/>
-    <resource group="3" id="7" name="Benecke Marco" short-name="MB" type="1" units="0" email="benecke@gmail.com" note="" std-rate="0"/>
+    <resource group="2" id="1" name="Benecke Marco" short-name="MB" type="1" units="0" email="benecke@gmail.com" note="" std-rate="0"/>
+    <resource group="2" id="2" name="Neuser Jan" short-name="JN" type="1" units="0" email="nean77@gmail.com" note="" std-rate="0"/>
+    <resource group="1" id="3" name="Rau-Tiegs Anja" short-name="ART" type="1" units="0" email="anja.tiegs@gmx.de" note="" std-rate="0"/>
+    <resource group="1" id="4" name="Holzh&#xE4;user Christine" short-name="CH" type="1" units="0" email="holzhaeuser.c@web.de" note="" std-rate="0"/>
+    <resource group="1" id="5" name="Christ J&#xF6;rg" short-name="JC" type="1" units="0" email="christ@stsweilburg.de" note="" std-rate="0"/>
+    <resource group="1" id="6" name="H&#xE4;ring-Heckelmann Astrid" short-name="AHH" type="1" units="0" email="NHaering@aol.com" note="" std-rate="0"/>
+    <resource group="3" id="7" name="Metzemacher Dirk Heinrich" short-name="Metze" type="1" units="0" email="heinrich-metzemacher@web.de" note="" std-rate="0"/>
   </resources>
   <allocations>
+    <allocation task-id="6" resource-id="1" units="100"/>
+    <allocation task-id="24" resource-id="1" units="100"/>
+    <allocation task-id="27" resource-id="1" units="100"/>
+    <allocation task-id="20" resource-id="1" units="100"/>
+    <allocation task-id="11" resource-id="1" units="100"/>
+    <allocation task-id="4" resource-id="1" units="100"/>
+    <allocation task-id="5" resource-id="2" units="100"/>
+    <allocation task-id="25" resource-id="2" units="100"/>
+    <allocation task-id="23" resource-id="2" units="100"/>
+    <allocation task-id="20" resource-id="2" units="100"/>
+    <allocation task-id="22" resource-id="2" units="100"/>
+    <allocation task-id="11" resource-id="2" units="100"/>
     <allocation task-id="4" resource-id="2" units="100"/>
+    <allocation task-id="26" resource-id="3" units="100"/>
     <allocation task-id="4" resource-id="3" units="100"/>
-    <allocation task-id="25" resource-id="4" units="100"/>
-    <allocation task-id="11" resource-id="4" units="100"/>
-    <allocation task-id="25" resource-id="5" units="100"/>
+    <allocation task-id="26" resource-id="4" units="100"/>
+    <allocation task-id="12" resource-id="4" units="100"/>
     <allocation task-id="4" resource-id="5" units="100"/>
-    <allocation task-id="5" resource-id="6" units="100"/>
-    <allocation task-id="24" resource-id="6" units="100"/>
-    <allocation task-id="22" resource-id="6" units="100"/>
-    <allocation task-id="19" resource-id="6" units="100"/>
-    <allocation task-id="21" resource-id="6" units="100"/>
-    <allocation task-id="10" resource-id="6" units="100"/>
     <allocation task-id="4" resource-id="6" units="100"/>
-    <allocation task-id="6" resource-id="7" units="100"/>
-    <allocation task-id="23" resource-id="7" units="100"/>
-    <allocation task-id="26" resource-id="7" units="100"/>
-    <allocation task-id="19" resource-id="7" units="100"/>
-    <allocation task-id="10" resource-id="7" units="100"/>
-    <allocation task-id="4" resource-id="7" units="100"/>
   </allocations>
 </project>
