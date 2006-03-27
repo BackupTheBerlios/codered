@@ -1,0 +1,169 @@
+%Kontext: ADA-Unterweisung für die praktische Prüfung am 29.05.06
+%Changelog:
+%Timestamp                      Name                      Äderungen und Begründung
+%
+
+%Dokumentklasse und einige globale Einstellungen
+\documentclass[11pt,a4paper,titlepage,openright,multicol]{scrbook}
+
+%Untersttzung für Zeichen außrhalb des ASCII-Zeichensatzes
+\usepackage[utf8]{inputenc}
+\usepackage{fontenc}
+
+%Trennungsregeln
+\usepackage[ngermanb]{babel}
+
+\usepackage{multicol}
+
+%zahlreiche Pakete und weitere Einstellungen
+\usepackage{color}
+\usepackage{fancyhdr}
+
+%\usepackage[a4paper,left=3cm,right=1.5cm,headheight=1.5cm]{geometry}
+\usepackage{ngerman}
+\usepackage[pdftex]{graphicx}
+
+\usepackage[pdftex, bookmarks,
+		colorlinks=true,
+		linkcolor=black,
+		urlcolor=black,
+		pdftitle={CodeRed Unterweisung},
+		pdfauthor={Marco Benecke, Jan Neuser},
+		pdfsubject={Eine Unterweisung in die Software CodeRed}
+		pdfkeywords={ADA, Unterweisung, Codered, STSWeilburg}]{hyperref}
+
+
+\usepackage{longtable}
+
+%Erstellung einer Indexdatei
+\usepackage{makeidx}
+
+\usepackage{textcomp}
+\usepackage{verbatim}
+
+%Verwendung von Font Type 1 fr bessere Lesbarkeit im Acrobat Reader
+\usepackage{pslatex}
+
+%Gliederungstiefe, Makropaket und Einstellung fr das Inhaltsverzeichnis
+\usepackage{minitoc}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{2}
+
+%Aufnahme der Verzeichnisse (Stichwortverzeichnis, Abbildungs- und Tabellenverzeichnis) ins Inhaltsverzeichnis
+\usepackage{tocbibind}
+
+\usepackage{nomencl}
+
+\usepackage{listings}
+%in der aktuellen Version des Styles fr listings haben sich einige �derungen ergeben, insbesondere wird label durch number ersetzt, das Stylefile wird nicht mehr ausgeliefert
+%\lstset{captionpos=b, frame=trbl, frameround=ffff, labelstyle=\tiny, labelstep=5, firstlabel=1, labelsep=5pt}
+%\lstset{captionpos=b, frame=trbl, frameround=ffff, numberstyle=\tiny, stepnumber=5, firstnumber=1, numbersep=5pt, aboveskip=10pt, belowskip=10pt}
+
+% weitere Eigenschaften fr den Abstand des Listings
+% aboveskip=10pt, belowskip=10pt
+
+\usepackage{path}
+
+% Das Paket parskip verhindert den Einzug am Anfang neuer Abs�ze und setzt einen sinnvollen Zeilenabstand zwischen den Abs�zen, wirkt sich darber hinaus auch Einrckungen in Aufz�lungen, Listen usw. aus.
+\usepackage{parskip}
+
+%sollte Fussnoten in Tabellen erm�lichen, berfordert aber Latex
+%\usepackage{./texstyles/ftn}
+%\ftn{tabular}
+
+\makeatletter
+%Breite fr die Seitennummerierung in Inhaltsverzeichnis
+%Vermeidung des Fehlers Overfull \hbox
+\renewcommand{\@pnumwidth}{2.5em}
+
+%Abstand zwischen der Abschnittsnummer und der Kapitelberschrift im Inhaltsverzeichnis
+\renewcommand*\l@section{\@dottedtocline{1}{1.0em}{2.3em}}
+\renewcommand*\l@subsection{\@dottedtocline{2}{3.3em}{3.2em}}
+\renewcommand*\l@subsubsection{\@dottedtocline{3}{6.5em}{4.1em}}
+\renewcommand*\l@paragraph{\@dottedtocline{4}{9.5em}{5.0em}}
+\renewcommand*\l@subparagraph{\@dottedtocline{5}{11.5em}{6.0em}}
+
+%Kapitelnummerierung am Anfang jedes Buches, eingeleitet durch \part zurcksetzen
+%Kompiliert jetzt zwar korrekt, verhindert aber ein vernnftiges Bookmarking durch das Paket hyperref
+%\@addtoreset{chapter}{part}
+\makeatother
+
+%Seitennummerierung in arabischen Ziffern
+%\pagenumbering{arabic}
+
+\makeindex
+\makeglossary
+
+%Anfang des Dokuments
+\begin{document}
+
+%Einleitung mit eigenen Seitennummerierung
+\frontmatter
+
+%Hauptteil
+\mainmatter
+
+%Titelseite
+\input{titelseite_benutzer}
+
+%Inhaltsverzeichnis
+\tableofcontents
+
+\part{Einleitung}
+\label{part:Einleitung}
+%\input{Danke}
+%\input{Einleitung}
+%\input{Wer sind wir?}
+
+\part{Projektplanung}
+\label{part:Projektplanung}
+%\input{Ausgangssituation}
+%\input{Ist-Aufnahme}
+%\input{Die Idee}
+%\input{Zeitplan}
+
+\part{Das Projekt}
+\label{part:Das Projekt}
+%\Aufgaben 
+%\Ziele 
+%\Aufgaben Auftraggeber 
+
+\part{Entwicklung}
+\label{part:Entwicklung}
+%\input{file}
+
+\part{Systemtest}
+\label{part:Systemtest}
+%\input{file}
+
+\part{Fazit}
+\label{part:Fazit}
+%\input{file}
+
+\part{Kopiervorlagen}
+\label{part:Kopiervorlagen}
+
+%Anhang
+\backmatter
+\appendix
+\part{Anhang}
+\label{part:Anhang}
+
+\input{literaturverzeichnis}
+
+\printglossary
+
+%Abbbildungsverzeichnis
+\listoffigures
+
+%Tabellenverzeichnis
+\listoftables
+
+%Listingverzeichnis
+\lstlistoflistings
+
+% Stichwortverzeichnis
+\printindex
+
+%Ende des Dokuments
+\end{document}
