@@ -1,0 +1,160 @@
+0) Bios einstellungen:
+	-- No halt on any error
+	-- acpi/apm ausgeschaltet
+	-- boot reihenfolge auf cd/hd/nw/fd
+	-- Biospass nicht gesetzt
+
+1) Einlegen der Debian CD
+	-- boot parameter "linux26"
+
+2) Basisinstallation
+	-- Sprachenauswahl: Deutsch
+	-- Landgebiet: Deutschland
+	-- Tastatulayout: Deutsch
+	-- Rechnername: codered
+	-- Netzwerk einstellungen
+	-- -- ip-address 192.168.55.42
+	-- -- subnetmask 255.255.255.0
+	-- -- gateway 192.168.55.1
+	-- -- DNS (erstmal) 4.2.2.2
+	-- komplette Festplatte verwenden
+	-- -- hda1    boot  200mb  keine reserve für root
+	-- -- hda5    /       5gb   10%  reserve für root
+	-- -- hda6    /var   30gb   15%  reserve für root
+	-- -- hda7    /tmp  2.8gb   10%  reserve für root
+	-- -- hda8    swap    2gb  keine reserve für root
+3) Reboot
+
+4) Debian configuration
+	-- NEIN Hardware uhr steht nicht auf gmt
+	-- ja - zeitzone ist Berlin
+	-- Passwort mzkeWgDCaJyhaPCD7PQ
+	-- kein weiterer nutzer angelegt (abrechen)
+	-- apt-setup   die cds eingelesen und alle internet quellen hinzufügen
+	-- sprachbezogenen einstellungen
+	-- MTA -- Keine configuration
+5) login als root
+	-- apt-get install ssh
+	-- apt-get install apache2 libruby libruby1.8 ruby ruby1.8 rdoc1.8 irb1.8 libreadline-ruby1.8 libsasl2-modules apache2-mpm-prefork apache2-prefork-dev make gnulib libmysql-ruby libmysqlclient14 mysql-client-4.1 mysql-common-4.1 mysql-server-4.1
+	-- ---8<--Fastcgi--8<-------
+		cd /usr/local/src
+		wget http://www.fastcgi.com/dist/mod_fastcgi-2.4.2.tar.gz
+		tar xvzf mod_fastcgi-2.4.2.tar.gz
+		cd mod_fastcgi-2.4.2
+		cp Makefile.AP2 Makefile
+		make top_dir=/usr/share/apache2
+		make install top_dir=/usr/share/apache2
+	-- ---8<------8<-------
+	-- echo "LoadModule fastcgi_module /usr/lib/apache2/modules/mod_fastcgi.so" > /etc/apache2/mods-available/fastcgi.load
+	-- a2enmod fastcgi
+
+	-- hinzufügen der quellen  deb http://www.sgtpepper.net/hyspro/deb unstable/ (/etc/apt/sources)
+	-- hinzufügen der quellen  deb-src http://www.sgtpepper.net/hyspro/deb unstable/ (/etc/apt/sources)
+	-- apt-get install libgems-ruby libgems-ruby1.8 rubygems cvs
+	-- gem install rails  ( immer [y] druecken)
+	-- $EDITOR /etc/apache2/sites-enabled/000-default
+	-- ---8<------8<-------
+	# NameVirtualHost *
+        ServerAdmin webmaster@stsw-intern.codered.de
+        ServerSignature On
+	FastCgiServer /var/www/codered/public/dispatch.fcgi -initial-env RAILS_ENV=production -processes 3 -idle-timeout 60
+	<VirtualHost *>
+		DocumentRoot /var/www/codered/public
+		ErrorLog /var/www/codered/log/apache.log
+		CustomLog       /var/www/codered/log/access.log combined
+		SetEnv          RAILS_ENV production
+		<Directory /var/www/codered/public>
+		        Options ExecCGI FollowSymLinks
+		        AddHandler cgi-script .cgi
+		        AllowOverride all
+		        Order allow,deny
+		        Allow from all
+		</Directory>
+	</VirtualHost>
+	-- ---8<------8<-------
+	-- cp mods-available/rewrite.load mods-enabled/
+	-- mkdir -p /var/www/codered/log/
+	-- chown -R www-data:www-data /var/www/codered/
+	-- /etc/init.d/apache2 reload
+	-- cd /var/www/
+	-- cvs -d:pserver:anonymous@cvs.berlios.de:/cvsroot/codered login  [ohne passwort bestätigen]
+	-- cvs -d:pserver:anonymous@cvs.berlios.de:/cvsroot/codered co codered
+	-- mysql -uroot -hlocalhost mysql 
+	-- --  INSERT INTO user VALUES ("%", "codered", PASSWORD('TyqAUuRQ7g'), "N", "N", "N", "N", "N", "N", "N", "N", "N", "N", "N", "N", "N", "N", "N", "N", "N", "N", "N", "N", "N"," "," "," "," ",0,0,0);
+	-- -- INSERT INTO db VALUES ('%', 'codered_db', 'codered', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y', 'Y');
+	-- -- update user set Password=password('0j8727sOPw') where User='root';
+	-- mysqladmin create codered_db -uroot -p0j8727sOPw
+	-- mysql -ucodered -hlocalhost -pTyqAUuRQ7g < /var/www/codered/db/codered_db.sql
+
+--
+sollte im "cat log/error.log"
+FastCGI: incomplete headers (** bytes) received from server
+Stehen, einfach ein "rm /tmp/ruby_sess.*"
+
+
+http://www.dyndns.com/ - Account
+	Email: codered@farbspielchen.de
+	Name: stsw
+	Passwort: 2KkDCrcB3Q
+	Hostname:  stsw-intern.dyndns.org
+	## In der config eintragen damit die "externe" ip uebertraggen wird		
+	use=web,      web=checkip.dyndns.org/,       fw-skip='IP Address'
+
+5) HTTPS Konfiguration
+login als root
+- Erstellen eines Zertifikates mit apache2-ssl-certificate Skript
+(Angaben ausfüllen)
+- Überprüfen ob das Zertifikat unter ../apache2/ssl/apache.pem abgelegt worden ist
+- Einbinden Virtual Host HTTPS
+-- edit /etc/apache2/sites-available
+<VirtualHost *:443>
+    ServerAdmin webmaster@localhost
+
+    ServerSignature On
+    DocumentRoot /var/www/codered/public
+    ErrorLog        /var/www/codered/log/error_ssl.log
+    CustomLog       /var/www/codered/log/access_ssl.log combined
+    SetEnv          RAILS_ENV production
+    SSLEngine On
+    SSLCertificateFile /etc/apache2/ssl/apache.pem
+    SSLCertificateKeyFile /etc/apache2/ssl/apache.pem
+    <Directory /var/www/codered/public>
+    Options ExecCGI FollowSymLinks
+    AddHandler cgi-script .cgi
+    AllowOverride all
+    Order allow,deny
+    Allow from all
+    </Directory>
+</VirtualHost>
+-apache2 restart 
+
+6) Backup
+Erstellen eines mysqlbackup.sh Skrips
+---------8<-----8<-------------------
+#!/bin/sh
+# mysqlbackup.sh
+
+BACKUP_DIR=${1:-/home/backup/db-backup} # Verzeichnis für Backups
+EXPIRETIME=7 #Tage zum aufheben
+DATE='date "+%Y%m%d"'
+
+# Sicherstellen das das Verzeichnis existiert
+if [ ! -d $BACKUP_DIR ]; then 
+	mkdir -p BACKUP_DIR
+	chown 0700 $BACKUP_DIR
+fi
+
+# Neues Backup
+#for i in /var/lib/mysql/*/; do
+#	dbname='codered_db "$i"'
+	mysqldump --user=root "codered_db" | gzip > $BACKUP_DIR/codered_db.$DATE.gz
+#done
+
+# Alte Backups loeschen 
+find $BACKUP_DIR -mtime +${EXPIRETIME} -exec rm {} \;
+
+
+Dateien Backup Ziehen 
+tar -cvf archivdatei.tar ./verzeichnis/
+
+scp
