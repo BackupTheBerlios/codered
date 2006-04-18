@@ -9,19 +9,87 @@ Hardware , Photo
 \label{section:BIOS Einstellungen}
 \index{BIOS Einstellungen}
 \index{BIOS Einstellungen}
-
-%Text Text
-
+Im BIOS des Systems wurden folgende Anpassungen gemacht:
+\begin{itemize}
+\item No halt on any error
+\item acpi/apm ausgeschaltet
+\item boot reihenfolge auf cd/hd/nw/fd
+\item Biospass nicht gesetzt
+\end{itemize}
+Hauptsächlich wurde dafür gesorgt das der Server auch ohne den Anschluss einer Tastatur starten wird. Zudem wurden alle Power Save Modis abgeschaltet um die Zugrifzeiten auf Datenbestände nicht unnötig zu verlangsamen.
+ 
 \section{Debian Grundsystem}
 \label{section:Debian Grundsystem}
 \index{Basis Installation Debian}
 \index{Debian Grundsystem}
+Installation des Debianbasissystems von einer DVD \\
+\\
+\textbf{1) Einlegen der Debian CD --boot parameter \glqq linux26\grqq} \\
+Der Debian Server soll mit dem Kernel 2.6.x laufen, deswegen wird als Startoption $>$ linux26 übergeben. \\
+\\
+\textbf{2) Basisinstallation}
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular*}{0.95\textwidth}{p{0.3\textwidth}p{0.6\textwidth}}
+\hline
+\textbf{Frage?} & \textbf{Auswahl} \\
+\hline
+Sprachenauswahl: & Deutsch \\
+Landgebiet: & Deutschland \\
+Tastatulayout: & Deutsch \\
+Rechnername: & codered \\
+\hline
+\end{tabular*}
+\caption{Grundeinstellungen System}
+\label{table:Grundeinstellungen System}
+\end{center}
+\end{table}
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular*}{0.95\textwidth}{p{0.3\textwidth}p{0.6\textwidth}}
+\hline
+\textbf{Frage?} & \textbf{Auswahl} \\
+\hline
+ip-address & 192.168.42.42 \\
+subnetmask & 255.255.255.0 \\
+gateway & 192.168.42.1 \\
+DNS & (erstmal) 4.2.2.2 \\
+\hline
+\end{tabular*}
+\caption{Netzwerk Einstellungen}
+\label{table:Netzwerk Einstellungen}
+\end{center}
+\end{table}
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular*}{0.95\textwidth}{p{0.1\textwidth}p{0.2\textwidth}p{0.1\textwidth}p{0.4\textwidth}}
+\hline
+\textbf{Partition} & \textbf{Mount Point} & \textbf{Größe} & \textbf{Reserve} \\
+\hline
+hda1 & boot & 200mb & keine reserve für root \\
+hda5 & / & 5gb & 10\%  reserve für root \\
+hda6 & /var & 30gb & 15\%  reserve für root \\
+hda7 & /tmp & 2.8gb & 10\%  reserve für root \\
+hda8 & swap & 2gb & keine reserve für root \\
+\hline
+\end{tabular*}
+\caption{Festplatten Nutzung}
+\label{table:Festplatten Nutzung}
+\end{center}
+\end{table}
 
-%Text Text
 
 \section{Debian Grundkonfiguration}
 \label{section:Debian Grundkonfiguration}
 \index{Konfiguration des Grunssystems}
 \index{Debian Grundkonfiguration}
 
-
+\begin{itemize}
+\item \glqq NEIN\grqq --Hardware Uhr steht nicht auf gmt
+\item \glqq JA\grqq -- Zeitzone ist Berlin
+\item Rootpasswort \textbf{mzkeWgDCaJyhaPCD7PQ}
+\item Es werden keine weiteren Benutzer am System angelegt \textit{(abrechen)}
+\item apt-setup   --Die CDs eingelesen lassen
+\item Sprachbezogene Einstellungen bestätigen
+\item \glqq MTA\grqq  --Keine Konfiguration vorgenommen 
+\end{itemize}

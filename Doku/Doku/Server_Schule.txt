@@ -129,32 +129,64 @@ login als root
 -apache2 restart 
 
 6) Backup
-Erstellen eines mysqlbackup.sh Skrips
+Erstellen eines cr_backup.sh Skrips
 ---------8<-----8<-------------------
 #!/bin/sh
-# mysqlbackup.sh
+# cr_backup.sh.sh
 
-BACKUP_DIR=${1:-/home/backup/db-backup} # Verzeichnis für Backups
+BACKUP_DIR=${1:-/backup/db-backup} # Verzeichnis für Backups
+DBACKUP_DIR=${1:-/backup/daten-backup}
 EXPIRETIME=7 #Tage zum aufheben
-DATE='date "+%Y%m%d"'
+DATE=`date "+%Y%m%d"`
 
 # Sicherstellen das das Verzeichnis existiert
-if [ ! -d $BACKUP_DIR ]; then 
-	mkdir -p BACKUP_DIR
-	chown 0700 $BACKUP_DIR
+if [ ! -d $BACKUP_DIR ]; then
+        mkdir -p BACKUP_DIR
+        chown 0700 $BACKUP_DIR
+fi
+if [ ! -d $DBACKUP_DIR ]; then
+        mkdir -p DBACKUP_DIR
+        chown 0700 $DBACKUP_DIR
 fi
 
 # Neues Backup
-#for i in /var/lib/mysql/*/; do
-#	dbname='codered_db "$i"'
-	mysqldump --user=root "codered_db" | gzip > $BACKUP_DIR/codered_db.$DATE.gz
-#done
+mysqldump --user=root --password=0j8727sOPw "codered_db" | gzip > $BACKUP_DIR/codered_db.$DATE.gz
 
-# Alte Backups loeschen 
+#CodeRed Daten Sichern
+tar cvfz $DBACKUP_DIR/crdaten.$DATE.tar.gz /var/www/codered
+
+# Alte Backups loeschen
 find $BACKUP_DIR -mtime +${EXPIRETIME} -exec rm {} \;
+find $DBACKUP_DIR -mtime +${EXPIRETIME} -exec rm {} \;
+---------8<-----8<-------------------
+Das Script erstellt jedesmal eine neue Backupdatei für die Dateien und auch für die Datenbank.
+Die gepackten Archive werden unter /backup und ihren Unterverzeichnissen erstellt.
+Nach sieben Tagen wird jeweils das älteste Backup gelöscht! 
 
+Das Backupskript wird über einen Cronjob jeden Tag um 22:00 Uhr gestartet. 
+Die Entsprechenden einträge wurden in der crontab vorgenommen:
+---------8<-----8<-------------------
+# /etc/crontab: system-wide crontab
+# Unlike any other crontab you don't have to run the `crontab'
+# command to install the new version when you edit this file.
+# This file also has a username field, that none of the other crontabs do.
 
-Dateien Backup Ziehen 
-tar -cvf archivdatei.tar ./verzeichnis/
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/backup
+
+# m h dom mon dow user  command
+0 22    * * *   root    cr_backup.sh
+
+# m h dom mon dow user  command
+17 *    * * *   root    run-parts --report /etc/cron.hourly
+25 6    * * *   root    test -x /usr/sbin/anacron || run-parts --report /etc/cron.daily
+47 6    * * 7   root    test -x /usr/sbin/anacron || run-parts --report /etc/cron.weekly
+52 6    1 * *   root    test -x /usr/sbin/anacron || run-parts --report /etc/cron.monthly
+#
+---------8<-----8<-------------------
+Änderungen:
+- Erstellen des cronjobs mit 0 22    * * *   root    cr_backup.sh 
+- Eintragen des /backup Verzeinis als /bin/sh PATH
+
 
 scp

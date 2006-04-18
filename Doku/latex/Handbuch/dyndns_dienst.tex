@@ -1,0 +1,41 @@
+\chapter{DynDNS Dienst}  % Kapitel % Steht dann über dem Text
+\label{chapter:DynDNS Dienst}  % Steht als Text im Inhaltsverzeichnis
+\index{DynDNS Dienst} % für das Stichwortverzeichnis
+
+\begin{figure}[h]
+\begin{center}
+   \includegraphics[width=200pt]{../bilder/dyndns.png}
+   \caption{Dyndns.org}
+   \label{DynDNS.org}
+\end{center}
+\end{figure}
+\textbf{Erläuterung zu DynDNS:} \\
+Ein DynDNS- oder dynamischer Domain-Name-System-Eintrag bewirkt, dass ein Rechner, der eine wechselnde IP-Adresse besitzt, immer über den selben Domainnamen angesprochen werden kann.\\
+\\
+Ständig wechselnde Einträge sind im Domain Name System eigentlich nicht vorgesehen, stattdessen sollen Netzressourcen gespart werden, indem Einträge – oft mehrere Stunden oder sogar Tage – zwischengespeichert werden. Um nun dynamische DNS-Einträge zu ermöglichen, wird die Zeit, wie lange der Eintrag zwischengespeichert werden soll, auf das erlaubte Minimum von 60 Sekunden gesetzt.\\
+\\
+Um einen DynDNS-Eintrag in den Nameservern des Betreibers zu aktualisieren, wird üblicherweise ein DynDNS-Client installiert. Dies ist ein Programm, das sich automatisch bei einem IP-Wechsel mit dem DynDNS-Server verbindet und seine neue IP-Adresse übermittelt.
+\\
+Quelle: \href{http://de.wikipedia.org/wiki/DynDNS}{Wikipedia: DynDNS} \\
+\\
+\textbf{Warum setzen wir DynDNS ein:}
+DynDNS wird eingestetzt durch die etwas erschwärten gegebenheiten beim Kunden. Der Kunde besitzt leider keine feste IP Adresse vorort und hat auch keine ausreichenden Zugriffsrechte auf seine vorhanden Domänen.\\
+\\
+\textbf{http://www.dyndns.com/ - Account}
+\begin{table}[htbp]
+\begin{center}
+\begin{tabular*}{0.95\textwidth}{p{0.3\textwidth}p{0.6\textwidth}}
+\hline
+\textbf{Frage?} & \textbf{Auswahl} \\
+\hline
+Email: & codered@farbspielchen.de \\
+Name: & stsw \\
+Passwort: & \textbf{2KkDCrcB3Q} \\
+Hostname: & stsw-intern.dyndns.org \\
+\hline
+\end{tabular*}
+\caption{DynDNS Account}
+\label{table:DynDNS Account}
+\end{center}
+\end{table}
+
