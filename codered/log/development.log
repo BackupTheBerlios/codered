@@ -9291,3 +9291,1469 @@ Rendered tickets/_list (0.00036)
 Rendered tickets/_list (0.00030)
 Rendered layouts/_navi (0.00875)
 Completed in 0.08110 (12 reqs/sec) | Rendering: 0.05345 (65%) | DB: 0.00372 (4%) | 200 OK [http://localhost/tickets/list]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-03-21 11:28:01) [GET]
+  Parameters: {"action"=>"login", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/login
+Completed in 0.03055 (32 reqs/sec) | Rendering: 0.02761 (90%) | 200 OK [http://localhost/account/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-03-21 11:28:06) [POST]
+  Parameters: {"user_login"=>"neuser_ja", "action"=>"login", "controller"=>"account", "user_password"=>"enola", "login"=>"Login \302\273"}
+  [4;36;1mUser Load (0.156444)[0m   [0;1mSELECT * FROM users WHERE (login = 'neuser_ja' AND password = '531d26a7d74ef0df1c63d74f90ae011fa2a473a1') LIMIT 1[0m
+  [4;35;1mUser Columns (0.022476)[0m   [0mSHOW FIELDS FROM users[0m
+Redirected to http://localhost:3000/account/welcome
+Completed in 0.25805 (3 reqs/sec) | DB: 0.17892 (69%) | 302 Found [http://localhost/account/login]
+  [4;36;1mUser Columns (0.000438)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#welcome (for 127.0.0.1 at 2006-03-21 11:28:07) [GET]
+  Parameters: {"action"=>"welcome", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/welcome
+Rendered account/_navi (0.02091)
+Completed in 0.06108 (16 reqs/sec) | Rendering: 0.05719 (93%) | DB: 0.00044 (0%) | 200 OK [http://localhost/account/welcome]
+  [4;35;1mUser Columns (0.001296)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#logout (for 127.0.0.1 at 2006-03-21 11:28:35) [GET]
+  Parameters: {"action"=>"logout", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/logout
+Completed in 0.05939 (16 reqs/sec) | Rendering: 0.05102 (85%) | DB: 0.00130 (2%) | 200 OK [http://localhost/account/logout]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-03-21 11:28:49) [GET]
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;36;1mUser Columns (0.000499)[0m   [0;1mSHOW FIELDS FROM users[0m
+Rendering  within layouts/account
+Rendering account/signup
+Completed in 0.04498 (22 reqs/sec) | Rendering: 0.02851 (63%) | DB: 0.00050 (1%) | 200 OK [http://localhost/account/signup]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-03-21 16:08:38) [GET]
+  Parameters: {"action"=>"login", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/login
+Completed in 0.02278 (43 reqs/sec) | Rendering: 0.02003 (87%) | 200 OK [http://localhost/account/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-03-21 16:08:45) [POST]
+  Parameters: {"user_login"=>"neuser_ja", "action"=>"login", "controller"=>"account", "user_password"=>"enola", "login"=>"Login \302\273"}
+  [4;36;1mUser Load (0.001470)[0m   [0;1mSELECT * FROM users WHERE (login = 'neuser_ja' AND password = '531d26a7d74ef0df1c63d74f90ae011fa2a473a1') LIMIT 1[0m
+  [4;35;1mUser Columns (0.000465)[0m   [0mSHOW FIELDS FROM users[0m
+Redirected to http://localhost:3000/account/welcome
+Completed in 0.02844 (35 reqs/sec) | DB: 0.00193 (6%) | 302 Found [http://localhost/account/login]
+  [4;36;1mUser Columns (0.000439)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#welcome (for 127.0.0.1 at 2006-03-21 16:08:45) [GET]
+  Parameters: {"action"=>"welcome", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/welcome
+Rendered account/_navi (0.01994)
+Completed in 0.04543 (22 reqs/sec) | Rendering: 0.04245 (93%) | DB: 0.00044 (0%) | 200 OK [http://localhost/account/welcome]
+  [4;35;1mUser Columns (0.003048)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2006-03-21 16:09:04) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Load (0.017135)[0m   [0;1mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+Rendering  within layouts/users
+Rendering users/show
+Rendered users/_navi (0.01216)
+Completed in 0.12307 (8 reqs/sec) | Rendering: 0.10086 (81%) | DB: 0.02018 (16%) | 200 OK [http://localhost/users/show/1]
+  [4;35;1mUser Columns (0.000598)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing Base#index (for 127.0.0.1 at 2006-03-21 16:09:05) [GET]
+  Parameters: {}
+
+
+ActionController::RoutingError (Recognition failed for "/user/user_pic/1/jan.jpg"):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/routing.rb:469:in `recognition_failed'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/routing.rb:459:in `recognize!'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/dispatcher.rb:38:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:117:in `handle_dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:83:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:172:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:161:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:161:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:69:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/server.rb:28
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+  [4;36;1mUser Columns (0.000463)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#update_name (for 127.0.0.1 at 2006-03-21 16:09:48) [POST]
+  Parameters: {""=>"OK", "action"=>"update_name", "id"=>"1", "value"=>"Peter", "controller"=>"users"}
+  [4;35;1mUser Load (0.000292)[0m   [0mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+  [4;36;1mSQL (0.000179)[0m   [0;1mBEGIN[0m
+  [4;35;1mUser Load (0.000682)[0m   [0mSELECT * FROM users WHERE (users.id = 1) LIMIT 1[0m
+  [4;36;1mUser Update (0.067458)[0m   [0;1mUPDATE users SET `user_plz` = 33333, `user_klasse` = 'cnws04', `user_name` = 'Peter', `login` = 'neuser_ja', `user_email` = 'jan@truematrix.de', `user_ort` = '', `user_telefon` = '', `user_vorname` = 'Jan', `user_rule` = 2, `updated_on` = '2006-03-21 16:09:48', `password` = '531d26a7d74ef0df1c63d74f90ae011fa2a473a1', `user_strasse` = 'Münchbornstr.41', `user_pic` = 'jan.jpg', `created_on` = '2006-02-20 09:21:52' WHERE id = 1[0m
+  [4;35;1mSQL (0.010779)[0m   [0mCOMMIT[0m
+Completed in 0.09755 (10 reqs/sec) | Rendering: 0.00159 (1%) | DB: 0.08045 (82%) | 200 OK [http://localhost/users/update_name/1]
+  [4;36;1mUser Columns (0.000461)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#list (for 127.0.0.1 at 2006-03-21 16:10:00) [GET]
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;35;1mTicket Count (0.017141)[0m   [0mSELECT COUNT(*) FROM tickets WHERE (betreuer_id = 1 && ticket_status != 5) [0m
+  [4;36;1mTicket Load (0.000745)[0m   [0;1mSELECT * FROM tickets WHERE (betreuer_id = 1 && ticket_status != 5) ORDER BY created_on LIMIT 0, 10[0m
+  [4;35;1mTicket Count (0.000547)[0m   [0mSELECT COUNT(*) FROM tickets WHERE (betreuer_id != 1 && ticket_status != 5 ) [0m
+  [4;36;1mTicket Load (0.000743)[0m   [0;1mSELECT * FROM tickets WHERE (betreuer_id != 1 && ticket_status != 5 ) ORDER BY created_on LIMIT 0, 10[0m
+  [4;35;1mTicket Count (0.000519)[0m   [0mSELECT COUNT(*) FROM tickets WHERE (Ticket_status = 5 ) [0m
+  [4;36;1mTicket Load (0.000709)[0m   [0;1mSELECT * FROM tickets WHERE (Ticket_status = 5 ) ORDER BY created_on DESC LIMIT 0, 10[0m
+Rendering  within layouts/tickets
+Rendering tickets/list
+  [4;35;1mTicket Columns (0.000471)[0m   [0mSHOW FIELDS FROM tickets[0m
+  [4;36;1mUser Load (0.000742)[0m   [0;1mSELECT * FROM users WHERE (users.id = 1) LIMIT 1[0m
+  [4;35;1mClient Load (0.003470)[0m   [0mSELECT * FROM clients WHERE (clients.id = 2) LIMIT 1[0m
+  [4;36;1mClient Columns (0.000602)[0m   [0;1mSHOW FIELDS FROM clients[0m
+Rendered tickets/_list (0.04741)
+Rendered tickets/_list (0.00038)
+Rendered tickets/_list (0.00031)
+Rendered layouts/_navi (0.01637)
+Completed in 0.16174 (6 reqs/sec) | Rendering: 0.09792 (60%) | DB: 0.02615 (16%) | 200 OK [http://localhost/tickets/list]
+  [4;35;1mUser Columns (0.000714)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#show (for 127.0.0.1 at 2006-03-21 16:10:21) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"tickets"}
+  [4;36;1mTicket Load (0.005324)[0m   [0;1mSELECT * FROM tickets WHERE (tickets.id = '1') LIMIT 1[0m
+Rendering  within layouts/tickets
+Rendering tickets/show
+  [4;35;1mTicket Columns (0.000459)[0m   [0mSHOW FIELDS FROM tickets[0m
+  [4;36;1mUser Load (0.000285)[0m   [0;1mSELECT * FROM users WHERE (users.id = 1) LIMIT 1[0m
+  [4;35;1mUser Load (0.000252)[0m   [0mSELECT * FROM users WHERE (users.id = 1) LIMIT 1[0m
+  [4;36;1mClient Load (0.000230)[0m   [0;1mSELECT * FROM clients WHERE (clients.id = 2) LIMIT 1[0m
+  [4;35;1mClient Columns (0.000428)[0m   [0mSHOW FIELDS FROM clients[0m
+  [4;36;1mClient Load (0.000257)[0m   [0;1mSELECT * FROM clients WHERE (clients.id = 2) LIMIT 1[0m
+Rendered layouts/_navi (0.00527)
+Completed in 0.09894 (10 reqs/sec) | Rendering: 0.07169 (72%) | DB: 0.00795 (8%) | 200 OK [http://localhost/tickets/show/1]
+  [4;35;1mUser Columns (0.040079)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing Base#index (for 127.0.0.1 at 2006-03-21 16:10:22) [GET]
+  Parameters: {}
+
+
+ActionController::RoutingError (Recognition failed for "/user/user_pic/1/jan.jpg"):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/routing.rb:469:in `recognition_failed'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/routing.rb:459:in `recognize!'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/dispatcher.rb:38:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:117:in `handle_dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:83:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:172:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:161:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:161:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:69:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/server.rb:28
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+  [4;36;1mUser Columns (0.000507)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing Base#index (for 127.0.0.1 at 2006-03-21 16:10:23) [GET]
+  Parameters: {}
+
+
+ActionController::RoutingError (Recognition failed for "/client/client_pic/2/Photo-0006.jpg"):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/routing.rb:469:in `recognition_failed'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/routing.rb:459:in `recognize!'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/dispatcher.rb:38:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:117:in `handle_dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:83:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:172:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:161:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:161:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:69:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/server.rb:28
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+  [4;35;1mUser Columns (0.000445)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing WorkflowsController#new (for 127.0.0.1 at 2006-03-21 16:11:17) [POST]
+  Parameters: {"grund"=>"schliessen", "ticket"=>"1", "action"=>"new", "controller"=>"workflows"}
+  [4;36;1mTicket Load (0.000261)[0m   [0;1mSELECT * FROM tickets WHERE (tickets.id = '1') LIMIT 1[0m
+  [4;35;1mTicket Columns (0.000422)[0m   [0mSHOW FIELDS FROM tickets[0m
+Rendered workflows/_form (0.02256)
+Completed in 0.03759 (26 reqs/sec) | DB: 0.04171 (110%) | 200 OK [http://localhost/workflows/new?grund=schliessen&ticket=1]
+  [4;36;1mUser Columns (0.000457)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#list (for 127.0.0.1 at 2006-03-21 16:12:01) [GET]
+  Parameters: {"action"=>"list", "controller"=>"clients"}
+  [4;35;1mClient Count (0.000518)[0m   [0mSELECT COUNT(*) FROM clients [0m
+  [4;36;1mClient Load (0.000643)[0m   [0;1mSELECT * FROM clients LIMIT 0, 10[0m
+Rendering  within layouts/clients
+Rendering clients/list
+Rendered clients/_navi (0.01605)
+  [4;35;1mClient Columns (0.000478)[0m   [0mSHOW FIELDS FROM clients[0m
+Completed in 0.07420 (13 reqs/sec) | Rendering: 0.04384 (59%) | DB: 0.00210 (2%) | 200 OK [http://localhost/clients/list]
+  [4;36;1mUser Columns (0.000962)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2006-03-21 16:12:05) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"clients"}
+  [4;35;1mClient Load (0.001378)[0m   [0mSELECT * FROM clients WHERE (clients.id = '2') LIMIT 1[0m
+  [4;36;1mClient Columns (0.000670)[0m   [0;1mSHOW FIELDS FROM clients[0m
+  [4;35;1mReport Load (0.000631)[0m   [0mSELECT * FROM reports WHERE (client_id IN (2)) [0m
+Rendering  within layouts/clients
+Rendering clients/show
+Rendered clients/_navi (0.00720)
+  [4;36;1mReport Columns (0.000460)[0m   [0;1mSHOW FIELDS FROM reports[0m
+  [4;35;1mUser Load (0.000779)[0m   [0mSELECT * FROM users WHERE (id = 1) LIMIT 1[0m
+Completed in 0.26186 (3 reqs/sec) | Rendering: 0.21366 (81%) | DB: 0.00488 (1%) | 200 OK [http://localhost/clients/show/2]
+  [4;36;1mUser Columns (0.011433)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing Base#index (for 127.0.0.1 at 2006-03-21 16:12:06) [GET]
+  Parameters: {}
+
+
+ActionController::RoutingError (Recognition failed for "/client/client_pic/2/Photo-0006.jpg"):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/routing.rb:469:in `recognition_failed'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/routing.rb:459:in `recognize!'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/dispatcher.rb:38:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:117:in `handle_dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:83:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:172:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:161:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:161:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:69:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/server.rb:28
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+  [4;35;1mUser Columns (0.002037)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#upload_status (for 127.0.0.1 at 2006-03-21 16:13:07) [POST]
+  Parameters: {"action"=>"upload_status", "controller"=>"clients", "upload_id"=>"2"}
+Completed in 0.03763 (26 reqs/sec) | Rendering: 0.00247 (6%) | DB: 0.01347 (35%) | 200 OK [http://localhost/clients/upload_status?upload_id=2]
+  [4;36;1mUser Columns (0.000489)[0m   [0;1mSHOW FIELDS FROM users[0m
+Multipart upload with progress (id: 2, size: 793)
+Finished processing multipart upload in 0.061189s
+
+
+Processing ReportsController#create (for 127.0.0.1 at 2006-03-21 16:13:07) [POST]
+  Parameters: {"user"=>"1", "commit"=>"Speichern", "client_id"=>"2", "action"=>"create", "controller"=>"reports", "upload_id"=>"2", "report"=>{"beschreibung"=>"hallo doku", "datei"=>#<StringIO:0xb75f8c10>}}
+  [4;35;1mReport Columns (0.000395)[0m   [0mSHOW FIELDS FROM reports[0m
+  [4;36;1mUser Load (0.000771)[0m   [0;1mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+  [4;35;1mSQL (0.000216)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.005606)[0m   [0;1mINSERT INTO reports (`created_on`, `beschreibung`, `updated_on`, `client_id`, `datei`, `user_id`) VALUES('2006-03-21 16:13:08', 'hallo doku', '2006-03-21 16:13:08', '2', 'Bauplan_', 1)[0m
+  [4;35;1mSQL (0.016986)[0m   [0mCOMMIT[0m
+Completed in 0.15443 (6 reqs/sec) | Rendering: 0.00147 (0%) | DB: 0.00000 (0%) | 200 OK [http://localhost/reports/create?user=1&client_id=2&upload_id=2]
+  [4;36;1mUser Columns (0.001814)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2006-03-21 16:13:11) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"clients"}
+  [4;35;1mClient Load (0.000260)[0m   [0mSELECT * FROM clients WHERE (clients.id = '2') LIMIT 1[0m
+  [4;36;1mClient Columns (0.000491)[0m   [0;1mSHOW FIELDS FROM clients[0m
+  [4;35;1mReport Load (0.000689)[0m   [0mSELECT * FROM reports WHERE (client_id IN (2)) [0m
+Rendering  within layouts/clients
+Rendering clients/show
+Rendered clients/_navi (0.00877)
+  [4;36;1mReport Columns (0.000413)[0m   [0;1mSHOW FIELDS FROM reports[0m
+  [4;35;1mUser Load (0.000252)[0m   [0mSELECT * FROM users WHERE (id = 1) LIMIT 1[0m
+  [4;36;1mUser Load (0.000512)[0m   [0;1mSELECT * FROM users WHERE (id = 1) LIMIT 1[0m
+Completed in 0.10732 (9 reqs/sec) | Rendering: 0.05312 (49%) | DB: 0.00443 (4%) | 200 OK [http://localhost/clients/show/2]
+  [4;35;1mUser Columns (0.021620)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing Base#index (for 127.0.0.1 at 2006-03-21 16:13:13) [GET]
+  Parameters: {}
+
+
+ActionController::RoutingError (Recognition failed for "/client/client_pic/2/Photo-0006.jpg"):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/routing.rb:469:in `recognition_failed'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/routing.rb:459:in `recognize!'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/dispatcher.rb:38:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:117:in `handle_dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:83:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:172:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:161:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:161:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:69:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/server.rb:28
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-03-29 16:29:37) [GET]
+  Parameters: {"action"=>"login", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/login
+Completed in 0.03550 (28 reqs/sec) | Rendering: 0.03269 (92%) | 200 OK [http://localhost/account/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-03-29 16:29:44) [POST]
+  Parameters: {"user_login"=>"neuser_ja", "action"=>"login", "controller"=>"account", "user_password"=>"enola", "login"=>"Login \302\273"}
+  [4;36;1mUser Load (0.209714)[0m   [0;1mSELECT * FROM users WHERE (login = 'neuser_ja' AND password = '531d26a7d74ef0df1c63d74f90ae011fa2a473a1') LIMIT 1[0m
+  [4;35;1mUser Columns (0.007199)[0m   [0mSHOW FIELDS FROM users[0m
+Redirected to http://localhost:3000/account/welcome
+Completed in 0.44141 (2 reqs/sec) | DB: 0.21691 (49%) | 302 Found [http://localhost/account/login]
+  [4;36;1mUser Columns (0.000426)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#welcome (for 127.0.0.1 at 2006-03-29 16:29:44) [GET]
+  Parameters: {"action"=>"welcome", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/welcome
+Rendered account/_navi (0.03817)
+Completed in 0.12307 (8 reqs/sec) | Rendering: 0.11118 (90%) | DB: 0.00043 (0%) | 200 OK [http://localhost/account/welcome]
+  [4;35;1mUser Columns (0.000613)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#list (for 127.0.0.1 at 2006-03-29 16:30:08) [GET]
+  Parameters: {"action"=>"list", "controller"=>"clients"}
+  [4;36;1mClient Count (0.021592)[0m   [0;1mSELECT COUNT(*) FROM clients [0m
+  [4;35;1mClient Load (0.002010)[0m   [0mSELECT * FROM clients LIMIT 0, 10[0m
+Rendering  within layouts/clients
+Rendering clients/list
+Rendered clients/_navi (0.01651)
+  [4;36;1mClient Columns (0.000563)[0m   [0;1mSHOW FIELDS FROM clients[0m
+Completed in 0.17190 (5 reqs/sec) | Rendering: 0.06893 (40%) | DB: 0.02478 (14%) | 200 OK [http://localhost/clients/list]
+  [4;35;1mUser Columns (0.008631)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#new (for 127.0.0.1 at 2006-03-29 16:30:30) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clients"}
+  [4;36;1mClient Columns (0.003858)[0m   [0;1mSHOW FIELDS FROM clients[0m
+Rendering  within layouts/clients
+Rendering clients/new
+Rendered clients/_navi (0.00786)
+Rendered clients/_form (0.01341)
+Completed in 0.13061 (7 reqs/sec) | Rendering: 0.09874 (75%) | DB: 0.01249 (9%) | 200 OK [http://localhost/clients/new]
+  [4;35;1mUser Columns (0.000485)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#list (for 127.0.0.1 at 2006-03-29 16:30:40) [GET]
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;36;1mTicket Count (0.000642)[0m   [0;1mSELECT COUNT(*) FROM tickets WHERE (betreuer_id = 1 && ticket_status != 5) [0m
+  [4;35;1mTicket Load (0.000841)[0m   [0mSELECT * FROM tickets WHERE (betreuer_id = 1 && ticket_status != 5) ORDER BY created_on LIMIT 0, 10[0m
+  [4;36;1mTicket Count (0.000542)[0m   [0;1mSELECT COUNT(*) FROM tickets WHERE (betreuer_id != 1 && ticket_status != 5 ) [0m
+  [4;35;1mTicket Load (0.000629)[0m   [0mSELECT * FROM tickets WHERE (betreuer_id != 1 && ticket_status != 5 ) ORDER BY created_on LIMIT 0, 10[0m
+  [4;36;1mTicket Count (0.000478)[0m   [0;1mSELECT COUNT(*) FROM tickets WHERE (Ticket_status = 5 ) [0m
+  [4;35;1mTicket Load (0.000582)[0m   [0mSELECT * FROM tickets WHERE (Ticket_status = 5 ) ORDER BY created_on DESC LIMIT 0, 10[0m
+Rendering  within layouts/tickets
+Rendering tickets/list
+  [4;36;1mTicket Columns (0.001094)[0m   [0;1mSHOW FIELDS FROM tickets[0m
+  [4;35;1mUser Load (0.018838)[0m   [0mSELECT * FROM users WHERE (users.id = 1) LIMIT 1[0m
+  [4;36;1mClient Load (0.000728)[0m   [0;1mSELECT * FROM clients WHERE (clients.id = 2) LIMIT 1[0m
+  [4;35;1mClient Columns (0.000441)[0m   [0mSHOW FIELDS FROM clients[0m
+Rendered tickets/_list (0.08162)
+Rendered tickets/_list (0.00037)
+Rendered tickets/_list (0.00030)
+Rendered layouts/_navi (0.01567)
+Completed in 0.17979 (5 reqs/sec) | Rendering: 0.12932 (71%) | DB: 0.02530 (14%) | 200 OK [http://localhost/tickets/list]
+  [4;36;1mUser Columns (0.017876)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2006-03-29 16:30:55) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Load (0.004986)[0m   [0mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+Rendering  within layouts/users
+Rendering users/show
+Rendered users/_navi (0.01529)
+Completed in 0.11775 (8 reqs/sec) | Rendering: 0.10612 (90%) | DB: 0.02286 (19%) | 200 OK [http://localhost/users/show/1]
+  [4;36;1mUser Columns (0.000513)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing Base#index (for 127.0.0.1 at 2006-03-29 16:30:56) [GET]
+  Parameters: {}
+
+
+ActionController::RoutingError (Recognition failed for "/user/user_pic/1/jan.jpg"):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/routing.rb:469:in `recognition_failed'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/routing.rb:459:in `recognize!'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/dispatcher.rb:38:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:117:in `handle_dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:83:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:172:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:161:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:161:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:69:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/server.rb:28
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+  [4;35;1mUser Columns (0.002757)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#list (for 127.0.0.1 at 2006-03-29 16:37:10) [GET]
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;36;1mTicket Count (0.000197)[0m   [0;1mSELECT COUNT(*) FROM tickets WHERE (betreuer_id = 1 && ticket_status != 5) [0m
+  [4;35;1mTicket Load (0.000224)[0m   [0mSELECT * FROM tickets WHERE (betreuer_id = 1 && ticket_status != 5) ORDER BY created_on LIMIT 0, 10[0m
+  [4;36;1mTicket Count (0.000185)[0m   [0;1mSELECT COUNT(*) FROM tickets WHERE (betreuer_id != 1 && ticket_status != 5 ) [0m
+  [4;35;1mTicket Load (0.000221)[0m   [0mSELECT * FROM tickets WHERE (betreuer_id != 1 && ticket_status != 5 ) ORDER BY created_on LIMIT 0, 10[0m
+  [4;36;1mTicket Count (0.000192)[0m   [0;1mSELECT COUNT(*) FROM tickets WHERE (Ticket_status = 5 ) [0m
+  [4;35;1mTicket Load (0.000200)[0m   [0mSELECT * FROM tickets WHERE (Ticket_status = 5 ) ORDER BY created_on DESC LIMIT 0, 10[0m
+Rendering  within layouts/tickets
+Rendering tickets/list
+  [4;36;1mTicket Columns (0.000482)[0m   [0;1mSHOW FIELDS FROM tickets[0m
+  [4;35;1mUser Load (0.000307)[0m   [0mSELECT * FROM users WHERE (users.id = 1) LIMIT 1[0m
+  [4;36;1mClient Load (0.000249)[0m   [0;1mSELECT * FROM clients WHERE (clients.id = 2) LIMIT 1[0m
+  [4;35;1mClient Columns (0.000420)[0m   [0mSHOW FIELDS FROM clients[0m
+Rendered tickets/_list (0.03856)
+Rendered tickets/_list (0.00039)
+Rendered tickets/_list (0.00034)
+Rendered layouts/_navi (0.00569)
+Completed in 0.08853 (11 reqs/sec) | Rendering: 0.05448 (61%) | DB: 0.00595 (6%) | 200 OK [http://localhost/tickets/list]
+  [4;36;1mUser Columns (0.008158)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#list (for 127.0.0.1 at 2006-03-29 16:37:21) [GET]
+  Parameters: {"action"=>"list", "controller"=>"clients"}
+  [4;35;1mClient Count (0.003480)[0m   [0mSELECT COUNT(*) FROM clients [0m
+  [4;36;1mClient Load (0.001598)[0m   [0;1mSELECT * FROM clients LIMIT 0, 10[0m
+Rendering  within layouts/clients
+Rendering clients/list
+Rendered clients/_navi (0.00719)
+  [4;35;1mClient Columns (0.000651)[0m   [0mSHOW FIELDS FROM clients[0m
+Completed in 0.07424 (13 reqs/sec) | Rendering: 0.02531 (34%) | DB: 0.01389 (18%) | 200 OK [http://localhost/clients/list]
+  [4;36;1mUser Columns (0.003587)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#show (for 127.0.0.1 at 2006-03-29 16:37:25) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"clients"}
+  [4;35;1mClient Load (0.000756)[0m   [0mSELECT * FROM clients WHERE (clients.id = '1') LIMIT 1[0m
+  [4;36;1mClient Columns (0.000510)[0m   [0;1mSHOW FIELDS FROM clients[0m
+  [4;35;1mReport Load (0.000926)[0m   [0mSELECT * FROM reports WHERE (client_id IN (1)) [0m
+Rendering  within layouts/clients
+Rendering clients/show
+Rendered clients/_navi (0.01972)
+Completed in 0.18564 (5 reqs/sec) | Rendering: 0.11748 (63%) | DB: 0.00578 (3%) | 200 OK [http://localhost/clients/show/1]
+  [4;36;1mUser Columns (0.000552)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing Base#index (for 127.0.0.1 at 2006-03-29 16:37:26) [GET]
+  Parameters: {}
+
+
+ActionController::RoutingError (Recognition failed for "/client/client_pic/1/100_1281.jpg"):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/routing.rb:469:in `recognition_failed'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/routing.rb:459:in `recognize!'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/dispatcher.rb:38:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:117:in `handle_dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:83:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:172:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:161:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:161:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:69:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/server.rb:28
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+  [4;35;1mUser Columns (0.001654)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#list (for 127.0.0.1 at 2006-03-29 16:37:34) [GET]
+  Parameters: {"action"=>"list", "controller"=>"clients"}
+  [4;36;1mClient Count (0.003112)[0m   [0;1mSELECT COUNT(*) FROM clients [0m
+  [4;35;1mClient Load (0.001205)[0m   [0mSELECT * FROM clients LIMIT 0, 10[0m
+Rendering  within layouts/clients
+Rendering clients/list
+Rendered clients/_navi (0.00804)
+  [4;36;1mClient Columns (0.000996)[0m   [0;1mSHOW FIELDS FROM clients[0m
+Completed in 0.06524 (15 reqs/sec) | Rendering: 0.02443 (37%) | DB: 0.00752 (11%) | 200 OK [http://localhost/clients/list]
+  [4;35;1mUser Columns (0.000342)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#logout (for 127.0.0.1 at 2006-03-29 17:43:08) [GET]
+  Parameters: {"action"=>"logout", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/logout
+Completed in 0.02132 (46 reqs/sec) | Rendering: 0.01886 (88%) | DB: 0.00034 (1%) | 200 OK [http://localhost/account/logout]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-03-31 14:07:11) [GET]
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;36;1mUser Columns (0.075761)[0m   [0;1mSHOW FIELDS FROM users[0m
+Rendering  within layouts/account
+Rendering account/signup
+Completed in 0.27078 (3 reqs/sec) | Rendering: 0.04719 (17%) | DB: 0.07576 (27%) | 200 OK [http://localhost/account/signup]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-03-31 14:07:16) [GET]
+  Parameters: {"action"=>"login", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/login
+Completed in 0.03771 (26 reqs/sec) | Rendering: 0.02415 (64%) | DB: 0.00000 (0%) | 200 OK [http://localhost/account/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-03-31 14:07:21) [GET]
+  Parameters: {"action"=>"login", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/login
+Completed in 0.03869 (25 reqs/sec) | Rendering: 0.03523 (91%) | DB: 0.00000 (0%) | 200 OK [http://localhost/account/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-03-31 14:07:40) [POST]
+  Parameters: {"user_login"=>"neuser_ja", "action"=>"login", "controller"=>"account", "user_password"=>"enola", "login"=>"Login \302\273"}
+  [4;35;1mUser Load (0.163961)[0m   [0mSELECT * FROM users WHERE (login = 'neuser_ja' AND password = '531d26a7d74ef0df1c63d74f90ae011fa2a473a1') LIMIT 1[0m
+  [4;36;1mUser Columns (0.000674)[0m   [0;1mSHOW FIELDS FROM users[0m
+Redirected to http://localhost:3000/account/welcome
+Completed in 0.18039 (5 reqs/sec) | DB: 0.16463 (91%) | 302 Found [http://localhost/account/login]
+  [4;35;1mUser Columns (0.000763)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#welcome (for 127.0.0.1 at 2006-03-31 14:07:40) [GET]
+  Parameters: {"action"=>"welcome", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/welcome
+Rendered account/_navi (0.03299)
+Completed in 0.07678 (13 reqs/sec) | Rendering: 0.07334 (95%) | DB: 0.00076 (0%) | 200 OK [http://localhost/account/welcome]
+  [4;36;1mUser Columns (0.000687)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#list (for 127.0.0.1 at 2006-03-31 14:07:51) [GET]
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;35;1mTicket Count (0.017954)[0m   [0mSELECT COUNT(*) FROM tickets WHERE (betreuer_id = 1 && ticket_status != 5) [0m
+  [4;36;1mTicket Load (0.001880)[0m   [0;1mSELECT * FROM tickets WHERE (betreuer_id = 1 && ticket_status != 5) ORDER BY created_on LIMIT 0, 10[0m
+  [4;35;1mTicket Count (0.000612)[0m   [0mSELECT COUNT(*) FROM tickets WHERE (betreuer_id != 1 && ticket_status != 5 ) [0m
+  [4;36;1mTicket Load (0.000625)[0m   [0;1mSELECT * FROM tickets WHERE (betreuer_id != 1 && ticket_status != 5 ) ORDER BY created_on LIMIT 0, 10[0m
+  [4;35;1mTicket Count (0.000549)[0m   [0mSELECT COUNT(*) FROM tickets WHERE (Ticket_status = 5 ) [0m
+  [4;36;1mTicket Load (0.000679)[0m   [0;1mSELECT * FROM tickets WHERE (Ticket_status = 5 ) ORDER BY created_on DESC LIMIT 0, 10[0m
+Rendering  within layouts/tickets
+Rendering tickets/list
+  [4;35;1mTicket Columns (0.000477)[0m   [0mSHOW FIELDS FROM tickets[0m
+  [4;36;1mUser Load (0.000806)[0m   [0;1mSELECT * FROM users WHERE (users.id = 1) LIMIT 1[0m
+  [4;35;1mClient Load (0.000724)[0m   [0mSELECT * FROM clients WHERE (clients.id = 2) LIMIT 1[0m
+  [4;36;1mClient Columns (0.000417)[0m   [0;1mSHOW FIELDS FROM clients[0m
+Rendered tickets/_list (0.06528)
+Rendered tickets/_list (0.00037)
+Rendered tickets/_list (0.00029)
+Rendered layouts/_navi (0.01623)
+Completed in 0.20116 (4 reqs/sec) | Rendering: 0.11631 (57%) | DB: 0.02541 (12%) | 200 OK [http://localhost/tickets/list]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-04-27 18:18:31) [GET]
+  Parameters: {"action"=>"login", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/login
+Completed in 0.05697 (17 reqs/sec) | Rendering: 0.05408 (94%) | 200 OK [http://localhost/account/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-04-27 18:18:37) [POST]
+  Parameters: {"user_login"=>"neuser_ja", "action"=>"login", "controller"=>"account", "user_password"=>"enola", "login"=>"Login \302\273"}
+  [4;36;1mUser Load (0.158973)[0m   [0;1mSELECT * FROM users WHERE (login = 'neuser_ja' AND password = '531d26a7d74ef0df1c63d74f90ae011fa2a473a1') LIMIT 1[0m
+  [4;35;1mUser Columns (0.006242)[0m   [0mSHOW FIELDS FROM users[0m
+Redirected to http://localhost:3000/account/welcome
+Completed in 0.33927 (2 reqs/sec) | DB: 0.16522 (48%) | 302 Found [http://localhost/account/login]
+  [4;36;1mUser Columns (0.000439)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#welcome (for 127.0.0.1 at 2006-04-27 18:18:37) [GET]
+  Parameters: {"action"=>"welcome", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/welcome
+Rendered account/_navi (0.04379)
+Completed in 0.10419 (9 reqs/sec) | Rendering: 0.07332 (70%) | DB: 0.00044 (0%) | 200 OK [http://localhost/account/welcome]
+  [4;35;1mUser Columns (0.005419)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#welcome (for 127.0.0.1 at 2006-04-27 18:29:03) [GET]
+  Parameters: {"action"=>"welcome", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/welcome
+Rendered account/_navi (0.01592)
+Completed in 0.06474 (15 reqs/sec) | Rendering: 0.05189 (80%) | DB: 0.00542 (8%) | 200 OK [http://localhost/account/welcome]
+  [4;36;1mUser Columns (0.002522)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#list (for 127.0.0.1 at 2006-04-27 18:30:21) [GET]
+  Parameters: {"action"=>"list", "controller"=>"users"}
+  [4;35;1mUser Count (0.019322)[0m   [0mSELECT COUNT(*) FROM users [0m
+  [4;36;1mUser Load (0.000653)[0m   [0;1mSELECT * FROM users LIMIT 0, 10[0m
+Rendering  within layouts/users
+Rendering users/list
+Rendered users/_navi (0.01268)
+Completed in 0.11705 (8 reqs/sec) | Rendering: 0.08823 (75%) | DB: 0.02250 (19%) | 200 OK [http://localhost/users/list]
+  [4;35;1mUser Columns (0.000470)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#welcome (for 127.0.0.1 at 2006-04-27 18:32:00) [GET]
+  Parameters: {"action"=>"welcome", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/welcome
+Rendered account/_navi (0.01131)
+Completed in 0.06099 (16 reqs/sec) | Rendering: 0.05749 (94%) | DB: 0.00047 (0%) | 200 OK [http://localhost/account/welcome]
+  [4;36;1mUser Columns (0.006701)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#list (for 127.0.0.1 at 2006-04-27 18:32:05) [GET]
+  Parameters: {"action"=>"list", "controller"=>"users"}
+  [4;35;1mUser Count (0.000222)[0m   [0mSELECT COUNT(*) FROM users [0m
+  [4;36;1mUser Load (0.000231)[0m   [0;1mSELECT * FROM users LIMIT 0, 10[0m
+Rendering  within layouts/users
+Rendering users/list
+Rendered users/_navi (0.00621)
+Completed in 0.02168 (46 reqs/sec) | Rendering: 0.01465 (67%) | DB: 0.00715 (32%) | 200 OK [http://localhost/users/list]
+  [4;35;1mUser Columns (0.001584)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#list (for 127.0.0.1 at 2006-04-27 18:32:10) [GET]
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;36;1mTicket Count (0.000696)[0m   [0;1mSELECT COUNT(*) FROM tickets WHERE (betreuer_id = 1 && ticket_status != 5) [0m
+  [4;35;1mTicket Load (0.017375)[0m   [0mSELECT * FROM tickets WHERE (betreuer_id = 1 && ticket_status != 5) ORDER BY created_on LIMIT 0, 10[0m
+  [4;36;1mTicket Count (0.000690)[0m   [0;1mSELECT COUNT(*) FROM tickets WHERE (betreuer_id != 1 && ticket_status != 5 ) [0m
+  [4;35;1mTicket Load (0.000664)[0m   [0mSELECT * FROM tickets WHERE (betreuer_id != 1 && ticket_status != 5 ) ORDER BY created_on LIMIT 0, 10[0m
+  [4;36;1mTicket Count (0.000481)[0m   [0;1mSELECT COUNT(*) FROM tickets WHERE (Ticket_status = 5 ) [0m
+  [4;35;1mTicket Load (0.000570)[0m   [0mSELECT * FROM tickets WHERE (Ticket_status = 5 ) ORDER BY created_on DESC LIMIT 0, 10[0m
+Rendering  within layouts/tickets
+Rendering tickets/list
+  [4;36;1mTicket Columns (0.000481)[0m   [0;1mSHOW FIELDS FROM tickets[0m
+  [4;35;1mUser Load (0.012966)[0m   [0mSELECT * FROM users WHERE (users.id = 1) LIMIT 1[0m
+  [4;36;1mClient Load (0.001022)[0m   [0;1mSELECT * FROM clients WHERE (clients.id = 2) LIMIT 1[0m
+  [4;35;1mClient Columns (0.000427)[0m   [0mSHOW FIELDS FROM clients[0m
+Rendered tickets/_list (0.07606)
+Rendered tickets/_list (0.00041)
+Rendered tickets/_list (0.00031)
+Rendered layouts/_navi (0.01559)
+Completed in 0.21465 (4 reqs/sec) | Rendering: 0.11063 (51%) | DB: 0.03696 (17%) | 200 OK [http://localhost/tickets/list]
+  [4;36;1mUser Columns (0.001338)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#logout (for 127.0.0.1 at 2006-04-27 18:32:14) [GET]
+  Parameters: {"action"=>"logout", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/logout
+Completed in 0.02342 (42 reqs/sec) | Rendering: 0.01986 (84%) | DB: 0.00134 (5%) | 200 OK [http://localhost/account/logout]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-04-27 18:32:16) [GET]
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;35;1mUser Columns (0.006908)[0m   [0mSHOW FIELDS FROM users[0m
+Rendering  within layouts/account
+Rendering account/signup
+Completed in 0.05785 (17 reqs/sec) | Rendering: 0.03609 (62%) | DB: 0.00691 (11%) | 200 OK [http://localhost/account/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-04-27 18:32:38) [POST]
+  Parameters: {"user"=>{"user_email"=>"", "password_confirmation"=>"test", "user_rule"=>"5", "user_vorname"=>"testuser", "user_strasse"=>"jkdsjkds", "user_klasse"=>"", "user_ort"=>"", "user_name"=>"12", "login"=>"test", "password"=>"test", "user_plz"=>"0"}, "action"=>"signup", "controller"=>"account"}
+  [4;36;1mUser Columns (0.000700)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mSQL (0.002088)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.007212)[0m   [0;1mSELECT * FROM users WHERE (login = 'test') LIMIT 1[0m
+  [4;35;1mSQL (0.004161)[0m   [0mCOMMIT[0m
+Rendering  within layouts/account
+Rendering account/signup
+Completed in 0.05956 (16 reqs/sec) | Rendering: 0.01384 (23%) | DB: 0.01416 (23%) | 200 OK [http://localhost/account/signup]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-04-27 18:32:49) [POST]
+  Parameters: {"user"=>{"user_email"=>"", "password_confirmation"=>"test1", "user_rule"=>"5", "user_vorname"=>"testuser", "user_strasse"=>"jkdsjkds", "user_klasse"=>"", "user_ort"=>"", "user_name"=>"12", "login"=>"test1", "password"=>"test1", "user_plz"=>"0"}, "action"=>"signup", "controller"=>"account"}
+  [4;36;1mUser Columns (0.002632)[0m   [0;1mSHOW FIELDS FROM users[0m
+  [4;35;1mSQL (0.000176)[0m   [0mBEGIN[0m
+  [4;36;1mUser Load (0.000715)[0m   [0;1mSELECT * FROM users WHERE (login = 'test1') LIMIT 1[0m
+  [4;35;1mSQL (0.069632)[0m   [0mINSERT INTO users (`created_on`, `user_pic`, `user_telefon`, `user_email`, `updated_on`, `user_rule`, `user_strasse`, `user_vorname`, `user_klasse`, `user_ort`, `login`, `password`, `user_name`, `user_plz`) VALUES('2006-04-27 18:32:49', NULL, '', '', '2006-04-27 18:32:49', 5, 'jkdsjkds', 'testuser', '', '', 'test1', '341f7f93b0d217bbcf7dfe305973e621f90fa1d9', '12', 0)[0m
+  [4;36;1mSQL (0.069278)[0m   [0;1mCOMMIT[0m
+  [4;35;1mUser Load (0.000882)[0m   [0mSELECT * FROM users WHERE (login = 'test1' AND password = '341f7f93b0d217bbcf7dfe305973e621f90fa1d9') LIMIT 1[0m
+Redirected to http://localhost:3000/users/show/2
+Completed in 0.17616 (5 reqs/sec) | DB: 0.14331 (81%) | 302 Found [http://localhost/account/signup]
+  [4;36;1mUser Columns (0.000465)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2006-04-27 18:32:50) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"users"}
+  [4;35;1mUser Load (0.000843)[0m   [0mSELECT * FROM users WHERE (users.id = '2') LIMIT 1[0m
+Rendering  within layouts/users
+Rendering users/show
+Rendered users/_navi (0.00749)
+Completed in 0.10467 (9 reqs/sec) | Rendering: 0.09611 (91%) | DB: 0.00131 (1%) | 200 OK [http://localhost/users/show/2]
+  [4;36;1mUser Columns (0.005424)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#logout (for 127.0.0.1 at 2006-04-27 18:32:57) [GET]
+  Parameters: {"action"=>"logout", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/logout
+Completed in 0.01797 (55 reqs/sec) | Rendering: 0.00528 (29%) | DB: 0.00542 (30%) | 200 OK [http://localhost/account/logout]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-04-27 18:33:01) [GET]
+  Parameters: {"action"=>"login", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/login
+Completed in 0.01663 (60 reqs/sec) | Rendering: 0.00745 (44%) | DB: 0.00000 (0%) | 200 OK [http://localhost/account/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-04-27 18:33:10) [POST]
+  Parameters: {"user_login"=>"test1", "action"=>"login", "controller"=>"account", "user_password"=>"test1", "login"=>"Login \302\273"}
+  [4;35;1mUser Load (0.006780)[0m   [0mSELECT * FROM users WHERE (login = 'test1' AND password = '341f7f93b0d217bbcf7dfe305973e621f90fa1d9') LIMIT 1[0m
+  [4;36;1mUser Columns (0.000555)[0m   [0;1mSHOW FIELDS FROM users[0m
+Redirected to http://localhost:3000/account/welcome
+Completed in 0.02129 (46 reqs/sec) | DB: 0.00734 (34%) | 302 Found [http://localhost/account/login]
+  [4;35;1mUser Columns (0.000514)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#welcome (for 127.0.0.1 at 2006-04-27 18:33:11) [GET]
+  Parameters: {"action"=>"welcome", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/welcome
+Rendered account/_navi (0.00904)
+Completed in 0.02296 (43 reqs/sec) | Rendering: 0.01982 (86%) | DB: 0.00051 (2%) | 200 OK [http://localhost/account/welcome]
+  [4;36;1mUser Columns (0.000480)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#logout (for 127.0.0.1 at 2006-04-27 18:37:08) [GET]
+  Parameters: {"action"=>"logout", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/logout
+Completed in 0.01335 (74 reqs/sec) | Rendering: 0.00812 (60%) | DB: 0.00048 (3%) | 200 OK [http://localhost/account/logout]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-04-27 18:37:14) [GET]
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;35;1mUser Columns (0.000912)[0m   [0mSHOW FIELDS FROM users[0m
+Rendering  within layouts/account
+Rendering account/signup
+Completed in 0.03822 (26 reqs/sec) | Rendering: 0.02350 (61%) | DB: 0.00091 (2%) | 200 OK [http://localhost/account/signup]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-04-27 18:37:33) [GET]
+  Parameters: {"action"=>"login", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/login
+Completed in 0.01203 (83 reqs/sec) | Rendering: 0.00793 (65%) | DB: 0.00000 (0%) | 200 OK [http://localhost/account/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-04-27 18:37:40) [POST]
+  Parameters: {"user_login"=>"neuser_ja", "action"=>"login", "controller"=>"account", "user_password"=>"enola", "login"=>"Login \302\273"}
+  [4;36;1mUser Load (0.001139)[0m   [0;1mSELECT * FROM users WHERE (login = 'neuser_ja' AND password = '531d26a7d74ef0df1c63d74f90ae011fa2a473a1') LIMIT 1[0m
+  [4;35;1mUser Columns (0.000897)[0m   [0mSHOW FIELDS FROM users[0m
+Redirected to http://localhost:3000/account/welcome
+Completed in 0.02597 (38 reqs/sec) | DB: 0.00204 (7%) | 302 Found [http://localhost/account/login]
+  [4;36;1mUser Columns (0.000589)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#welcome (for 127.0.0.1 at 2006-04-27 18:37:40) [GET]
+  Parameters: {"action"=>"welcome", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/welcome
+Rendered account/_navi (0.01218)
+Completed in 0.03006 (33 reqs/sec) | Rendering: 0.02692 (89%) | DB: 0.00059 (1%) | 200 OK [http://localhost/account/welcome]
+  [4;35;1mUser Columns (0.000470)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#welcome (for 127.0.0.1 at 2006-04-27 18:40:20) [GET]
+  Parameters: {"action"=>"welcome", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/welcome
+Rendered account/_navi (0.02409)
+Completed in 0.04552 (21 reqs/sec) | Rendering: 0.04181 (91%) | DB: 0.00047 (1%) | 200 OK [http://localhost/account/welcome]
+  [4;36;1mUser Columns (0.004827)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#welcome (for 127.0.0.1 at 2006-04-27 18:41:34) [GET]
+  Parameters: {"action"=>"welcome", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/welcome
+Rendered account/_navi (0.02806)
+Completed in 0.05402 (18 reqs/sec) | Rendering: 0.04982 (92%) | DB: 0.00483 (8%) | 200 OK [http://localhost/account/welcome]
+  [4;35;1mUser Columns (0.000545)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#list (for 127.0.0.1 at 2006-04-27 18:42:00) [GET]
+  Parameters: {"action"=>"list", "controller"=>"users"}
+  [4;36;1mUser Count (0.002217)[0m   [0;1mSELECT COUNT(*) FROM users [0m
+  [4;35;1mUser Load (0.003049)[0m   [0mSELECT * FROM users LIMIT 0, 10[0m
+Rendering  within layouts/users
+Rendering users/list
+Rendered users/_navi (0.01186)
+Completed in 0.05836 (17 reqs/sec) | Rendering: 0.04178 (71%) | DB: 0.00581 (9%) | 200 OK [http://localhost/users/list]
+  [4;36;1mUser Columns (0.002339)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#list (for 127.0.0.1 at 2006-04-27 18:42:05) [GET]
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;35;1mTicket Count (0.003470)[0m   [0mSELECT COUNT(*) FROM tickets WHERE (betreuer_id = 1 && ticket_status != 5) [0m
+  [4;36;1mTicket Load (0.002106)[0m   [0;1mSELECT * FROM tickets WHERE (betreuer_id = 1 && ticket_status != 5) ORDER BY created_on LIMIT 0, 10[0m
+  [4;35;1mTicket Count (0.000934)[0m   [0mSELECT COUNT(*) FROM tickets WHERE (betreuer_id != 1 && ticket_status != 5 ) [0m
+  [4;36;1mTicket Load (0.004200)[0m   [0;1mSELECT * FROM tickets WHERE (betreuer_id != 1 && ticket_status != 5 ) ORDER BY created_on LIMIT 0, 10[0m
+  [4;35;1mTicket Count (0.002485)[0m   [0mSELECT COUNT(*) FROM tickets WHERE (Ticket_status = 5 ) [0m
+  [4;36;1mTicket Load (0.001539)[0m   [0;1mSELECT * FROM tickets WHERE (Ticket_status = 5 ) ORDER BY created_on DESC LIMIT 0, 10[0m
+Rendering  within layouts/tickets
+Rendering tickets/list
+  [4;35;1mTicket Columns (0.004628)[0m   [0mSHOW FIELDS FROM tickets[0m
+  [4;36;1mUser Load (0.006235)[0m   [0;1mSELECT * FROM users WHERE (users.id = 1) LIMIT 1[0m
+  [4;35;1mClient Load (0.003650)[0m   [0mSELECT * FROM clients WHERE (clients.id = 2) LIMIT 1[0m
+  [4;36;1mClient Columns (0.009802)[0m   [0;1mSHOW FIELDS FROM clients[0m
+Rendered tickets/_list (0.06773)
+Rendered tickets/_list (0.00037)
+Rendered tickets/_list (0.00029)
+Rendered layouts/_navi (0.00555)
+Completed in 0.13874 (7 reqs/sec) | Rendering: 0.05774 (41%) | DB: 0.04139 (29%) | 200 OK [http://localhost/tickets/list]
+  [4;35;1mUser Columns (0.000448)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#list (for 127.0.0.1 at 2006-04-27 18:44:44) [GET]
+  Parameters: {"action"=>"list", "controller"=>"clients"}
+  [4;36;1mClient Count (0.000514)[0m   [0;1mSELECT COUNT(*) FROM clients [0m
+  [4;35;1mClient Load (0.000585)[0m   [0mSELECT * FROM clients LIMIT 0, 10[0m
+Rendering  within layouts/clients
+Rendering clients/list
+Rendered clients/_navi (0.02611)
+  [4;36;1mClient Columns (0.001240)[0m   [0;1mSHOW FIELDS FROM clients[0m
+Completed in 0.08826 (11 reqs/sec) | Rendering: 0.06018 (68%) | DB: 0.00279 (3%) | 200 OK [http://localhost/clients/list]
+  [4;35;1mUser Columns (0.000477)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#list (for 127.0.0.1 at 2006-04-27 18:45:16) [GET]
+  Parameters: {"action"=>"list", "controller"=>"clients"}
+  [4;36;1mClient Count (0.000182)[0m   [0;1mSELECT COUNT(*) FROM clients [0m
+  [4;35;1mClient Load (0.000270)[0m   [0mSELECT * FROM clients LIMIT 0, 10[0m
+Rendering  within layouts/clients
+Rendering clients/list
+Rendered clients/_navi (0.01061)
+  [4;36;1mClient Columns (0.000514)[0m   [0;1mSHOW FIELDS FROM clients[0m
+Completed in 0.05739 (17 reqs/sec) | Rendering: 0.02588 (45%) | DB: 0.00144 (2%) | 200 OK [http://localhost/clients/list]
+  [4;35;1mUser Columns (0.000521)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing ClientsController#new (for 127.0.0.1 at 2006-04-27 18:45:19) [GET]
+  Parameters: {"action"=>"new", "controller"=>"clients"}
+  [4;36;1mClient Columns (0.010952)[0m   [0;1mSHOW FIELDS FROM clients[0m
+Rendering  within layouts/clients
+Rendering clients/new
+Rendered clients/_navi (0.02643)
+Rendered clients/_form (0.01847)
+Completed in 0.10697 (9 reqs/sec) | Rendering: 0.06168 (57%) | DB: 0.01147 (10%) | 200 OK [http://localhost/clients/new]
+  [4;35;1mUser Columns (0.033835)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#list (for 127.0.0.1 at 2006-04-27 18:45:22) [GET]
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;36;1mTicket Count (0.000204)[0m   [0;1mSELECT COUNT(*) FROM tickets WHERE (betreuer_id = 1 && ticket_status != 5) [0m
+  [4;35;1mTicket Load (0.000276)[0m   [0mSELECT * FROM tickets WHERE (betreuer_id = 1 && ticket_status != 5) ORDER BY created_on LIMIT 0, 10[0m
+  [4;36;1mTicket Count (0.000215)[0m   [0;1mSELECT COUNT(*) FROM tickets WHERE (betreuer_id != 1 && ticket_status != 5 ) [0m
+  [4;35;1mTicket Load (0.000208)[0m   [0mSELECT * FROM tickets WHERE (betreuer_id != 1 && ticket_status != 5 ) ORDER BY created_on LIMIT 0, 10[0m
+  [4;36;1mTicket Count (0.000186)[0m   [0;1mSELECT COUNT(*) FROM tickets WHERE (Ticket_status = 5 ) [0m
+  [4;35;1mTicket Load (0.000215)[0m   [0mSELECT * FROM tickets WHERE (Ticket_status = 5 ) ORDER BY created_on DESC LIMIT 0, 10[0m
+Rendering  within layouts/tickets
+Rendering tickets/list
+  [4;36;1mTicket Columns (0.000461)[0m   [0;1mSHOW FIELDS FROM tickets[0m
+  [4;35;1mUser Load (0.000310)[0m   [0mSELECT * FROM users WHERE (users.id = 1) LIMIT 1[0m
+  [4;36;1mClient Load (0.000246)[0m   [0;1mSELECT * FROM clients WHERE (clients.id = 2) LIMIT 1[0m
+  [4;35;1mClient Columns (0.000460)[0m   [0mSHOW FIELDS FROM clients[0m
+Rendered tickets/_list (0.03129)
+Rendered tickets/_list (0.00037)
+Rendered tickets/_list (0.00030)
+Rendered layouts/_navi (0.00641)
+Completed in 0.07844 (12 reqs/sec) | Rendering: 0.04398 (56%) | DB: 0.03662 (46%) | 200 OK [http://localhost/tickets/list]
+  [4;36;1mUser Columns (0.007470)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#list (for 127.0.0.1 at 2006-04-27 18:49:26) [GET]
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;35;1mTicket Count (0.000156)[0m   [0mSELECT COUNT(*) FROM tickets WHERE (betreuer_id = 1 && ticket_status != 5) [0m
+  [4;36;1mTicket Load (0.001962)[0m   [0;1mSELECT * FROM tickets WHERE (betreuer_id = 1 && ticket_status != 5) ORDER BY created_on LIMIT 0, 10[0m
+  [4;35;1mTicket Count (0.008298)[0m   [0mSELECT COUNT(*) FROM tickets WHERE (betreuer_id != 1 && ticket_status != 5 ) [0m
+  [4;36;1mTicket Load (0.001535)[0m   [0;1mSELECT * FROM tickets WHERE (betreuer_id != 1 && ticket_status != 5 ) ORDER BY created_on LIMIT 0, 10[0m
+  [4;35;1mTicket Count (0.000451)[0m   [0mSELECT COUNT(*) FROM tickets WHERE (Ticket_status = 5 ) [0m
+  [4;36;1mTicket Load (0.000818)[0m   [0;1mSELECT * FROM tickets WHERE (Ticket_status = 5 ) ORDER BY created_on DESC LIMIT 0, 10[0m
+Rendering  within layouts/tickets
+Rendering tickets/list
+  [4;35;1mTicket Columns (0.002378)[0m   [0mSHOW FIELDS FROM tickets[0m
+  [4;36;1mUser Load (0.002814)[0m   [0;1mSELECT * FROM users WHERE (users.id = 1) LIMIT 1[0m
+  [4;35;1mClient Load (0.009091)[0m   [0mSELECT * FROM clients WHERE (clients.id = 2) LIMIT 1[0m
+  [4;36;1mClient Columns (0.004534)[0m   [0;1mSHOW FIELDS FROM clients[0m
+Rendered tickets/_list (0.07036)
+Rendered tickets/_list (0.00037)
+Rendered tickets/_list (0.00029)
+Rendered layouts/_navi (0.02117)
+Completed in 0.15754 (6 reqs/sec) | Rendering: 0.08045 (51%) | DB: 0.03951 (25%) | 200 OK [http://localhost/tickets/list]
+  [4;35;1mUser Columns (0.023500)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-04-27 18:49:45) [GET]
+  Parameters: {"action"=>"login", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/login
+Completed in 0.01032 (96 reqs/sec) | Rendering: 0.00564 (54%) | DB: 0.02350 (227%) | 200 OK [http://localhost/account/login]
+  [4;36;1mUser Columns (0.007730)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-04-27 18:49:51) [POST]
+  Parameters: {"user_login"=>"test1", "action"=>"login", "controller"=>"account", "user_password"=>"test1", "login"=>"Login \302\273"}
+  [4;35;1mUser Load (0.003000)[0m   [0mSELECT * FROM users WHERE (login = 'test1' AND password = '341f7f93b0d217bbcf7dfe305973e621f90fa1d9') LIMIT 1[0m
+Redirected to http://localhost:3000/account/welcome
+Completed in 0.03006 (33 reqs/sec) | DB: 0.01073 (35%) | 302 Found [http://localhost/account/login]
+  [4;36;1mUser Columns (0.000475)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#welcome (for 127.0.0.1 at 2006-04-27 18:49:52) [GET]
+  Parameters: {"action"=>"welcome", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/welcome
+Rendered account/_navi (0.01081)
+Completed in 0.02378 (42 reqs/sec) | Rendering: 0.02044 (85%) | DB: 0.00047 (1%) | 200 OK [http://localhost/account/welcome]
+  [4;35;1mUser Columns (0.002556)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#list (for 127.0.0.1 at 2006-04-27 18:49:55) [GET]
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;36;1mTicket Count (0.008621)[0m   [0;1mSELECT COUNT(*) FROM tickets WHERE (betreuer_id = 2 && ticket_status != 5) [0m
+  [4;35;1mTicket Load (0.001103)[0m   [0mSELECT * FROM tickets WHERE (betreuer_id = 2 && ticket_status != 5) ORDER BY created_on LIMIT 0, 10[0m
+  [4;36;1mTicket Count (0.002173)[0m   [0;1mSELECT COUNT(*) FROM tickets WHERE (betreuer_id != 2 && ticket_status != 5 ) [0m
+  [4;35;1mTicket Load (0.000904)[0m   [0mSELECT * FROM tickets WHERE (betreuer_id != 2 && ticket_status != 5 ) ORDER BY created_on LIMIT 0, 10[0m
+  [4;36;1mTicket Count (0.000191)[0m   [0;1mSELECT COUNT(*) FROM tickets WHERE (Ticket_status = 5 ) [0m
+  [4;35;1mTicket Load (0.000202)[0m   [0mSELECT * FROM tickets WHERE (Ticket_status = 5 ) ORDER BY created_on DESC LIMIT 0, 10[0m
+Rendering  within layouts/tickets
+Rendering tickets/list
+Rendered tickets/_list (0.00035)
+  [4;36;1mTicket Columns (0.000737)[0m   [0;1mSHOW FIELDS FROM tickets[0m
+  [4;35;1mUser Load (0.000334)[0m   [0mSELECT * FROM users WHERE (users.id = 1) LIMIT 1[0m
+  [4;36;1mClient Load (0.000238)[0m   [0;1mSELECT * FROM clients WHERE (clients.id = 2) LIMIT 1[0m
+  [4;35;1mClient Columns (0.000431)[0m   [0mSHOW FIELDS FROM clients[0m
+Rendered tickets/_list (0.03736)
+Rendered tickets/_list (0.00037)
+Rendered layouts/_navi (0.00630)
+Completed in 0.11629 (8 reqs/sec) | Rendering: 0.05315 (45%) | DB: 0.01749 (15%) | 200 OK [http://localhost/tickets/list]
+  [4;36;1mUser Columns (0.009599)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2006-04-27 18:49:57) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"users"}
+  [4;35;1mUser Load (0.001406)[0m   [0mSELECT * FROM users WHERE (users.id = '2') LIMIT 1[0m
+Rendering  within layouts/users
+Rendering users/show
+Rendered users/_navi (0.00565)
+Completed in 0.03984 (25 reqs/sec) | Rendering: 0.02200 (55%) | DB: 0.01101 (27%) | 200 OK [http://localhost/users/show/2]
+  [4;36;1mUser Columns (0.000664)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-04-27 19:01:37) [GET]
+  Parameters: {"action"=>"login", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/login
+Completed in 0.02452 (40 reqs/sec) | Rendering: 0.02109 (86%) | DB: 0.00066 (2%) | 200 OK [http://localhost/account/login]
+  [4;35;1mUser Columns (0.002867)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-04-27 19:01:42) [POST]
+  Parameters: {"user_login"=>"neuser_ja", "action"=>"login", "controller"=>"account", "user_password"=>"enola", "login"=>"Login \302\273"}
+  [4;36;1mUser Load (0.003938)[0m   [0;1mSELECT * FROM users WHERE (login = 'neuser_ja' AND password = '531d26a7d74ef0df1c63d74f90ae011fa2a473a1') LIMIT 1[0m
+Redirected to http://localhost:3000/account/welcome
+Completed in 0.01457 (68 reqs/sec) | DB: 0.00681 (46%) | 302 Found [http://localhost/account/login]
+  [4;35;1mUser Columns (0.000482)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#welcome (for 127.0.0.1 at 2006-04-27 19:01:42) [GET]
+  Parameters: {"action"=>"welcome", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/welcome
+Rendered account/_navi (0.02776)
+Completed in 0.06708 (14 reqs/sec) | Rendering: 0.06055 (90%) | DB: 0.00048 (0%) | 200 OK [http://localhost/account/welcome]
+  [4;36;1mUser Columns (0.011841)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#list (for 127.0.0.1 at 2006-04-27 19:01:45) [GET]
+  Parameters: {"action"=>"list", "controller"=>"users"}
+  [4;35;1mUser Count (0.005305)[0m   [0mSELECT COUNT(*) FROM users [0m
+  [4;36;1mUser Load (0.005453)[0m   [0;1mSELECT * FROM users LIMIT 0, 10[0m
+Rendering  within layouts/users
+Rendering users/list
+Rendered users/_navi (0.01824)
+Completed in 0.06662 (15 reqs/sec) | Rendering: 0.04682 (70%) | DB: 0.02260 (33%) | 200 OK [http://localhost/users/list]
+  [4;35;1mUser Columns (0.000772)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#list (for 127.0.0.1 at 2006-04-27 19:01:48) [GET]
+  Parameters: {"action"=>"list", "controller"=>"users"}
+  [4;36;1mUser Count (0.000687)[0m   [0;1mSELECT COUNT(*) FROM users [0m
+  [4;35;1mUser Load (0.001423)[0m   [0mSELECT * FROM users LIMIT 0, 10[0m
+Rendering  within layouts/users
+Rendering users/list
+Rendered users/_navi (0.00560)
+Completed in 0.03340 (29 reqs/sec) | Rendering: 0.01576 (47%) | DB: 0.00288 (8%) | 200 OK [http://localhost/users/list]
+  [4;36;1mUser Columns (0.001333)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#list (for 127.0.0.1 at 2006-04-27 19:02:49) [GET]
+  Parameters: {"action"=>"list", "controller"=>"users"}
+  [4;35;1mUser Count (0.006285)[0m   [0mSELECT COUNT(*) FROM users [0m
+  [4;36;1mUser Load (0.000330)[0m   [0;1mSELECT * FROM users LIMIT 0, 10[0m
+Rendering  within layouts/users
+Rendering users/list
+Rendered users/_navi (0.00563)
+Completed in 0.03839 (26 reqs/sec) | Rendering: 0.02356 (61%) | DB: 0.00795 (20%) | 200 OK [http://localhost/users/list]
+  [4;35;1mUser Columns (0.001506)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#list (for 127.0.0.1 at 2006-04-27 19:03:51) [GET]
+  Parameters: {"action"=>"list", "controller"=>"users"}
+  [4;36;1mUser Count (0.002990)[0m   [0;1mSELECT COUNT(*) FROM users [0m
+  [4;35;1mUser Load (0.000250)[0m   [0mSELECT * FROM users LIMIT 0, 10[0m
+Rendering  within layouts/users
+Rendering users/list
+Rendered users/_navi (0.00634)
+Completed in 0.03526 (28 reqs/sec) | Rendering: 0.02361 (66%) | DB: 0.00475 (13%) | 200 OK [http://localhost/users/list]
+  [4;36;1mUser Columns (0.000622)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#list (for 127.0.0.1 at 2006-04-27 19:03:56) [GET]
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;35;1mTicket Count (0.008502)[0m   [0mSELECT COUNT(*) FROM tickets WHERE (betreuer_id = 1 && ticket_status != 5) [0m
+  [4;36;1mTicket Load (0.002878)[0m   [0;1mSELECT * FROM tickets WHERE (betreuer_id = 1 && ticket_status != 5) ORDER BY created_on LIMIT 0, 10[0m
+  [4;35;1mTicket Count (0.000864)[0m   [0mSELECT COUNT(*) FROM tickets WHERE (betreuer_id != 1 && ticket_status != 5 ) [0m
+  [4;36;1mTicket Load (0.004880)[0m   [0;1mSELECT * FROM tickets WHERE (betreuer_id != 1 && ticket_status != 5 ) ORDER BY created_on LIMIT 0, 10[0m
+  [4;35;1mTicket Count (0.002895)[0m   [0mSELECT COUNT(*) FROM tickets WHERE (Ticket_status = 5 ) [0m
+  [4;36;1mTicket Load (0.001619)[0m   [0;1mSELECT * FROM tickets WHERE (Ticket_status = 5 ) ORDER BY created_on DESC LIMIT 0, 10[0m
+Rendering  within layouts/tickets
+Rendering tickets/list
+  [4;35;1mTicket Columns (0.003316)[0m   [0mSHOW FIELDS FROM tickets[0m
+  [4;36;1mUser Load (0.000884)[0m   [0;1mSELECT * FROM users WHERE (users.id = 1) LIMIT 1[0m
+  [4;35;1mClient Load (0.000249)[0m   [0mSELECT * FROM clients WHERE (clients.id = 2) LIMIT 1[0m
+  [4;36;1mClient Columns (0.000442)[0m   [0;1mSHOW FIELDS FROM clients[0m
+Rendered tickets/_list (0.06305)
+Rendered tickets/_list (0.00038)
+Rendered tickets/_list (0.00030)
+Rendered layouts/_navi (0.02300)
+Completed in 0.18364 (5 reqs/sec) | Rendering: 0.11488 (62%) | DB: 0.02715 (14%) | 200 OK [http://localhost/tickets/list]
+  [4;35;1mUser Columns (0.010441)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#list (for 127.0.0.1 at 2006-04-27 19:04:05) [GET]
+  Parameters: {"action"=>"list", "controller"=>"users"}
+  [4;36;1mUser Count (0.003439)[0m   [0;1mSELECT COUNT(*) FROM users [0m
+  [4;35;1mUser Load (0.003287)[0m   [0mSELECT * FROM users LIMIT 0, 10[0m
+Rendering  within layouts/users
+Rendering users/list
+Rendered users/_navi (0.01707)
+Completed in 0.04463 (22 reqs/sec) | Rendering: 0.02839 (63%) | DB: 0.01717 (38%) | 200 OK [http://localhost/users/list]
+  [4;36;1mUser Columns (0.001003)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2006-04-27 19:04:17) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Load (0.005557)[0m   [0mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+Rendering  within layouts/users
+Rendering users/show
+Rendered users/_navi (0.00572)
+Completed in 0.08454 (11 reqs/sec) | Rendering: 0.06582 (77%) | DB: 0.00656 (7%) | 200 OK [http://localhost/users/show/1]
+  [4;36;1mUser Columns (0.005650)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing Base#index (for 127.0.0.1 at 2006-04-27 19:04:17) [GET]
+  Parameters: {}
+
+
+ActionController::RoutingError (Recognition failed for "/user/user_pic/1/jan.jpg"):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/routing.rb:469:in `recognition_failed'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/routing.rb:459:in `recognize!'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/dispatcher.rb:38:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:117:in `handle_dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:83:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:96:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:69:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/server.rb:28
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+  [4;35;1mUser Columns (0.002261)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2006-04-27 19:04:52) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Load (0.000268)[0m   [0;1mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+Rendering  within layouts/users
+Rendering users/show
+Rendered users/_navi (0.00400)
+Completed in 0.02982 (33 reqs/sec) | Rendering: 0.02215 (74%) | DB: 0.00818 (27%) | 200 OK [http://localhost/users/show/1]
+  [4;35;1mUser Columns (0.023536)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing Base#index (for 127.0.0.1 at 2006-04-27 19:04:53) [GET]
+  Parameters: {}
+
+
+ActionController::RoutingError (Recognition failed for "/user/user_pic/1/jan.jpg"):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/routing.rb:469:in `recognition_failed'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/routing.rb:459:in `recognize!'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/dispatcher.rb:38:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:117:in `handle_dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:83:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:96:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:69:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/server.rb:28
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+  [4;36;1mUser Columns (0.004397)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2006-04-27 19:05:01) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;35;1mUser Load (0.004670)[0m   [0mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+Rendering  within layouts/users
+Rendering users/show
+Rendered users/_navi (0.00815)
+Completed in 0.04010 (24 reqs/sec) | Rendering: 0.02637 (65%) | DB: 0.03260 (81%) | 200 OK [http://localhost/users/show/1]
+  [4;36;1mUser Columns (0.022803)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing Base#index (for 127.0.0.1 at 2006-04-27 19:05:03) [GET]
+  Parameters: {}
+
+
+ActionController::RoutingError (Recognition failed for "/user/user_pic/1/jan.jpg"):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/routing.rb:469:in `recognition_failed'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/routing.rb:459:in `recognize!'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/dispatcher.rb:38:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:117:in `handle_dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:83:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:96:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:69:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/server.rb:28
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+  [4;35;1mUser Columns (0.008200)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#list (for 127.0.0.1 at 2006-04-27 19:05:07) [GET]
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;36;1mTicket Count (0.002482)[0m   [0;1mSELECT COUNT(*) FROM tickets WHERE (betreuer_id = 1 && ticket_status != 5) [0m
+  [4;35;1mTicket Load (0.002568)[0m   [0mSELECT * FROM tickets WHERE (betreuer_id = 1 && ticket_status != 5) ORDER BY created_on LIMIT 0, 10[0m
+  [4;36;1mTicket Count (0.001776)[0m   [0;1mSELECT COUNT(*) FROM tickets WHERE (betreuer_id != 1 && ticket_status != 5 ) [0m
+  [4;35;1mTicket Load (0.008130)[0m   [0mSELECT * FROM tickets WHERE (betreuer_id != 1 && ticket_status != 5 ) ORDER BY created_on LIMIT 0, 10[0m
+  [4;36;1mTicket Count (0.000959)[0m   [0;1mSELECT COUNT(*) FROM tickets WHERE (Ticket_status = 5 ) [0m
+  [4;35;1mTicket Load (0.000927)[0m   [0mSELECT * FROM tickets WHERE (Ticket_status = 5 ) ORDER BY created_on DESC LIMIT 0, 10[0m
+Rendering  within layouts/tickets
+Rendering tickets/list
+  [4;36;1mTicket Columns (0.001507)[0m   [0;1mSHOW FIELDS FROM tickets[0m
+  [4;35;1mUser Load (0.005443)[0m   [0mSELECT * FROM users WHERE (users.id = 1) LIMIT 1[0m
+  [4;36;1mClient Load (0.000316)[0m   [0;1mSELECT * FROM clients WHERE (clients.id = 2) LIMIT 1[0m
+  [4;35;1mClient Columns (0.003297)[0m   [0mSHOW FIELDS FROM clients[0m
+Rendered tickets/_list (0.04384)
+Rendered tickets/_list (0.00038)
+Rendered tickets/_list (0.00039)
+Rendered layouts/_navi (0.00883)
+Completed in 0.11797 (8 reqs/sec) | Rendering: 0.04997 (42%) | DB: 0.05841 (49%) | 200 OK [http://localhost/tickets/list]
+  [4;36;1mUser Columns (0.002049)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#list (for 127.0.0.1 at 2006-04-27 19:05:09) [GET]
+  Parameters: {"action"=>"list", "controller"=>"users"}
+  [4;35;1mUser Count (0.002182)[0m   [0mSELECT COUNT(*) FROM users [0m
+  [4;36;1mUser Load (0.001598)[0m   [0;1mSELECT * FROM users LIMIT 0, 10[0m
+Rendering  within layouts/users
+Rendering users/list
+Rendered users/_navi (0.00883)
+Completed in 0.04026 (24 reqs/sec) | Rendering: 0.02653 (65%) | DB: 0.00583 (14%) | 200 OK [http://localhost/users/list]
+  [4;35;1mUser Columns (0.002572)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#list (for 127.0.0.1 at 2006-04-27 19:06:03) [GET]
+  Parameters: {"action"=>"list", "controller"=>"users"}
+  [4;36;1mUser Count (0.009063)[0m   [0;1mSELECT COUNT(*) FROM users [0m
+  [4;35;1mUser Load (0.004581)[0m   [0mSELECT * FROM users LIMIT 0, 10[0m
+Rendering  within layouts/users
+Rendering users/list
+Rendered users/_navi (0.00555)
+Completed in 0.04358 (22 reqs/sec) | Rendering: 0.01471 (33%) | DB: 0.01622 (37%) | 200 OK [http://localhost/users/list]
+  [4;36;1mUser Columns (0.001872)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing TicketsController#list (for 127.0.0.1 at 2006-04-27 19:06:10) [GET]
+  Parameters: {"action"=>"list", "controller"=>"tickets"}
+  [4;35;1mTicket Count (0.004523)[0m   [0mSELECT COUNT(*) FROM tickets WHERE (betreuer_id = 1 && ticket_status != 5) [0m
+  [4;36;1mTicket Load (0.000237)[0m   [0;1mSELECT * FROM tickets WHERE (betreuer_id = 1 && ticket_status != 5) ORDER BY created_on LIMIT 0, 10[0m
+  [4;35;1mTicket Count (0.000189)[0m   [0mSELECT COUNT(*) FROM tickets WHERE (betreuer_id != 1 && ticket_status != 5 ) [0m
+  [4;36;1mTicket Load (0.000201)[0m   [0;1mSELECT * FROM tickets WHERE (betreuer_id != 1 && ticket_status != 5 ) ORDER BY created_on LIMIT 0, 10[0m
+  [4;35;1mTicket Count (0.000176)[0m   [0mSELECT COUNT(*) FROM tickets WHERE (Ticket_status = 5 ) [0m
+  [4;36;1mTicket Load (0.000207)[0m   [0;1mSELECT * FROM tickets WHERE (Ticket_status = 5 ) ORDER BY created_on DESC LIMIT 0, 10[0m
+Rendering  within layouts/tickets
+Rendering tickets/list
+  [4;35;1mTicket Columns (0.000412)[0m   [0mSHOW FIELDS FROM tickets[0m
+  [4;36;1mUser Load (0.000281)[0m   [0;1mSELECT * FROM users WHERE (users.id = 1) LIMIT 1[0m
+  [4;35;1mClient Load (0.000245)[0m   [0mSELECT * FROM clients WHERE (clients.id = 2) LIMIT 1[0m
+  [4;36;1mClient Columns (0.000460)[0m   [0;1mSHOW FIELDS FROM clients[0m
+Rendered tickets/_list (0.03109)
+Rendered tickets/_list (0.00035)
+Rendered tickets/_list (0.00030)
+Rendered layouts/_navi (0.01057)
+Completed in 0.11189 (8 reqs/sec) | Rendering: 0.04928 (44%) | DB: 0.00880 (7%) | 200 OK [http://localhost/tickets/list]
+  [4;35;1mUser Columns (0.011820)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#list (for 127.0.0.1 at 2006-04-27 19:07:08) [GET]
+  Parameters: {"action"=>"list", "controller"=>"users"}
+  [4;36;1mUser Count (0.001118)[0m   [0;1mSELECT COUNT(*) FROM users [0m
+  [4;35;1mUser Load (0.001319)[0m   [0mSELECT * FROM users LIMIT 0, 10[0m
+Rendering  within layouts/users
+Rendering users/list
+Rendered users/_navi (0.00552)
+Completed in 0.02811 (35 reqs/sec) | Rendering: 0.01474 (52%) | DB: 0.01426 (50%) | 200 OK [http://localhost/users/list]
+  [4;36;1mUser Columns (0.028241)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#logout (for 127.0.0.1 at 2006-04-27 19:07:13) [GET]
+  Parameters: {"action"=>"logout", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/logout
+Completed in 0.04400 (22 reqs/sec) | Rendering: 0.03336 (75%) | DB: 0.02824 (64%) | 200 OK [http://localhost/account/logout]
+
+
+Processing AccountController#signup (for 127.0.0.1 at 2006-04-27 19:07:16) [GET]
+  Parameters: {"action"=>"signup", "controller"=>"account"}
+  [4;35;1mUser Columns (0.009296)[0m   [0mSHOW FIELDS FROM users[0m
+Rendering  within layouts/account
+Rendering account/signup
+Completed in 0.06476 (15 reqs/sec) | Rendering: 0.03905 (60%) | DB: 0.00930 (14%) | 200 OK [http://localhost/account/signup]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-04-27 19:07:21) [GET]
+  Parameters: {"action"=>"login", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/login
+Completed in 0.01682 (59 reqs/sec) | Rendering: 0.00786 (46%) | DB: 0.00000 (0%) | 200 OK [http://localhost/account/login]
+
+
+Processing AccountController#login (for 127.0.0.1 at 2006-04-27 19:07:27) [POST]
+  Parameters: {"user_login"=>"neuser_ja", "action"=>"login", "controller"=>"account", "user_password"=>"enola", "login"=>"Login \302\273"}
+  [4;36;1mUser Load (0.000278)[0m   [0;1mSELECT * FROM users WHERE (login = 'neuser_ja' AND password = '531d26a7d74ef0df1c63d74f90ae011fa2a473a1') LIMIT 1[0m
+  [4;35;1mUser Columns (0.003556)[0m   [0mSHOW FIELDS FROM users[0m
+Redirected to http://localhost:3000/account/welcome
+Completed in 0.18988 (5 reqs/sec) | DB: 0.00383 (2%) | 302 Found [http://localhost/account/login]
+  [4;36;1mUser Columns (0.000593)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#welcome (for 127.0.0.1 at 2006-04-27 19:07:27) [GET]
+  Parameters: {"action"=>"welcome", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/welcome
+Rendered account/_navi (0.01892)
+Completed in 0.03880 (25 reqs/sec) | Rendering: 0.03540 (91%) | DB: 0.00059 (1%) | 200 OK [http://localhost/account/welcome]
+  [4;35;1mUser Columns (0.000533)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#list (for 127.0.0.1 at 2006-04-27 19:07:30) [GET]
+  Parameters: {"action"=>"list", "controller"=>"users"}
+  [4;36;1mUser Count (0.003948)[0m   [0;1mSELECT COUNT(*) FROM users [0m
+  [4;35;1mUser Load (0.006484)[0m   [0mSELECT * FROM users LIMIT 0, 10[0m
+Rendering  within layouts/users
+Rendering users/list
+Rendered users/_navi (0.00578)
+Completed in 0.03841 (26 reqs/sec) | Rendering: 0.01502 (39%) | DB: 0.01097 (28%) | 200 OK [http://localhost/users/list]
+  [4;36;1mUser Columns (0.000680)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#list (for 127.0.0.1 at 2006-04-27 19:09:04) [GET]
+  Parameters: {"action"=>"list", "controller"=>"users"}
+  [4;35;1mUser Count (0.000267)[0m   [0mSELECT COUNT(*) FROM users [0m
+  [4;36;1mUser Load (0.000248)[0m   [0;1mSELECT * FROM users LIMIT 0, 10[0m
+Rendering  within layouts/users
+Rendering users/list
+Rendered users/_navi (0.02817)
+Completed in 0.06075 (16 reqs/sec) | Rendering: 0.05349 (88%) | DB: 0.00119 (1%) | 200 OK [http://localhost/users/list]
+  [4;35;1mUser Columns (0.003298)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#show (for 127.0.0.1 at 2006-04-27 19:09:20) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"users"}
+  [4;36;1mUser Load (0.004968)[0m   [0;1mSELECT * FROM users WHERE (users.id = '1') LIMIT 1[0m
+Rendering  within layouts/users
+Rendering users/show
+Rendered users/_navi (0.01049)
+Completed in 0.07006 (14 reqs/sec) | Rendering: 0.05519 (78%) | DB: 0.00827 (11%) | 200 OK [http://localhost/users/show/1]
+  [4;35;1mUser Columns (0.000481)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing Base#index (for 127.0.0.1 at 2006-04-27 19:09:20) [GET]
+  Parameters: {}
+
+
+ActionController::RoutingError (Recognition failed for "/user/user_pic/1/jan.jpg"):
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/routing.rb:469:in `recognition_failed'
+    /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/routing.rb:459:in `recognize!'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/dispatcher.rb:38:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:117:in `handle_dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:83:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+    /usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+    /usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+    /usr/lib/ruby/1.8/webrick/server.rb:96:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+    /usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/webrick_server.rb:69:in `dispatch'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/servers/webrick.rb:59
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    /usr/lib/ruby/gems/1.8/gems/rails-1.0.0/lib/commands/server.rb:28
+    /usr/local/lib/site_ruby/1.8/rubygems/custom_require.rb:21:in `require'
+    /usr/lib/ruby/gems/1.8/gems/activesupport-1.2.5/lib/active_support/dependencies.rb:214:in `require'
+    script/server:3
+
+
+Rendering /usr/lib/ruby/gems/1.8/gems/actionpack-1.11.2/lib/action_controller/templates/rescues/layout.rhtml (404 Page Not Found)
+  [4;36;1mUser Columns (0.002346)[0m   [0;1mSHOW FIELDS FROM users[0m
+
+
+Processing UsersController#list (for 127.0.0.1 at 2006-04-27 19:09:48) [GET]
+  Parameters: {"action"=>"list", "controller"=>"users"}
+  [4;35;1mUser Count (0.002555)[0m   [0mSELECT COUNT(*) FROM users [0m
+  [4;36;1mUser Load (0.003549)[0m   [0;1mSELECT * FROM users LIMIT 0, 10[0m
+Rendering  within layouts/users
+Rendering users/list
+Rendered users/_navi (0.01162)
+Completed in 0.03439 (29 reqs/sec) | Rendering: 0.02098 (61%) | DB: 0.00893 (25%) | 200 OK [http://localhost/users/list]
+  [4;35;1mUser Columns (0.003598)[0m   [0mSHOW FIELDS FROM users[0m
+
+
+Processing AccountController#logout (for 127.0.0.1 at 2006-04-27 19:09:58) [GET]
+  Parameters: {"action"=>"logout", "controller"=>"account"}
+Rendering  within layouts/account
+Rendering account/logout
+Completed in 0.03343 (29 reqs/sec) | Rendering: 0.02866 (85%) | DB: 0.00360 (10%) | 200 OK [http://localhost/account/logout]

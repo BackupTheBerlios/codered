@@ -23,6 +23,15 @@
 		</td>
 		<td class="ghelp">In ihrem Profil k&ouml;nnen Sie ihre eingerichteten Datens&auml;tze immer auf dem Aktuellen stand halten.</td>
 	</tr>
+	<%  if @session[:rechte] >= 2 && @session[:rechte] <= 4 %>
+	<tr>
+		<td style="width:80px;text-align:center;">
+		<%= link_to image_tag("/images/profillist.png", 
+			:size => "32x32"),{ :controller => "users",:action => 'list' } %>
+		</td>
+		<td class="ghelp">Hier k&ouml;nnen sie sehen wer Mitglied am System ist und als Mentor k&ouml;nnen sie andere User hoch oder runter Stufen.</td>
+	</tr>
+	<% end %>
 	<tr>
 		<td style="width:80px;text-align:center;">
 			<%= link_to image_tag("/images/ticketlist.png", 
