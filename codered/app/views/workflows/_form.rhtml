@@ -1,7 +1,41 @@
-<div class="workflow" style="width:450px;padding:10px;">
+<div class="workflow" style="width:450px;padding:10px;text-align:center;">
 <% unless @regeln.nil? or @regeln.empty? %>
-<% @regeln.each do |regel| %>
-<%= if regel == 1 then
+
+<table border="0" cellspacing="0" cellpadding="0">
+	<tr align="center">
+		<td style="width:110px">
+		<% @regeln.each do |regel| %>
+		<%= if regel == 1 then
+		 image_tag("/images/freitext.png", :size => "22x22")
+		end %>
+		<% end %>
+		</td>
+		<td style="width:110px">
+		<% @regeln.each do |regel| %>
+		<%= if regel == 2 then
+		 image_tag("/images/fertig.png", :size => "22x22")
+		end %>
+		<% end %>
+		</td>
+		<td style="width:120px">
+		<% @regeln.each do |regel| %>
+		<%= if regel == 3 then
+		 image_tag("/images/zurueckweisen.png", :size => "22x22")
+		end %>
+		<% end %>
+		</td>
+		<td style="width:110px">
+		<% @regeln.each do |regel| %>
+		<%= if regel == 4 then
+		 image_tag("/images/zuweisen.png", :size => "22x22")
+		end %>
+		<% end %>
+		</td>
+	</tr>
+	<tr align="center">
+		<td class="silvertext">
+		<% @regeln.each do |regel| %>
+	<%= if regel == 1 then
 	link_to_remote("Freie Beschreibung",
 	:url => { :action => 'new_freitext', :controller => 'workflows', :ticket => @ticket, :grund => "freitext" },
 	:update => "new_wf" ,
@@ -11,12 +45,15 @@
 	return false;",
 	:complete => "Effect.SlideDown('new_wf', { duration: 1.0 });
 	$('msg_area_wf').innerHTML = 'Geben sie eine Beschreibung ein:';
-	$('helper').innerHTML = 'Hier kÃ¶nnen sie ein freie Beschreibung eingeben, z.b. Zwischenbericht.';
+	$('helper').innerHTML = 'Hier können sie ein freie Beschreibung eingeben, z.b. Zwischenbericht.';
 	Element.hide('new_wf');
 	return false;")
-end %>
-
-<%= if regel == 2 then
+	end %>
+	<% end %>
+		</td>
+		<td class="silvertext">
+		<% @regeln.each do |regel| %>
+	<%= if regel == 2 then
 	link_to_remote("Ticket abschliessen",
 	:url => { :action => 'new_schliessen', :controller => 'workflows', :ticket => @ticket },
 	:update => "new_wf" ,
@@ -26,12 +63,15 @@ end %>
 	return false;",
 	:complete => "Effect.SlideDown('new_wf', { duration: 1.0 });
 	$('msg_area_wf').innerHTML = 'Grund und Status eingeben:';
-	$('helper').innerHTML = 'WÃ¤hlen Sie hier den Abschluss des Tickets und geben sie eine Beschreibung dazu ein';
+	$('helper').innerHTML = 'Wählen Sie hier den Abschluss des Tickets und geben sie eine Beschreibung dazu ein';
 	Element.hide('new_wf');
 	return false;")
-end %>
-
-<%= if regel == 3 then link_to_remote("Ticket zurÃ¼ckweisen",
+	end %>
+	<% end %>
+		</td>
+		<td class="silvertext">
+		<% @regeln.each do |regel| %>
+	<%= if regel == 3 then link_to_remote("Ticket zur&uuml;ckweisen",
 	:url => { :action => 'new_zurueckweisen', :controller => 'workflows', :ticket => @ticket, :grund => "zurueckweisen"},
 	:update => "new_wf" ,
 	:loading => "Element.show('msg_area_wf');
@@ -40,11 +80,14 @@ end %>
 	return false;",
 	:complete => "Effect.SlideDown('new_wf', { duration: 1.0 });
 	$('msg_area_wf').innerHTML = 'Grund und oder Beschreibung eingeben:';
-	$('helper').innerHTML = 'Hiermit kÃ¶nnen sie ein Ticket ablehnen.';
+	$('helper').innerHTML = 'Hiermit können sie ein Ticket ablehnen.';
 	Element.hide('new_wf');
 	return false;")
-end %>
-
+end %> 
+<% end %>
+		</td>
+		<td class="silvertext">
+		<% @regeln.each do |regel| %>
 <%= if regel == 4 then link_to_remote("Zuweisen",
 	:url => { :action => 'new_zuweisen', :controller => 'workflows', :ticket => @ticket, :grund => "zuweisen"},
 	:update => "new_wf" ,
@@ -53,12 +96,16 @@ end %>
 	$('msg_area_wf').innerHTML = 'Laden ...';
 	return false;",
 	:complete => "Effect.SlideDown('new_wf', { duration: 1.0 });
-	$('msg_area_wf').innerHTML = 'WÃ¤hlen sie hier den Betreuer aus:';
-	$('helper').innerHTML = 'Hier kÃ¶nnen sie einen Betreuer aus der Liste wÃ¤hlen und ihm dieses Ticket zuweisen.';
+	$('msg_area_wf').innerHTML = 'Wählen sie hier den Betreuer aus:';
+	$('helper').innerHTML = 'Hier können sie einen Betreuer aus der Liste wählen und ihm dieses Ticket zuweisen.';
 	Element.hide('new_wf');
 	return false;")
 end %>
 <% end %>
+		</td>
+	</tr>
+</table>
 <% end %>
+<br/>
 	<a href="#" onclick="effect_1 = Effect.SlideUp('new_wf',{duration:1.0});Element.show('new_wf_h');Element.hide('msg_area_wf');return false;">Verstecken</a>
 </div>
