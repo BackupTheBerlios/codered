@@ -97,8 +97,8 @@ http://www.dyndns.com/ - Account
 	Name: stsw
 	Passwort: 2KkDCrcB3Q
 	Hostname:  stsw-intern.dyndns.org
-	## In der config eintragen damit die "externe" ip uebertraggen wird		
-	use=web,      web=checkip.dyndns.org/,       fw-skip='IP Address'
+## In der config eintragen damit die "externe" ip uebertraggen wird		
+use=web,      web=checkip.dyndns.org/,       fw-skip='IP Address'
 
 5) HTTPS Konfiguration
 login als root
