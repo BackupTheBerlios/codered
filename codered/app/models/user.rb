@@ -51,7 +51,7 @@ class User < ActiveRecord::Base
 #    end        
   end  
   
-  validates_uniqueness_of :login, :on => :create
+  validates_uniqueness_of :login
   validates_inclusion_of :user_rule, :in=> 2..10  #verhindert das 0 oder 1 eingetragen werden (1=Admin)
   validates_confirmation_of :password
   validates_length_of :login, :within => 3..40
