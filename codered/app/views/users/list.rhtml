@@ -1,30 +1,23 @@
 <%= render_partial 'navi' %>
-<br />
-<span class="backgrey">User Liste</span>
-<div class="user">
 	<div class="statusbar">
 		<%= flash[:notice] %>
 	</div>
-<table width="600px" border="0" cellspacing="0" cellpadding="0">
-<%
-	endweder_oder = 0
-	for user in @users
-		endweder_oder = 1 - endweder_oder
-%>	
-<tr valign="top" class="ListLinie<%= endweder_oder %>">
-	<td valign="middle" class="darkgrey">Login: <%= link_to h(user.login), :action => 'show', :id => user %></td>
-	<td valign="middle" class="darkgrey">Name: <%= link_to h(user.user_name), :action => 'show', :id => user %></td>
-	<td class="darkgrey" valign="middle">Klasse: <%= link_to h(user.user_klasse), :action => 'show', :id => user %></td>
-    <td class="darkgrey" valign="middle"></td>
-	<% if @session[:rechte] == 1 then %>
-	<td class="darkgrey" valign="middle"><%= link_to image_tag("/images/remove.png", :size => "32x32"),
-		{:action => 'destroy', :id => user}, :confirm => 'Sind Sie sicher?' %>
-	</td>
-	<% end %>
-</tr>
-<% end %>
-</table>
-<div style="width:600px; margin-right: auto; text-align:right;">
-<%= link_to image_tag("/images/page_back.png", :size => "32x32"), { :page => @user_pages.current.previous } if @user_pages.current.previous %><%= link_to image_tag("/images/page_next.png", :size => "32x32", :border => 0), { :page => @user_pages.current.next } if @user_pages.current.next %>
-</div>
-</div>
+<span class="backgrey">Mentoren</span>
+	<div id="mentoren_results" class="user">
+	<%= @users = @mentor_users.reverse ;@user_pages = @mentor_user_pages; @update = "mentoren_results"; render_partial('list') %>
+	</div>
+	<br />
+<span class="backgrey">Kontakte</span>
+	<div id="kontakte_results" class="user">
+	<%= @users = @kontakt_users.reverse ;@user_pages = @kontakt_user_pages; @update = "kontakt_results";  render_partial('list') %>	
+	</div>
+	<br />	
+<span class="backgrey">Betreuer</span>
+	<div id="betreuer_results" class="user">
+	<%= @users = @betreuer_users.reverse ;@user_pages = @betreuer_user_pages; @update = "betreuer_results";  render_partial('list') %>
+	</div>
+	<br />
+<span class="backgrey">Deaktiviert</span>
+	<div id="deaktivatet_results" class="user">
+	<%= @users = @deaktivatet_users.reverse ;@user_pages = @deaktivatet_user_pages; @update = "deaktivatet_results";  render_partial('list') %>
+	</div>

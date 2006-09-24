@@ -75,7 +75,7 @@
 					E-Mail:
 					</td>
 				 	<td>
-						<span id="email"><%= if @user.user_email != "" then h(@user.user_email) else render :inline => "Kein Eintrag" end  %></span>
+						<span id="email"><%= if @user.user_email != "" then mail_to h(@user.user_email) , h(@user.user_email) else render :inline => "Kein Eintrag" end  %></span>
 				 	</td>
 				</tr>
 			</table>

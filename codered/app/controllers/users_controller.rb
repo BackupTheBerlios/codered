@@ -7,8 +7,19 @@ before_filter :login_required
   end
 
   def list
-
     @user_pages, @users = paginate :users, :per_page => 10
+    @mentor_user_pages, @mentor_users = paginate :users, :per_page => 10,
+	:conditions => ["user_rule = 2"],
+	:order => 'updated_on'
+    @betreuer_user_pages, @betreuer_users = paginate :users, :per_page => 10,
+	:conditions => ["user_rule = 3"],
+	:order => 'updated_on'
+    @deaktivatet_user_pages, @deaktivatet_users = paginate :users, :per_page => 10,
+	:conditions => ["user_rule = 5"],
+	:order => 'updated_on'
+    @kontakt_user_pages, @kontakt_users = paginate :users, :per_page => 10,
+	:conditions => ["user_rule = 4"],
+	:order => 'updated_on'
   end
   
  # Add this line to get uplaod status for your action 
@@ -151,7 +162,8 @@ upload_status_for :update_pic
 		if @session[:rechte] <= 2
 		if @user.update_attribute(:user_rule, params[:user][:user_rule])
 			CodeRedMailer::deliver_user_rule_change(@user)
-			render :layout => false, :inline => "<%= h(@user.user_rule) %>" 
+		#	render :layout => false, :inline => "<%= h(@user.user_rule) %>" 
+			redirect_to :action => 'show', :id => @user.id
 		else
 			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
 		end
