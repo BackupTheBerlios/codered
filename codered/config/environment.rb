@@ -50,3 +50,7 @@ end
 
 # Include your application configuration below
 #ActionController::Base.enable_upload_progress
+
+require 'file_column'
+require 'file_column_helper'
+require 'rails_file_column'

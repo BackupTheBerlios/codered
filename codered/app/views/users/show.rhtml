@@ -2,9 +2,19 @@
 <br />
 	<span class="backgrey">Users Card</span>
 	<div class="user">
-	<div class="statusbar">
-		<%= flash[:notice] %>
+			<br />
+	<div class="left"> 
+	<div class="notice">
+		<% if flash[:notice] then %>
+		<tr>
+				<td><img src="/images/warnung.png " alt="Warnung"/></td>
+				<td><%= flash[:notice] %></td>
+		</tr>
+		<br />
+		<% end %>
 	</div>
+	</div>
+	<div class="right">
 	<div class="pic">
 	<div style="text-align:center;">
 		<%= if url_for_file_column("user", "user_pic") then
@@ -15,25 +25,31 @@
 		</div>
 		<% if @session[:rechte] == 1 || @user.id == @session[:user].id  %>
 			<%= form_tag_with_upload_progress({:action => 'update_pic', :id => @user.id }, {}, {:action => :custom_status}) %>
+			<%= file_field 'user', 'user_pic',{"size" => 5} %>
 			<%= upload_status_tag %>
-			<%= file_field 'user', 'user_pic', {"size" => 5}  %>
-			<br /><br />
 			<%= submit_tag "Speichern" %>
-			<br />
 			<%= end_form_tag %>
-		<% end %>
+
+			<% end %>
   <div id="status" style="display: none">
   </div>
 
   <div id="message"><%= @message %></div>
 
 	</div><!-- class="pic"-->
+	</div><!-- class="right"-->
 	<div class="left">
 		<div class="login">
 			Login Name:
-			<p id="login"><%=h @user.login %></p>
+			<p>
+			<%= if @user == @session[:user] 
+			    in_place_editor_field 'user', 'login', {}, :script => true
+			else
+			    h(@user.login)
+			end%>
+			</p>
 		</div>
-		<div class="adress">
+	<div class="adress">
 			Kontakt Informationen:
 			<table>
 				<tr>
@@ -41,8 +57,20 @@
 						Name:
 					</td>
 					<td>
-						<span id="vorname"><%= if @user.user_vorname != "" then h(@user.user_vorname + " ") else render :inline => "Kein Eintrag" end  %></span>
-						<span id="name"><%= if @user.user_name != "" then h(@user.user_name) else render :inline => "Kein Eintrag" end  %></span>
+						<span id="vorname">
+						<%= if @user == @session[:user] 
+						in_place_editor_field 'user', 'user_vorname', {}, :script => true
+						else
+						    h(@user.user_vorname)
+						end%>
+						</span>
+						<span id="name">
+						<%= if @user == @session[:user] 
+						in_place_editor_field 'user', 'user_name', {}, :script => true
+						else
+						    h(@user.user_name)
+						end%>
+						</span>
 					</td>
 				</tr>
 				<tr>
@@ -50,15 +78,33 @@
 						Adresse:
 					</td>
 				 	<td>
-						<span id="strasse"><%= if @user.user_strasse != "" then h(@user.user_strasse) else render :inline => "Kein Eintrag" end  %></span>
+						<span id="strasse">
+						<%= if @user == @session[:user] 
+						in_place_editor_field 'user', 'user_strasse', {}, :script => true
+						else
+						    h(@user.user_strasse)
+						end%>
+						</span>
 				 	</td>
 				</tr>
 				<tr>
 					<td style="width:50px;">
 					</td>
 				 	<td>
-						<span id="plz"><%= if @user.user_plz != "" then h(@user.user_plz) else render :inline => "Kein Eintrag" end  %></span>
-						<span id="ort"><%= if @user.user_ort != "" then h(@user.user_ort) else render :inline => "Kein Eintrag" end  %></span>
+						<span id="plz">
+						<%= if @user == @session[:user] 
+						in_place_editor_field 'user', 'user_plz', {}, :script => true
+						else
+						    h(@user.user_plz)
+						end%>
+						</span>
+						<span id="ort">
+						<%= if @user == @session[:user] 
+						in_place_editor_field 'user', 'user_ort', {}, :script => true
+						else
+						    h(@user.user_ort)
+						end%>
+						</span>
 
 				 	</td>
 				</tr>
@@ -67,7 +113,13 @@
 					 Klasse:
 					</td>
 				 	<td>
-						<span id="klasse"><%= if @user.user_klasse != "" then h(@user.user_klasse) else render :inline => "Kein Eintrag" end  %></span>
+						<span id="klasse">
+						<%= if @user == @session[:user] 
+						in_place_editor_field 'user', 'user_klasse', {}, :script => true
+						else
+						    h(@user.user_klasse)
+						end%>
+						</span>
 				 	</td>
 				</tr>
 				<tr>
@@ -75,24 +127,17 @@
 					E-Mail:
 					</td>
 				 	<td>
-						<span id="email"><%= if @user.user_email != "" then mail_to h(@user.user_email) , h(@user.user_email) else render :inline => "Kein Eintrag" end  %></span>
+						<span id="email">
+						<%= if @user == @session[:user] 
+						in_place_editor_field 'user', 'user_email', {}, :script => true
+						else
+						     mail_to @user.user_email, @user.user_email , :encode => "hex"
+						              # HEX macht es robots extrem schwierig es zu "klauen" *grins* 
+						end%>
+						</span>
 				 	</td>
 				</tr>
 			</table>
-
-			<% if @session[:rechte] == 1 || @user.id == @session[:user].id  %>
-
-			<script type="text/javascript">
-			new Ajax.InPlaceEditor('login', '/users/update_login/<%= @user.id %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
-			new Ajax.InPlaceEditor('name', '/users/update_name/<%= @user.id %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
-			new Ajax.InPlaceEditor('vorname', '/users/update_vorname/<%= @user.id %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
-			new Ajax.InPlaceEditor('strasse', '/users/update_strasse/<%= @user.id  %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
-			new Ajax.InPlaceEditor('plz', '/users/update_plz/<%= @user.id  %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
-			new Ajax.InPlaceEditor('ort', '/users/update_ort/<%= @user.id  %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
-			new Ajax.InPlaceEditor('klasse', '/users/update_klasse/<%= @user.id  %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
-			new Ajax.InPlaceEditor('email', '/users/update_email/<%= @user.id  %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
-			</script>
-			<% end %>
 		</div><!--class=adress-->
 		<div class="know">
 			Informationen:

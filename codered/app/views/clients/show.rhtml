@@ -2,9 +2,20 @@
 <br />
 <span class="backgrey">Clienten Card</span>
 <div class="user">
-	<div class="statusbar">
-		<%= flash[:notice] %>
+		<% if flash[:notice] then %>
+		<br />
+	<div class="left"> 
+	<div class="notice">
+		<table>
+		<tr>
+				<td><img src="/images/warnung.png " alt="Warnung"/></td>
+				<td><%= flash[:notice] %></td>
+		</tr>
+		</table>
 	</div>
+	</div>
+		<% end %>
+	<div class="right">
 	<div class="pic">
 	<div style="text-align:center;">
 		<%= if url_for_file_column("client", "client_pic") then
@@ -13,21 +24,32 @@
 				image_tag( "/images/profil.png", :border => 0)
 			end %>
 			</div>
-<%	if @session[:rechte] >= 1 && @session[:rechte] <= 4 %>
-			<%= form_tag_with_upload_progress({:action => 'update_pic',:user => @session[:user], :id => @client.id }, {}, {:action => :custom_status}) %>
-			<%= upload_status_tag %>
-			<br />
+		<% if @session[:rechte] >= 1 && @session[:rechte] <= 4 %>
+			<%= form_tag_with_upload_progress({:action => 'update_pic',:user => @session[:user],
+				:id => @client.id }, {}, {:action => :custom_status}) %>
 			<%= file_field 'client', 'client_pic',{"size" => 5} %>
-			<br /><br />
+			<%= upload_status_tag %>
 			<%= submit_tag "Speichern" %>
-			<br />
 			<%= end_form_tag %>
-			<% end %>
-	</div><!-- class="pic"-->	
+		<% end %>
+	</div><!-- class="pic"-->
+	<div style="text-align:center;">
+		<p>
+		<span class="silvertext">Erstellt von:</span>
+		<span class="statusbar"><%= link_to (h(@user.user_vorname + " " + @user.user_name)), :action => 'show', :controller => 'users', :id => @user%></span>
+		</p>
+	</div>
+	</div><!-- class="right"-->
 	<div class="left">
 		<div class="login">
 			Clienten Name:
-			<p id="c_name"><%=h @client.client_name %></p>
+			<p id="c_name">
+			<%= if @session[:rechte] == 2 ||@session[:rechte] == 1 ||@session[:user].id == @client.user_id
+	  			in_place_editor_field 'client', 'client_name', {}, :script => true
+			    else
+			        h(@client.client_name)
+			    end%>
+			</p>
 		</div><!-- class="login"-->
 		<div class="adress">
 			Kontakt Informationen:<br />
@@ -36,44 +58,57 @@
 					<td style="width:50px;">
 						Strasse:
 					</td>
-					<td>
-						<span id="c_strasse"><%=h @client.client_strasse %></span>
-					</td>
+					<td><span id="c_strasse">
+			<%= if @session[:rechte] == 2 ||@session[:rechte] == 1 ||@session[:user].id == @client.user_id
+	  			in_place_editor_field 'client', 'client_strasse', {}, :script => true
+			    else
+			        h(@client.client_strasse)
+			    end%>
+					</span></td>
 				</tr>
 				<tr>
 					<td style="width:50px;">
 						PLZ/Ort:
 					</td>
-					<td>
-						<span id="c_plz"><%=h @client.client_plz %></span> <span id="c_ort"><%=h @client.client_ort %></span>
+					<td><span id="c_plz">
+			<%= if @session[:rechte] == 2 ||@session[:rechte] == 1 ||@session[:user].id == @client.user_id
+	  			in_place_editor_field 'client', 'client_plz', {}, :script => true
+			    else
+			        h(@client.client_plz)
+			    end%>
+					</span>
+					<span id="c_ort">
+			<%= if @session[:rechte] == 2 ||@session[:rechte] == 1 ||@session[:user].id == @client.user_id
+	  			in_place_editor_field 'client', 'client_ort', {}, :script => true
+			    else
+			        h(@client.client_ort)
+			    end%>
+					</span>
 					</td>
 				</tr>
 				<tr>
 					<td style="width:50px;">
 						E-Mail:
 					</td>
-					<td>
-						<span id="c_email"><%=h @client.client_email %></span>
-					</td>
+					<td><span id="c_email">
+			<%= if @session[:rechte] == 2 ||@session[:rechte] == 1 ||@session[:user].id == @client.user_id
+	  			in_place_editor_field 'client', 'client_email', {}, :script => true
+			    else
+			        h(@client.client_email)
+			    end%>
+					</span></td>
 				</tr>
 				<tr>
 					<td style="width:50px;">
 					Notizen:	
 					</td>
-					<td>
-						<div id="c_beschreibung" class="beschreibung">
-						<%= if @client.beschreibung != "" then textilize( @client.beschreibung) else render :inline => "Kein Eintrag" end  %>
-						</div>
+					<td><div id="c_beschreibung" class="beschreibung"><%= textilize(@client.beschreibung)%>
+					</div>
 					</td>
 				</tr>
 			</table>
 <%	if @session[:rechte] >= 1 && @session[:rechte] <= 4 %>
 		<script type="text/javascript">
-			new Ajax.InPlaceEditor('c_strasse', '/clients/update_strasse/<%= @client.id %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
-			new Ajax.InPlaceEditor('c_plz', '/clients/update_plz/<%= @client.id %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
-			new Ajax.InPlaceEditor('c_ort', '/clients/update_ort/<%= @client.id %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
-			new Ajax.InPlaceEditor('c_email', '/clients/update_email/<%= @client.id %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
-			new Ajax.InPlaceEditor('c_name', '/clients/update_name/<%= @client.id %>',{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere..."});
 			new Ajax.InPlaceEditor('c_beschreibung', '/clients/update_beschreibung/<%= @client.id %>',
 					{"okText":"OK", "cancelText":"Abbrechen", "savingText":"Speichere...", 
 						rows:10, cols:35, loadTextURL:'/clients/return_unformatted_text/<%= @client.id %>'});
@@ -95,12 +130,19 @@
 			</span>
 			<br />
 			<div class="upload" id="hide1" style="display:none;">
-				<%= form_tag_with_upload_progress({:controller => 'reports', :action => 'create',:user => @session[:user], :client_id => @client.id }, {}, {:action => :custom_status}) %>
-				<%= text_area("report","beschreibung","cols" => 30, "rows" => 5)%>
-				<%= upload_status_tag %>
-				<%= file_field 'report', 'datei' %>
-				<%= submit_tag "Speichern" %>
-				<%= end_form_tag %>
+<%= form_tag_with_upload_progress({:controller => 'reports', :action => 'create',:user => @session[:user], :client_id => @client.id }, {}, {:action => :custom_status})%>
+				<%= file_field 'report', 'datei'%>
+			<table>
+			<tr>
+			<td>
+			<%= text_area("report","beschreibung","cols" => 30, "rows" => 5)%>
+			</td><td>
+			<small>Geben sie hier die Beschreibung der Datei ein.</small>
+			</td></tr>
+			</table>
+				<%= upload_status_tag%>
+				<%= submit_tag "Speichern"%>
+				<%= end_form_tag%>
 			</div>
 
 		</div><!-- class="know"-->

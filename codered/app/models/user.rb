@@ -2,8 +2,17 @@ require 'digest/sha1'
 
 # this model expects a certain database layout and its based on the name/login pattern. 
 class User < ActiveRecord::Base
-  file_column :user_pic
-
+  file_column :user_pic, :magick => { :geometry => "125x95>" }
+  validates_uniqueness_of :login
+  validates_inclusion_of :user_rule, :in=> 2..10  #verhindert das 0 oder 1 eingetragen werden (1=Admin)
+  validates_confirmation_of :password
+  validates_length_of :login, :within => 3..40
+  validates_length_of :password, :within => 5..40
+  validates_presence_of :login, :password, :password_confirmation, :user_name, :user_vorname, :user_email
+  validates_format_of :user_email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i
+  validates_file_format_of :user_pic,
+                           :in => ['image/jpg', 'image/png'],
+   			   :message => 'must be a png, jpg'
   # Please change the salt to something else, 
   # Every application should use a different one 
   @@salt = 'LL0yDsadxycxyw'
@@ -51,10 +60,4 @@ class User < ActiveRecord::Base
 #    end        
   end  
   
-  validates_uniqueness_of :login
-  validates_inclusion_of :user_rule, :in=> 2..10  #verhindert das 0 oder 1 eingetragen werden (1=Admin)
-  validates_confirmation_of :password
-  validates_length_of :login, :within => 3..40
-  validates_length_of :password, :within => 5..40
-  validates_presence_of :login, :password, :password_confirmation, :user_name, :user_vorname
 end

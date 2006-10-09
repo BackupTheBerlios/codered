@@ -40,6 +40,16 @@ p.zitat {
 	font-weight: bolder;
 	color: #000000;
 }
+.notice {
+	vertical-align:middle;
+	width:400px;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: small;
+	color: Black;
+	background-color: Red; 
+	-moz-border-radius: 5px;
+	font-weight: bold;
+}
 .statusbar {
 	text-align:left;
 	width:400px;
@@ -257,11 +267,21 @@ div.unavi {
 	margin-top: 20px;
 }
 div.right {
-	width: 150px;
 	float:right;
 	}
 div.pic {
-	float:right;
+	margin:10px;
+	padding:10px;
+	width: 150px;
+	border: 1px;
+	background-color: #B2F0B3;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: smaller;
+	color: Black;
+	font-weight: bolder;
+	-moz-border-radius: 12px;
+}
+div.ersteller {
 	margin:10px;
 	padding:10px;
 	width: 150px;

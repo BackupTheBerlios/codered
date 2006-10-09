@@ -21,12 +21,18 @@ before_filter :login_required
 	:conditions => ["user_rule = 4"],
 	:order => 'updated_on'
   end
-  
- # Add this line to get uplaod status for your action 
- # upload_status_for :upload
 
   def show
     @user = User.find(params[:id])
+    if @user.user_strasse.blank?
+    	@user.user_strasse = "Kein Eintrag"
+    end
+    if @user.user_ort.blank?
+    	@user.user_ort = "Kein Eintrag"
+    end
+    if @user.user_klasse.blank?
+    	@user.user_klasse = "Kein Eintrag"
+    end
   end
 
   def new
@@ -43,113 +49,211 @@ before_filter :login_required
     end
   end
 
-  def edit
-    @user = User.find(params[:id])
-  end
-
-  def update
-    @user = User.find(params[:id])
-	if @session[:rechte] == 1 || @user.id == @session[:user].id
-    if @user.update_attributes(params[:user])
-      flash[:notice] = 'User was successfully updated.'
-      redirect_to :action => 'show', :id => @user
+  def set_user_user_klasse
+    @@user = User.find(params[:id])
+    @@user.password_confirmation =  @@user.password
+    old = @@user.user_klasse
+    if params[:value].blank?
+	@@print = 'Keine Eingabe'
     else
-      render :action => 'edit'
+        @@print = params[:value]
     end
+    @@user.user_klasse = params[:value]
+    if @@user.save
+       render :update do |page|
+        page.replace_html( "user_user_klasse_#{params[:id]}_in_place_editor", 
+                          @@print )
+       end 
+    else
+            render :update do |page| 
+	    page.replace_html( "user_user_klasse_#{params[:id]}_in_place_editor", 
+                           old )
+            page.call( "alert", @@user.errors.each_full { |msg| puts msg } )
+            end
     end
   end
-
-	def update_login
-		@user = User.find(params[:id])
-		if @session[:rechte] == 1 || @user.id == @session[:user].id
-		if @user.update_attribute(:login, params[:value])
-			render :layout => false, :inline => "<%= h(@user.login) %>" 
-		else
-			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
-		end
-	end
-	end
-
-	def update_name
-		@user = User.find(params[:id])
-		if @session[:rechte] == 1 || @user.id == @session[:user].id
-		if @user.update_attribute(:user_name, params[:value])
-			render :layout => false, :inline => "<%= h(@user.user_name) %>" 
-		else
-			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
-		end
-	end
-	end
-	def update_vorname
-		@user = User.find(params[:id])
-		if @session[:rechte] == 1 || @user.id == @session[:user].id
-		if @user.update_attribute(:user_vorname, params[:value])
-			render :layout => false, :inline => "<%= h(@user.user_vorname) %>" 
-		else
-			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
-		end
-	end
-	end
-	def update_strasse
-		@user = User.find(params[:id])
-		if @session[:rechte] == 1 || @user.id == @session[:user].id
-		if @user.update_attribute(:user_strasse, params[:value])
-			render :layout => false, :inline => "<%= h(@user.user_strasse) %>" 
-		else
-			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
-		end
-	end
-	end
-	def update_plz
-		@user = User.find(params[:id])
-		if @session[:rechte] == 1 || @user.id == @session[:user].id
-		if @user.update_attribute(:user_plz, params[:value])
-			render :layout => false, :inline => "<%= h(@user.user_plz) %>" 
-		else
-			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
-		end
-	end
-	end
-	def update_ort
-		@user = User.find(params[:id])
-		if @session[:rechte] == 1 || @user.id == @session[:user].id
-		if @user.update_attribute(:user_ort, params[:value])
-			render :layout => false, :inline => "<%= h(@user.user_ort) %>" 
-		else
-			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
-		end
-	end
-	end
-	def update_klasse
-		@user = User.find(params[:id])
-		if @session[:rechte] == 1 || @user.id == @session[:user].id
-		if @user.update_attribute(:user_klasse, params[:value])
-			render :layout => false, :inline => "<%= h(@user.user_klasse) %>" 
-		else
-			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
-		end
-	end
-	end
-	def update_email
-		@user = User.find(params[:id])
-		if @session[:rechte] == 1 || @user.id == @session[:user].id
-		if @user.update_attribute(:user_email, params[:value])
-			render :layout => false, :inline => "<%= h(@user.user_email) %>" 
-		else
-			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
-	end
-		end
-	end
-
+	
+  def set_user_user_ort
+    @@user = User.find(params[:id])
+    @@user.password_confirmation =  @@user.password
+    old = @@user.user_ort
+    if params[:value].blank?
+	@@print = 'Keine Eingabe'
+    else
+        @@print = params[:value]
+    end
+    @@user.user_ort = params[:value]
+    if @@user.save
+       render :update do |page|
+        page.replace_html( "user_user_ort_#{params[:id]}_in_place_editor", 
+                          @@print )
+       end 
+    else
+            render :update do |page| 
+	    page.replace_html( "user_user_ort_#{params[:id]}_in_place_editor", 
+                           old )
+            page.call( "alert", @@user.errors.each_full { |msg| puts msg } )
+            end
+    end
+  end
+	
+  def set_user_user_strasse
+    @@user = User.find(params[:id])
+    @@user.password_confirmation =  @@user.password
+    old = @@user.user_strasse
+    if params[:value].blank?
+	@@print = 'Keine Eingabe'
+    else
+        @@print = params[:value]
+    end
+    @@user.user_strasse = params[:value]
+    if @@user.save
+       render :update do |page|
+        page.replace_html( "user_user_strasse_#{params[:id]}_in_place_editor", 
+                          @@print )
+       end 
+    else
+            render :update do |page| 
+	    page.replace_html( "user_user_strasse_#{params[:id]}_in_place_editor", 
+                           old )
+            page.call( "alert", @@user.errors.each_full { |msg| puts msg } )
+            end
+    end
+  end
+	
+  def set_user_user_plz
+    @@user = User.find(params[:id])
+    @@user.password_confirmation =  @@user.password
+    old = @@user.user_plz
+    if params[:value].blank?
+	@@print = 'Keine Eingabe'
+    else
+        @@print = params[:value]
+    end
+    @@user.user_plz = params[:value]
+    if @@user.save
+       render :update do |page|
+        page.replace_html( "user_user_plz_#{params[:id]}_in_place_editor", 
+                          @@print )
+       end 
+    else
+            render :update do |page| 
+	    page.replace_html( "user_user_plz_#{params[:id]}_in_place_editor", 
+                           old )
+            page.call( "alert", @@user.errors.each_full { |msg| puts msg } )
+            end
+    end
+  end
+	
+  def set_user_user_name
+    @@user = User.find(params[:id])
+    @@user.password_confirmation =  @@user.password
+    old = @@user.user_name
+    if params[:value].blank?
+	@@print = 'Keine Eingabe'
+    else
+        @@print = params[:value]
+    end
+    @@user.user_name = params[:value]
+    if @@user.save
+       render :update do |page|
+        page.replace_html( "user_user_name_#{params[:id]}_in_place_editor", 
+                          @@print )
+       end 
+    else
+            render :update do |page| 
+	    page.replace_html( "user_user_name_#{params[:id]}_in_place_editor", 
+                           old )
+            page.call( "alert", @@user.errors.each_full { |msg| puts msg } )
+            end
+    end
+  end
+	
+  def set_user_user_vorname
+    @@user = User.find(params[:id])
+    @@user.password_confirmation =  @@user.password
+    old = @@user.user_vorname
+    if params[:value].blank?
+	@@print = 'Keine Eingabe'
+    else
+        @@print = params[:value]
+    end
+    @@user.user_vorname = params[:value]
+    if @@user.save
+       render :update do |page|
+        page.replace_html( "user_user_vorname_#{params[:id]}_in_place_editor", 
+                          @@print )
+       end 
+    else
+            render :update do |page| 
+	    page.replace_html( "user_user_vorname_#{params[:id]}_in_place_editor", 
+                           old )
+            page.call( "alert", @@user.errors.each_full { |msg| puts msg } )
+            end
+    end
+  end
+	
+  def set_user_login
+    @@user = User.find(params[:id])
+    @@user.password_confirmation =  @@user.password
+    old = @@user.login
+    if params[:value].blank?
+	@@print = 'Keine Eingabe'
+    else
+        @@print = params[:value]
+    end
+    @@user.login = params[:value]
+    if @@user.save
+       render :update do |page|
+        page.replace_html( "user_login_#{params[:id]}_in_place_editor", 
+                          @@print )
+       end 
+    else
+            render :update do |page| 
+	    page.replace_html( "user_login_#{params[:id]}_in_place_editor", 
+                           old )
+            page.call( "alert", @@user.errors.each_full { |msg| puts msg } )
+            end
+    end
+  end
+	
+  def set_user_user_email
+    @@user = User.find(params[:id])
+    @@user.password_confirmation =  @@user.password
+    old = @@user.user_email
+    if params[:value].blank?
+	@@print = 'Keine Eingabe'
+    else
+        @@print = params[:value]
+    end
+    @@user.user_email = params[:value]
+    if @@user.save
+       render :update do |page|
+        page.replace_html( "user_user_email_#{params[:id]}_in_place_editor", 
+                          @@print )
+       end 
+    else
+            render :update do |page| 
+	    page.replace_html( "user_user_email_#{params[:id]}_in_place_editor", 
+                           old )
+            page.call( "alert", @@user.errors.each_full { |msg| puts msg } )
+            end
+    end
+  end
+	
 upload_status_for :update_pic
 	def update_pic
 		@user = User.find(params[:id])
-		if @session[:rechte] == 1 || @user.id == @session[:user].id
-    	upload_progress.message = "Upload ..."
-		if @user.update_attribute(:user_pic, params[:user][:user_pic])
-    		redirect_to :action => 'show', :id => @user.id
+    		upload_progress.message = "Upload ..."
+	if @session[:rechte] == 1 || @user == @session[:user] then
+		@user.user_pic = params[:user][:user_pic]
+    		@user.password_confirmation =  @user.password
+		if @user.save then
+			flash[:notice] = 'Bild erfolgreich hochgeladen'
+    			redirect_to :action => 'show', :id => @user.id
 		else
-			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
+			flash[:notice] = 'Die Datei muss ein Bild sein' 
+    			redirect_to :action => 'show', :id => @user.id
 		end
 	end
 	end
@@ -157,22 +261,59 @@ upload_status_for :update_pic
   def upload_status
     render :inline => '<%= upload_progress.completed_percent rescue 0 %> % complete <div>Uploaded am <%= Time.now %></div>', :layout => false
   end
-	def update_rule
-		@user = User.find(params[:id])
-		if @session[:rechte] <= 2
-		if @user.update_attribute(:user_rule, params[:user][:user_rule])
-			CodeRedMailer::deliver_user_rule_change(@user)
-		#	render :layout => false, :inline => "<%= h(@user.user_rule) %>" 
-			redirect_to :action => 'show', :id => @user.id
-		else
-			render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
-		end
+ def update_rule
+	@user = User.find(params[:id])
+       if @session[:rechte] <= 2
+	if @user.update_attribute(:user_rule, params[:user][:user_rule])
+		CodeRedMailer::deliver_user_rule_change(@user)
+		redirect_to :action => 'show', :id => @user.id
+	else
+		render :text => "Es ist ein Fehler aufgetreten(0000)" #TODO: Fehlernummer einfuegen
 	end
-	end
- 
+       end
+ end
+
+
   def destroy
     if @session[:rechte] == 1
+    	@user = Ticket.find(:first, :conditions => [ "user_id = ?", params[:id]])
+	if @user
+		#update mit kram
+		@user = User.find(params[:id])
+		@user.update_attribute(:login, "disable")
+		@user.update_attribute(:user_name, "disable")
+		@user.update_attribute(:user_vorname, "disable")
+		@user.update_attribute(:user_plz, "0")
+		@user.update_attribute(:user_klasse, "disable")
+		@user.update_attribute(:user_email, "disable")
+		@user.update_attribute(:user_ort, "disable")
+		@user.update_attribute(:user_telefon, "disable")
+		@user.update_attribute(:user_rule, "0")
+		@user.update_attribute(:user_strasse, "disable")
+		@user.update_attribute(:password, "")
+		@user.update_attribute(:user_pic, nil)
+	else
+    		@betreuer = Ticket.find(:first, :conditions => [ "betreuer_id = ?", params[:id]])
+		if @betreuer
+		 #update mit kram
+		@user = User.find(params[:id])
+		@user.update_attribute(:login, "disable")
+		@user.update_attribute(:name, "disable")
+		@user.update_attribute(:vorname, "disable")
+		@user.update_attribute(:user_plz, "0")
+		@user.update_attribute(:user_klasse, "disable")
+		@user.update_attribute(:user_email, "disable")
+		@user.update_attribute(:user_ort, "disable")
+		@user.update_attribute(:user_telefon, "disable")
+		@user.update_attribute(:user_rule, "0")
+		@user.update_attribute(:user_strasse, "disable")
+		@user.update_attribute(:password, "")
+		@user.update_attribute(:user_pic, nil)
+		else
+		#wenn der nutzer noch nie benutzt wurde kann er einfach gelöscht werden
 		User.find(params[:id]).destroy
+		end
+	end
     	redirect_to :action => 'list'
 	else
 		render :action => 'new'

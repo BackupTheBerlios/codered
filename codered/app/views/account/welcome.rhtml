@@ -23,7 +23,7 @@
 		</td>
 		<td class="ghelp">In ihrem Profil k&ouml;nnen Sie ihre eingerichteten Datens&auml;tze immer auf dem Aktuellen stand halten.</td>
 	</tr>
-	<%  if @session[:rechte] >= 2 && @session[:rechte] <= 4 %>
+	<%  if @session[:rechte] >= 1 && @session[:rechte] <= 4 %>
 	<tr>
 		<td style="width:80px;text-align:center;">
 		<%= link_to image_tag("/images/profillist.png", 

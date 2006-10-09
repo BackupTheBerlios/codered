@@ -8,33 +8,49 @@ module FileColumn # :nodoc:
     base.extend(ClassMethods)
   end
 
-  def self.create_state(options,instance,attr)
+  def self.create_state(instance,attr)
     filename = instance[attr]
     if filename.nil? or filename.empty?
-      NoUploadedFile.new(options,instance,attr)
+      NoUploadedFile.new(instance,attr)
     else
-      PermanentUploadedFile.new(options,instance,attr)
+      PermanentUploadedFile.new(instance,attr)
     end
   end
 
   def self.init_options(defaults, model, attr)
     options = defaults.dup
     options[:store_dir] ||= File.join(options[:root_path], model, attr)
-    options[:tmp_base_dir] ||= File.join(options[:store_dir], "tmp")
+    unless options[:store_dir].is_a?(Symbol)
+      options[:tmp_base_dir] ||= File.join(options[:store_dir], "tmp")
+    end
     options[:base_url] ||= options[:web_root] + File.join(model, attr)
-    FileUtils.mkpath([ options[:store_dir], options[:tmp_base_dir] ])
+
+    [:store_dir, :tmp_base_dir].each do |dir_sym|
+      if options[dir_sym].is_a?(String) and !File.exists?(options[dir_sym])
+        FileUtils.mkpath(options[dir_sym])
+      end
+    end
 
     options
   end
 
   class BaseUploadedFile # :nodoc:
 
-    def initialize(options,instance,attr)
-      @options, @instance, @attr = options, instance, attr
+    def initialize(instance,attr)
+      @instance, @attr = instance, attr
+      @options_method = "#{attr}_options".to_sym
     end
 
 
     def assign(file)
+      if file.is_a? File
+        # this did not come in via a CGI request. However,
+        # assigning files directly may be useful, so we
+        # make just this file object similar enough to an uploaded
+        # file that we can handle it. 
+        file.extend FileColumn::FileCompat
+      end
+
       if file.nil?
         delete
       else
@@ -87,20 +103,36 @@ module FileColumn # :nodoc:
     def after_destroy
     end
 
-    attr_accessor :options
+    def options
+      @instance.send(@options_method)
+    end
 
     private
     
     def store_dir
-      @options[:store_dir]
+      if options[:store_dir].is_a? Symbol
+        raise ArgumentError.new("'#{options[:store_dir]}' is not an instance method of class #{@instance.class.name}") unless @instance.respond_to?(options[:store_dir])
+
+        dir = File.join(options[:root_path], @instance.send(options[:store_dir]))
+        FileUtils.mkpath(dir) unless File.exists?(dir)
+        dir
+      else 
+        options[:store_dir]
+      end
     end
 
     def tmp_base_dir
-      @options[:tmp_base_dir]
+      if options[:tmp_base_dir]
+        options[:tmp_base_dir] 
+      else
+        dir = File.join(store_dir, "tmp")
+        FileUtils.mkpath(dir) unless File.exists?(dir)
+        dir
+      end
     end
 
     def clone_as(klass)
-      klass.new(@options, @instance, @attr)
+      klass.new(@instance, @attr)
     end
 
   end
@@ -119,12 +151,12 @@ module FileColumn # :nodoc:
       temp
     end
 
-    def absolute_path(suffix=nil)
+    def absolute_path(subdir=nil)
       nil
     end
 
 
-    def relative_path(suffix=nil)
+    def relative_path(subdir=nil)
       nil
     end
 
@@ -137,24 +169,23 @@ module FileColumn # :nodoc:
   end
 
   class RealUploadedFile < BaseUploadedFile # :nodoc:
-    def absolute_path(suffix=nil)
-      File.expand_path(File.join(@dir, filename_with_suffix(suffix)))
+    def absolute_path(subdir=nil)
+      if subdir
+        File.join(@dir, subdir, @filename)
+      else
+        File.join(@dir, @filename)
+      end
     end
 
-    def relative_path(suffix=nil)
-      File.join(relative_path_prefix, filename_with_suffix(suffix))
+    def relative_path(subdir=nil)
+      if subdir
+        File.join(relative_path_prefix, subdir, @filename)
+      else
+        File.join(relative_path_prefix, @filename)
+      end
     end
 
     private
-
-    def filename_with_suffix(suffix)
-      if suffix.nil?
-        @filename
-      else
-        base, ext = split_extension(@filename, :fallback_to_simple)
-        "#{base}-#{suffix}.#{ext}"
-      end
-    end
 
     # regular expressions to try for identifying extensions
     EXT_REGEXPS = [ 
@@ -166,7 +197,7 @@ module FileColumn # :nodoc:
       EXT_REGEXPS.each do |regexp|
         if filename =~ regexp
           base,ext = $1, $2
-          return [base, ext] if @options[:extensions].include?(ext.downcase)
+          return [base, ext] if options[:extensions].include?(ext.downcase)
         end
       end
       if fallback and filename =~ EXT_REGEXPS.last
@@ -197,17 +228,18 @@ module FileColumn # :nodoc:
       else
         raise ArgumentError.new("Do not know how to handle #{file.inspect}")
       end
-
-      if @options[:fix_file_extensions]
+      File.chmod(options[:permissions], local_file_path)
+      
+      if options[:fix_file_extensions]
         # try to determine correct file extension and fix
         # if necessary
         content_type = get_content_type((file.content_type.chomp if file.content_type))
-        if content_type and @options[:mime_extensions][content_type]
-          @filename = correct_extension(@filename,@options[:mime_extensions][content_type])
+        if content_type and options[:mime_extensions][content_type]
+          @filename = correct_extension(@filename,options[:mime_extensions][content_type])
         end
 
         new_local_file_path = File.join(tmp_base_dir,@tmp_dir,@filename)
-        FileUtils.mv(local_file_path, new_local_file_path) unless new_local_file_path == local_file_path
+        File.rename(local_file_path, new_local_file_path) unless new_local_file_path == local_file_path
         local_file_path = new_local_file_path
       end
       
@@ -218,7 +250,7 @@ module FileColumn # :nodoc:
 
     # tries to identify and strip the extension of filename
     # if an regular expresion from EXT_REGEXPS matches and the
-    # downcased extension is a known extension (in @options[:extensions])
+    # downcased extension is a known extension (in options[:extensions])
     # we'll strip this extension
     def strip_extension(filename)
       split_extension(filename).first
@@ -250,6 +282,7 @@ module FileColumn # :nodoc:
 
     def delete
       delete_files
+      @instance[@attr] = ""
       clone_as NoUploadedFile
     end
 
@@ -288,9 +321,9 @@ module FileColumn # :nodoc:
     end
 
     def get_content_type(fallback=nil)
-      if @options[:file_exec]
+      if options[:file_exec]
         begin
-          content_type = `#{@options[:file_exec]} -bi "#{@local_file_path}"`.chomp
+          content_type = `#{options[:file_exec]} -bi "#{File.join(@dir,@filename)}"`.chomp
           content_type = fallback unless $?.success?
           content_type.gsub!(/;.+$/,"") if content_type
           content_type
@@ -313,25 +346,21 @@ module FileColumn # :nodoc:
   class PermanentUploadedFile < RealUploadedFile # :nodoc:
     def initialize(*args)
       super *args
-      @dir = File.join(store_dir,@instance.id.to_s)
+      @dir = File.join(store_dir, relative_path_prefix)
       @filename = @instance[@attr]
       @filename = nil if @filename.empty?
     end
 
     def move_from(local_dir, just_uploaded)
-      # create a directory named after the primary key, first
-      FileUtils.mkdir(@dir) unless File.exists?(@dir)
+      # remove old permament dir first
+      # this creates a short moment, where neither the old nor
+      # the new files exist but we can't do much about this as
+      # filesystems aren't transactional.
+      FileUtils.rm_rf @dir
 
-      # move the temporary files over
-      FileUtils.cp Dir.glob(File.join(local_dir, "*")), @dir
-      
+      FileUtils.mv local_dir, @dir
+
       @just_uploaded = just_uploaded
-
-      # remove all old files in the directory
-      FileUtils.rm(Dir.glob(File.join(@dir, "*")).reject! {
-                     |e| File.exists?(File.join(local_dir, File.basename(e)))
-                   })
-      
     end
 
     def upload(file)
@@ -342,7 +371,7 @@ module FileColumn # :nodoc:
 
     def delete
       file = clone_as NoUploadedFile
-      @instance[@attr] = nil
+      @instance[@attr] = ""
       file.on_save { delete_files }
       file
     end
@@ -366,6 +395,7 @@ module FileColumn # :nodoc:
     private
     
     def relative_path_prefix
+      raise RuntimeError.new("Trying to access file_column, but primary key got lost.") if @instance.id.to_s.empty?
       @instance.id.to_s
     end
   end
@@ -380,10 +410,11 @@ module FileColumn # :nodoc:
   #
   # Now, by default, an uploaded file "test.png" for an entry object with primary key 42 will
   # be stored in in "public/entry/image/42/test.png". The filename "test.png" will be stored
-  # in the record's +image+ column.
+  # in the record's "image" column. The "entries" table should have a +VARCHAR+ column
+  # named "image".
   #
-  # The methods of this module are automatically included into ActiveRecord::Base as class
-  # methods, so that you can use them in your models.
+  # The methods of this module are automatically included into <tt>ActiveRecord::Base</tt>
+  # as class methods, so that you can use them in your models.
   #
   # == Generated Methods
   #
@@ -394,21 +425,22 @@ module FileColumn # :nodoc:
   #   (see below). Note that
   #   you can simply call your upload field "entry[image]" in your view (or use the
   #   helper).
-  # * <tt>Entry#image(suffix=nil)</tt>: This will return an absolute path (as a
+  # * <tt>Entry#image(subdir=nil)</tt>: This will return an absolute path (as a
   #   string) to the currently uploaded file
   #   or nil if no file has been uploaded
-  # * <tt>Entry#image_relative_path(suffix)</tt>: This will return a path relative to
+  # * <tt>Entry#image_relative_path(subdir=nil)</tt>: This will return a path relative to
   #   this file column's base directory
   #   as a string or nil if no file has been uploaded. This would be "42/test.png" in the example.
   # * <tt>Entry#image_just_uploaded?</tt>: Returns true if a new file has been uploaded to this instance.
-  #   You can use this in <tt>before_validation</tt> to resize images on newly uploaded files, for example.
+  #   You can use this in your code to perform certain actions (e. g., validation,
+  #   custom post-processing) only on newly uploaded files.
   #
   # You can access the raw value of the "image" column (which will contain the filename) via the
   # <tt>ActiveRecord::Base#attributes</tt> or <tt>ActiveRecord::Base#[]</tt> methods like this:
   #
   #   entry['image']    # e.g."test.png"
   #
-  # == Storage of uploaded file
+  # == Storage of uploaded files
   #
   # For a model class +Entry+ and a column +image+, all files will be stored under
   # "public/entry/image". A sub-directory named after the primary key of the object will
@@ -419,6 +451,12 @@ module FileColumn # :nodoc:
   #
   # Files will be moved to this location in an +after_save+ callback. They will be stored in
   # a temporary location previously as explained in the next section.
+  #
+  # By default, files will be created with unix permissions of <tt>0644</tt> (i. e., owner has
+  # read/write access, group and others only have read access). You can customize
+  # this by passing the desired mode as a <tt>:permissions</tt> options. The value
+  # you give here is passed directly to <tt>File::chmod</tt>, so on Unix you should
+  # give some octal value like 0644, for example.
   #
   # == Handling of form redisplay
   #
@@ -437,20 +475,20 @@ module FileColumn # :nodoc:
   # update fails for some reasons (e.g. due to validations), the existing image will not be overwritten, so
   # it has a kind of "transactional behaviour".
   #
-  # == Suffixes
+  # == Additional Files and Directories
   #
   # FileColumn allows you to keep more than one file in a directory and will move/delete
-  # all the files it finds in a model object's directory when necessary. You can access
-  # these files via the optional suffix parameter that some of the generated methods
-  # accept (see above). This suffix is inserted into the filename before the extension,
-  # separated by a dash.
+  # all the files and directories it finds in a model object's directory when necessary.
+  #
+  # As a convenience you can access files stored in sub-directories via the +subdir+
+  # parameter if they have the same filename.
   #
   # Suppose your uploaded file is named "vancouver.jpg" and you want to create a
-  # thumb-nail and store it in the same directory. If you cal
+  # thumb-nail and store it in the "thumb" directory. If you call
   # <tt>image("thumb")</tt>, you
-  # will receive an absolute path for the file "vancouver-thumb.jpg" in the same
+  # will receive an absolute path for the file "thumb/vancouver.jpg" in the same
   # directory "vancouver.jpg" is stored. Look at the documentation of FileColumn::Magick
-  # for more examples.
+  # for more examples and how to create these thumb-nails automatically.
   #
   # == File Extensions
   #
@@ -474,8 +512,38 @@ module FileColumn # :nodoc:
   # 2. If the file utility couldn't determine the mime-type or the utility was not
   #    present, the content-type provided by the user's browser is used
   #    as a fallback.
+  #
+  # == Custom Storage Directories
+  #
+  # FileColumn's storage location is determined in the following way. All
+  # files are saved below the so-called "root_path" directory, which defaults to
+  # "RAILS_ROOT/public". For every file_column, you can set a separte "store_dir"
+  # option. It defaults to "model_name/attribute_name".
+  # 
+  # Files will always be stored in sub-directories of the store_dir path. The
+  # subdirectory is named after the instance's +id+ attribute for a saved model,
+  # or "tmp/<randomkey>" for unsaved models.
+  #
+  # You can specify a custom root_path by setting the <tt>:root_path</tt> option.
+  # 
+  # You can specify a custom storage_dir by setting the <tt>:storage_dir</tt> option.
+  #
+  # For setting a static storage_dir that doesn't change with respect to a particular
+  # instance, you assign <tt>:storage_dir</tt> a String representing a directory
+  # as an absolute path.
+  #
+  # If you need more fine-grained control over the storage directory, you
+  # can use the name of a callback-method as a symbol for the
+  # <tt>:store_dir</tt> option. This method has to be defined as an
+  # instance method in your model. It will be called without any arguments
+  # whenever the storage directory for an uploaded file is needed. It should return
+  # a String representing a directory relativeo to root_path.
+  #
+  # Uploaded files for unsaved models objects will be stored in a temporary
+  # directory. By default this directory will be a "tmp" directory in
+  # your <tt>:store_dir</tt>. You can override this via the
+  # <tt>:tmp_base_dir</tt> option.
   module ClassMethods
-
 
     # default mapping of mime-types to file extensions. FileColumn will try to
     # rename a file to the correct extension if it detects a known mime-type
@@ -530,11 +598,12 @@ module FileColumn # :nodoc:
       :mime_extensions => MIME_EXTENSIONS,
       :extensions => EXTENSIONS,
       :fix_file_extensions => true,
+      :permissions => 0644,
 
       # path to the unix "file" executbale for
       # guessing the content-type of files
       :file_exec => "file" 
-    }.freeze
+    }
     
     # handle the +attr+ attribute as a "file-upload" column, generating additional methods as explained
     # above. You should pass the attribute's name as a symbol, like this:
@@ -556,7 +625,7 @@ module FileColumn # :nodoc:
       define_method state_method do
         result = instance_variable_get state_attr
         if result.nil?
-          result = FileColumn::create_state(my_options, self, attr.to_s)
+          result = FileColumn::create_state(self, attr.to_s)
           instance_variable_set state_attr, result
         end
         result
@@ -581,9 +650,10 @@ module FileColumn # :nodoc:
       end
 
       define_method "#{attr}=" do |file|
-        instance_variable_set state_attr, send(state_method).assign(file)
-        if my_options[:after_assign]
-          my_options[:after_assign].each do |sym|
+        state = send(state_method).assign(file)
+        instance_variable_set state_attr, state
+        if state.options[:after_upload] and state.just_uploaded?
+          state.options[:after_upload].each do |sym|
             self.send sym
           end
         end
@@ -615,14 +685,17 @@ module FileColumn # :nodoc:
       define_method "#{attr}_just_uploaded?" do
         send(state_method).just_uploaded?
       end
-      
+
+      # this creates a closure keeping a reference to my_options
+      # right now that's the only way we store the options. We
+      # might use a class attribute as well
       define_method "#{attr}_options" do
-        send(state_method).options
+        my_options
       end
-      
+
       private after_save_method, after_destroy_method
 
-      FileColumn::Magick::file_column(self, attr, my_options) if options[:magick]
+      FileColumn::MagickExtension::file_column(self, attr, my_options) if options[:magick]
     end
     
   end
@@ -642,13 +715,6 @@ module FileColumn # :nodoc:
     filename
   end
   
-  def self.remove_file_with_dir(path)
-    return unless File.file?(path)
-    FileUtils.rm_f path
-    dir = File.dirname(path)
-    Dir.rmdir(dir) if File.exists?(dir)
-  end
-
 end
 
 

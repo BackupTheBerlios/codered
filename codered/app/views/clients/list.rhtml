@@ -9,7 +9,12 @@
 %>	
 <tr valign="top" class="ListLinie<%= endweder_oder %>">
 	<td  valign="middle" class="darkgrey">
-		Name: <%= link_to (h(client.client_name)), :action => 'show', :id => client %>
+		<% if client.client_name == "" then %>
+		<%= link_to ('Name: '), :action => 'show', :id => client %>
+		<%else%>
+		Name: 
+		<%end%>
+		<%= link_to (h(client.client_name)), :action => 'show', :id => client %>
 	</td>
 	<td valign="middle" class="darkgrey">
 		Ort: <%= link_to (h(client.client_ort)), :action => 'show', :id => client %>
