@@ -1,39 +1,33 @@
--- MySQL Administrator dump 1.4
---
--- ------------------------------------------------------
--- Server version	4.1.12-Debian_1ubuntu3.1-log
+# ---------------------------------------
+# Host     : localhost
+# Port     : 3306
+# Database : codered_db
+# ---------------------------------------
 
+SET FOREIGN_KEY_CHECKS=0;
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+DROP DATABASE IF EXISTS `codered_db`;
 
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+CREATE DATABASE `codered_db`
+    CHARACTER SET 'utf8'
+    COLLATE 'utf8_general_ci';
 
+USE `codered_db`;
 
---
--- Create schema codered_db
---
-
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ codered_db;
-USE codered_db;
-
---
--- Table structure for table `codered_db`.`clients`
---
+#
+# Structure for the `clients` table : 
+#
 
 DROP TABLE IF EXISTS `clients`;
+
 CREATE TABLE `clients` (
   `id` int(11) NOT NULL auto_increment,
   `user_id` int(11) NOT NULL default '0',
   `client_name` varchar(50) NOT NULL default '',
-  `client_strasse` varchar(25) NOT NULL default '',
+  `client_strasse` varchar(50) NOT NULL default '',
   `client_plz` int(11) NOT NULL default '0',
-  `client_ort` varchar(25) NOT NULL default '',
-  `client_email` varchar(25) NOT NULL default '',
+  `client_ort` varchar(50) NOT NULL default '',
+  `client_email` varchar(255) default NULL,
   `client_telefon` varchar(25) NOT NULL default '',
   `client_fax` varchar(25) NOT NULL default '',
   `client_pic` varchar(255) default NULL,
@@ -43,9 +37,9 @@ CREATE TABLE `clients` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Table structure for table `codered_db`.`reports`
---
+#
+# Table structure for table `reports`
+#
 
 DROP TABLE IF EXISTS `reports`;
 CREATE TABLE `reports` (
@@ -59,11 +53,42 @@ CREATE TABLE `reports` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Table structure for table `codered_db`.`tickets`
---
+#
+# Structure for the `knows` table : 
+#
+
+DROP TABLE IF EXISTS `knows`;
+
+CREATE TABLE `knows` (
+  `id` int(11) NOT NULL auto_increment,
+  `know_titel` varchar(25) NOT NULL,
+  `know_text` text NOT NULL,
+  `icon_ena` varchar(255) default NULL,
+  `icon_disa` varchar(255) default NULL,
+  `created_on` timestamp NOT NULL default CURRENT_TIMESTAMP,
+  `updated_on` timestamp NOT NULL default '0000-00-00 00:00:00',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#
+# Structure for the `knows_to_users` table : 
+#
+
+DROP TABLE IF EXISTS `knows_to_users`;
+
+CREATE TABLE `knows_to_users` (
+  `id` int(11) NOT NULL auto_increment,
+  `user_know_id` tinyint(4) NOT NULL,
+  `know_id` tinyint(4) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#
+# Structure for the `tickets` table : 
+#
 
 DROP TABLE IF EXISTS `tickets`;
+
 CREATE TABLE `tickets` (
   `id` int(11) NOT NULL auto_increment,
   `ticket_bezeichnung` varchar(150) NOT NULL default '',
@@ -78,21 +103,22 @@ CREATE TABLE `tickets` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Table structure for table `codered_db`.`users`
---
+#
+# Structure for the `users` table : 
+#
 
 DROP TABLE IF EXISTS `users`;
+
 CREATE TABLE `users` (
   `id` int(11) NOT NULL auto_increment,
-  `user_name` varchar(16) NOT NULL default '',
-  `user_vorname` varchar(16) NOT NULL default '',
-  `user_strasse` varchar(25) NOT NULL default '',
+  `user_name` varchar(50) NOT NULL default '',
+  `user_vorname` varchar(25) NOT NULL default '',
+  `user_strasse` varchar(50) NOT NULL default '',
   `user_plz` int(11) NOT NULL default '0',
-  `user_ort` varchar(25) NOT NULL default '',
-  `user_email` varchar(25) NOT NULL default '',
+  `user_ort` varchar(50) NOT NULL default '',
+  `user_email` varchar(255) default NULL,
   `user_telefon` varchar(25) NOT NULL default '',
-  `user_klasse` varchar(7) NOT NULL default '',
+  `user_klasse` varchar(25) NOT NULL default '',
   `user_pic` varchar(255) default NULL,
   `user_rule` tinyint(4) NOT NULL default '5',
   `password` varchar(40) NOT NULL default '',
@@ -102,11 +128,12 @@ CREATE TABLE `users` (
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Table structure for table `codered_db`.`workflows`
---
+#
+# Structure for the `workflows` table : 
+#
 
 DROP TABLE IF EXISTS `workflows`;
+
 CREATE TABLE `workflows` (
   `id` int(11) NOT NULL auto_increment,
   `user_id` int(11) NOT NULL default '0',
@@ -117,11 +144,3 @@ CREATE TABLE `workflows` (
   `grund` tinyint(2) NOT NULL default '0',
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

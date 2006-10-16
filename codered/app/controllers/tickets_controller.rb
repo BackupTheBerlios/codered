@@ -6,21 +6,24 @@ before_filter :login_required
   end
 
   def list 
-  # @tickets_pages, @tickets = paginate :tickets, :per_page => 10
+        @ticketstatus_namen = ["Neu", "Zugewiesen", "Vollzug gemeldet", "Abgeschlossen","","Ungültig"]
+
 	@my_ticket_pages, @my_tickets = paginate :tickets, :per_page => 10,
-										:conditions => ["betreuer_id = ? && ticket_status <= 3", @session[:user].id],
+	:conditions => ["betreuer_id = ? && ticket_status <= 2", @session[:user].id],
 						  				:order => 'created_on'
 	@all_ticket_pages, @all_tickets = paginate :tickets, :per_page => 10,
-										:conditions => ["betreuer_id != ? && ticket_status <= 3 ", @session[:user].id],
+	:conditions => ["betreuer_id != ? && ticket_status <= 2 ", @session[:user].id],
 						  				:order => 'created_on'
 	@old_ticket_pages, @old_tickets = paginate :tickets, :per_page => 10,
-										:conditions => ["Ticket_status >= 3 ", @session[:user].id],
+	:conditions => ["Ticket_status >= 3 ", @session[:user].id],
 						  				:order => 'created_on DESC'
 
   end
   
   def show
     @ticket = Ticket.find(params[:id])
+    @ticket[:status_namen] = ["Neu", "Zugewiesen", "Vollzug gemeldet", "Abgeschlossen","","Ungültig"]
+    @workflows = Workflow.find(:all, :conditions => ["ticket_id = (?)", @ticket.id] , :order => "created_on DESC")
   end
 
   def new
@@ -32,9 +35,11 @@ before_filter :login_required
   def create
 	if @session[:rechte] >= 2 && @session[:rechte] <= 4
     @ticket = Ticket.new(params[:ticket])
-	@ticket.betreuer_id = User.find(params[:user]).id  # TODO UNbeding noch auf ein "automatisch freien Mentor suchen" anpassen!!
+	@ticket.betreuer_id = User.find(:first, :conditions => "user_rule = 2 AND id = 8").id #TODO: unbeding noch auch zufalls mentor umstellen!!!!
 	@ticket.user_id = User.find(params[:user]).id
     if @ticket.save
+	CodeRedMailer::deliver_ticket_new(@ticket , User.find(@ticket.betreuer_id),
+		Client.find(:first, :conditions => ["id=(?)",@ticket.client_id]))
       flash[:notice] = 'Ticket was successfully created.'
       redirect_to :action => 'list'
     else

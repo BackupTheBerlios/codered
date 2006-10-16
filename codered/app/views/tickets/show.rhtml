@@ -55,17 +55,21 @@
 			<div class="know">
 						<p>
 							<span class="black">Statusinformationen:</span><br />
-							<span class="darkgrey">Ticket-Wichtigkeit : <%= @ticket.ticket_wichtigkeit %></span><br />
-							<span class="darkgrey">Ticket-Status : <%= @ticket.ticket_status %></span><br />
-							<span class="darkgrey">Ticket-Client :<br />
-							<%= link_to (h(Client.find(@ticket.client_id).client_name)),
-							:action => 'show', :id =>@ticket.client_id , :controller =>"clients" %>
-							<br /> <%= @client = Client.find(@ticket.client_id)
-							if @client.client_pic then
-							image_tag url_for_file_column("client", "client_pic") , :size => "60x75", :title => "Clienten Avatar", :border => 0
+							<span class="darkgrey">Wichtigkeit : <%= @wichtigkeiten = [["Dringend"],["Normal"],["Wenn Zeit"]]; @wichtigkeiten[@ticket.ticket_wichtigkeit] %></span><br />
+							<span class="darkgrey">Status : <%= @ticket[:status_namen][@ticket.ticket_status]%></span><br />
+							<span class="darkgrey">Client :
+							<table>
+							<% @client = Client.find(@ticket.client_id) %>
+							<tr><td><%= if @client.client_pic then
+								image_tag(url_for_file_column("client", "client_pic"),
+								:size => "60x75", :title => "Clienten Avatar", :border => 0);
 							else
 								image_tag( "/images/profil.png", :size => "30x45", :border => 0)
-							end %><br />
+							end %></td></tr><tr><td>
+							<%= link_to h(@client.client_name), :action => 'show',
+							     :id =>@ticket.client_id , :controller =>"clients" %>
+							</td></tr>
+							</table>
 							</span>
 						</p>
 			</div>
@@ -113,14 +117,25 @@
 	   # die Liste der vorhandenen Workflows
 	%>
 	<div id="wf_list_h" style="margin-right: auto; margin-left: auto;text-align:center;">
-		<%= link_to_remote "refresh",
-		:url => { :action => 'ticket_list', :controller => "workflows", :ticket => @ticket},
-		:update => "wf_list" ,
-		:loading => "Element.show('msg_area_wf');
-		$('msg_area_wf').innerHTML = 'Laden ...';
-		return false;",
-		:complete => "Element.hide('msg_area_wf');
-		return false;" %>
+		<%=# link_to_remote "refresh",
+		#:url => { :action => 'ticket_list', :controller => "workflows", :ticket => @ticket},
+		#:update => "wf_list" ,
+		#:loading => "Element.show('msg_area_wf');
+		#$('msg_area_wf').innerHTML = 'Laden ...';
+		#return false;",
+		#:complete => "Element.hide('msg_area_wf');
+		#return false;" 
+		# Der Link war nützlich um die Liste zu erneuen ohne die komplette seite zu refresehn
+		# nutzt aber keiner, also "wech"
+		%>
 	</div> <!-- id="new_wf_h" -->
-	<div id="wf_list" style="margin-right: auto; margin-left: auto;text-align:center;" ></div><!--id=wf_list -->
+	<% test = true %>
+	<div id="wf_list" style="margin-right: auto; margin-left: auto;text-align:center;" >
+	<%=if test 
+		@workflows = Workflow.find(:all, :conditions => ["ticket_id = (?)", @ticket.id] , :order => "created_on DESC")
+		test = false
+		render(:partial => 'workflows/workflow', :controller => "workflows", :ticket => @ticket,:update => "wf_list"  );
+	end %>
+	<br />
+	</div><!--id=wf_list -->
 </div><!--class="user"-->

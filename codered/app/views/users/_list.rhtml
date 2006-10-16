@@ -7,6 +7,9 @@
 <tr valign="top" class="ListLinie<%= endweder_oder %>">
 	<td valign="middle" class="darkgrey"><%= link_to h(user.user_name), :action => 'show', :id => user %>,
 	 <%= link_to h(user.user_vorname), :action => 'show', :id => user %></td>
+	 <% if user.user_rule == 3 %>
+	<td class="darkgrey" valign="middle"><%=link_to h(user.user_klasse), :action => 'show', :id => user %></td>
+	<% end %>
 	<td class="darkgrey" valign="middle"><%=mail_to user.user_email, "Email", :encode => "hex" %></td>
 	<% if @session[:rechte] == 1 then %>
 	<td class="darkgrey" valign="middle"><%= link_to image_tag("/images/remove.png", :size => "32x32"),

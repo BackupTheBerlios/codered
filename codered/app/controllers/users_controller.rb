@@ -27,6 +27,9 @@ before_filter :login_required
     if @user.user_strasse.blank?
     	@user.user_strasse = "Kein Eintrag"
     end
+    if @user.user_telefon.blank?
+    	@user.user_telefon = "Kein Eintrag"
+    end
     if @user.user_ort.blank?
     	@user.user_ort = "Kein Eintrag"
     end
@@ -45,7 +48,7 @@ before_filter :login_required
       flash[:notice] = 'User was successfully created.'
       redirect_to :action => 'list'
     else
-      render :action => 'new'
+      render :action => 'show'
     end
   end
 
@@ -115,6 +118,29 @@ before_filter :login_required
     else
             render :update do |page| 
 	    page.replace_html( "user_user_strasse_#{params[:id]}_in_place_editor", 
+                           old )
+            page.call( "alert", @@user.errors.each_full { |msg| puts msg } )
+            end
+    end
+  end
+def set_user_user_telefon
+    @@user = User.find(params[:id])
+    old = @@user.user_telefon
+    if params[:value].blank?
+	@@print = 'Keine Eingabe'
+    else
+        @@print = params[:value]
+    end
+    @@user.user_telefon = params[:value]
+    @@user.password_confirmation =  @@user.password
+    if @@user.save
+       render :update do |page|
+        page.replace_html( "user_user_telefon_#{params[:id]}_in_place_editor", 
+                          @@print )
+       end 
+    else
+            render :update do |page| 
+	    page.replace_html( "user_user_telefon_#{params[:id]}_in_place_editor", 
                            old )
             page.call( "alert", @@user.errors.each_full { |msg| puts msg } )
             end

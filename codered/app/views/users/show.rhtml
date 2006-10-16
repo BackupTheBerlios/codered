@@ -110,6 +110,20 @@
 				</tr>
 				<tr>
 					<td style="width:50px;">
+					Telefon:
+					</td>
+					<td>
+					<span id="c_telefon">
+					<%= if @session[:rechte] == 2 ||@session[:rechte] == 1 ||@session[:user].id == @user.id
+	  					in_place_editor_field 'user', 'user_telefon', {}, :script => true
+			    		else
+			        		h(@user.user_telefon)
+			    		end%>
+					</span>
+					</td>
+				</tr>
+				<tr>
+					<td style="width:50px;">
 					 Klasse:
 					</td>
 				 	<td>

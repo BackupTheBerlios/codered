@@ -2,12 +2,19 @@
 	<div class="helper" id="helper"></div>
 	<div id="suchen">
 <label for="search">Betreuer suchen:</label>
+<% test = true %>
 <%= text_field_tag :search %>
-<%= observe_field(:search,
+<%=observe_field(:search,
 :frequency => 0.5,
 :update => :betreuer,
-:url => { :action => :search }) %>		
-<div align="left" id="betreuer" class="betreuer"></div>
+:url => { :action => :search })%>		
+<div align="left" id="betreuer" class="betreuer">
+<%= if test then
+	test = false
+	@results = @session[:results]
+	render_partial 'results'
+end%>
+</div>
 </div>
 <div id="gefunden" style="display:none">
 	An <span id="betreuer_name"></span> zuweisen.<br>

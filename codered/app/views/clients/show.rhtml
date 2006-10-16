@@ -51,6 +51,28 @@
 			    end%>
 			</p>
 		</div><!-- class="login"-->
+		<div class="nummer">
+		<p class="telefon">
+			Client Telefon:
+			<span id="c_telefon">
+			<%= if @session[:rechte] == 2 ||@session[:rechte] == 1 ||@session[:user].id == @client.user_id
+	  			in_place_editor_field 'client', 'client_telefon', {}, :script => true
+			    else
+			        h(@client.client_telefon)
+			    end%>
+			</span>
+		</p">
+		<p class="telefon">
+			Client Fax:
+			<span id="c_fax">
+			<%= if @session[:rechte] == 2 ||@session[:rechte] == 1 ||@session[:user].id == @client.user_id
+	  			in_place_editor_field 'client', 'client_fax', {}, :script => true
+			    else
+			        h(@client.client_fax)
+			    end%>
+			</span>
+		</p>
+		</div><!-- class="telefon"-->
 		<div class="adress">
 			Kontakt Informationen:<br />
 			<table>

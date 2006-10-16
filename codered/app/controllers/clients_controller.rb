@@ -13,6 +13,12 @@ before_filter :login_required
     @client = Client.find(params[:id])
     @reports = Report.find(:all, :conditions => [ "client_id IN (?)", @client.id])
     @user = User.find(@client.user_id)
+    if @client.client_fax.blank?
+    	@client.client_fax = "Kein Eintrag"
+    end
+    if @client.client_telefon.blank?
+    	@client.client_telefon = "Kein Eintrag"
+    end
     if @client.client_ort.blank?
     	@client.client_ort = "Kein Eintrag"
     end
@@ -93,6 +99,50 @@ def set_client_client_ort
     else
             render :update do |page| 
 	    page.replace_html( "client_client_ort_#{params[:id]}_in_place_editor", 
+                           old )
+            page.call( "alert", @@client.errors.each_full { |msg| puts msg } )
+            end
+    end
+  end
+def set_client_client_telefon
+    @@client = Client.find(params[:id])
+    old = @@client.client_telefon
+    if params[:value].blank?
+	@@print = 'Keine Eingabe'
+    else
+        @@print = params[:value]
+    end
+    @@client.client_telefon = params[:value]
+    if @@client.save
+       render :update do |page|
+        page.replace_html( "client_client_telefon_#{params[:id]}_in_place_editor", 
+                          @@print )
+       end 
+    else
+            render :update do |page| 
+	    page.replace_html( "client_client_telefon_#{params[:id]}_in_place_editor", 
+                           old )
+            page.call( "alert", @@client.errors.each_full { |msg| puts msg } )
+            end
+    end
+  end
+def set_client_client_fax
+    @@client = Client.find(params[:id])
+    old = @@client.client_fax
+    if params[:value].blank?
+	@@print = 'Keine Eingabe'
+    else
+        @@print = params[:value]
+    end
+    @@client.client_fax = params[:value]
+    if @@client.save
+       render :update do |page|
+        page.replace_html( "client_client_fax_#{params[:id]}_in_place_editor", 
+                          @@print )
+       end 
+    else
+            render :update do |page| 
+	    page.replace_html( "client_client_fax_#{params[:id]}_in_place_editor", 
                            old )
             page.call( "alert", @@client.errors.each_full { |msg| puts msg } )
             end

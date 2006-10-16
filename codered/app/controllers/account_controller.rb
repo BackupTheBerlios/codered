@@ -24,9 +24,10 @@ class AccountController < ApplicationController
     if @request.post? and @user.save
       @session[:user] = User.authenticate(@user.login, @params[:user][:password])
       flash['notice']  = "Signup successful"
-    #redirect_back_or_default :action => "welcome"
-		@session[:rechte] = @session[:user].user_rule
-		@session[:rechte_namen] = ["nil", "Admistrator", "Mentor", "Betreuer", "Kontakt", "Deaktiviert"] 
+      @session[:rechte] = @session[:user].user_rule
+      @session[:rechte_namen] = ["nil", "Admistrator", "Mentor", "Betreuer", "Kontakt", "Deaktiviert"]
+      @mentor = User.find(:first, :conditions => "user_rule = 2 AND id = 8") #TODO: unbeding noch auch zufalls mentor umstellen!!!!
+      CodeRedMailer::deliver_user_new(@mentor , @user)
      redirect_to :controller => "users" , :action => 'show' , :id => @user.id
     end
   end  

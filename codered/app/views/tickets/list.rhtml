@@ -1,15 +1,15 @@
 
 <span class="backgrey">Meine Tickets</span>
 	<div id="my_results" class="user">
-	<%= @tickets = @my_tickets ;@ticket_pages = @my_ticket_pages; @update = "my_results"; render_partial('list') %>
+	<%= @tickets = @my_tickets ;@ticket_pages = @my_ticket_pages; @tickets_results = 1; @update = "my_results"; render_partial('list') %>
 	</div>
 	<br />
 <span class="backgrey">Alle Aktiven Tickets</span>
 	<div id="all_results" class="user">
-	<%= @tickets = @all_tickets ;@ticket_pages = @all_ticket_pages; @update = "all_results";  render_partial('list') %>	
+	<%= @tickets = @all_tickets ;@ticket_pages = @all_ticket_pages; @tickets_results = 2; @update = "all_results";  render_partial('list') %>	
 	</div>
 	<br />	
 <span class="backgrey">Tickets-Archive</span>
 	<div id="old_results" class="user">
-	<%= @tickets = @old_tickets ;@ticket_pages = @old_ticket_pages; @update = "old_results";  render_partial('list') %>	</div>
+	<%= @tickets = @old_tickets ;@ticket_pages = @old_ticket_pages; @tickets_results = 3; @update = "old_results";  render_partial('list') %>	</div>
 	<br />

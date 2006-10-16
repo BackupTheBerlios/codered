@@ -3,7 +3,7 @@ class Client < ActiveRecord::Base
        # has_many :tickets
         validates_presence_of :client_name, :client_email
 	validates_file_format_of :client_pic,
-                           :in => ['image/jpg', 'image/png', 'image/bmp'],
+                           :in => ['image/gif','image/jpg', 'image/png', 'image/x-ms-bmp'],
 			   :message => 'must be a png, jpg, bmp'
 
   	validates_uniqueness_of :client_name

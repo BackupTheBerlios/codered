@@ -8,6 +8,12 @@
 					@clienten = Client.find(:all, :order => "client_name").map {|u| [u.client_name, u.id] }
 					select(:ticket, :client_id, @clienten)
 				%>
+			<p><label for="ticket_client_wichtigkeit">Wichtigkeit: </label><br>
+				<%=
+					@ticket.ticket_wichtigkeit = 1
+					wichtigkeiten = [["Dringend", 0],["Normal", 1],["Wenn Zeit", 2]]
+					select(:ticket, :ticket_wichtigkeit, wichtigkeiten )
+				%>
 				<a href="#" onclick="effect_1 = Effect.SlideDown('d4',{duration:1.0}); return false;">
 				<img src="/images/hilfe.png" alt="Hilfe Anzeigen" title="Hilfe Anzeigen" /></a>
 			</p>

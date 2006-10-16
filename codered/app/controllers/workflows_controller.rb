@@ -139,17 +139,32 @@ require 'workflow'
 def schreiben
     @user = @session[:user]
 	@ticket = Ticket.find(params[:ticket])
+	old0 = @ticket.ticket_status
+	old1 = @ticket.betreuer_id
 		if params[:grund] == '2' # Beim Schliessen
-			@ticket.ticket_status = params[:workflow][:ticket_status]
+			if params[:workflow][:ticket_status] == "3"
+			if User.find(params[:user]).id == @ticket.user_id
+			   	@ticket.ticket_status = 3
+			   else
+				@ticket.betreuer_id = @ticket.user_id
+			   	@ticket.ticket_status = 2
+			end
+			elsif params[:workflow][:ticket_status] == "5"
+			   @ticket.ticket_status = 5
+			end
 		else 
-			@ticket.ticket_status = params[:ticket_status]
+		if params[:grund] != '1' then @ticket.ticket_status = params[:ticket_status] end
 		end
 		if params[:grund] == '4' # zuweisen
 			@ticket.betreuer_id = params[:betreuer_id]
 		end
 		if params[:grund] == '3' # zurueckweisen
-			@ticket.betreuer_id = @ticket.betreuer_id  #TODO: muss auf einen freien Mentor zeigen
+			@ticket.betreuer_id = '8'#TODO: muss auf einen zufälligen Mentor zeigen
 			@ticket.ticket_status = '0' 
+		end
+		if @ticket.ticket_status != old0 || @ticket.betreuer_id != old1
+			CodeRedMailer::deliver_ticket_zuweisen(@ticket , User.find(@ticket.betreuer_id),
+							Client.find(:first, :conditions => ["id=(?)",@ticket.client_id]))
 		end
 		@ticket.save
 		@workflow = Workflow.new
@@ -158,8 +173,8 @@ def schreiben
 		@workflow.ticket_id = params[:ticket]
 		@workflow.workflow_text = params[:beschreibung]
 		if @workflow.save
-			@workflows = Workflow.find(:all, :conditions => ["ticket_id=(?)",@workflow.ticket_id])
-			render_partial 'workflow' 
+			@workflows = Workflow.find(:all, :conditions => ["id=(?)",@workflow.id], :order => "created_on DESC")
+			render(:partial => 'workflow',:update => "wf_list"  )
 		else
 		  render :text => "Hier ist ein Fehler aufgetreten"
 		end	
@@ -240,7 +255,7 @@ def ticket_list
 	unless @params[:ticket].nil?
 		@ticket = Ticket.find(params[:ticket])
 		@workflows = Workflow.find(:all, :conditions => ["ticket_id = (?)", @ticket.id] , :order => "created_on DESC")
-    end
+    	end
 	render_partial 'workflow' 
 end
 
@@ -260,13 +275,14 @@ def wf_text
      render_partial 'tmpl_zurueckweisen'
   end 
   def new_zuweisen
+  	 @session[:results] = User.find(:all, :conditions => [ "user_rule IN (?)", (2...3.5) ],:order => "user_name")
 	 @ticket = Ticket.find(params[:ticket])
      render_partial 'tmpl_zuweisen'
   end 
 	
   	def search
 	if @session[:rechte] == 2
-	 	@betreuer = User.find(:all, :order => "user_name") #TODO: noch nach "user-klasse" filtern
+	 	@betreuer = User.find(:all, :conditions => [ "user_rule IN (?)", (2...3.5) ],:order => "user_name")
 		@phrase = request.raw_post || request.query_string
 		@phrase = @phrase.chomp("&_=")
 		matcher = Regexp.new(@phrase)

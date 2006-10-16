@@ -1,6 +1,6 @@
 <div class="workflow" style="width:550px;padding:10px;">
 	<%= form_remote_tag( :update=> "wf_list",
-	:url=> { :action=> "create", :controller =>"workflows", :ticket=> @ticket, :user => @session[:user], :grund => '1', :ticket_status => @ticket.ticket_status},
+	:url=> { :action=> "create", :controller =>"workflows", :ticket=> @ticket, :user => @session[:user], :grund => '1'},
 			:position=> "top",
 			:effects => 'highlight',
 			:loading => "Element.show('msg_area_wf');
