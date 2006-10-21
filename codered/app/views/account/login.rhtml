@@ -5,6 +5,7 @@
 	<div class="pic" style="text-align:center;">
 	Code Red Links<br />
 		<img src="/images/sinup1616.png" alt="Login" /><%= link_to "Anmelden", :action=>"signup"%><br />
+		<img src="/images/imp.png" alt="Email" /><%= link_to "Zusenden", :action=>"send_pass"%><br />
 	</div>
 </div>
 <div class="left">
@@ -25,12 +26,15 @@
     		<input type="password" name="user_password" id="user_password" size="30"/>
 		<br />
     		<br/>
-    		<input type="submit" name="login" value="Login &#187;" class="primary" />&nbsp;&nbsp;&nbsp;&nbsp;<a href="../index.html">Zur&uuml;ck</a>
+    		<input type="submit" name="login" value="Login &#187;" class="primary" />
+		   <span style="padding:10px;" ><%= link_to "Password vergessen", :action=>"send_pass"%></span>
+		   <span style="padding:10px;"><a href="../index.html">Zur&uuml;ck</a></span>
 
 		</div>
 
 		<%= end_form_tag %>
-		<p style="font-size:x-small;">*Wenn sie noch keinen Zugang haben, klicken sie links auf Anmelden.</p>
+		<p style="font-size:x-small;">*Wenn sie noch keinen Zugang haben, klicken sie links auf "Anmelden".</p>
+		<p style="font-size:x-small;">*Wenn sie ihr Passwort oder ihren Login vergessen haben, klicken sie links auf "Zusenden".</p>
 	</div>
 	
 </div>

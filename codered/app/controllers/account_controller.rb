@@ -1,6 +1,5 @@
 class AccountController < ApplicationController
-  layout  'account'
-
+layout  'account'
   def login
     case @request.method
       when :post
@@ -19,6 +18,7 @@ class AccountController < ApplicationController
   end
   
   def signup
+   @password_pro = random_pronouncable_password
     @user = User.new(@params[:user])
 
     if @request.post? and @user.save
@@ -37,6 +37,25 @@ class AccountController < ApplicationController
   end
     
   def welcome
+  end
+
+  def send_pass
+    case @request.method
+      when :post
+      if @user = User.find(:first,
+	:conditions => ["user_email = ?", @params[:user_email]])
+	@pass = random_password
+	@user.password = @pass
+	@user.password_confirmation = @pass
+      	flash['notice']  = "Email gesendet "
+	if @user.save
+        CodeRedMailer::deliver_account_sende_pass(@user,@pass)
+        redirect_back_or_default :action => "login"
+	end
+      else
+        flash.now['notice']  = "Sie müssen die gleiche Email angeben die sie in ihrem Profil benutzt haben."
+      end
+    end
   end
  
 end

@@ -41,4 +41,14 @@ class CodeRedMailer < ActionMailer::Base
     @from       = 'codered@stsweilburg.de'
     @sent_on    = sent_at
   end
+  def account_sende_pass(user,pass, sent_at = Time.now)
+    @subject    = 'CodeRed: Ihre Logindaten' 
+    @body       = {:user => user, :pass => pass}
+    @recipients = user.user_email
+    @headers["Organization"] = "Staatliche Technikerschule Weilburg"
+    @headers["List-Id"] = "Das CodeRed Ticketsystem <codered@stsweilburg.de>"  # Mail wird als Mailing-List "getarnt"
+    @headers["List-Help"] = "<mailto:info@stsweilburg.de>"                     # dann kann der MailClient das schöner einsortieren
+    @from       = 'codered@stsweilburg.de'
+    @sent_on    = sent_at
+  end
 end

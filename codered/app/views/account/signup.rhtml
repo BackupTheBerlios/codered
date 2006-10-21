@@ -1,4 +1,3 @@
-<br />
 <span class="backgrey">Anmeldung </span>
 <div class="user">
 	<div class="adress">
@@ -7,22 +6,18 @@
 
 <div title="Account signup" id="signupform" class="form">
 <h3>Anmeldeinformationen</h3>
-<table>
-	<tr>
-		<td>
-		  	<label for="user_login">Gew&uuml;nschter Loginname:</label><br/>
-  			<%= text_field "user", "login", :size => 30, :title => "Benutzen Sie ein Nameskürzel, z.B. blink_se" %><br/>
-  		<br />
-  			<label for="user_password">Passwort:</label><br/>
-  			<%= password_field "user", "password", :size => 30, :title => "Bitte wählen Sie ein Passwort mit einer  min. 7Stelligen kompination aus Zahlen und Buchstaben " %><br/>
-  			<label for="user_password_confirmation">Passwort wiederholen:</label><br/>
-  			<%= password_field "user", "password_confirmation", :size => 30, :title => "Bitte wählen Sie ein Passwort mit einer  min. 7Stelligen kompination aus Zahlen und Buchstaben " %>		
-		</td>
-		<td>
+<label for="user_login">Gew&uuml;nschter Loginname:</label><br/>
+<%= text_field "user", "login", :size => 30, :title => "Benutzen Sie ein Nameskürzel, z.B. blink_se" %><br/>
+            <label for="user_password">Passwort:</label><br />
+	    <%= password_field "user", "password",
+	    	:size => 30,
+		:title => "Bitte wählen Sie ein Passwort mit einer  min. 7Stelligen kompination aus Zahlen und Buchstaben " %><br />
+   		<label style="color:#074307;font-size:xx-small;">Vorschlag: <%= @password_pro %> </label><br />
+	    <label for="user_password_confirmation">Passwort wiederholen:</label><br />
+	     <%= password_field "user", "password_confirmation",
+	         :size => 30,
+		 :title => "Bitte wählen Sie ein Passwort mit einer  min. 7Stelligen kompination aus Zahlen und Buchstaben " %><br />
 		  <%= error_messages_for 'user' %><br/>
-		</td>
-	</tr>
-</table>
   <hr  style="width:400px;"/>
   <h3>Kontaktinformationen</h3>
   <table >

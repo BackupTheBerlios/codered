@@ -52,6 +52,18 @@ before_filter :login_required
     end
   end
 
+  def set_user_password
+    @user = User.find(params[:id])
+    @user.password_confirmation = params[:user][:password_confirmation]
+    @user.password = params[:user][:password]
+    if @user.save
+       flash['notice']  = "Password change successful"
+       render(:action => 'show', :id => params[:id])
+    else
+          flash['notice']  = "alert", @user.errors.each_full { |msg| puts msg }
+       	  render(:action => 'show', :id => params[:id])
+    end
+  end
   def set_user_user_klasse
     @@user = User.find(params[:id])
     @@user.password_confirmation =  @@user.password

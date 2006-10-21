@@ -54,3 +54,4 @@ end
 require 'file_column'
 require 'file_column_helper'
 require 'rails_file_column'
+Test::Unit.run = true

@@ -1,0 +1,39 @@
+<span class="backgrey">Sende Login Daten</span>
+<div class="user">
+<div class="right">
+	<div class="pic" style="text-align:center;">
+	Code Red Links<br />
+		<img src="/images/sinup1616.png" alt="Login" /><%= link_to "Anmelden", :action=>"signup"%><br />
+		<img src="/images/doc_pic.png" alt="Login" /><%= link_to "Login", :action=>"login"%><br />
+	</div>
+</div>
+<div class="left">
+	<div class="adress">
+		<%= start_form_tag :action=> "send_pass" %>
+
+		<div title="Account login" id="loginform" class="form">
+    		<% if @flash['notice'] %>
+      		<div id="message"><%= @flash['notice'] %></div>
+    		<% end %>
+
+    		<label for="user_email">Email:</label><br/>
+    		<input type="text" name="user_email" id="user_email" size="30" value=""/><br/>
+   		<label style="color:#074307;font-size:xx-small;">Geben Sie hier Ihre Email Adresse an.</label><br />
+
+		<br />
+    		<br/>
+    		<input type="submit" name="email" value="Absenden &#187;" class="primary" />&nbsp;&nbsp;&nbsp;&nbsp;<a href="../index.html">Zur&uuml;ck</a>
+
+		</div>
+
+		<%= end_form_tag %>
+		<p style="font-size:x-small;">*Wenn sie noch keinen Zugang haben, klicken sie links auf "Anmelden".</p>
+	</div>
+	
+</div>
+</div>
+
+
+<div class="memo">
+
+</div>
