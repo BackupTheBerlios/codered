@@ -33,16 +33,22 @@ before_filter :login_required
   end
 
   def create
-	if @session[:rechte] >= 2 && @session[:rechte] <= 4
+if @session[:rechte] >= 2 && @session[:rechte] <= 4
     @ticket = Ticket.new(params[:ticket])
-	@ticket.betreuer_id = User.find(:first, :conditions => "user_rule = 2 AND id = 8").id #TODO: unbeding noch auch zufalls mentor umstellen!!!!
-	@ticket.user_id = User.find(params[:user]).id
+if @session[:user].user_rule ==	2 then 		#wenn ein neues Ticket erstellt wird von einem Mentor	
+	@ticket.betreuer_id = @session[:user].id # wird es auch sofort diesem Mentor zugewiesen
+else
+	@mentoren = User.find(:all, :conditions => "user_rule = 2") # bei einem anderen Nutzer
+	@ticket.betreuer_id = @mentoren[rand * @mentoren.size].id # wird ein "zufälliger" Mentor ausgesucht
+end
+	@ticket.user_id = @session[:user].id
     if @ticket.save
 	CodeRedMailer::deliver_ticket_new(@ticket , User.find(@ticket.betreuer_id),
 		Client.find(:first, :conditions => ["id=(?)",@ticket.client_id]))
       flash[:notice] = 'Ticket was successfully created.'
       redirect_to :action => 'list'
     else
+      flash[:notice] = 'Ticket was not created.'
       render :action => 'new'
     end
 	end

@@ -159,7 +159,8 @@ def schreiben
 			@ticket.betreuer_id = params[:betreuer_id]
 		end
 		if params[:grund] == '3' # zurueckweisen
-			@ticket.betreuer_id = '8'#TODO: muss auf einen zufälligen Mentor zeigen
+			@mentoren = User.find(:all, :conditions => "user_rule = 2") #Mentoren in Datenbank suchen
+			@ticket.betreuer_id = @mentoren[rand * @mentoren.size].id # wird ein "zufälliger" Mentor ausgesucht
 			@ticket.ticket_status = '0' 
 		end
 		if @ticket.ticket_status != old0 || @ticket.betreuer_id != old1

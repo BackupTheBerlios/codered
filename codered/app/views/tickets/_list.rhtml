@@ -29,7 +29,7 @@
 			:action => 'show', :id =>ticket.client_id , :controller =>"clients" %>
 		</td>
 		<td  style="text-align:left;text-align:left;vertical-align:middle;"class="darkgrey">
-			<%= ticket.created_on.to_formatted_s(format = :short) %>
+			<%= ticket.created_on.to_date %>
 		</td>
 	<% if (ticket.ticket_status <= 2 && ticket.betreuer_id != @session[:user].id) then %>
 		<td valign="middle" style="text-align:left;vertical-align:middle;" class="darkgrey">

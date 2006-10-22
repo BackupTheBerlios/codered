@@ -20,7 +20,7 @@ class CodeRedMailer < ActionMailer::Base
     @sent_on    = sent_at
   end
   def ticket_new(ticket , user , client , sent_at = Time.now)
-    @subject    = 'CodeRed: Es ein neues Ticket angelegt' 
+    @subject    = 'CodeRed: Es wurde ein neues Ticket angelegt' 
     wichtigkeiten = [["Dringend"],["Normal"],["Wenn Zeit"]]
     @body       = { :ticket => ticket , :user => user , :client => client, :wichtigkeit => wichtigkeiten[ticket.ticket_wichtigkeit] }
     @recipients = user.user_email

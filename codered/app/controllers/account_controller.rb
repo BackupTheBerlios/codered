@@ -26,7 +26,8 @@ layout  'account'
       flash['notice']  = "Signup successful"
       @session[:rechte] = @session[:user].user_rule
       @session[:rechte_namen] = ["nil", "Admistrator", "Mentor", "Betreuer", "Kontakt", "Deaktiviert"]
-      @mentor = User.find(:first, :conditions => "user_rule = 2 AND id = 8") #TODO: unbeding noch auch zufalls mentor umstellen!!!!
+      @mentoren = User.find(:all, :conditions => "user_rule = 2") # Mentoren in der Datenbank suchen 
+      @mentor = @mentoren[rand * @mentoren.size].id # wird ein "zufälliger" Mentor ausgesucht
       CodeRedMailer::deliver_user_new(@mentor , @user)
      redirect_to :controller => "users" , :action => 'show' , :id => @user.id
     end
