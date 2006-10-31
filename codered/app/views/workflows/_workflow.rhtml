@@ -14,7 +14,7 @@
 		</colgroup>
 		<tr>
 			<td>
-				<%= link_to_remote @workflow_trunc , :url => { :action => :wf_text, :id => workflow.id },
+				<%= link_to_remote @workflow_trunc , :url => { :action => :wf_text ,:id => workflow.id,:controller =>"workflows" }, 
 				:update => "workflow" + workflow.id.to_s ,
 				:complete => "Effect.SlideDown(\'"+ @update + "\')" %>
 			</td>

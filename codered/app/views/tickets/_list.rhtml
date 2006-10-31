@@ -18,25 +18,25 @@
 		<td  style="text-align:left;vertical-align:middle;">
 			<%= link_to(@trunc_link , :action => 'show', :id =>ticket)  %>
 		</td>
-			<% if ticket.ticket_status <= 2 && ticket.betreuer_id != @session[:user].id %>
+	<% if ticket.ticket_status <= 2 && ticket.betreuer_id != @session[:user].id %>
 		<td valign="middle" style="text-align:left;vertical-align:middle;" class="darkgrey">
 			<%= link_to h(User.find(ticket.betreuer_id).user_name),
 			:action => 'show', :id =>ticket.betreuer_id , :controller =>"users" %>
 		</td>
-			<% end %>
+	<% end %>
 		<td  style="text-align:left;vertical-align:middle;"class="darkgrey">
 			<%= link_to h(truncate(Client.find(ticket.client_id).client_name,length = 14,truncate_string = "")), 
 			:action => 'show', :id =>ticket.client_id , :controller =>"clients" %>
 		</td>
 		<td  style="text-align:left;text-align:left;vertical-align:middle;"class="darkgrey">
-			<%= ticket.created_on.to_date %>
+			<%= ticket.created_on.to_formatted_s(format = :short) %>
 		</td>
 	<% if (ticket.ticket_status <= 2 && ticket.betreuer_id != @session[:user].id) then %>
 		<td valign="middle" style="text-align:left;vertical-align:middle;" class="darkgrey">
 			<%= truncate(@ticketstatus_namen[ticket.ticket_status], length = 4,truncate_string = "") %>
 		</td>
 	<% end %>
-		<% if @session[:rechte] == 1 then %>
+	<% if @session[:rechte] == 1 then %>
 		<td  style="text-align:left;vertical-align:middle;"class="darkgrey">
 			<%= link_to image_tag("/images/editpaste.png", :size => "32x32"),
 			{:action => 'edit', :id => ticket} %>
@@ -45,7 +45,7 @@
 			<%= link_to image_tag("/images/remove.png", :size => "32x32"),
 			{:action => 'destroy', :id => ticket}, :confirm => 'Are you sure?' %>
 		</td>
-		<% end %>
+	<% end %>
 	</tr>
 	<% end %>
 </table>
