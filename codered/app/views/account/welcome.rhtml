@@ -4,7 +4,7 @@
 <div class="user">
 	<div class="memo" style="text-align:center;">
 			<h3>Willkommen</h3>
-			<p>Sie sind nun im System eingeloggt ..</p>
+			<p>Sie sind nun im System eingeloggt ...</p>
 	</div>
 	<div class="adress">
 	<br />
@@ -14,14 +14,14 @@
 			<%= link_to image_tag("/images/exit.png",
 			:size => "32x32"),{ :controller => "account",:action => "logout"},
 			{ :confirm => "Sind sie sicher?"} %></td>
-		<td class="ghelp">Mit dem "Logout" Button, kann das System wieder verlassen werden.</td>
+		<td class="ghelp">Mit dem "Logout" Button kann das System wieder verlassen werden.</td>
 	</tr>
 	<tr>
 		<td style="width:80px;text-align:center;">
 		<%= link_to image_tag("/images/profil.png", 
 			:size => "32x32"),{ :controller => "users",:action => 'show', :id => @session[:user] } %>
 		</td>
-		<td class="ghelp">In ihrem Profil k&ouml;nnen Sie ihre eingerichteten Datens&auml;tze immer auf dem Aktuellen stand halten.</td>
+		<td class="ghelp">In Ihrem Profil k&ouml;nnen Sie Ihre eingerichteten Datens&auml;tze immer auf dem aktuellen Stand halten.</td>
 	</tr>
 	<%  if @session[:rechte] >= 1 && @session[:rechte] <= 4 %>
 	<tr>
@@ -29,7 +29,7 @@
 		<%= link_to image_tag("/images/profillist.png", 
 			:size => "32x32"),{ :controller => "users",:action => 'list' } %>
 		</td>
-		<td class="ghelp">Hier k&ouml;nnen sie sehen wer Mitglied am System ist und als Mentor k&ouml;nnen sie andere User hoch oder runter Stufen.</td>
+		<td class="ghelp">Hier k&ouml;nnen Sie sehen, wer Mitglied am System ist und als Mentor k&ouml;nnen sie andere User hoch oder runter stufen.</td>
 	</tr>
 	<% end %>
 	<tr>
@@ -37,7 +37,7 @@
 			<%= link_to image_tag("/images/ticketlist.png", 
 			:size => "32x32"),{ :controller => "tickets",:action => 'list' } %>
 		</td>
-		<td class="ghelp">Dieser Button f&uuml;hrt Sie in das Ticket Men&uuml;, wo unteranderm alle Tickets f&uuml;r Sie Aufgelistet sind.</td>
+		<td class="ghelp">Dieser Button f&uuml;hrt Sie in das Ticket Men&uuml;, wo unter anderem alle Tickets f&uuml;r Sie aufgelistet sind.</td>
 	</tr>
 	<tr>
 <%  if @session[:rechte] >= 2 && @session[:rechte] <= 4 %>
@@ -45,21 +45,21 @@
 			<%= link_to image_tag("/images/ticketnew.png", 
 			:size => "32x32"),{ :controller => "tickets",:action => 'new' } %>
 		</td>
-		<td class="ghelp">Mit Hilfe dieses Buttons k&ouml;nnen sie sofort ein neuses Ticket erstellen.</td>
+		<td class="ghelp">Mit Hilfe dieses Buttons k&ouml;nnen Sie sofort ein neues Ticket erstellen.</td>
 	</tr>
 	<tr>
 		<td style="width:80px;text-align:center;">
 			<%= link_to image_tag("/images/client.png", 
 			:size => "32x32"),{ :controller => "clients",:action => 'list' } %>
 		</td>
-		<td class="ghelp">Dieser Button f&uuml;hrt Sie in das Clienten Men&uuml;, wo unteranderm alle Clienten f&uuml;r Sie Aufgelistet sind.</td>
+		<td class="ghelp">Dieser Button f&uuml;hrt Sie in das Clienten Men&uuml;, wo unter anderem alle Clienten f&uuml;r Sie aufgelistet sind.</td>
 	</tr>
 		<tr>
 		<td style="width:80px;text-align:center;">
 			<%= link_to image_tag("/images/clientnew.png", 
 			:size => "32x32"),{ :controller => "clients",:action => 'new' } %>
 		</td>
-		<td class="ghelp">Hier k&ouml;nnen Sie einen neuen Clienten einrichten.Beachten Sie das Clienten die Orte der Servicef&auml;lle darstellt! (z.B eine Schule,...) </td>
+		<td class="ghelp">Hier k&ouml;nnen Sie einen neuen Clienten einrichten.Beachten Sie das Clienten die Orte der Servicef&auml;lle darstellen! (z.B eine Schule,...) </td>
 		<% end %>
 	</tr>
 	</table>
