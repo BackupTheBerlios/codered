@@ -144,3 +144,40 @@ CREATE TABLE `workflows` (
   `grund` tinyint(2) NOT NULL default '0',
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#
+# Structure for the `costs` table :
+#
+# Vorlaeufig. Pruefen, ob das so funktioniert. Sind zwei Primaerschluessel noetig?
+#
+
+DROP TABLE IF EXISTS `costs`;
+
+CREATE TABLE `costs` (
+  `euro_per_km` decimal(6,2) NOT NULL default '0.00',
+  `euro_per_hour` decimal(6,2) NOT NULL default '0.00',
+  PRIMARY KEY  (`euro_per_km`,`euro_per_hour`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#
+# Structure for the `missions` table : 
+#
+# Ebenfalls Vorlaeufig...
+#
+
+DROP TABLE IF EXISTS `missions`;
+
+CREATE TABLE `missions` (
+  `id` int(11) NOT NULL auto_increment,
+  `user_id` int(11) NOT NULL,
+  `ticket_id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `time_leavetotarget` time NOT NULL,
+  `time_reachtarget` time NOT NULL,
+  `time_leavetohome` time NOT NULL,
+  `time_reachhome` time NOT NULL,
+  `km_totarget` int(11) NOT NULL,
+  `km_tohome` int(11) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
