@@ -1,0 +1,9 @@
+<h1>Editing mission</h1>
+
+<%= start_form_tag :action => 'update', :id => @mission %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Edit' %>
+<%= end_form_tag %>
+
+<%= link_to 'Show', :action => 'show', :id => @mission %> |
+<%= link_to 'Back', :action => 'list' %>

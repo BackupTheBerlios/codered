@@ -1,0 +1,25 @@
+<%= error_messages_for 'mission' %>
+
+<!--[form:mission]-->
+<p><label for="mission_date">Date</label><br/>
+<%= date_select 'mission', 'date'  %></p>
+
+<p><label for="mission_time_leavetotarget">Time leavetotarget</label><br/>
+</p>
+
+<p><label for="mission_time_reachtarget">Time reachtarget</label><br/>
+</p>
+
+<p><label for="mission_time_leavetohome">Time leavetohome</label><br/>
+</p>
+
+<p><label for="mission_time_reachhome">Time reachhome</label><br/>
+</p>
+
+<p><label for="mission_km_totarget">Km totarget</label><br/>
+<%= text_field 'mission', 'km_totarget'  %></p>
+
+<p><label for="mission_km_tohome">Km tohome</label><br/>
+<%= text_field 'mission', 'km_tohome'  %></p>
+<!--[eoform:mission]-->
+

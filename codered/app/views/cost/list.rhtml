@@ -1,0 +1,27 @@
+<h1>Listing costs</h1>
+
+<table>
+  <tr>
+  <% for column in Cost.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  </tr>
+  
+<% for cost in @costs %>
+  <tr>
+  <% for column in Cost.content_columns %>
+    <td><%=h cost.send(column.name) %></td>
+  <% end %>
+    <td><%= link_to 'Show', :action => 'show', :id => cost %></td>
+    <td><%= link_to 'Edit', :action => 'edit', :id => cost %></td>
+    <td><%= link_to 'Destroy', { :action => 'destroy', :id => cost }, :confirm => 'Are you sure?', :post => true %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @cost_pages.current.previous } if @cost_pages.current.previous %>
+<%= link_to 'Next page', { :page => @cost_pages.current.next } if @cost_pages.current.next %> 
+
+<br />
+
+<%= link_to 'New cost', :action => 'new' %>
