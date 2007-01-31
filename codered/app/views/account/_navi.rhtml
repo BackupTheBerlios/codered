@@ -27,40 +27,40 @@
 			<%= link_to image_tag("/images/ticketlist.png", 
 			:size => "32x32"),{ :controller => "tickets",:action => 'list' } %>
 		</td>
-	<%	if @session[:rechte] >= 2 && @session[:rechte] <= 4 %>
-		<td style="width:80px">
-			<%= link_to image_tag("/images/ticketnew.png", 
-			:size => "32x32"),{ :controller => "tickets",:action => 'new' } %>
-		</td>
-	<%	end %>	
 	<%	if @session[:rechte] >= 1 && @session[:rechte] <= 4 %>
 		<td style="width:80px">
 			<%= link_to image_tag("/images/client.png", 
 			:size => "32x32"),{ :controller => "clients",:action => 'list' } %>
 		</td>
 	<%	end %>	
-	<%	if @session[:rechte] >= 2 && @session[:rechte] <= 4 %>
+	<%	if @session[:rechte] >= 2 && @session[:rechte] <= 3 %>
 		<td style="width:80px">
-			<%= link_to image_tag("/images/clientnew.png", 
-			:size => "32x32"),{ :controller => "clients",:action => 'new' } %>
+			<%= link_to image_tag("/images/wallet.png",
+			:size => "32x32"),{ :controller => "cost",:action => 'list' } %>
 		</td>
-	<%	end %>	
+	<%	end %>
+	<%	if @session[:rechte] >= 2 && @session[:rechte] <= 3 %>
+		<td style="width:80px">
+			<%= link_to image_tag("/images/einsatz.png",
+			:size => "32x32"),{ :controller => "mission",:action => 'list' } %>
+		</td>
+	<%	end %>
 	</tr>
 	<tr align="center">
 		<td class="silvertext">Logout</td>
 		<td class="silvertext">Profil</td>
 	<%	if @session[:rechte] >= 1 && @session[:rechte] <= 4 %>
 		<td class="silvertext">Userliste</td>
-	<% end %>
-		<td class="silvertext">Tickets</td>
-	<%	if @session[:rechte] >= 2 && @session[:rechte] <= 4 %>
-		<td class="silvertext">Neues Ticket</td>
 	<%	end %>
+		<td class="silvertext">Tickets</td>
 	<%	if @session[:rechte] >= 1 && @session[:rechte] <= 4 %>
 		<td class="silvertext">Clienten</td>
 	<%	end %>
-	<%	if @session[:rechte] >= 2 && @session[:rechte] <= 4 %>
-		<td class="silvertext">Neuer Client</td>
+	<%	if @session[:rechte] >= 2 && @session[:rechte] <= 3 %>
+		<td class="silvertext">Abrechnung</td>
+	<%	end %>
+	<%	if @session[:rechte] >= 2 && @session[:rechte] <= 3 %>
+		<td class="silvertext">Einsätze</td>
 	<%	end %>
 	</tr>
 </table>
