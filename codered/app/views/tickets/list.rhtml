@@ -1,4 +1,7 @@
-
+<%= render_partial 'navi' %>
+	<div class="statusbar">
+		<%= flash[:notice] %>
+	</div>
 <span class="backgrey">Meine Tickets</span>
 	<div id="my_results" class="user">
 	<%= @tickets = @my_tickets ;@ticket_pages = @my_ticket_pages; @tickets_results = 1; @update = "my_results"; render_partial('list') %>
