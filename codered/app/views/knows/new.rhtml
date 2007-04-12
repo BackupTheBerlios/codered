@@ -1,0 +1,14 @@
+<%= render_partial 'navi' %>
+<span class="backgrey">neue Kenntniss</span>
+<div class="knows">
+<div style="text-align:center;">
+
+
+<% form_tag :action => 'create' do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag "Speichern" %>
+<% end %>
+
+<%= link_to 'zurück', :action => 'list' %>
+</div>
+</div>

@@ -1,0 +1,12 @@
+<%= render_partial 'navi' %>
+
+<div style="text-align:center;">
+<h1>Kenntniss bearbeiten</h1>
+
+<% form_tag :action => 'update', :id => @know do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag "Speichern" %>
+<% end %>
+
+<%= link_to 'zurück', :action => 'list' %>
+</div>

@@ -23,7 +23,11 @@ before_filter :login_required
   end
 
   def show
+    
     @user = User.find(params[:id])
+    @selected = @user.knows.collect { |t| t.know_id.to_i }
+    @knows = Know.find(:all, :conditions => params[:id])
+      
     if @user.user_strasse.blank?
     	@user.user_strasse = "Kein Eintrag"
     end
@@ -357,4 +361,13 @@ upload_status_for :update_pic
 		render :action => 'new'
     end
   end
+  
+  def addknows 
+
+  @user_id = @session[:user].id #hole die id aus der session 
+  @user = User.find(@user_id) #hole den user zur id 
+  @user.update_attributes(params[:user])
+  redirect_to :action => 'show', :id => @user.id
+ end 
+
 end

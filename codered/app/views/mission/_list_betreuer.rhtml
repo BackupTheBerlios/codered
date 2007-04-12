@@ -1,0 +1,24 @@
+<!-- Das ist der View für die Betreuer -->
+
+<table width="600px" border="0" cellspacing="0" cellpadding="0">
+  <%
+
+    entweder_oder = 0
+    for mission in @missions
+    entweder_oder = 1 - entweder_oder
+  %>
+
+  <tr valign="top" class="ListLinie<%= entweder_oder %>">
+    <td class="darkgrey" valign="right">
+      <%=  %>
+    </td>
+  <% end %>
+  </tr>
+</table>
+
+<div style="width:600px; margin-right: auto; text-align:right;">
+<%= link_to image_tag("/images/page_back.png", :size => "32x32"),
+{ :page => @mission_pages.current.previous } if @mission_pages.current.previous %>
+<%= link_to image_tag("/images/page_next.png", :size => "32x32", :border => 0),
+{ :page => @mission_pages.current.next } if @mission_pages.current.next %>
+</div>

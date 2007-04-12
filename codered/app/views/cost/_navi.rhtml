@@ -1,3 +1,4 @@
+<!-- Navigation Anfang -->
 <div style="width:600px; margin-right: auto; margin-left: auto;text-align:right;" >
 	<span class="silvertext">User:</span>
 	<span class="statusbar"><%=h @session[:user].user_vorname + " " + @session[:user].user_name %></span>
@@ -12,20 +13,24 @@
 			:size => "32x32"),{ :controller => "account",:action => 'welcome' } %>
 		</td>
 		<td style="width:80px">
-			<%= link_to image_tag("/images/page_back.png",
-			:size => "32x32"),{ :controller => "cost",:action => "start"} %>
+			<%= link_to image_tag("/images/exit.png",
+			:size => "32x32"),{ :controller => "account",:action => "logout"},
+			{ :confirm => "Sind sie sicher?"} %>
 		</td>
+	<%	if @session[:rechte] == 2 %>
+		<td style="width:80px">
+			<%= link_to image_tag("/images/wallet.png",
+			:size => "32x32"),{ :controller => "cost",:action => 'edit' } %>
+		</td>
+	<%	end %>
 	</tr>
 	<tr align="center">
 		<td class="silvertext">Home</td>
-		<td class="silvertext">Zur&uuml;ck</td>
+		<td class="silvertext">Logout</td>
+	<%	if @session[:rechte] == 2 %>
+		<td class="silvertext">Kostenpauschale bearbeiten</td>
+	<%	end %>
 	</tr>
 </table>
 </div>
-
-<h1>Kostenpauschale einsehen oder &auml;ndern</h1>
-
-<%= start_form_tag :action => 'update', :id => @cost %>
-  <%= render :partial => 'form' %>
-  <%= submit_tag '&Auml;ndern' %>
-<%= end_form_tag %>
+<!-- Navigation Ende -->

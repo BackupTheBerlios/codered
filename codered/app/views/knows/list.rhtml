@@ -1,0 +1,30 @@
+<%= render_partial 'navi' %>
+<span class="backgrey">Kenntnisse</span>
+<div class="knows">
+
+
+<table>
+  <tr>
+  <% for column in Know.content_columns %>
+    <th><%= column.human_name %></th>
+  <% end %>
+  </tr>
+  
+<% for know in @knows %>
+  <tr>
+  <% for column in Know.content_columns %>
+    <td><%=h know.send(column.name) %></td>
+  <% end %>
+    <td><%= link_to 'Bearbeiten', :action => 'edit', :id => know %></td>
+    <td><%= link_to 'Löschen', { :action => 'destroy', :id => know }, :confirm => 'Are you sure?', :method => :post %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @know_pages.current.previous } if @know_pages.current.previous %>
+<%= link_to 'Next page', { :page => @know_pages.current.next } if @know_pages.current.next %> 
+
+<br />
+
+<%= link_to 'Kenntniss anlegen', :action => 'new' %>
+</div>

@@ -1,0 +1,29 @@
+<div style="width:600px; margin-right: auto; margin-left: auto;text-align:right;" >
+    <span class="silvertext">User:</span>
+    <span class="statusbar"><%= h @session[:user].user_vorname + " " + @session[:user].user_name %></span>
+    <span class="silvertext">Status:</span>
+    <span class="statusbar"><%= h  @session[:rechte_namen][@session[:user].user_rule] %></span>
+    <span class="silvertext">Zeit:</span>
+    <span class="statusbar"><%= Time.now.to_formatted_s(format = :short) %></span>
+    <table border="0" cellspacing="0" cellpadding="0">
+        <tr align="center">
+            <td style="width:80px"><%=
+                    link_to image_tag("/images/page_back.png", 
+                    :size => "32x32"),{ :controller => "cost",:action => 'start' }
+%></td>
+        </tr>
+        <tr align="center">
+            <td class="silvertext">Zur&uuml;ck</td>
+        </tr>
+    </table>
+</div>
+
+<%
+    year=2007.to_s
+    yearkm=0
+    einzelkm=Mission.find_by_sql(("select m.km_totarget, m.km_tohome from missions m where year(date)=" + year))
+    for i in 0..einzelkm.length-1 do
+      yearkm = yearkm + einzelkm[i].km_tohome + einzelkm[i].km_totarget
+    end
+%>
+<br/><span class="backgrey">Im Jahr <%=year%> gefahrene Kilometer:</span><%= yearkm %>

@@ -3,9 +3,11 @@
 	<span class="backgrey">Users Card</span>
 	<div class="user">
 			<br />
-	<div class="left"> 
+	<div class="left">
+	
 	<div class="notice">
-		<% if flash[:notice] then %>
+	
+	<% if flash[:notice] then %>
 		<tr>
 				<td><img src="/images/warnung.png " alt="Warnung"/></td>
 				<td><%= flash[:notice] %></td>
@@ -56,7 +58,8 @@
 		</div>
 		<% if @session[:rechte] == 1 || @user.id == @session[:user].id  %>
 		    <div id="hide1" class="unavi" style="display:none">
-		<%= start_form_tag(:action=> "set_user_password", :id => @user.id) %>
+		    
+	<%= start_form_tag(:action=> "set_user_password", :id => @user.id) %>
             	<label for="user_password">Passwort:</label><br />
 	    	<%= password_field "user", "password",
 	    		:size => 30,
@@ -67,9 +70,48 @@
 			:title => "Bitte wählen Sie ein Passwort mit einer  min. 7Stelligen kompination aus Zahlen und Buchstaben " %><br />
 			<%= submit_tag "Speichern" %>
 			<%= end_form_tag %>
-			<a href="#" onclick="Effect.Fade('hide1'); return false;">Close</a>
+			
+			<a href="#" onclick="Effect.Fade('hide1'); return false;">schließen</a>
 			</div>
 		<%end%>
+	
+	
+	
+	<div class="know">
+	Kenntnisse: 
+	
+	<% if @session[:rechte] == 1 || @user.id == @session[:user].id  %>
+	<span style="padding:82px;">
+	 <a href="#" onclick="Effect.Appear('hide2'); return false;">Kenntnisse ändern</a>
+	</span>
+	 <% end %>
+	 
+	</br>
+	<% for know in @user.knows %> 
+  <%= know.know_title %>
+  </br>  
+  <% end %>
+  
+  </div>	
+  <div id="hide2" class="unavi" style="display:none">
+  
+  
+  	<%= start_form_tag :action => 'addknows' %>
+
+   <select name="user[know_ids][]" size="5" multiple="multiple">
+   <%= options_from_collection_for_select(@knows, "id", "know_title", @selected) %> 
+   </select> 
+   </br>
+   <%= submit_tag "Speichern"%> 
+   <%= end_form_tag %>
+
+			
+  <a href="#" onclick="Effect.Fade('hide2'); return false;">schließen</a>
+  
+	</div>
+	
+	
+	
 	<div class="adress">
 			Kontakt Informationen:
 			<table>

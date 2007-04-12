@@ -61,26 +61,19 @@ DROP TABLE IF EXISTS `knows`;
 
 CREATE TABLE `knows` (
   `id` int(11) NOT NULL auto_increment,
-  `know_titel` varchar(25) NOT NULL,
-  `know_text` text NOT NULL,
-  `icon_ena` varchar(255) default NULL,
-  `icon_disa` varchar(255) default NULL,
-  `created_on` timestamp NOT NULL default CURRENT_TIMESTAMP,
-  `updated_on` timestamp NOT NULL default '0000-00-00 00:00:00',
+  `know_title` varchar(25) NOT NULL,
   PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #
-# Structure for the `knows_to_users` table : 
+# Structure for the `knows_users` table : 
 #
 
-DROP TABLE IF EXISTS `knows_to_users`;
+DROP TABLE IF EXISTS `knows_users`;
 
-CREATE TABLE `knows_to_users` (
-  `id` int(11) NOT NULL auto_increment,
-  `user_know_id` tinyint(4) NOT NULL,
-  `know_id` tinyint(4) NOT NULL,
-  PRIMARY KEY  (`id`)
+CREATE TABLE `knows_users` (
+  `know_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #
@@ -148,15 +141,16 @@ CREATE TABLE `workflows` (
 #
 # Structure for the `costs` table :
 #
-# Vorlaeufig. Pruefen, ob das so funktioniert. Sind zwei Primaerschluessel noetig?
+# Vorlaeufig. Pruefen, ob das so funktioniert.
 #
 
 DROP TABLE IF EXISTS `costs`;
 
 CREATE TABLE `costs` (
+  `id` int(11) NOT NULL auto_increment,
   `euro_per_km` decimal(6,2) NOT NULL default '0.00',
   `euro_per_hour` decimal(6,2) NOT NULL default '0.00',
-  PRIMARY KEY  (`euro_per_km`,`euro_per_hour`)
+  PRIMARY KEY  (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #

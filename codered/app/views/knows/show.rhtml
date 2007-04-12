@@ -1,0 +1,14 @@
+
+
+<%= render_partial 'navi' %>
+
+<div class="knows">
+<% for column in Know.content_columns %>
+<p>
+  <b><%= column.human_name %>:</b> <%=h @know.send(column.name) %>
+</p>
+<% end %>
+
+<%= link_to 'bearbeiten', :action => 'edit', :id => @know %> |
+<%= link_to 'zurück', :action => 'list' %>
+</div>

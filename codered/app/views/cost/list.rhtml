@@ -1,27 +1,15 @@
-<h1>Listing costs</h1>
+<%= render_partial 'navi' %>
 
-<table>
-  <tr>
-  <% for column in Cost.content_columns %>
-    <th><%= column.human_name %></th>
-  <% end %>
-  </tr>
-  
-<% for cost in @costs %>
-  <tr>
-  <% for column in Cost.content_columns %>
-    <td><%=h cost.send(column.name) %></td>
-  <% end %>
-    <td><%= link_to 'Show', :action => 'show', :id => cost %></td>
-    <td><%= link_to 'Edit', :action => 'edit', :id => cost %></td>
-    <td><%= link_to 'Destroy', { :action => 'destroy', :id => cost }, :confirm => 'Are you sure?', :post => true %></td>
-  </tr>
-<% end %>
-</table>
+<span class="backgrey">Kostenpauschale</span>
+<br/>Preis Pro Kilometer: <%= number_to_currency(@cost.euro_per_km, :unit => "&euro;") %>
+<br/>Preis pro Stunde: <%= number_to_currency(@cost.euro_per_hour, :unit => "&euro;") %>
 
-<%= link_to 'Previous page', { :page => @cost_pages.current.previous } if @cost_pages.current.previous %>
-<%= link_to 'Next page', { :page => @cost_pages.current.next } if @cost_pages.current.next %> 
+<br/><span class="backgrey">Abrechnungsdaten</span>
+<%    @gesamtkm=0
+    einzelkm=Mission.find_by_sql("select m.km_totarget, m.km_tohome from missions m")
+    for i in 0..einzelkm.length-1 do
+      @gesamtkm = @gesamtkm + einzelkm[i].km_tohome + einzelkm[i].km_totarget
+    end
+%>
+<br/>Gesamt gefahrene Kilometer: <%= @gesamtkm %>
 
-<br />
-
-<%= link_to 'New cost', :action => 'new' %>

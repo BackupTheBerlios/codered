@@ -1,4 +1,5 @@
 class MissionController < ApplicationController
+
   def index
     list
     render :action => 'list'
@@ -9,7 +10,12 @@ class MissionController < ApplicationController
          :redirect_to => { :action => :list }
 
   def list
-    @mission_pages, @missions = paginate :missions, :per_page => 10
+    # Nur Mentoren können alle Einsätze einsehen, alle anderen nur ihre eigenen
+    if session[:rechte] == 2
+      @mission_pages, @missions = paginate :missions, :per_page => 10
+    else
+      @mission_pages, @missions = paginate :missions, :per_page => 10, :conditions => ["user_id = ?", session[:user].id]
+    end
   end
 
   def show
@@ -22,9 +28,10 @@ class MissionController < ApplicationController
 
   def create
     @mission = Mission.new(params[:mission])
+    @mission[:user_id] = session[:user].id
     if @mission.save
-      flash[:notice] = 'Mission was successfully created.'
-      redirect_to :action => 'list'
+     flash[:notice] = 'Mission was successfully created.'
+     redirect_to :action => 'list'
     else
       render :action => 'new'
     end
@@ -48,4 +55,5 @@ class MissionController < ApplicationController
     Mission.find(params[:id]).destroy
     redirect_to :action => 'list'
   end
+
 end

@@ -4,6 +4,7 @@ class Ticket < ActiveRecord::Base
         # die ticket_bezeichnung muss einzigartig sein
         # validates_uniqueness_of :ticket_bezeichnung # TODO: Abklären ob das nötig ist?
         has_many :workflows
-        belongs_to :clients
+	has_many :missions
+	belongs_to :clients
         belongs_to :users
 end

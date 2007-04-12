@@ -1,5 +1,6 @@
 <%= render_partial 'navi' %>
 <br />
+
 <span class="backgrey">Allgemeine Informationen</span>
 <div class="user">
 	<div class="memo" style="text-align:center;">
@@ -21,7 +22,7 @@
 		<%= link_to image_tag("/images/profil.png", 
 			:size => "32x32"),{ :controller => "users",:action => 'show', :id => @session[:user] } %>
 		</td>
-		<td class="ghelp">In Ihrem Profil k&ouml;nnen Sie Ihre eingerichteten Datens&auml;tze immer auf dem aktuellen Stand halten.</td>
+		<td class="ghelp">In Ihrem Profil k&ouml;nnen Sie Ihre pers&ouml;nlichen Daten einsehen und &auml;ndern.</td>
 	</tr>
 	<%  if @session[:rechte] >= 1 && @session[:rechte] <= 4 %>
 	<tr>
@@ -39,29 +40,35 @@
 		</td>
 		<td class="ghelp">Dieser Button f&uuml;hrt Sie in das Ticket Men&uuml;, wo unter anderem alle Tickets f&uuml;r Sie aufgelistet sind.</td>
 	</tr>
-	<tr>
-<%  if @session[:rechte] >= 2 && @session[:rechte] <= 4 %>
-		<td style="width:80px;text-align:center;">
-			<%= link_to image_tag("/images/ticketnew.png", 
-			:size => "32x32"),{ :controller => "tickets",:action => 'new' } %>
-		</td>
-		<td class="ghelp">Mit Hilfe dieses Buttons k&ouml;nnen Sie sofort ein neues Ticket erstellen.</td>
-	</tr>
+    <%  if @session[:rechte] >= 2 && @session[:rechte] <= 4 %>
 	<tr>
 		<td style="width:80px;text-align:center;">
 			<%= link_to image_tag("/images/client.png", 
 			:size => "32x32"),{ :controller => "clients",:action => 'list' } %>
 		</td>
-		<td class="ghelp">Dieser Button f&uuml;hrt Sie in das Clienten Men&uuml;, wo unter anderem alle Clienten f&uuml;r Sie aufgelistet sind.</td>
+		<td class="ghelp">Dieser Button f&uuml;hrt Sie in das Clients-Men&uuml;, wo unter anderem alle Clienten f&uuml;r Sie aufgelistet sind.</td>
 	</tr>
-		<tr>
+    <% end %>
+	</tr>
+     <%  if @session[:rechte] == 2 %>
+	<tr>
 		<td style="width:80px;text-align:center;">
-			<%= link_to image_tag("/images/clientnew.png", 
-			:size => "32x32"),{ :controller => "clients",:action => 'new' } %>
+			<%= link_to image_tag("/images/wallet.png", 
+			:size => "32x32"),{ :controller => "cost",:action => 'start' } %>
 		</td>
-		<td class="ghelp">Hier k&ouml;nnen Sie einen neuen Clienten einrichten.Beachten Sie das Clienten die Orte der Servicef&auml;lle darstellen! (z.B eine Schule,...) </td>
-		<% end %>
+		<td class="ghelp">Hier k&ouml;nnen Sie die Abrechnungsdaten einsehen und die Kostenpauschale einsehen oder &auml;ndern.</td>
 	</tr>
+    <% end %>
+    <%  if @session[:rechte] >= 2 && @session[:rechte] <= 3 %>
+	<tr>
+		<td style="width:80px;text-align:center;">
+			<%= link_to image_tag("/images/einsatz.png", 
+			:size => "32x32"),{ :controller => "mission",:action => 'list' } %>
+		</td>
+		<td class="ghelp">Hier k&ouml;nnen Mentoren und Betreuer Einsatzfahrten verwalten.</td>
+	</tr>
+    <% end %>
+    
 	</table>
 	</div>
       

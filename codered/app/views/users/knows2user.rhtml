@@ -1,0 +1,9 @@
+
+<%= start_form_tag :action => 'addknows' %>
+
+<select name="user[know_ids][]" size="5" multiple="multiple">
+   <%= options_from_collection_for_select(@knows, "id", "know_title", @selected) %> 
+</select> 
+
+ <%= submit_tag "Speichern"%> 
+ <%= end_form_tag %>

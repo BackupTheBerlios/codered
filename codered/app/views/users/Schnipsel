@@ -1,0 +1,17 @@
+
+ def multiselect(name,model,options={},html={}) 
+        options[:name]="user[#{name}][]" 
+        options[:multiple]=true 
+        select_tag(name, options_for_select(model.find_all.collect{|inst| [[inst.know_title],[inst.id]]}),options) 
+ end 
+
+
+
+<%= multiselect('knows', Know, {:style=>"width:100%;"}) %> 
+
+
+
+
+
+
+

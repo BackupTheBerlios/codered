@@ -17,32 +17,6 @@
 			:size => "32x32"),{ :controller => "account",:action => "logout"},
 			{ :confirm => "Sind sie sicher?"} %>
 		</td>
-		<td style="width:80px">
-			<%= link_to image_tag("/images/profil.png", 
-			:size => "32x32"),{ :controller => "users",:action => 'show', :id => @session[:user] } %>
-		</td>
-	<%	if @session[:rechte] >= 1 && @session[:rechte] <= 4 %>
-		<td style="width:80px">
-			<%= link_to image_tag("/images/profillist.png", 
-			:size => "32x32"),{  :controller => "users",:action => 'list'  } %>
-		</td>
-	<% end %>
-		<td style="width:80px">
-			<%= link_to image_tag("/images/ticketlist.png", 
-			:size => "32x32"),{ :controller => "tickets",:action => 'list' } %>
-		</td>
-	<%	if @session[:rechte] >= 2 && @session[:rechte] <= 4 %>
-		<td style="width:80px">
-			<%= link_to image_tag("/images/ticketnew.png", 
-			:size => "32x32"),{ :controller => "tickets",:action => 'new' } %>
-		</td>
-	<%	end %>	
-	<%	if @session[:rechte] >= 1 && @session[:rechte] <= 4 %>
-		<td style="width:80px">
-			<%= link_to image_tag("/images/client.png", 
-			:size => "32x32"),{ :controller => "clients",:action => 'list' } %>
-		</td>
-	<%	end %>	
 	<%	if @session[:rechte] >= 2 && @session[:rechte] <= 4 %>
 		<td style="width:80px">
 			<%= link_to image_tag("/images/clientnew.png", 
@@ -53,17 +27,6 @@
 	<tr align="center">
 		<td class="silvertext">Home</td>
 		<td class="silvertext">Logout</td>
-		<td class="silvertext">Profil</td>
-	<%	if @session[:rechte] >= 1 && @session[:rechte] <= 4 %>
-		<td class="silvertext">Userliste</td>
-	<% end %>
-		<td class="silvertext">Tickets</td>
-	<%	if @session[:rechte] >= 2 && @session[:rechte] <= 4 %>
-		<td class="silvertext">Neues Ticket</td>
-	<%	end %>
-	<%	if @session[:rechte] >= 1 && @session[:rechte] <= 4 %>
-		<td class="silvertext">Clienten</td>
-	<%	end %>
 	<%	if @session[:rechte] >= 2 && @session[:rechte] <= 4 %>
 		<td class="silvertext">Neuer Client</td>
 	<%	end %>

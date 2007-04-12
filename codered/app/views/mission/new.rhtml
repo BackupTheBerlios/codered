@@ -1,8 +1,14 @@
-<h1>New mission</h1>
+<%= render_partial 'navi' %>
+
+<div class="statusbar">
+  <%= flash[:notice] %>
+</div>
+
+<span class="backgrey">Neuer Einsatz</span>
 
 <%= start_form_tag :action => 'create' %>
   <%= render :partial => 'form' %>
-  <%= submit_tag "Create" %>
+  <%= submit_tag "Eintragen" %>
 <%= end_form_tag %>
-
-<%= link_to 'Back', :action => 'list' %>
+</br></br>
+<%= button_to 'Zurück', :action => 'list' %>

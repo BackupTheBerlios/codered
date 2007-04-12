@@ -1,27 +1,16 @@
-<h1>Listing missions</h1>
+<%= render_partial 'navi' %>
 
-<table>
-  <tr>
-  <% for column in Mission.content_columns %>
-    <th><%= column.human_name %></th>
+<div class="statusbar">
+  <%= flash[:notice] %>
+</div>
+
+<span class="backgrey">Bisherige Einsätze</span>
+
+<div id="my_results" class="user">
+  <% if @session[:rechte] == 1 || @session[:rechte] == 2 %>
+    <%= render_partial('list') %>
   <% end %>
-  </tr>
-  
-<% for mission in @missions %>
-  <tr>
-  <% for column in Mission.content_columns %>
-    <td><%=h mission.send(column.name) %></td>
+  <% if @session[:rechte] == 3 || @session[:rechte] == 4 %>
+    <%= render_partial('list_betreuer') %>
   <% end %>
-    <td><%= link_to 'Show', :action => 'show', :id => mission %></td>
-    <td><%= link_to 'Edit', :action => 'edit', :id => mission %></td>
-    <td><%= link_to 'Destroy', { :action => 'destroy', :id => mission }, :confirm => 'Are you sure?', :post => true %></td>
-  </tr>
-<% end %>
-</table>
-
-<%= link_to 'Previous page', { :page => @mission_pages.current.previous } if @mission_pages.current.previous %>
-<%= link_to 'Next page', { :page => @mission_pages.current.next } if @mission_pages.current.next %> 
-
-<br />
-
-<%= link_to 'New mission', :action => 'new' %>
+</div><br/>

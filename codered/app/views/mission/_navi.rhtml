@@ -1,8 +1,9 @@
+<!-- Navigation Anfang -->
 <div style="width:600px; margin-right: auto; margin-left: auto;text-align:right;" >
 	<span class="silvertext">User:</span>
-	<span class="statusbar"><%=h @session[:user].user_vorname + " " + @session[:user].user_name %></span>
+	<span class="statusbar"><%=h session[:user].user_vorname + " " + session[:user].user_name %></span>
 	<span class="silvertext">Status:</span>
-	<span class="statusbar"><%=h  @session[:rechte_namen][@session[:user].user_rule] %></span>
+	<span class="statusbar"><%=h  session[:rechte_namen][session[:user].user_rule] %></span>
 	<span class="silvertext">Zeit:</span>
 	<span class="statusbar"><%= Time.now.to_formatted_s(format = :short) %></span>
 <table border="0" cellspacing="0" cellpadding="0">
@@ -13,19 +14,22 @@
 		</td>
 		<td style="width:80px">
 			<%= link_to image_tag("/images/page_back.png",
-			:size => "32x32"),{ :controller => "cost",:action => "start"} %>
+			:size => "32x32"),{ :controller => "account",:action => 'welcome' } %>
 		</td>
+	<%	if session[:rechte] >= 2 && session[:rechte] <= 4 %>
+		<td style="width:80px">
+			<%= link_to image_tag("/images/add.png",
+			:size => "32x32"),{ :controller => "mission",:action => 'new' } %>
+		</td>
+	<%	end %>
 	</tr>
 	<tr align="center">
 		<td class="silvertext">Home</td>
 		<td class="silvertext">Zur&uuml;ck</td>
+	<%	if session[:rechte] >= 2 && session[:rechte] <= 4 %>
+		<td class="silvertext">Neuen Einsatz eingeben</td>
+	<%	end %>
 	</tr>
 </table>
 </div>
-
-<h1>Kostenpauschale einsehen oder &auml;ndern</h1>
-
-<%= start_form_tag :action => 'update', :id => @cost %>
-  <%= render :partial => 'form' %>
-  <%= submit_tag '&Auml;ndern' %>
-<%= end_form_tag %>
+<!-- Navigation Ende -->

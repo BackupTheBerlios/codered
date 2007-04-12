@@ -1,25 +1,34 @@
 <%= error_messages_for 'mission' %>
 
 <!--[form:mission]-->
-<p><label for="mission_date">Date</label><br/>
-<%= date_select 'mission', 'date'  %></p>
-
-<p><label for="mission_time_leavetotarget">Time leavetotarget</label><br/>
+<p><label for="mission_ticket_id">Zugehöriges Ticket: </label>
+  <%=
+    @clients = Ticket.find(:all, :conditions => ["betreuer_id = ?", session[:user].id], :order => "ticket_bezeichnung").map {|u| [u.ticket_bezeichnung, u.id] }
+    select(:mission, :ticket_id, @clients)
+  %>
 </p>
 
-<p><label for="mission_time_reachtarget">Time reachtarget</label><br/>
-</p>
+<p><label for="mission_date">Datum</label>
+<%= date_select( "mission", "date",  :start_year => 2000 ) %></p>
 
-<p><label for="mission_time_leavetohome">Time leavetohome</label><br/>
-</p>
+<p><label for="mission_time_leavetotarget">Abfahrt zum Einsatzort</label>
+<%= time_select( "mission", "time_leavetotarget" ) %></p>
 
-<p><label for="mission_time_reachhome">Time reachhome</label><br/>
-</p>
+<p><label for="mission_time_reachtarget">Ankunft am Einsatzort</label>
+<%= time_select( "mission", "time_reachtarget" ) %>
 
-<p><label for="mission_km_totarget">Km totarget</label><br/>
-<%= text_field 'mission', 'km_totarget'  %></p>
+<label for="mission_km_totarget">Kilometer Hinfahrt</label>
+<%= text_field( "mission", "km_totarget", "size" => 4) %></p>
 
-<p><label for="mission_km_tohome">Km tohome</label><br/>
-<%= text_field 'mission', 'km_tohome'  %></p>
+<p><label for="mission_time_leavehome">Abfahrt vom Einsatzort</label>
+<%= time_select( "mission", "time_leavetohome" ) %>
+
+<label for="mission_km_tohome">Kilometer Rückfahrt</label>
+<%= text_field( "mission", "km_tohome", "size" => 4 ) %></p>
+
+<p><label for="mission_time_reachhome">Ankunft am Wohnort</label>
+<%= time_select( "mission", "time_reachhome" ) %></p>
+
+<br/>
+
 <!--[eoform:mission]-->
-
