@@ -8,7 +8,7 @@
 		return false;" align="left" class="ListLinie<%= row_class %>" style="width:175px;padding:1px;">
 		<tr>
 			<td rowspan="2" style="width:25px;padding:1px;">
-				<%= if betreuer.user_pic then
+					<%= if betreuer.user_pic then
 					@user = betreuer
 					image_tag url_for_file_column("user", "user_pic") , :size => "30x45", :border => 0
 						#image_tag( @betreuer.user_pic ) , :size => "30x45", :border => 0)
@@ -22,13 +22,17 @@
 			</td>
 			<td>
 				<%=h betreuer.user_vorname + " " + betreuer.user_name %>
+				<br>
+				<% for know in betreuer.knows %> 
+        <%= know.know_title %>
+        </br>  
+        <% end %>
 			</td>
 		</tr>
 	</table>
 </tr>
 <% if (i%2 != 0) %>
-<br><br><br>
+<br><br><br><br><br><br>
 <%end%>
 <%end%>
 </table>
-
