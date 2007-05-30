@@ -29,5 +29,10 @@ class CostController < ApplicationController
       render :action => 'edit'
     end
   end
+  
+  def list_year
+    @mission_pages, @missions = paginate :missions, :per_page => 10
+    @cost = Cost.find(:first)
+  end
 
 end

@@ -55,3 +55,12 @@ require 'file_column'
 require 'file_column_helper'
 require 'rails_file_column'
 Test::Unit.run = true
+
+ActionMailer::Base.server_settings = {
+  :address => "localhost",
+  :port => 25,
+  :domain => "MegaBook.Headbanger.net",
+#  :authentication => :plain,
+#  :user_name => "conny",
+#  :password => "xxxxxx"
+}

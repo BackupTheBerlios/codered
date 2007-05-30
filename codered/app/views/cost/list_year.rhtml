@@ -18,12 +18,59 @@
     </table>
 </div>
 
+<span class="backgrey">Jahres&uuml;bersicht</span>
+<div class="user">
+<table style="width:600px" border="0" cellspacing="0" cellpadding="0">
+<tr><th align="left">Jahr:</th>
+    <th align="left">Eins&auml;tze:</th>
+    <th align="left">Gesamt Km:</th>
+    <th align="left">Kosten Km:</th>
+    <th align="left">Arbeitsstunden:</th>
+    <th align="left">Arbeitskosten:</th>
+</tr>
 <%
-    year=2007.to_s
-    yearkm=0
-    einzelkm=Mission.find_by_sql(("select m.km_totarget, m.km_tohome from missions m where year(date)=" + year))
-    for i in 0..einzelkm.length-1 do
-      yearkm = yearkm + einzelkm[i].km_tohome + einzelkm[i].km_totarget
-    end
+  switch = 0
+  for year in 2000..2020 do
+    switch = 1 - switch
+    if (Mission.find_by_sql(("select m.date from missions m where year(date)=" + year.to_s))).size >0 then
+      yearkm = 0
+      einzelkm = Mission.find_by_sql(("select m.km_totarget, m.km_tohome from missions m where year(date)=" + year.to_s))
+      for i in 0..einzelkm.length-1 do
+        yearkm = yearkm + einzelkm[i].km_tohome + einzelkm[i].km_totarget
+      end
+      yearhours = 0
+      missiontime = Mission.find_by_sql(("select m.time_reachhome, m.time_leavetotarget from missions m where year(date)=" + year.to_s))
+      for i in 0..missiontime.length-1 do
+        yearhours = yearhours + (missiontime[i].time_reachhome.to_time - missiontime[i].time_leavetotarget.to_time)
+      end
+      yearmission = 0
+      missionc = Mission.find_by_sql(("select * from missions m where year(date)=" + year.to_s))
+      yearmission = missionc.size()
 %>
-<br/><span class="backgrey">Im Jahr <%=year%> gefahrene Kilometer:</span><%= yearkm %>
+<tr valign="top" class="ListLinie<%= switch %>">
+  <td  valign="middle" class="darkgrey"> 
+    <%= year %>
+  </td>
+  <td valign="middle" class="darkgrey">
+    <%= yearmission %>
+  </td>
+  <td valign="middle" class="darkgrey">
+    <%= yearkm %>
+  </td> 
+  <td valign="middle" class="darkgrey">
+    <%= number_to_currency((@cost.euro_per_km*yearkm), :unit => "&euro;") %>
+  </td>
+  <td valign="middle" class="darkgrey">
+    <%= (yearhours / 1.hour) %>
+  </td>
+  <td valign="middle" class="darkgrey">
+    <%=  number_to_currency((@cost.euro_per_hour * (yearhours / 1.hour)), :unit => "&euro;") %>
+  </td>
+</tr>
+<%
+    end
+  end 
+%>
+</table>
+</div>
+

@@ -1,24 +1,20 @@
-# ---------------------------------------
-# Host     : localhost
-# Port     : 3306
-# Database : codered_db
-# ---------------------------------------
+-- phpMyAdmin SQL Dump
+-- version 2.9.1.1-Debian-2ubuntu1
+-- http://www.phpmyadmin.net
+-- 
+-- Host: localhost
+-- Erstellungszeit: 30. Mai 2007 um 19:17
+-- Server Version: 5.0.38
+-- PHP-Version: 5.2.1
+-- 
+-- Datenbank: `codered_db`
+-- 
 
-SET FOREIGN_KEY_CHECKS=0;
+-- --------------------------------------------------------
 
-DROP DATABASE IF EXISTS `codered_db`;
-
-CREATE DATABASE `codered_db`
-    CHARACTER SET 'utf8'
-    COLLATE 'utf8_general_ci';
-
-USE `codered_db`;
-
-#
-# Structure for the `clients` table : 
-#
-
-DROP TABLE IF EXISTS `clients`;
+-- 
+-- Tabellenstruktur für Tabelle `clients`
+-- 
 
 CREATE TABLE `clients` (
   `id` int(11) NOT NULL auto_increment,
@@ -35,13 +31,93 @@ CREATE TABLE `clients` (
   `created_on` timestamp NOT NULL default CURRENT_TIMESTAMP,
   `updated_on` timestamp NOT NULL default '0000-00-00 00:00:00',
   PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+
+-- --------------------------------------------------------
+
+-- 
+-- Tabellenstruktur für Tabelle `costs`
+-- 
+
+CREATE TABLE `costs` (
+  `id` int(11) NOT NULL auto_increment,
+  `euro_per_km` decimal(6,2) NOT NULL default '0.00',
+  `euro_per_hour` decimal(6,2) NOT NULL default '0.00',
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+-- --------------------------------------------------------
+
+-- 
+-- Tabellenstruktur für Tabelle `jobs`
+-- 
+
+CREATE TABLE `jobs` (
+  `id` int(11) NOT NULL auto_increment,
+  `job_title` varchar(50) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+
+-- --------------------------------------------------------
+
+-- 
+-- Tabellenstruktur für Tabelle `jobs_users`
+-- 
+
+CREATE TABLE `jobs_users` (
+  `job_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-#
-# Table structure for table `reports`
-#
+-- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `reports`;
+-- 
+-- Tabellenstruktur für Tabelle `knows`
+-- 
+
+CREATE TABLE `knows` (
+  `id` int(11) NOT NULL auto_increment,
+  `know_title` varchar(25) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+-- --------------------------------------------------------
+
+-- 
+-- Tabellenstruktur für Tabelle `knows_users`
+-- 
+
+CREATE TABLE `knows_users` (
+  `know_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+-- 
+-- Tabellenstruktur für Tabelle `missions`
+-- 
+
+CREATE TABLE `missions` (
+  `id` int(11) NOT NULL auto_increment,
+  `user_id` int(11) NOT NULL,
+  `ticket_id` int(11) NOT NULL,
+  `date` date NOT NULL,
+  `time_leavetotarget` time NOT NULL,
+  `time_reachtarget` time NOT NULL,
+  `time_leavetohome` time NOT NULL,
+  `time_reachhome` time NOT NULL,
+  `km_totarget` int(11) NOT NULL,
+  `km_tohome` int(11) NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
+
+-- --------------------------------------------------------
+
+-- 
+-- Tabellenstruktur für Tabelle `reports`
+-- 
+
 CREATE TABLE `reports` (
   `id` int(11) NOT NULL auto_increment,
   `client_id` varchar(16) NOT NULL default '',
@@ -51,36 +127,13 @@ CREATE TABLE `reports` (
   `created_on` timestamp NOT NULL default CURRENT_TIMESTAMP,
   `updated_on` timestamp NOT NULL default '0000-00-00 00:00:00',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
-#
-# Structure for the `knows` table : 
-#
+-- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `knows`;
-
-CREATE TABLE `knows` (
-  `id` int(11) NOT NULL auto_increment,
-  `know_title` varchar(25) NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-#
-# Structure for the `knows_users` table : 
-#
-
-DROP TABLE IF EXISTS `knows_users`;
-
-CREATE TABLE `knows_users` (
-  `know_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-#
-# Structure for the `tickets` table : 
-#
-
-DROP TABLE IF EXISTS `tickets`;
+-- 
+-- Tabellenstruktur für Tabelle `tickets`
+-- 
 
 CREATE TABLE `tickets` (
   `id` int(11) NOT NULL auto_increment,
@@ -94,13 +147,13 @@ CREATE TABLE `tickets` (
   `created_on` timestamp NOT NULL default CURRENT_TIMESTAMP,
   `updated_on` timestamp NOT NULL default '0000-00-00 00:00:00',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
-#
-# Structure for the `users` table : 
-#
+-- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `users`;
+-- 
+-- Tabellenstruktur für Tabelle `users`
+-- 
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL auto_increment,
@@ -119,13 +172,13 @@ CREATE TABLE `users` (
   `updated_on` timestamp NOT NULL default '0000-00-00 00:00:00',
   `login` varchar(80) NOT NULL default '',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
-#
-# Structure for the `workflows` table : 
-#
+-- --------------------------------------------------------
 
-DROP TABLE IF EXISTS `workflows`;
+-- 
+-- Tabellenstruktur für Tabelle `workflows`
+-- 
 
 CREATE TABLE `workflows` (
   `id` int(11) NOT NULL auto_increment,
@@ -136,42 +189,4 @@ CREATE TABLE `workflows` (
   `created_on` timestamp NOT NULL default '0000-00-00 00:00:00',
   `grund` tinyint(2) NOT NULL default '0',
   PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-#
-# Structure for the `costs` table :
-#
-# Vorlaeufig. Pruefen, ob das so funktioniert.
-#
-
-DROP TABLE IF EXISTS `costs`;
-
-CREATE TABLE `costs` (
-  `id` int(11) NOT NULL auto_increment,
-  `euro_per_km` decimal(6,2) NOT NULL default '0.00',
-  `euro_per_hour` decimal(6,2) NOT NULL default '0.00',
-  PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-#
-# Structure for the `missions` table : 
-#
-# Ebenfalls Vorlaeufig...
-#
-
-DROP TABLE IF EXISTS `missions`;
-
-CREATE TABLE `missions` (
-  `id` int(11) NOT NULL auto_increment,
-  `user_id` int(11) NOT NULL,
-  `ticket_id` int(11) NOT NULL,
-  `date` date NOT NULL,
-  `time_leavetotarget` time NOT NULL,
-  `time_reachtarget` time NOT NULL,
-  `time_leavetohome` time NOT NULL,
-  `time_reachhome` time NOT NULL,
-  `km_totarget` int(11) NOT NULL,
-  `km_tohome` int(11) NOT NULL,
-  PRIMARY KEY  (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
