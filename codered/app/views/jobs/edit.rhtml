@@ -1,0 +1,10 @@
+<h1>Job bearbeiten</h1>
+
+<div class="job">
+<% form_tag :action => 'update', :id => @job do %>
+  <%= render :partial => 'form' %>
+  <%= submit_tag 'Bearbeiten' %>
+<% end %>
+
+<%= link_to 'Zurück', :action => 'list' %>
+</div>

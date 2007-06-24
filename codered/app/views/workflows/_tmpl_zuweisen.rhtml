@@ -18,7 +18,7 @@ end%>
 </div>
 <div id="gefunden" style="display:none">
 	An <span id="betreuer_name"></span> zuweisen.<br>
-	<a href="#" onclick="Element.hide('gefunden');Element.show('suchen');return false;">Anderen Betreuer wählen</a>
+	<a href="#" onclick="Element.hide('gefunden');Element.show('suchen');return false;">Anderen Betreuer w&auml;hlen</a>
 </div>
 <%= form_remote_tag( :update=> "wf_list",
 	:url=> { :action=> "create", :controller =>"workflows", :ticket=> @ticket, :user => @session[:user], :grund => '4', :ticket_status => '1'},
@@ -28,7 +28,7 @@ end%>
 						Effect.SlideUp('new_wf', { duration: 1.0 });
 						$('msg_area_wf').innerHTML = 'Speichern ...';
 						return false;",
-			:complete => " $('msg_area_wf').innerHTML = '<div class=\"system_message\">Eintrag Hinzugefügt</div>';
+			:complete => " $('msg_area_wf').innerHTML = '<div class=\"system_message\">Eintrag Hinzugef&uuml;gt</div>';
 						Element.show('new_wf_h');
 						return false;" ) %>
 		<p>

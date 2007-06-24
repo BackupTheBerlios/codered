@@ -1,6 +1,7 @@
+<%= render_partial 'navi2' %>
 <%
-@betreuer = User.find(@ticket.betreuer_id) #Speichert das Object "Zuständiger Betreuer" zur weitern verwendung
-@betreuer_name = @betreuer.user_vorname + " " + @betreuer.user_name # der vor und zuname des zuständigen Betreuers
+@betreuer = User.find(@ticket.betreuer_id) #Speichert das Object "Zustndiger Betreuer" zur weitern verwendung
+@betreuer_name = @betreuer.user_vorname + " " + @betreuer.user_name # der vor und zuname des zustndigen Betreuers
 @user = User.find(@ticket.user_id) #Speichert das Object "Users" zur weitern verwendung
 @user_name = @user.user_vorname + " " + @user.user_name # der vor und zuname des Users
 %>
@@ -96,7 +97,7 @@
 <span class="backgrey">&nbsp;&nbsp; Workflows &nbsp;&nbsp;  </span>
 <div class="user" >
 	<div style="margin-right: auto; margin-left: auto;text-align:center;" id="msg_area_wf"></div><!-- id="msg_area_wf" -->
-<%  # Dieses Gewurschtel ist dafür zuständig die Überschrift des
+<%  # Dieses Gewurschtel ist dafr zustndig die berschrift des
 	# Workflowbereichs zu wechseln, und die Form nachzuladen
 %>
 	<div style="margin-right: auto; margin-left: auto;text-align:center;" id="new_wf_h">
@@ -125,7 +126,7 @@
 		#return false;",
 		#:complete => "Element.hide('msg_area_wf');
 		#return false;" 
-		# Der Link war nützlich um die Liste zu erneuen ohne die komplette seite zu refresehn
+		# Der Link war ntzlich um die Liste zu erneuen ohne die komplette seite zu refresehn
 		# nutzt aber keiner, also "wech"
 		%>
 	</div> <!-- id="new_wf_h" -->

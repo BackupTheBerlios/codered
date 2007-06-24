@@ -1,23 +1,25 @@
 <%= render_partial 'navi' %>
-<span class="backgrey">Kenntnisse</span>
+<span class="backgrey">Kenntnisverwaltung</span>
+
+<div class="newknow">
+<p><label for="knows">Verwaltung der Kentnisse</label><br>
+
+<%= button_to 'Kenntnis anlegen', :action => 'new' %>
+
+</div>
+
 <div class="knows">
 
-
 <table>
-  <tr>
-  <% for column in Know.content_columns %>
-    <th><%= column.human_name %></th>
-  <% end %>
-  </tr>
   
 <% for know in @knows %>
   <tr>
-  <% for column in Know.content_columns %>
+   <% for column in Know.content_columns %>
     <td><%=h know.send(column.name) %></td>
   <% end %>
-    <td><%= link_to 'Bearbeiten', :action => 'edit', :id => know %></td>
-    <td><%= link_to 'Löschen', { :action => 'destroy', :id => know }, :confirm => 'Are you sure?', :method => :post %></td>
-  </tr>
+    <td><%= button_to 'Bearbeiten', {:action => 'edit', :id => know}, :style =>  "background-color: #D9FFEE; margin-top: 17px"%></td>
+    <td><%= button_to 'Löschen', { :action => 'destroy', :id => know }, :style => "background-color: #F96955; margin-top: 17px", :confirm => 'Are you sure?', :method => :post %></td>
+  </tr> 
 <% end %>
 </table>
 
@@ -26,5 +28,4 @@
 
 <br />
 
-<%= link_to 'Kenntniss anlegen', :action => 'new' %>
 </div>

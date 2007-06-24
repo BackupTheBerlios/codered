@@ -26,7 +26,10 @@ before_filter :login_required
     
     @user = User.find(params[:id])
     @selected = @user.knows.collect { |t| t.know_id.to_i }
+    @selected2 = @user.jobs.collect { |t| t.job_id.to_i }
     @knows = Know.find(:all, :conditions => params[:id])
+    @jobs = Job.find(:all, :conditions => params[:id])
+    
       
     if @user.user_strasse.blank?
     	@user.user_strasse = "Kein Eintrag"
@@ -369,5 +372,14 @@ upload_status_for :update_pic
   @user.update_attributes(params[:user])
   redirect_to :action => 'show', :id => @user.id
  end 
+ 
+ def addjobs
+
+  @user_id = @session[:user].id 
+  @user = User.find(@user_id) 
+  @user.update_attributes(params[:user])
+  redirect_to :action => 'show', :id => @user.id
+ end 
+ 
 
 end

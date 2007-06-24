@@ -3,6 +3,7 @@ require 'digest/sha1'
 # this model expects a certain database layout and its based on the name/login pattern. 
 class User < ActiveRecord::Base
   has_and_belongs_to_many :knows 
+  has_and_belongs_to_many :jobs
   file_column :user_pic, :magick => { :geometry => "125x95>" }
   validates_uniqueness_of :login
   validates_inclusion_of :user_rule, :in=> 2..10  #verhindert das 0 oder 1 eingetragen werden (1=Admin)

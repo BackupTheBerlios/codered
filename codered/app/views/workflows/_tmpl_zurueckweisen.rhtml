@@ -7,12 +7,12 @@
 						Effect.SlideUp('new_wf', { duration: 1.0 });
 						$('msg_area_wf').innerHTML = 'Speichern ...';
 						return false;",
-			:complete => " $('msg_area_wf').innerHTML = '<div class=\"system_message\">Eintrag Hinzugefügt</div>';
+			:complete => " $('msg_area_wf').innerHTML = '<div class=\"system_message\">Eintrag Hinzugef&uuml;gt</div>';
 						Element.show('new_wf_h');
 						return false;" )%>
 		<div class="helper" id="helper"></div>
 	
-		<%= text_area_tag :beschreibung, "Zurückgewiesen: ..", :size => "35x10"  %><br>
+		<%= text_area_tag :beschreibung, "Zur&uuml;ckgewiesen: ..", :size => "35x10"  %><br>
 		<%= submit_tag "Eintragen!" %>	
 		<%= end_form_tag %>
 		<a href="#" onclick="effect_1 = Effect.SlideUp('new_wf',{duration:1.0});Element.show('new_wf_h');Element.hide('msg_area_wf');return false;">Verstecken</a>

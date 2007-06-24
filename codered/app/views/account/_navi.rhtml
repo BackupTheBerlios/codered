@@ -33,6 +33,7 @@
 			:size => "32x32"),{ :controller => "clients",:action => 'list' } %>
 		</td>
 	<%	end %>	
+	<!--
 	<%	if @session[:rechte] == 2 %>
 		<td style="width:80px">
 			<%= link_to image_tag("/images/wallet.png",
@@ -45,6 +46,7 @@
 			:size => "32x32"),{ :controller => "mission",:action => 'list' } %>
 		</td>
 	<%	end %>
+	-->
 	</tr>
 	<tr align="center">
 		<td class="silvertext">Logout</td>
@@ -56,12 +58,14 @@
 	<%	if @session[:rechte] >= 1 && @session[:rechte] <= 4 %>
 		<td class="silvertext">Clients</td>
 	<%	end %>
+	<!--
 	<%	if @session[:rechte] == 1 || @session[:rechte] == 2 %>
 		<td class="silvertext">Abrechnung</td>
 	<%	end %>
 	<%	if @session[:rechte] >= 2 && @session[:rechte] <= 3 %>
 		<td class="silvertext">Einsätze</td>
 	<%	end %>
+	-->
 	</tr>
 </table>
 </div>

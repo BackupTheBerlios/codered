@@ -1,0 +1,31 @@
+<%= render_partial 'navi' %>
+<span class="backgrey">Jobverwaltung</span>
+
+<div class="newjob">
+<p><label for="jobs">Verwaltung der Jobs</label><br>
+
+<%= button_to 'Job anlegen', :action => 'new' %>
+
+</div>
+
+<div class="job">
+
+<table>
+  
+<% for job in @jobs %>
+  <tr>
+   <% for column in Job.content_columns %>
+    <td><%=h job.send(column.name) %></td>
+  <% end %>
+    <td><%= button_to 'Bearbeiten', {:action => 'edit', :id => job }, :style =>  "background-color: #D9FFEE; margin-top: 17px" %></td>
+    <td><%= button_to 'Löschen', { :action => 'destroy', :id => job }, :style => "background-color: #F96955; margin-top: 17px", :confirm => 'Are you sure?', :method => :post %></td>
+  </tr> 
+<% end %>
+</table>
+
+<%= link_to 'Previous page', { :page => @job_pages.current.previous } if @job_pages.current.previous %>
+<%= link_to 'Next page', { :page => @job_pages.current.next } if @job_pages.current.next %> 
+
+<br />
+
+</div>
